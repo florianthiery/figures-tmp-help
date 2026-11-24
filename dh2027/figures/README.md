@@ -20,8 +20,8 @@ cd /d C:\git\wikibase-static-help\dh2027\figures && pip install resvg_py pillow 
 
 - `fig1_clover`: the seven-leaf clover (light green community source, dark green research output, split leaf for both)
 - `fig2_junctions`: backbone with the graph junction and the terminology junction, with photo and 3D-model preview of one stone
-- `fig3_ogham_tei`: two Ogham stones (FDOx 3D-model previews) and the crosswalk TEI/EpiDoc element, Linked Open Ogham class, CIDOC CRM / CRMtex class
-- `fig4_osm_commons`: the two community leaves in practice. Top: benchmark on Albert Bridge (photograph, OSM crop, static Wikibase item). Bottom: distribution map of the 127 geotagged Commons files (Natural Earth land, `data/`) with an inset for Britain and Ireland and a slot for one masons' mark photograph. Photographs: see below.
+- `fig4_ogham_tei`: two Ogham stones (FDOx 3D-model previews) and the crosswalk TEI/EpiDoc element, Linked Open Ogham class, CIDOC CRM / CRMtex class
+- `fig3_osm_commons`: the two community leaves in practice. Top: benchmark on Albert Bridge (photograph, OSM crop, static Wikibase item). Bottom: distribution map of the 127 geotagged Commons files (Natural Earth land, `data/`) with an inset for Britain and Ireland and a slot for one masons' mark photograph. Photographs: see below.
 - `extra_commons_design`: Commons design with a depicts link (none exists yet, see `commons/results`), not used in the paper
 
 ## Contents

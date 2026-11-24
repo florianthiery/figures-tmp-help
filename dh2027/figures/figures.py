@@ -159,7 +159,7 @@ for i,(a_,b_,c_) in enumerate(rows):
     link(f,A,B); link(f,B,C)
 f.text(700,40,'TEI/EpiDoc',28,400,MUT); f.text(1130,40,'Linked Open Ogham',28,400,MUT); f.text(1535,40,'CIDOC CRM / CRMtex',28,400,MUT)
 f.line(395,372,505,372); f.chip(450,372,'edited',22)
-f.done('fig3_ogham_tei',0,110+5*130+80)
+f.done('fig4_ogham_tei',0,110+5*130+80)
 
 # Figure 4: the two community leaves in practice. Top: OSM, benchmark on Albert Bridge. Bottom: Commons, stonecutter marks.
 import os, json, csv
@@ -218,5 +218,5 @@ row(70,'OpenStreetMap: benchmark on Albert Bridge, Glasgow','photos/albert_bridg
 f.text(MX,70+PH+32,('OSM node '+nid) if nid else 'OSM node',24,400,MUT)
 row(370,'Wikimedia Commons: stonecutter mark, Glasgow Cathedral','photos/masons_mark_trace.jpg',('node',('Commons file','CC BY-SA 4.0'),'crm:E36 Visual Item'),("Mason's mark type M035",'Q142278610'),'uploaded as','P180 depicts',dash2=True)
 f.text(IX,370+PH+32,'type after Wallace (2020)',24,400,MUT)
-f.done('fig4_osm_commons',0,650)
+f.done('fig3_osm_commons',0,650)
 print('ok')
