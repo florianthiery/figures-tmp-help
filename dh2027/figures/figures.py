@@ -49,7 +49,7 @@ def photo(f,path,cx,top,w,h):
     iw,ih=Image.open(path).size; k=max(w/iw,h/ih); dw,dh=iw*k,ih*k
     b=base64.b64encode(open(path,'rb').read()).decode(); _cid[0]+=1; x=cx-w/2
     f.o.append(f'<clipPath id="c{_cid[0]}"><rect x="{x}" y="{top}" width="{w}" height="{h}" rx="14"/></clipPath>'
-               f'<image href="data:image/jpeg;base64,{b}" x="{cx-dw/2}" y="{top+(h-dh)/2}" width="{dw}" height="{dh}" clip-path="url(#c{_cid[0]})"/>'
+               f'<image href="data:image/{"png" if path.lower().endswith(".png") else "jpeg"};base64,{b}" x="{cx-dw/2}" y="{top+(h-dh)/2}" width="{dw}" height="{dh}" clip-path="url(#c{_cid[0]})"/>'
                f'<rect x="{x}" y="{top}" width="{w}" height="{h}" rx="14" fill="none" stroke="#000" stroke-width="2"/>')
 
 def edge(cx,cy,w,h,tx,ty,pad=6):
