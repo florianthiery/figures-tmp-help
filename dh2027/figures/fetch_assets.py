@@ -56,9 +56,20 @@ def main():
     ap.add_argument("--commons-file", help="text file, one 'File:Name.jpg=target.jpg' per line (avoids cmd quoting problems)")
     ap.add_argument("--osm", default="55.852799,-4.247294,18", help="lat,lon,zoom of the OSM crop")
     ap.add_argument("--no-defaults", action="store_true")
+    ap.add_argument("--node-id-only", action="store_true", help="only look up the OSM survey-point node next to --osm and write photos/osm_node_id.txt")
     a = ap.parse_args()
     ua = f"wikibase-static-help-figures/1.0 ({a.contact})"
     os.makedirs(a.out, exist_ok=True)
+    if a.node_id_only:
+        lat, lon, _ = a.osm.split(",")
+        q = f'[out:json];node(around:40,{lat},{lon})["survey_point"];out;'
+        req = urllib.request.Request("https://overpass-api.de/api/interpreter", data=urllib.parse.urlencode({"data": q}).encode(), headers={"User-Agent": ua})
+        els = json.load(urllib.request.urlopen(req, timeout=90)).get("elements", [])
+        for e in els: print(e["id"], e.get("lat"), e.get("lon"), e.get("tags"))
+        if not els: raise SystemExit("no survey_point node within 40 m")
+        els.sort(key=lambda e: (e["lat"] - float(lat)) ** 2 + (e["lon"] - float(lon)) ** 2)
+        open(os.path.join(a.out, "osm_node_id.txt"), "w").write(str(els[0]["id"]))
+        print("nearest:", els[0]["id"], "->", os.path.join(a.out, "osm_node_id.txt")); return
     jobs = [] if a.no_defaults else ["File:Benchmark on Albert Bridge.jpg=albert_bridge_benchmark.jpg"]
     lines = []
     extra = [l.strip() for l in open(a.commons_file, encoding="utf-8")] if a.commons_file else []

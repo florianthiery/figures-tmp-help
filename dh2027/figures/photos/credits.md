@@ -4,6 +4,6 @@
 - `butterfly_55296.jpg`: File:"butterfly" shaped mason's mark (55296).jpg; author: A.-K. D.; licence: CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:%22butterfly%22_shaped_mason%27s_mark_(55296).jpg
 - `albert_bridge_osm.png`: map data © OpenStreetMap contributors (ODbL), tiles by the OpenStreetMap Foundation; node at 55.852799, -4.247294, zoom 18
 - `albert_bridge_benchmark.jpg`: benchmark on Albert Bridge, Glasgow, crop of 20250618_181438.jpg, photograph 2025-06-18, Florian Thiery
-- `ogham_model2.jpg`: crop of a preview of the 3D model CIIC 81 / UCC 4 (Cork Ogham stone), model by b-unicycling via Sketchfab, packaged as FDOx; licence CC-BY-NC-SA-4.0 (check on the FDO page)
+- `ogham_model2.jpg`: crop of a preview of the 3D model CIIC 81 / UCC 4 (Cork Ogham stone), model by Anne-Karoline Distel (Sketchfab handle b-unicycling), licence to be checked on the FDO page
 - `masons_mark.jpg`, `masons_mark_trace.jpg`: copy of butterfly_50219.jpg (File:"butterfly" shaped mason's mark (50219).jpg, Wikimedia Commons, A.-K. Distel, CC BY-SA 4.0), red lines added; the mark type is M035 in Wallace (2020), Wikidata Q142278610
 - `albert_bridge_benchmark_trace.jpg`: crop of albert_bridge_benchmark.jpg with the incisions traced in red

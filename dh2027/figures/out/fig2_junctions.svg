@@ -16,31 +16,39 @@
 <text x="960.0" y="345.75" font-family="Fira Sans" font-size="30" font-weight="500" fill="#fff" text-anchor="middle">The stone</text>
 <text x="960.0" y="383.25" font-family="Fira Sans" font-size="30" font-weight="400" fill="#fff" text-anchor="middle">what the record is about</text>
 <text x="960.0" y="421.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">crm:E22 Human-Made Object</text>
-<rect x="1400.0" y="160.0" width="320" height="110" rx="18" fill="#a7d9a5" stroke="#000" stroke-width="2"/>
-<text x="1560.0" y="210.8" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="middle">OpenStreetMap node</text>
-<text x="1560.0" y="248.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">authority record</text>
-<rect x="1400.0" y="415.0" width="320" height="110" rx="18" fill="#a7d9a5" stroke="#000" stroke-width="2"/>
-<text x="1560.0" y="465.8" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="middle">Wikidata item</text>
-<text x="1560.0" y="503.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">authority record</text>
+<rect x="1450.0" y="160.0" width="270" height="110" rx="18" fill="#a7d9a5" stroke="#000" stroke-width="2"/>
+<text x="1585.0" y="209.4" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">OpenStreetMap node</text>
+<text x="1585.0" y="248.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">authority record</text>
+<rect x="1450.0" y="415.0" width="270" height="110" rx="18" fill="#a7d9a5" stroke="#000" stroke-width="2"/>
+<text x="1585.0" y="465.1" font-family="Fira Sans" font-size="26" font-weight="500" fill="#1f1f1d" text-anchor="middle">Wikidata item</text>
+<text x="1585.0" y="503.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">authority record</text>
 <rect x="760.0" y="595.0" width="400" height="130" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2"/>
 <text x="960.0" y="656.5" font-family="Fira Sans" font-size="30" font-weight="500" fill="#fff" text-anchor="middle">Concept in Wikidata</text>
 <text x="960.0" y="703.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">for example Ogham stone</text>
-<rect x="1400.0" y="595.0" width="320" height="130" rx="18" fill="#9a3412" stroke="#000" stroke-width="2"/>
-<text x="1560.0" y="656.5" font-family="Fira Sans" font-size="30" font-weight="500" fill="#fff" text-anchor="middle">CIDOC CRM class</text>
-<text x="1560.0" y="703.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">crm:E22</text>
+<rect x="1450.0" y="595.0" width="270" height="130" rx="18" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1585.0" y="655.1" font-family="Fira Sans" font-size="26" font-weight="500" fill="#fff" text-anchor="middle">CIDOC CRM class</text>
+<text x="1585.0" y="703.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">crm:E22</text>
 <line x1="506.0" y1="368.0" x2="754.0" y2="368.0" stroke="#dc2626" stroke-width="4"  marker-end="url(#a)"/>
-<rect x="541.5" y="348.0" width="177.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="630.0" y="376.0" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">graph junction</text>
-<line x1="1166.0" y1="315.47" x2="1394.0" y2="257.33" stroke="#dc2626" stroke-width="4"  marker-end="url(#a)"/>
-<rect x="1208.5" y="266.4" width="143.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="1280.0" y="294.4" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">owl:sameAs</text>
-<line x1="1166.0" y1="403.02" x2="1394.0" y2="441.78" stroke="#dc2626" stroke-width="4"  marker-end="url(#a)"/>
-<rect x="1208.5" y="402.4" width="143.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="1280.0" y="430.4" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">owl:sameAs</text>
-<line x1="1166.0" y1="660.0" x2="1394.0" y2="660.0" stroke="#dc2626" stroke-width="4"  marker-end="url(#a)"/>
-<rect x="1184.5" y="640.0" width="191.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="1280.0" y="668.0" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">skos:exactMatch</text>
+<rect x="549.0" y="348.0" width="162.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="630.0" y="376.0" font-family="Fira Sans" font-size="20" font-weight="400" fill="#1f1f1d" text-anchor="middle">graph junction</text>
+<line x1="1166.0" y1="317.5712" x2="1444.0" y2="249.5168" stroke="#dc2626" stroke-width="4"  marker-end="url(#a)"/>
+<rect x="1195.0" y="263.544" width="220.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1305.0" y="291.544" font-family="Fira Sans" font-size="20" font-weight="400" fill="#1f1f1d" text-anchor="middle">terminology junction</text>
+<line x1="1166.0" y1="401.6192" x2="1444.0" y2="446.9888" stroke="#dc2626" stroke-width="4"  marker-end="url(#a)"/>
+<rect x="1195.0" y="404.304" width="220.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1305.0" y="432.304" font-family="Fira Sans" font-size="20" font-weight="400" fill="#1f1f1d" text-anchor="middle">terminology junction</text>
+<line x1="1166.0" y1="660.0" x2="1444.0" y2="660.0" stroke="#dc2626" stroke-width="4"  marker-end="url(#a)"/>
+<rect x="1195.0" y="640.0" width="220.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1305.0" y="668.0" font-family="Fira Sans" font-size="20" font-weight="400" fill="#1f1f1d" text-anchor="middle">terminology junction</text>
 <line x1="960.0" y1="449.0" x2="960.0" y2="589.0" stroke="#dc2626" stroke-width="4" stroke-dasharray="12 8" marker-end="url(#a)"/>
-<rect x="890.0" y="499.0" width="140.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="960.0" y="527.0" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">instance of</text>
+<rect x="894.5" y="499.0" width="131.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="960.0" y="527.0" font-family="Fira Sans" font-size="20" font-weight="400" fill="#1f1f1d" text-anchor="middle">instance of</text>
+<rect x="191.5" y="500" width="177.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="280" y="528" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">graph junction</text>
+<text x="280" y="568" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">a metadata record points to</text>
+<text x="280" y="596" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">the entity it describes</text>
+<rect x="160.0" y="630" width="240.0" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="280" y="658" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">terminology junction</text>
+<text x="280" y="698" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">the same individual (owl:sameAs) or</text>
+<text x="280" y="726" font-family="Fira Sans" font-size="22" font-weight="400" fill="#1f1f1d" text-anchor="middle">concept (skos:exactMatch) elsewhere</text>
 </svg>

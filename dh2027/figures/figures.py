@@ -116,12 +116,14 @@ photo(f,'photos/govan2_model.jpg',150,75,210,158); photo(f,'photos/govan2_common
 f.text(150,262,'3D model',22,400,MUT); f.text(410,262,'photograph',22,400,MUT)
 rec=node(f,280,368,440,150,CMN,('Photo, model or edition','contributor, version, licence'),sub='dcat:Dataset',size=28)
 stone=node(f,960,368,400,150,REAL,('The stone','what the record is about'),sub='crm:E22 Human-Made Object',size=30)
-osm=node(f,1560,215,320,110,CMN,('OpenStreetMap node',),sub='authority record',size=28)
-wd=node(f,1560,470,320,110,CMN,('Wikidata item',),sub='authority record',size=28)
+osm=node(f,1585,215,270,110,CMN,('OpenStreetMap node',),sub='authority record',size=24)
+wd=node(f,1585,470,270,110,CMN,('Wikidata item',),sub='authority record',size=26)
 term=node(f,960,660,400,130,TERM,('Concept in Wikidata',),sub='for example Ogham stone',size=30)
-cls=node(f,1560,660,320,130,CLS,('CIDOC CRM class',),sub='crm:E22',size=30)
-link(f,rec,stone,'graph junction'); link(f,stone,osm,'owl:sameAs'); link(f,stone,wd,'owl:sameAs')
-link(f,term,cls,'skos:exactMatch'); link(f,stone,term,'instance of',dash=True)
+cls=node(f,1585,660,270,130,CLS,('CIDOC CRM class',),sub='crm:E22',size=26)
+link(f,rec,stone,'graph junction',size=20); link(f,stone,osm,'terminology junction',size=20); link(f,stone,wd,'terminology junction',size=20)
+link(f,term,cls,'terminology junction',size=20); link(f,stone,term,'instance of',dash=True,size=20)
+f.chip(280,520,'graph junction',22); f.text(280,568,'a metadata record points to',22,400,INK); f.text(280,596,'the entity it describes',22,400,INK)
+f.chip(280,650,'terminology junction',22); f.text(280,698,'the same individual (owl:sameAs) or',22,400,INK); f.text(280,726,'concept (skos:exactMatch) elsewhere',22,400,INK)
 f.done('fig2_junctions',0,770)
 
 # Extra (not in the paper): Commons design, photograph of a masons' mark
@@ -142,7 +144,6 @@ f.done('extra_commons_design',60,670)
 f=Fig()
 photo(f,'photos/ogham_model1.jpg',105,130,170,470)
 photo(f,'photos/ogham_model2.jpg',295,130,170,470)
-f.text(200,640,'two Ogham stones, 3D models (FDOx)',22,400,MUT)
 rows=[(('<support>','the stone'),('ogham:OghamStone',),('crm:E22 Human-Made Object','root node')),
       (('<idno>','CIIC, CISP, TM, SMR'),None,('crm:E42 Identifier','P1_is_identified_by')),
       (('<div type=edition>','the inscription'),('ogham:Inscription',),('crmtex:TX1 Written Text','P128_carries')),
@@ -199,30 +200,22 @@ for ft in json.load(open('data/ne_50m_land.geojson'))['features']:
 ak=[(float(r['lon']),float(r['lat'])) for r in rows_ if r['lat'] and r['author'].startswith('A.-K')]
 ot=[(float(r['lon']),float(r['lat'])) for r in rows_ if r['lat'] and not r['author'].startswith('A.-K')]
 f=Fig()
-PX,PW,PH=135,230,173          # photo column
-MX=585                         # source-record column
-IX,IW=1090,360                 # item column
+PX,PW,PH=240,280,210          # photo column
+MX=800                         # source-record column
+IX,IW=1420,400                 # item column
+MW2=300
+nid=open('photos/osm_node_id.txt').read().strip() if os.path.exists('photos/osm_node_id.txt') else ''
 def row(top,title,ph,mid,item_lines,l1,l2,dash2=False):
-    f.text(30,top-26,title,26,500,MUT,anchor='start')
+    f.text(100,top-26,title,26,500,MUT,anchor='start')
     photo(f,ph,PX,top,PW,PH); cy=top+PH/2
-    MW2=260
     if mid[0]=='slot': slot(mid[1],MX,top,MW2,PH,mid[1])
-    else: node(f,MX,cy,MW2,PH,CMN,mid[1],sub=mid[2],size=26)
-    it=node(f,IX,cy,IW,PH,REAL,item_lines,sub='crm:E25 Human-Made Feature',size=23)
-    f.line(PX+PW/2+4,cy,MX-MW2/2-6,cy); f.chip((PX+PW/2+MX-MW2/2)/2,cy,l1,20)
-    f.line(MX+MW2/2+4,cy,IX-IW/2-6,cy,RED,dash2); f.chip((MX+MW2/2+IX-IW/2)/2,cy,l2,20)
-    return cy
+    else: node(f,MX,cy,MW2,PH,CMN,mid[1],sub=mid[2],size=28)
+    node(f,IX,cy,IW,PH,REAL,item_lines,sub='crm:E25 Human-Made Feature',size=28)
+    f.line(PX+PW/2+4,cy,MX-MW2/2-6,cy); f.chip((PX+PW/2+MX-MW2/2)/2,cy,l1,22)
+    f.line(MX+MW2/2+4,cy,IX-IW/2-6,cy,RED,dash2); f.chip((MX+MW2/2+IX-IW/2)/2,cy,l2,22)
 row(70,'OpenStreetMap: benchmark on Albert Bridge, Glasgow','photos/albert_bridge_benchmark_trace.jpg',('slot','photos/albert_bridge_osm.png'),('Benchmark on Albert Bridge','Q107'),'mapped as','harvested as')
-f.text(MX,70+PH+30,'OSM node, versions 1 and 2',22,400,MUT); f.text(PX,70+PH+30,'photo: own',22,400,MUT)
+f.text(MX,70+PH+32,('OSM node '+nid) if nid else 'OSM node',24,400,MUT)
 row(370,'Wikimedia Commons: stonecutter mark, Glasgow Cathedral','photos/masons_mark_trace.jpg',('node',('Commons file','CC BY-SA 4.0'),'crm:E36 Visual Item'),("Mason's mark type M035",'Q142278610'),'uploaded as','P180 depicts',dash2=True)
-f.text(PX,370+PH+30,'photo: A.-K. Distel',22,400,MUT); f.text(IX,370+PH+30,'type after Wallace (2020)',22,400,MUT)
-MXL=1305; MW=425
-f.text(MXL,44,'Commons: files with coordinates',26,500,MUT,anchor='start')
-B1=(-12,29,38,58); mh=int(MW*(B1[3]-B1[1])/((B1[2]-B1[0])*math.cos(math.radians(44))))
-geomap(f,MXL,70,MW,mh,B1,[(CMN,ot),(REAL,ak)],land,clus=1.2,rs=2.6,r0=5)
-for k,(fl,t) in enumerate([(REAL,f'{len(ak)} files by A.-K. Distel'),(CMN,f'{len(ot)} files by others')]):
-    f.o.append(f'<circle cx="{MXL+14}" cy="{70+mh+36+k*44}" r="13" fill="{fl}" stroke="#000" stroke-width="2"/>')
-    f.text(MXL+40,70+mh+45+k*44,t,24,400,INK,anchor='start')
-f.o.append(f'<line x1="{MXL+2}" y1="{70+mh+124}" x2="{MXL+28}" y2="{70+mh+124}" stroke="{RED}" stroke-width="5"/>'); f.text(MXL+40,70+mh+133,'traced incision',24,400,INK,anchor='start')
-f.done('fig4_osm_commons',0,620)
+f.text(IX,370+PH+32,'type after Wallace (2020)',24,400,MUT)
+f.done('fig4_osm_commons',0,650)
 print('ok')
