@@ -23,3 +23,7 @@ cd /d C:\git\wikibase-static-help\dh2027\commons && python commons_fetch.py --co
 
 - Tested against mock responses only, not yet against the live API. Report any error output.
 - Polite settings: 0.5 s pause, batches of 50, `maxlag=5`. A few hundred files take a few minutes.
+
+## Results (run of 24 Nov 2026)
+
+`results/summary.md` and `results/files.csv` hold the run: 526 files (depth 2, including country subcategories), 0 files with structured data. `raw.json` is not kept in the repository.

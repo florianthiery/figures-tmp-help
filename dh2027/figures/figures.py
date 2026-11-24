@@ -125,7 +125,7 @@ link(f,stone,term,'instance of',dash=True)
 f.text(240,430+DY,'metadata layer (DCAT)',26,400,MUT); f.text(900,810+DY,'entity layer (CIDOC CRM)',26,400,MUT)
 f.done('fig2_junctions',96,860+DY)
 
-# Figure 3: Commons design (planned): photograph of a masons' mark
+# Extra (not in the paper): Commons design, photograph of a masons' mark
 f=Fig()
 photo=node(f,290,180,440,150,CMN,('Commons file','M-ID, structured data'),sub='crm:E36 Visual Item',size=30)
 stone=node(f,900,180,360,150,REAL,('Stone','Glasgow Cathedral'),sub='crm:E22',size=30)
@@ -137,5 +137,32 @@ link(f,stone,mark,'P56 bears')
 link(f,photo,who,'DCAT record')
 link(f,mark,typ,'P2 has type')
 link(f,photo,typ,'P180 depicts',dash=True,at=0.5)
-f.done('fig3_commons',60,670)
+f.done('extra_commons_design',60,670)
+
+# Figure 3: Ogham from TEI/EpiDoc: element -> Linked Open Ogham class -> CIDOC CRM / CRMtex class
+f=Fig()
+rows=[(('<support>','the stone'),('ogham:OghamStone',),('crm:E22 Human-Made Object','root node')),
+      (('<idno>','CIIC, CISP, TM, SMR'),None,('crm:E42 Identifier','P1_is_identified_by')),
+      (('<div type=edition>','the inscription'),('ogham:Inscription',),('crmtex:TX1 Written Text','P128_carries')),
+      (('<rdg>','competing readings'),('ogham:Reading',),('crmtex:TX7 Text Segment','ogham:identifiedAs')),
+      (('<origPlace> + <geo>','findspot'),('ogham:Place',),('crm:E53 Place','P53, geo:asWKT')),
+      (('<name nymRef>','persons named'),('ogham:Person',),('crm:E21 Person','P67_refers_to'))]
+for i,(a_,b_,c_) in enumerate(rows):
+    y=110+i*130
+    A=node(f,300,y,500,104,RES,a_,size=30)
+    B=node(f,875,y,400,104,TERM,b_,size=32) if b_ else node(f,875,y,400,104,'#fff',('no domain class',),size=30,tc=MUT)
+    C=node(f,1450,y,500,104,CLS,c_[:1],sub=c_[1],size=30)
+    link(f,A,B); link(f,B,C)
+f.text(300,40,'TEI/EpiDoc',28,400,MUT); f.text(875,40,'Linked Open Ogham',28,400,MUT); f.text(1450,40,'CIDOC CRM / CRMtex',28,400,MUT)
+f.done('fig3_ogham_tei',0,110+5*130+80)
+
+# Figure 4: benchmarks: from a lost linked-data service to a community record
+f=Fig(); y=140
+bx=[node(f,170+i*475,y,290,150,fl,ln,sub=sb,size=30) for i,(fl,ln,sb) in enumerate([
+    (INST,('OS levelling net',),'unmaintained 40+ years'),
+    (INST,('OS Linked Data',),'service withdrawn'),
+    (CMN,('OpenStreetMap',),'record by A.-K. Distel'),
+    (RES,('Re-run queries',),'Overpass, SPARQL, QGIS')])]
+for k,t in enumerate(('became','replaced by','enables')): link(f,bx[k],bx[k+1],t)
+f.done('fig4_benchmarks',40,240)
 print('ok')
