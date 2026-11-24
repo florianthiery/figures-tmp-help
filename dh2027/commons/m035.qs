@@ -1,0 +1,10 @@
+CREATE
+LAST	Len	"mason's mark type M035 (Wallace)"
+LAST	Lde	"Steinmetzzeichen-Typ M035 (Wallace)"
+LAST	Aen	"M035"
+LAST	Aen	"butterfly mason's mark"
+LAST	Den	"type of mason's mark: an X between two vertical lines, catalogued as M035 by Wallace (2020)"
+LAST	Dde	"Typ eines Steinmetzzeichens: X zwischen zwei senkrechten Strichen, bei Wallace (2020) als M035 verzeichnet"
+LAST	P31	Q2142686	S854	"https://theses.gla.ac.uk/81713/"
+LAST	P973	"https://theses.gla.ac.uk/81713/"
+LAST	P1114	35	P276	Q1473348	S854	"https://theses.gla.ac.uk/81713/"
