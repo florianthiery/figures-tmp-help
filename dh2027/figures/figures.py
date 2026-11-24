@@ -206,7 +206,7 @@ slot('photos/albert_bridge_osm.png',690,64,320,240,'albert_bridge_osm.png')
 q=node(f,1280,184,420,170,REAL,('Benchmark on Albert Bridge','Q107'),sub='crm:E25 Human-Made Feature',size=28)
 f.line(332,184,528,184); f.chip(430,184,'mapped as',22)
 f.line(852,184,1068,184); f.chip(960,184,'harvested as',22)
-f.text(170,336,'photograph, Commons',22,400,MUT); f.text(690,336,'OSM node, versions 1 and 2',22,400,MUT); f.text(1280,296,'static Wikibase item',22,400,MUT)
+f.text(170,336,'photograph, own',22,400,MUT); f.text(690,336,'OSM node, versions 1 and 2',22,400,MUT); f.text(1280,296,'static Wikibase item',22,400,MUT)
 Y=420
 f.text(30,Y,'Wikimedia Commons: stonecutter marks, geotagged files',26,500,MUT,anchor='start')
 B1=(-12,29,38,58); mw=800; mh=int(mw*(B1[3]-B1[1])/((B1[2]-B1[0])*math.cos(math.radians(44))))
