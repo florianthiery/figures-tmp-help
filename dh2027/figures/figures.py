@@ -167,7 +167,7 @@ def slot(path,cx,top,w,h,label):
     else:
         f.o.append(f'<rect x="{cx-w/2}" y="{top}" width="{w}" height="{h}" rx="14" fill="#fff" stroke="#000" stroke-width="2" stroke-dasharray="10 8"/>')
         f.text(cx,top+h/2,label,18,400,MUT,maxw=w-20)
-def geomap(f,x0,y0,w,h,bbox,pts_groups,land,clus=0.4,rs=6.5,r0=9):
+def geomap(f,x0,y0,w,h,bbox,pts_groups,land,clus=0.4,rs=6.5,r0=9,goff=(0,0)):
     lo0,la0,lo1,la1=bbox; kx=w/(lo1-lo0); ky=h/(la1-la0)
     mx=lambda lon:x0+(lon-lo0)*kx; my=lambda lat:y0+h-(lat-la0)*ky
     cid=f'm{x0}_{y0}'
@@ -179,16 +179,16 @@ def geomap(f,x0,y0,w,h,bbox,pts_groups,land,clus=0.4,rs=6.5,r0=9):
             if max(xs)<lo0 or min(xs)>lo1 or max(ys)<la0 or min(ys)>la1: continue
             d='M'+' L'.join(f'{mx(p[0]):.1f},{my(p[1]):.1f}' for p in ring)+'Z'
             f.o.append(f'<path d="{d}" fill="#f1efe8" stroke="#9ca3af" stroke-width="1" stroke-linejoin="round"/>')
-    for col,pts in pts_groups:
-        cl={}
+    for gi,(col,pts) in enumerate(pts_groups):
+        cl={}; dx=goff[gi]
         for lon,lat in pts:
             key=(round(lon/clus),round(lat/clus)); c=cl.setdefault(key,[0,0,0]); c[0]+=lon; c[1]+=lat; c[2]+=1
         for sx,sy,n in cl.values():
             lon,lat=sx/n,sy/n
             if not (lo0<=lon<=lo1 and la0<=lat<=la1): continue
             r=r0+math.sqrt(n)*rs
-            f.o.append(f'<circle cx="{mx(lon):.1f}" cy="{my(lat):.1f}" r="{r:.1f}" fill="{col}" fill-opacity="0.85" stroke="#000" stroke-width="2"/>')
-            if n>1: f.text(mx(lon),my(lat)+9,str(n),26 if r>26 else 20,500,'#fff' if col==REAL else INK)
+            f.o.append(f'<circle cx="{mx(lon)+dx:.1f}" cy="{my(lat):.1f}" r="{r:.1f}" fill="{col}" fill-opacity="0.85" stroke="#000" stroke-width="2"/>')
+            if n>1: f.text(mx(lon)+dx,my(lat)+9,str(n),26 if r>26 else 20,500,'#fff' if col==REAL else INK)
     f.o.append('</g>'+f'<rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="14" fill="none" stroke="#000" stroke-width="2"/>')
     return mx,my
 rows_=list(csv.DictReader(open('../commons/results/files.csv',encoding='utf-8-sig')))
@@ -210,7 +210,7 @@ f.text(30,Y,'Wikimedia Commons: stonecutter marks, geotagged files',26,500,MUT,a
 B1=(-12,29,38,58); mw=800; mh=int(mw*(B1[3]-B1[1])/((B1[2]-B1[0])*math.cos(math.radians(44))))
 mx,my=geomap(f,30,Y+24,mw,mh,B1,[(CMN,ot),(REAL,ak)],land,clus=1.2,rs=3.0,r0=6)
 B2=(-10.8,52,-1.5,57.2); iw=400; ih=int(iw*(B2[3]-B2[1])/((B2[2]-B2[0])*math.cos(math.radians(55))))
-geomap(f,880,Y+24,iw,ih,B2,[(CMN,ot),(REAL,ak)],land,clus=2.0,rs=6,r0=9)
+geomap(f,880,Y+24,iw,ih,B2,[(CMN,ot),(REAL,ak)],land,clus=2.0,rs=6,r0=9,goff=(-30,34))
 f.o.append(f'<rect x="{mx(B2[0]):.1f}" y="{my(B2[3]):.1f}" width="{mx(B2[2])-mx(B2[0]):.1f}" height="{my(B2[1])-my(B2[3]):.1f}" fill="none" stroke="{RED}" stroke-width="4"/>')
 f.line(mx(B2[2]),my(B2[3])+8,878,Y+44,RED,arrow=False)
 slot('photos/masons_mark.jpg',1520,Y+24,400,ih,'masons_mark.jpg')
