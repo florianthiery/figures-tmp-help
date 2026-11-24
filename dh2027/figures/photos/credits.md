@@ -1,0 +1,1 @@
+- `masons_mark.jpg`: mason's mark on a pillar, Glasgow Cathedral, photograph 2025-06-19 (20250619_111355.jpg), Florian Thiery; shape resembles Wallace's M152, not yet checked against the appendix
