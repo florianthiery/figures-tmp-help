@@ -1,0 +1,29 @@
+osm-benchmarks-static: elements 23, versions 65, users 5, top user b-unicycling 87.7 %
+osm-sisal-static: elements 220, versions 679, users 435, top user itineris 2.5 %
+osm-ogham-static: elements 111, versions 665, users 35, top user b-unicycling 72.8 %
+osm-holywells-static: elements 826, versions 2616, users 142, top user b-unicycling 72.9 %
+OSM total: elements 1180, versions 4025, distinct users 589
+Wikidata sites: items 3185
+CQ2: OSM elements naming a held Wikidata item 139, Wikidata items naming a held OSM element 147, links both ways 125, one side only 14 (OSM) and 22 (Wikidata)
+CQ3: pairs 161, with coordinates on both sides 159, within 1 m 106, >50 m 19, >500 m 12
+site.yaml osm-benchmarks-static: 16 lines without comments
+site.yaml osm-sisal-static: 16 lines without comments
+site.yaml osm-ogham-static: 16 lines without comments
+site.yaml osm-holywells-static: 16 lines without comments
+site.yaml wd-govanstones-static: 12 lines without comments
+site.yaml wd-ogham-static: 14 lines without comments
+site.yaml wd-irishroundtowers-static: 14 lines without comments
+site.yaml wd-holywells-static: 14 lines without comments
+CQ4 osm osm-benchmarks: items 27, with CRM class 23 (85 %)
+CQ4 osm osm-holywells: items 830, with CRM class 826 (100 %)
+CQ4 osm osm-ogham: items 115, with CRM class 111 (97 %)
+CQ4 osm osm-sisal: items 224, with CRM class 220 (98 %)
+CQ4 wikibase chublets: items 832, with CRM class 820 (99 %)
+CQ4 wikibase fuzzy-sl: items 137, with CRM class 59 (43 %)
+CQ4 wikibase n4o-prov: items 132, with CRM class 73 (55 %)
+CQ4 wikibase squirrelbase: items 58, with CRM class 38 (66 %)
+CQ4 wikidata wd-govanstones: items 59, with CRM class 32 (54 %)
+CQ4 wikidata wd-holywells: items 887, with CRM class 243 (27 %)
+CQ4 wikidata wd-irishroundtowers: items 594, with CRM class 120 (20 %)
+CQ4 wikidata wd-ogham: items 1600, with CRM class 1246 (78 %)
+CQ4 total: 3811 of 5495 items
