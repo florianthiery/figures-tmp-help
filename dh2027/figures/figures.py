@@ -127,20 +127,23 @@ f.done('fig2_junctions',96,860+DY)
 
 # Extra (not in the paper): Commons design, photograph of a masons' mark
 f=Fig()
-photo=node(f,290,180,440,150,CMN,('Commons file','M-ID, structured data'),sub='crm:E36 Visual Item',size=30)
+phot=node(f,290,180,440,150,CMN,('Commons file','M-ID, structured data'),sub='crm:E36 Visual Item',size=30)
 stone=node(f,900,180,360,150,REAL,('Stone','Glasgow Cathedral'),sub='crm:E22',size=30)
 mark=node(f,1470,180,400,150,REAL,("Masons' mark",),sub='crm:E25 Human-Made Feature',size=32)
 who=node(f,290,540,440,160,CMN,('Photographer','licence, date'),sub='dct:creator, dct:license',size=30)
 typ=node(f,1470,540,420,160,TERM,('Mark type','Wikidata item'),sub='from the literature',size=30)
-link(f,photo,stone,'P62 depicts')
+link(f,phot,stone,'P62 depicts')
 link(f,stone,mark,'P56 bears')
-link(f,photo,who,'DCAT record')
+link(f,phot,who,'DCAT record')
 link(f,mark,typ,'P2 has type')
-link(f,photo,typ,'P180 depicts',dash=True,at=0.5)
+link(f,phot,typ,'P180 depicts',dash=True,at=0.5)
 f.done('extra_commons_design',60,670)
 
-# Figure 3: Ogham from TEI/EpiDoc: element -> Linked Open Ogham class -> CIDOC CRM / CRMtex class
+# Figure 3: Ogham from TEI/EpiDoc: two Ogham stones (FDOx 3D-model previews), the crosswalk to Linked Open Ogham and CIDOC CRM
 f=Fig()
+photo(f,'photos/ogham_model1.jpg',105,130,170,470)
+photo(f,'photos/ogham_model2.jpg',295,130,170,470)
+f.text(200,640,'two Ogham stones, 3D models (FDOx)',22,400,MUT)
 rows=[(('<support>','the stone'),('ogham:OghamStone',),('crm:E22 Human-Made Object','root node')),
       (('<idno>','CIIC, CISP, TM, SMR'),None,('crm:E42 Identifier','P1_is_identified_by')),
       (('<div type=edition>','the inscription'),('ogham:Inscription',),('crmtex:TX1 Written Text','P128_carries')),
@@ -149,20 +152,78 @@ rows=[(('<support>','the stone'),('ogham:OghamStone',),('crm:E22 Human-Made Obje
       (('<name nymRef>','persons named'),('ogham:Person',),('crm:E21 Person','P67_refers_to'))]
 for i,(a_,b_,c_) in enumerate(rows):
     y=110+i*130
-    A=node(f,300,y,500,104,RES,a_,size=30)
-    B=node(f,875,y,400,104,TERM,b_,size=32) if b_ else node(f,875,y,400,104,'#fff',('no domain class',),size=30,tc=MUT)
-    C=node(f,1450,y,500,104,CLS,c_[:1],sub=c_[1],size=30)
+    A=node(f,700,y,380,104,RES,a_,size=28)
+    B=node(f,1130,y,300,104,TERM,b_,size=28) if b_ else node(f,1130,y,300,104,'#fff',('no domain class',),size=28,tc=MUT)
+    C=node(f,1535,y,410,104,CLS,c_[:1],sub=c_[1],size=28)
     link(f,A,B); link(f,B,C)
-f.text(300,40,'TEI/EpiDoc',28,400,MUT); f.text(875,40,'Linked Open Ogham',28,400,MUT); f.text(1450,40,'CIDOC CRM / CRMtex',28,400,MUT)
+f.text(700,40,'TEI/EpiDoc',28,400,MUT); f.text(1130,40,'Linked Open Ogham',28,400,MUT); f.text(1535,40,'CIDOC CRM / CRMtex',28,400,MUT)
+f.line(395,372,505,372); f.chip(450,372,'edited',22)
 f.done('fig3_ogham_tei',0,110+5*130+80)
 
-# Figure 4: benchmarks: from a lost linked-data service to a community record
-f=Fig(); y=140
-bx=[node(f,170+i*475,y,290,150,fl,ln,sub=sb,size=30) for i,(fl,ln,sb) in enumerate([
-    (INST,('OS levelling net',),'unmaintained 40+ years'),
-    (INST,('OS Linked Data',),'service withdrawn'),
-    (CMN,('OpenStreetMap',),'record by A.-K. Distel'),
-    (RES,('Re-run queries',),'Overpass, SPARQL, QGIS')])]
-for k,t in enumerate(('became','replaced by','enables')): link(f,bx[k],bx[k+1],t)
-f.done('fig4_benchmarks',40,240)
+# Figure 4: the benchmark on Albert Bridge, Glasgow: photograph, OSM record (map), static Wikibase item
+import os
+f=Fig()
+def slot(path,cx,top,w,h,label):
+    if os.path.exists(path): photo(f,path,cx,top,w,h)
+    else:
+        f.o.append(f'<rect x="{cx-w/2}" y="{top}" width="{w}" height="{h}" rx="14" fill="#fff" stroke="#000" stroke-width="2" stroke-dasharray="10 8"/>')
+        f.text(cx,top+h/2,label,20,400,MUT,maxw=w-20)
+slot('photos/albert_bridge_benchmark.jpg',250,60,440,330,'add photos/albert_bridge_benchmark.jpg')
+slot('photos/albert_bridge_osm.png',875,60,440,330,'add photos/albert_bridge_osm.png')
+q=node(f,1500,225,420,170,REAL,('Benchmark on Albert Bridge','Q107'),sub='crm:E25 Human-Made Feature',size=28)
+f.line(475,225,650,225); f.chip(562,225,'mapped as',22)
+f.line(1100,225,1285,225); f.chip(1192,225,'harvested as',22)
+f.text(250,430,'photograph, Wikimedia Commons',24,400,MUT); f.text(875,430,'OpenStreetMap node, versions 1 and 2',24,400,MUT)
+f.text(1500,355,'static Wikibase item, two versions',24,400,MUT)
+f.done('fig4_benchmarks',20,470)
+
+# Figure 5: stonecutter marks on Commons: distribution of the geotagged files (map) and one exemplar
+import json, csv
+def project(lon,lat,lon0,lat0,k):
+    return (lon-lon0)*math.cos(math.radians((lat0+lat1_)/2))*k, 0
+def geomap(f,x0,y0,w,h,bbox,pts_groups,land,label_clusters=True,clus=0.4,rs=6.5,r0=9,off=0):
+    lo0,la0,lo1,la1=bbox; kx=w/(lo1-lo0); ky=h/(la1-la0)
+    mx=lambda lon:x0+(lon-lo0)*kx; my=lambda lat:y0+h-(lat-la0)*ky
+    cid=f'm{x0}'
+    f.o.append(f'<clipPath id="{cid}"><rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="14"/></clipPath>')
+    f.o.append(f'<rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="14" fill="#dbe7ee"/><g clip-path="url(#{cid})">')
+    for poly in land:
+        for ring in poly:
+            xs=[p[0] for p in ring]; ys=[p[1] for p in ring]
+            if max(xs)<lo0 or min(xs)>lo1 or max(ys)<la0 or min(ys)>la1: continue
+            d='M'+' L'.join(f'{mx(p[0]):.1f},{my(p[1]):.1f}' for p in ring)+'Z'
+            f.o.append(f'<path d="{d}" fill="#f1efe8" stroke="#9ca3af" stroke-width="1" stroke-linejoin="round"/>')
+    for gi,(col,sw,pts) in enumerate(pts_groups):
+        cl={}
+        for lon,lat in pts:
+            key=(round(lon/clus),round(lat/clus)); c=cl.setdefault(key,[0,0,0]); c[0]+=lon; c[1]+=lat; c[2]+=1
+        for sx,sy,n in cl.values():
+            lon,lat=sx/n,sy/n
+            if not (lo0<=lon<=lo1 and la0<=lat<=la1): continue
+            r=r0+math.sqrt(n)*rs; dx=off*(1 if gi==0 else -1)
+            f.o.append(f'<circle cx="{mx(lon)+dx:.1f}" cy="{my(lat):.1f}" r="{r:.1f}" fill="{col}" fill-opacity="0.85" stroke="#000" stroke-width="{sw}"/>')
+            if n>1 and label_clusters: f.text(mx(lon)+dx,my(lat)+9,str(n),26 if r>26 else 20,500,'#fff' if col==REAL else INK)
+    f.o.append('</g>'+f'<rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="14" fill="none" stroke="#000" stroke-width="2"/>')
+    return mx,my
+rows_=list(csv.DictReader(open('../commons/results/files.csv',encoding='utf-8-sig'))) if os.path.exists('../commons/results/files.csv') else []
+land=[]
+for ft in json.load(open('data/ne_50m_land.geojson'))['features']:
+    g=ft['geometry']; polys=g['coordinates'] if g['type']=='MultiPolygon' else [g['coordinates']]
+    land+=polys
+ak=[(float(r['lon']),float(r['lat'])) for r in rows_ if r['lat'] and r['author'].startswith('A.-K')]
+ot=[(float(r['lon']),float(r['lat'])) for r in rows_ if r['lat'] and not r['author'].startswith('A.-K')]
+f=Fig()
+# main map is drawn with a cos(lat) corrected box so that shapes look right
+B1=(-12,29,38,58); mw=1000; mh=int(mw*(B1[3]-B1[1])/((B1[2]-B1[0])*math.cos(math.radians(44))))
+mx,my=geomap(f,30,40,mw,mh,B1,[(CMN,2,ot),(REAL,2,ak)],land,clus=1.2,rs=3.2,r0=7,off=0)
+B2=(-10.8,52,-1.5,57.2); iw=520; ih=int(iw*(B2[3]-B2[1])/((B2[2]-B2[0])*math.cos(math.radians(55))))
+geomap(f,1130,40,iw,ih,B2,[(CMN,2,ot),(REAL,2,ak)],land,clus=1.0,rs=7,r0=10,off=0)
+f.o.append(f'<rect x="{mx(B2[0]):.1f}" y="{my(B2[3]):.1f}" width="{mx(B2[2])-mx(B2[0]):.1f}" height="{my(B2[1])-my(B2[3]):.1f}" fill="none" stroke="{RED}" stroke-width="4"/>')
+f.line(mx(B2[2]),my(B2[3])+10,1128,60,RED,arrow=False)
+gy=40+ih+30
+slot('photos/masons_mark.jpg',1390,gy,520,min(300,40+mh-gy),'add photos/masons_mark.jpg')
+for k,(fl,t) in enumerate([(REAL,f'{len(ak)} files by A.-K. Distel'),(CMN,f'{len(ot)} files by others')]):
+    f.o.append(f'<circle cx="60" cy="{40+mh+34+k*44}" r="14" fill="{fl}" stroke="#000" stroke-width="2"/>')
+    f.text(88,40+mh+43+k*44,t,26,400,INK,anchor='start')
+f.done('fig5_stonecutter_marks',0,40+mh+130)
 print('ok')

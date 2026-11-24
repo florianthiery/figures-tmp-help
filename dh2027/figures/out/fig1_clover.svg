@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1750" height="1000" viewBox="0 0 1750 1000"><rect y="0" width="1750" height="1000" fill="#f6f6f3"/>
+<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto"><path d="M0,0 L20,10 L0,20 z" fill="#dc2626"/></marker></defs>
+<defs><linearGradient id="mix" x1="0" x2="1" y1="0" y2="0"><stop offset="0.5" stop-color="#a7d9a5"/><stop offset="0.5" stop-color="#166534"/></linearGradient></defs>
+<path d="M875,470 C850,660 900,780 875,870" fill="none" stroke="#14532d" stroke-width="16" stroke-linecap="round"/>
+<path d="M0,0 C-32.2,-40.5 -118.3,-121.5 -107.5,-189.0 C-96.8,-256.5 -21.5,-270.0 0,-210.6 C21.5,-270.0 96.8,-256.5 107.5,-189.0 C118.3,-121.5 32.2,-40.5 0,0 Z" transform="translate(875.0,425.0) rotate(0.0)" fill="#a7d9a5" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<text x="875.0" y="282.4" font-family="Fira Sans" font-size="44" font-weight="500" fill="#1f1f1d" text-anchor="middle">1</text>
+<text x="875.0" y="57.0" font-family="Fira Sans" font-size="32" font-weight="500" fill="#1f1f1d" text-anchor="middle">OpenStreetMap</text>
+<text x="875.0" y="91.0" font-family="Fira Sans" font-size="25" font-weight="400" fill="#1f1f1d" text-anchor="middle">Ogham, Holy Wells, SISAL</text>
+<text x="875.0" y="121.0" font-family="Fira Sans" font-size="22" font-weight="400" fill="#55544f" text-anchor="middle">via Overpass</text>
+<path d="M0,0 C-32.2,-40.5 -118.3,-121.5 -107.5,-189.0 C-96.8,-256.5 -21.5,-270.0 0,-210.6 C21.5,-270.0 96.8,-256.5 107.5,-189.0 C118.3,-121.5 32.2,-40.5 0,0 Z" transform="translate(910.2,441.9) rotate(51.4)" fill="#a7d9a5" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<text x="1032.6172268655548" y="358.3044559452793" font-family="Fira Sans" font-size="44" font-weight="500" fill="#1f1f1d" text-anchor="middle">2</text>
+<text x="1143.1681984865343" y="226.1429979624544" font-family="Fira Sans" font-size="32" font-weight="500" fill="#1f1f1d" text-anchor="start">Wikidata</text>
+<text x="1143.1681984865343" y="260.1429979624544" font-family="Fira Sans" font-size="25" font-weight="400" fill="#1f1f1d" text-anchor="start">Ogham, Govan, Round Towers</text>
+<text x="1143.1681984865343" y="290.1429979624544" font-family="Fira Sans" font-size="22" font-weight="400" fill="#55544f" text-anchor="start">Wikibase JSON</text>
+<path d="M0,0 C-32.2,-40.5 -118.3,-121.5 -107.5,-189.0 C-96.8,-256.5 -21.5,-270.0 0,-210.6 C21.5,-270.0 96.8,-256.5 107.5,-189.0 C118.3,-121.5 32.2,-40.5 0,0 Z" transform="translate(918.9,480.0) rotate(102.9)" fill="#a7d9a5" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<text x="1071.5454670958557" y="528.860220285593" font-family="Fira Sans" font-size="44" font-weight="500" fill="#1f1f1d" text-anchor="middle">3</text>
+<text x="1209.4002738783656" y="534.3246803470158" font-family="Fira Sans" font-size="32" font-weight="500" fill="#1f1f1d" text-anchor="start">Wikimedia Commons</text>
+<text x="1209.4002738783656" y="568.3246803470158" font-family="Fira Sans" font-size="25" font-weight="400" fill="#1f1f1d" text-anchor="start">stonecutter marks, 526 files</text>
+<text x="1209.4002738783656" y="598.3246803470158" font-family="Fira Sans" font-size="22" font-weight="400" fill="#55544f" text-anchor="start">file metadata</text>
+<path d="M0,0 C-32.2,-40.5 -118.3,-121.5 -107.5,-189.0 C-96.8,-256.5 -21.5,-270.0 0,-210.6 C21.5,-270.0 96.8,-256.5 107.5,-189.0 C118.3,-121.5 32.2,-40.5 0,0 Z" transform="translate(894.5,510.5) rotate(154.3)" fill="#166534" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<text x="962.4709618060997" y="665.6353237691277" font-family="Fira Sans" font-size="44" font-weight="500" fill="#fff" text-anchor="middle">4</text>
+<text x="1023.8221225173224" y="773.0323216905298" font-family="Fira Sans" font-size="32" font-weight="500" fill="#1f1f1d" text-anchor="start">TEI/EpiDoc</text>
+<text x="1023.8221225173224" y="807.0323216905298" font-family="Fira Sans" font-size="25" font-weight="400" fill="#1f1f1d" text-anchor="start">Ogham editions</text>
+<text x="1023.8221225173224" y="837.0323216905298" font-family="Fira Sans" font-size="22" font-weight="400" fill="#55544f" text-anchor="start">EpiDoc XML</text>
+<path d="M0,0 C-32.2,-40.5 -118.3,-121.5 -107.5,-189.0 C-96.8,-256.5 -21.5,-270.0 0,-210.6 C21.5,-270.0 96.8,-256.5 107.5,-189.0 C118.3,-121.5 32.2,-40.5 0,0 Z" transform="translate(855.5,510.5) rotate(205.7)" fill="url(#mix)" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="787.5" cy="651.6" r="34" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="787.5290381939003" y="665.6353237691277" font-family="Fira Sans" font-size="44" font-weight="500" fill="#1f1f1d" text-anchor="middle">5</text>
+<text x="726.1778774826776" y="773.0323216905298" font-family="Fira Sans" font-size="32" font-weight="500" fill="#1f1f1d" text-anchor="end">FDOx</text>
+<text x="726.1778774826776" y="807.0323216905298" font-family="Fira Sans" font-size="25" font-weight="400" fill="#1f1f1d" text-anchor="end">3D models, LEGO, software</text>
+<text x="726.1778774826776" y="837.0323216905298" font-family="Fira Sans" font-size="22" font-weight="400" fill="#55544f" text-anchor="end">Zenodo DCAT</text>
+<path d="M0,0 C-32.2,-40.5 -118.3,-121.5 -107.5,-189.0 C-96.8,-256.5 -21.5,-270.0 0,-210.6 C21.5,-270.0 96.8,-256.5 107.5,-189.0 C118.3,-121.5 32.2,-40.5 0,0 Z" transform="translate(831.1,480.0) rotate(257.1)" fill="url(#mix)" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="678.5" cy="514.9" r="34" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="678.4545329041443" y="528.860220285593" font-family="Fira Sans" font-size="44" font-weight="500" fill="#1f1f1d" text-anchor="middle">6</text>
+<text x="540.5997261216345" y="534.3246803470158" font-family="Fira Sans" font-size="32" font-weight="500" fill="#1f1f1d" text-anchor="end">Chublets</text>
+<text x="540.5997261216345" y="568.3246803470158" font-family="Fira Sans" font-size="25" font-weight="400" fill="#1f1f1d" text-anchor="end">open-archaeo software</text>
+<text x="540.5997261216345" y="598.3246803470158" font-family="Fira Sans" font-size="22" font-weight="400" fill="#55544f" text-anchor="end">CSV</text>
+<path d="M0,0 C-32.2,-40.5 -118.3,-121.5 -107.5,-189.0 C-96.8,-256.5 -21.5,-270.0 0,-210.6 C21.5,-270.0 96.8,-256.5 107.5,-189.0 C118.3,-121.5 32.2,-40.5 0,0 Z" transform="translate(839.8,441.9) rotate(308.6)" fill="#166534" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<text x="717.3827731344452" y="358.30445594527936" font-family="Fira Sans" font-size="44" font-weight="500" fill="#fff" text-anchor="middle">7</text>
+<text x="606.8318015134657" y="226.14299796245444" font-family="Fira Sans" font-size="32" font-weight="500" fill="#1f1f1d" text-anchor="end">MaCHeCO</text>
+<text x="606.8318015134657" y="260.14299796245444" font-family="Fira Sans" font-size="25" font-weight="400" fill="#1f1f1d" text-anchor="end">CRM anchors, N4O KG</text>
+<text x="606.8318015134657" y="290.14299796245444" font-family="Fira Sans" font-size="22" font-weight="400" fill="#55544f" text-anchor="end">CRM link</text>
+<circle cx="875" cy="470" r="40" fill="#9a3412" stroke="#000" stroke-width="3"/>
+<rect x="675.0" y="870.0" width="400" height="90" rx="18" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="875.0" y="907.85" font-family="Fira Sans" font-size="26" font-weight="500" fill="#fff" text-anchor="middle">wikibase-static</text>
+<text x="875.0" y="940.35" font-family="Fira Sans" font-size="26" font-weight="400" fill="#fff" text-anchor="middle">the stem</text>
+<rect x="40" y="44" width="64" height="40" rx="10" fill="#a7d9a5" stroke="#000" stroke-width="2"/>
+<text x="120" y="72" font-family="Fira Sans" font-size="26" font-weight="400" fill="#1f1f1d" text-anchor="start">community source</text>
+<rect x="40" y="100" width="64" height="40" rx="10" fill="#166534" stroke="#000" stroke-width="2"/>
+<text x="120" y="128" font-family="Fira Sans" font-size="26" font-weight="400" fill="#1f1f1d" text-anchor="start">research output</text>
+<rect x="40" y="156" width="64" height="40" rx="10" fill="url(#mix)" stroke="#000" stroke-width="2"/>
+<text x="120" y="184" font-family="Fira Sans" font-size="26" font-weight="400" fill="#1f1f1d" text-anchor="start">community and research</text>
+</svg>
