@@ -53,6 +53,7 @@ def main():
     ap.add_argument("--contact", required=True)
     ap.add_argument("--out", default="photos")
     ap.add_argument("--commons", action="append", default=[], help='"File:Name.jpg=target.jpg"')
+    ap.add_argument("--commons-file", help="text file, one 'File:Name.jpg=target.jpg' per line (avoids cmd quoting problems)")
     ap.add_argument("--osm", default="55.852799,-4.247294,18", help="lat,lon,zoom of the OSM crop")
     ap.add_argument("--no-defaults", action="store_true")
     a = ap.parse_args()
@@ -60,7 +61,8 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     jobs = [] if a.no_defaults else ["File:Benchmark on Albert Bridge.jpg=albert_bridge_benchmark.jpg"]
     lines = []
-    for j in jobs + a.commons:
+    extra = [l.strip() for l in open(a.commons_file, encoding="utf-8")] if a.commons_file else []
+    for j in jobs + a.commons + [e for e in extra if e and not e.startswith("#")]:
         t, target = j.split("=", 1)
         lines.append(commons(t, target, a.out, ua)); print("ok", target)
     if not a.no_defaults:
