@@ -1,1 +1,7 @@
 - `masons_mark.jpg`: mason's mark M035 (Wallace 2020: 35 occurrences at Glasgow Cathedral; X between two verticals), Glasgow Cathedral, photograph 2025-06-19 (20250619_104402.jpg), Florian Thiery; interim, to be replaced by a Commons file (butterfly_*.jpg) via fetch_assets.py --commons-file commons_files.txt
+- `albert_bridge_benchmark.jpg`: File:Benchmark on Albert Bridge.jpg; author: A.-K. D.; licence: CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Benchmark_on_Albert_Bridge.jpg
+- `butterfly_5.jpg`: File:"butterfly" shaped mason's mark 5.jpg; author: A.-K. D.; licence: CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:%22butterfly%22_shaped_mason%27s_mark_5.jpg
+- `butterfly_50219.jpg`: File:"butterfly" shaped mason's mark (50219).jpg; author: A.-K. D.; licence: CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:%22butterfly%22_shaped_mason%27s_mark_(50219).jpg
+- `butterfly_46182.jpg`: File:"butterfly" shaped mason's mark (46182).jpg; author: A.-K. D.; licence: CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:%22butterfly%22_shaped_mason%27s_mark_(46182).jpg
+- `butterfly_55296.jpg`: File:"butterfly" shaped mason's mark (55296).jpg; author: A.-K. D.; licence: CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:%22butterfly%22_shaped_mason%27s_mark_(55296).jpg
+- `albert_bridge_osm.png`: map data © OpenStreetMap contributors (ODbL), tiles by the OpenStreetMap Foundation; node at 55.852799, -4.247294, zoom 18
