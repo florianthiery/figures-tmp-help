@@ -160,31 +160,17 @@ f.text(700,40,'TEI/EpiDoc',28,400,MUT); f.text(1130,40,'Linked Open Ogham',28,40
 f.line(395,372,505,372); f.chip(450,372,'edited',22)
 f.done('fig3_ogham_tei',0,110+5*130+80)
 
-# Figure 4: the benchmark on Albert Bridge, Glasgow: photograph, OSM record (map), static Wikibase item
-import os
-f=Fig()
+# Figure 4: the two community leaves in practice. Top: OSM, benchmark on Albert Bridge. Bottom: Commons, stonecutter marks.
+import os, json, csv
 def slot(path,cx,top,w,h,label):
     if os.path.exists(path): photo(f,path,cx,top,w,h)
     else:
         f.o.append(f'<rect x="{cx-w/2}" y="{top}" width="{w}" height="{h}" rx="14" fill="#fff" stroke="#000" stroke-width="2" stroke-dasharray="10 8"/>')
-        f.text(cx,top+h/2,label,20,400,MUT,maxw=w-20)
-slot('photos/albert_bridge_benchmark.jpg',250,60,440,330,'add photos/albert_bridge_benchmark.jpg')
-slot('photos/albert_bridge_osm.png',875,60,440,330,'add photos/albert_bridge_osm.png')
-q=node(f,1500,225,420,170,REAL,('Benchmark on Albert Bridge','Q107'),sub='crm:E25 Human-Made Feature',size=28)
-f.line(475,225,650,225); f.chip(562,225,'mapped as',22)
-f.line(1100,225,1285,225); f.chip(1192,225,'harvested as',22)
-f.text(250,430,'photograph, Wikimedia Commons',24,400,MUT); f.text(875,430,'OpenStreetMap node, versions 1 and 2',24,400,MUT)
-f.text(1500,355,'static Wikibase item, two versions',24,400,MUT)
-f.done('fig4_benchmarks',20,470)
-
-# Figure 5: stonecutter marks on Commons: distribution of the geotagged files (map) and one exemplar
-import json, csv
-def project(lon,lat,lon0,lat0,k):
-    return (lon-lon0)*math.cos(math.radians((lat0+lat1_)/2))*k, 0
-def geomap(f,x0,y0,w,h,bbox,pts_groups,land,label_clusters=True,clus=0.4,rs=6.5,r0=9,off=0):
+        f.text(cx,top+h/2,label,18,400,MUT,maxw=w-20)
+def geomap(f,x0,y0,w,h,bbox,pts_groups,land,clus=0.4,rs=6.5,r0=9):
     lo0,la0,lo1,la1=bbox; kx=w/(lo1-lo0); ky=h/(la1-la0)
     mx=lambda lon:x0+(lon-lo0)*kx; my=lambda lat:y0+h-(lat-la0)*ky
-    cid=f'm{x0}'
+    cid=f'm{x0}_{y0}'
     f.o.append(f'<clipPath id="{cid}"><rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="14"/></clipPath>')
     f.o.append(f'<rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="14" fill="#dbe7ee"/><g clip-path="url(#{cid})">')
     for poly in land:
@@ -193,37 +179,43 @@ def geomap(f,x0,y0,w,h,bbox,pts_groups,land,label_clusters=True,clus=0.4,rs=6.5,
             if max(xs)<lo0 or min(xs)>lo1 or max(ys)<la0 or min(ys)>la1: continue
             d='M'+' L'.join(f'{mx(p[0]):.1f},{my(p[1]):.1f}' for p in ring)+'Z'
             f.o.append(f'<path d="{d}" fill="#f1efe8" stroke="#9ca3af" stroke-width="1" stroke-linejoin="round"/>')
-    for gi,(col,sw,pts) in enumerate(pts_groups):
+    for col,pts in pts_groups:
         cl={}
         for lon,lat in pts:
             key=(round(lon/clus),round(lat/clus)); c=cl.setdefault(key,[0,0,0]); c[0]+=lon; c[1]+=lat; c[2]+=1
         for sx,sy,n in cl.values():
             lon,lat=sx/n,sy/n
             if not (lo0<=lon<=lo1 and la0<=lat<=la1): continue
-            r=r0+math.sqrt(n)*rs; dx=off*(1 if gi==0 else -1)
-            f.o.append(f'<circle cx="{mx(lon)+dx:.1f}" cy="{my(lat):.1f}" r="{r:.1f}" fill="{col}" fill-opacity="0.85" stroke="#000" stroke-width="{sw}"/>')
-            if n>1 and label_clusters: f.text(mx(lon)+dx,my(lat)+9,str(n),26 if r>26 else 20,500,'#fff' if col==REAL else INK)
+            r=r0+math.sqrt(n)*rs
+            f.o.append(f'<circle cx="{mx(lon):.1f}" cy="{my(lat):.1f}" r="{r:.1f}" fill="{col}" fill-opacity="0.85" stroke="#000" stroke-width="2"/>')
+            if n>1: f.text(mx(lon),my(lat)+9,str(n),26 if r>26 else 20,500,'#fff' if col==REAL else INK)
     f.o.append('</g>'+f'<rect x="{x0}" y="{y0}" width="{w}" height="{h}" rx="14" fill="none" stroke="#000" stroke-width="2"/>')
     return mx,my
-rows_=list(csv.DictReader(open('../commons/results/files.csv',encoding='utf-8-sig'))) if os.path.exists('../commons/results/files.csv') else []
+rows_=list(csv.DictReader(open('../commons/results/files.csv',encoding='utf-8-sig')))
 land=[]
 for ft in json.load(open('data/ne_50m_land.geojson'))['features']:
-    g=ft['geometry']; polys=g['coordinates'] if g['type']=='MultiPolygon' else [g['coordinates']]
-    land+=polys
+    g=ft['geometry']; land+=g['coordinates'] if g['type']=='MultiPolygon' else [g['coordinates']]
 ak=[(float(r['lon']),float(r['lat'])) for r in rows_ if r['lat'] and r['author'].startswith('A.-K')]
 ot=[(float(r['lon']),float(r['lat'])) for r in rows_ if r['lat'] and not r['author'].startswith('A.-K')]
 f=Fig()
-# main map is drawn with a cos(lat) corrected box so that shapes look right
-B1=(-12,29,38,58); mw=1000; mh=int(mw*(B1[3]-B1[1])/((B1[2]-B1[0])*math.cos(math.radians(44))))
-mx,my=geomap(f,30,40,mw,mh,B1,[(CMN,2,ot),(REAL,2,ak)],land,clus=1.2,rs=3.2,r0=7,off=0)
-B2=(-10.8,52,-1.5,57.2); iw=520; ih=int(iw*(B2[3]-B2[1])/((B2[2]-B2[0])*math.cos(math.radians(55))))
-geomap(f,1130,40,iw,ih,B2,[(CMN,2,ot),(REAL,2,ak)],land,clus=1.0,rs=7,r0=10,off=0)
+f.text(30,40,'OpenStreetMap: benchmark on Albert Bridge, Glasgow',26,500,MUT,anchor='start')
+slot('photos/albert_bridge_benchmark.jpg',170,64,320,240,'albert_bridge_benchmark.jpg')
+slot('photos/albert_bridge_osm.png',690,64,320,240,'albert_bridge_osm.png')
+q=node(f,1280,184,420,170,REAL,('Benchmark on Albert Bridge','Q107'),sub='crm:E25 Human-Made Feature',size=28)
+f.line(332,184,528,184); f.chip(430,184,'mapped as',22)
+f.line(852,184,1068,184); f.chip(960,184,'harvested as',22)
+f.text(170,336,'photograph, Commons',22,400,MUT); f.text(690,336,'OSM node, versions 1 and 2',22,400,MUT); f.text(1280,296,'static Wikibase item',22,400,MUT)
+Y=420
+f.text(30,Y,'Wikimedia Commons: stonecutter marks, geotagged files',26,500,MUT,anchor='start')
+B1=(-12,29,38,58); mw=800; mh=int(mw*(B1[3]-B1[1])/((B1[2]-B1[0])*math.cos(math.radians(44))))
+mx,my=geomap(f,30,Y+24,mw,mh,B1,[(CMN,ot),(REAL,ak)],land,clus=1.2,rs=3.0,r0=6)
+B2=(-10.8,52,-1.5,57.2); iw=400; ih=int(iw*(B2[3]-B2[1])/((B2[2]-B2[0])*math.cos(math.radians(55))))
+geomap(f,880,Y+24,iw,ih,B2,[(CMN,ot),(REAL,ak)],land,clus=2.0,rs=6,r0=9)
 f.o.append(f'<rect x="{mx(B2[0]):.1f}" y="{my(B2[3]):.1f}" width="{mx(B2[2])-mx(B2[0]):.1f}" height="{my(B2[1])-my(B2[3]):.1f}" fill="none" stroke="{RED}" stroke-width="4"/>')
-f.line(mx(B2[2]),my(B2[3])+10,1128,60,RED,arrow=False)
-gy=40+ih+30
-slot('photos/masons_mark.jpg',1390,gy,520,min(300,40+mh-gy),'add photos/masons_mark.jpg')
+f.line(mx(B2[2]),my(B2[3])+8,878,Y+44,RED,arrow=False)
+slot('photos/masons_mark.jpg',1520,Y+24,400,ih,'masons_mark.jpg')
 for k,(fl,t) in enumerate([(REAL,f'{len(ak)} files by A.-K. Distel'),(CMN,f'{len(ot)} files by others')]):
-    f.o.append(f'<circle cx="60" cy="{40+mh+34+k*44}" r="14" fill="{fl}" stroke="#000" stroke-width="2"/>')
-    f.text(88,40+mh+43+k*44,t,26,400,INK,anchor='start')
-f.done('fig5_stonecutter_marks',0,40+mh+130)
+    f.o.append(f'<circle cx="905" cy="{Y+24+ih+44+k*44}" r="14" fill="{fl}" stroke="#000" stroke-width="2"/>')
+    f.text(933,Y+24+ih+53+k*44,t,26,400,INK,anchor='start')
+f.done('fig4_osm_commons',0,Y+24+mh+30)
 print('ok')

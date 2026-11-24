@@ -8,7 +8,7 @@ Builds `out/fig*.svg` and `out/fig*.png` (Fira Sans, 1750 px wide). Fonts and th
 cd /d C:\git\wikibase-static-help\dh2027\figures && python fetch_assets.py --contact you@example.org --commons "File:Your masons mark.jpg=masons_mark.jpg"
 ```
 
-Downloads the Albert Bridge benchmark photograph from Commons, stitches an OSM crop (9 tiles) around the node and the chosen masons' mark photograph into `photos/`; author and licence go to `photos/credits.md`. Without these files, Fig. 4 and Fig. 5 show dashed slots.
+Downloads the Albert Bridge benchmark photograph from Commons, stitches an OSM crop (9 tiles) around the node and the chosen masons' mark photograph into `photos/`; author and licence go to `photos/credits.md`. Without these files, Fig. 4 shows dashed slots.
 
 ## Setup and run (Windows cmd, one line)
 
@@ -21,8 +21,7 @@ cd /d C:\git\wikibase-static-help\dh2027\figures && pip install resvg_py pillow 
 - `fig1_clover`: the seven-leaf clover (light green community source, dark green research output, split leaf for both)
 - `fig2_junctions`: backbone with the graph junction and the terminology junction, with photo and 3D-model preview of one stone
 - `fig3_ogham_tei`: two Ogham stones (FDOx 3D-model previews) and the crosswalk TEI/EpiDoc element, Linked Open Ogham class, CIDOC CRM / CRMtex class
-- `fig4_benchmarks`: the benchmark on Albert Bridge: photograph, OSM node (map crop), static Wikibase item (needs `photos/albert_bridge_*`, see below)
-- `fig5_stonecutter_marks`: distribution map of the 127 geotagged Commons files (Natural Earth land, `data/`) with an inset for Britain and Ireland; slot for one exemplar photograph (`photos/masons_mark.jpg`)
+- `fig4_osm_commons`: the two community leaves in practice. Top: benchmark on Albert Bridge (photograph, OSM crop, static Wikibase item). Bottom: distribution map of the 127 geotagged Commons files (Natural Earth land, `data/`) with an inset for Britain and Ireland and a slot for one masons' mark photograph. Photographs: see below.
 - `extra_commons_design`: Commons design with a depicts link (none exists yet, see `commons/results`), not used in the paper
 
 ## Contents
