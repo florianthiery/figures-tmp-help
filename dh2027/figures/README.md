@@ -29,3 +29,8 @@ cd /d C:\git\wikibase-static-help\dh2027\figures && pip install resvg_py pillow 
 - `fonts/`: Fira Sans 400 and 500 (SIL Open Font License)
 - `photos/govan2_commons.jpg`: photograph of the Govan hogback (Wikimedia Commons, Viking870, CC BY-SA 4.0; check before publishing)
 - `photos/govan2_model.jpg`: preview of the Sketchfab 3D model of the same stone (Megan Kasten, CC BY 4.0; check before publishing)
+
+## Figure 4 traces
+`trace_marks.py` draws the visible incisions of the Albert Bridge benchmark and of the M035 "butterfly" mark in red onto the photographs
+(`photos/albert_bridge_benchmark_trace.jpg`, `photos/masons_mark_trace.jpg`); the coordinates are hand-traced pixel positions in the script.
+Run it before `figures.py` when a photograph changes: `python trace_marks.py && python figures.py`.
