@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1750" height="1000" viewBox="0 0 1750 1000"><rect y="0" width="1750" height="1000" fill="#f6f6f3"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1750" height="1000" viewBox="0 0 1750 1000"><rect y="0" width="1750" height="1000" fill="#ffffff"/>
 <defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto"><path d="M0,0 L20,10 L0,20 z" fill="#dc2626"/></marker></defs>
 <defs><linearGradient id="mix" x1="0" x2="1" y1="0" y2="0"><stop offset="0.5" stop-color="#a7d9a5"/><stop offset="0.5" stop-color="#166534"/></linearGradient></defs>
 <path d="M875,470 C850,660 900,780 875,870" fill="none" stroke="#14532d" stroke-width="16" stroke-linecap="round"/>

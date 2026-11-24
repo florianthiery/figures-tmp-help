@@ -17,7 +17,7 @@ def tw(s,size,w=400):
     return ImageFont.truetype(F5 if w==500 else F4,size,layout_engine=ImageFont.Layout.BASIC).getlength(s)
 def esc(s): return s.replace('&','&amp;').replace('<','&lt;')
 class Fig:
-    def __init__(s): s.o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}"><rect width="{W}" height="{H}" fill="#f6f6f3"/>']
+    def __init__(s): s.o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}"><rect width="{W}" height="{H}" fill="#ffffff"/>']
     def text(s,x,y,t,size=30,w=400,fill=INK,anchor='middle',maxw=None):
         if maxw and tw(t,size,w)>maxw: raise ValueError(f'overflow: {t} {tw(t,size,w):.0f}>{maxw}')
         s.o.append(f'<text x="{x}" y="{y}" font-family="Fira Sans" font-size="{size}" font-weight="{w}" fill="{fill}" text-anchor="{anchor}">{esc(t)}</text>')
@@ -33,7 +33,7 @@ class Fig:
     def num(s,cx,cy,n):
         s.o.append(f'<circle cx="{cx}" cy="{cy}" r="22" fill="#fff" stroke="#000" stroke-width="2"/>'); s.text(cx,cy+9,str(n),26,500)
     def done(s,name,y0=0,y1=H):
-        s.o[0]=f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{y1-y0}" viewBox="0 {y0} {W} {y1-y0}"><rect y="{y0}" width="{W}" height="{y1-y0}" fill="#f6f6f3"/>'
+        s.o[0]=f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{y1-y0}" viewBox="0 {y0} {W} {y1-y0}"><rect y="{y0}" width="{W}" height="{y1-y0}" fill="#ffffff"/>'
         s.o.insert(1,f'<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto"><path d="M0,0 L20,10 L0,20 z" fill="{RED}"/></marker></defs>')
         s.o.append('</svg>'); svg='\n'.join(s.o)
         open(f'out/{name}.svg','w').write(svg)
@@ -110,7 +110,7 @@ f.done('fig1_clover',0,H)
 # Figure 2: the backbone, two junctions (photo and 3D-model preview of the same stone, Govan hogback)
 f=Fig()
 def lane(x,y,w,h,label):
-    f.o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="26" fill="#ebebe5"/>'); f.text(x+26,y+40,label,26,500,MUT,anchor='start')
+    f.o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="26" fill="#f0f0eb"/>'); f.text(x+26,y+40,label,26,500,MUT,anchor='start')
 lane(20,20,520,445,'DCAT: metadata layer'); lane(580,20,1150,730,'CIDOC CRM: entity layer')
 photo(f,'photos/govan2_model.jpg',150,75,210,158); photo(f,'photos/govan2_commons.jpg',410,75,210,158)
 f.text(150,257,'3D model: M. Kasten',20,400,MUT); f.text(150,281,'CC BY 4.0, Sketchfab',20,400,MUT)
