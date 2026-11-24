@@ -77,7 +77,7 @@ f=Fig(); cx,cy=875,470; R0,LH,LW=45,270,215
 STEM='#14532d'
 leaves=[(CMN,'OpenStreetMap','Ogham, Holy Wells, SISAL','via Overpass'),
         (CMN,'Wikidata','Ogham, Govan, Round Towers','Wikibase JSON'),
-        (CMN,'Wikimedia Commons',"masons' marks (planned)",'MediaInfo'),
+        (CMN,'Wikimedia Commons','stonecutter marks, 526 files','file metadata'),
         (RES,'TEI/EpiDoc','Ogham editions','EpiDoc XML'),
         (MIX,'FDOx','3D models, LEGO, software','Zenodo DCAT'),
         (MIX,'Chublets','open-archaeo software','CSV'),

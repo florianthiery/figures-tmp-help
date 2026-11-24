@@ -14,7 +14,7 @@ cd /d C:\git\wikibase-static-help\dh2027\figures && pip install resvg_py pillow 
 - `fig2_junctions`: backbone with the graph junction and the terminology junction, with photo and 3D-model preview of one stone
 - `fig3_ogham_tei`: TEI/EpiDoc element, Linked Open Ogham class and CIDOC CRM / CRMtex class
 - `fig4_benchmarks`: from the withdrawn OS Linked Data service to a community record
-- `extra_commons_design`: planned Commons design, not used in the paper
+- `extra_commons_design`: Commons design with a depicts link (none exists yet, see `commons/results`), not used in the paper
 
 ## Contents
 
