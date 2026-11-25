@@ -28,3 +28,13 @@ z3_showcase_map:
     findspots of the geo-lod graph (74) and the BB-5KBC findspots (540). (B) The 365 SISAL caves of the geo-lod graph;
     the red frame marks panel A. The property-graph and HIN showcases are not mapped because they have no point
     dataset of their own. Base map: Natural Earth, public domain.
+
+fig7_ci_instances:
+  replaces: Fig. 7
+  caption: >-
+    Two Campanian Ignimbrite findspots as instances in the geo-lod graph: (A) Toplitsa Cave (Bulgaria, ci:cisite_44)
+    and (B) Franchthi Cave (Greece, ci:cisite_45). Both are typed as fsl:Site and geolod:CIArchaeologicalSite (a
+    selection of their types is shown), carry the geometry as an sf:Point with a geo:asWKT literal and the fuzzy-sl
+    certainty level, certainty description and literature reference, are aligned to Wikidata and OpenStreetMap via
+    skos:closeMatch, and name the pipeline activity that generated them. The coordinate reference system prefix of
+    the WKT literal is omitted. Licence: Florian Thiery and Fiona Schenk, CC BY 4.0.

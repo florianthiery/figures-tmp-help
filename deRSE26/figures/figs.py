@@ -343,8 +343,62 @@ def z2():
     f.text(x0, y + 220, 'Panels A to C are RDF-based,', MIN_TYPE, 400, MUT, 'start'); f.text(x0, y + 252, 'D and E are not.', MIN_TYPE, 400, MUT, 'start')
     f.done()
 
+# ---------------------------------------------------------------- Fig. 7: CI instances
+PFX = {'http://fuzzy-sl.squirrel.link/ontology/': 'fsl:', 'http://w3id.org/geo-lod/': 'geolod:', 'http://www.cidoc-crm.org/extensions/crmarchaeo/': 'crmarchaeo:',
+       'http://wikidata.org/entity/': 'wd:', 'http://openstreetmap.org/node/': 'osm-node:', 'http://w3id.org/geo-lod/ci/': 'ci:'}
+def short(iri):
+    for k in sorted(PFX, key=len, reverse=True):
+        if str(iri).startswith(k): return PFX[k] + str(iri)[len(k):]
+    return str(iri)
+
+def fig7():
+    g, S = load_ci()
+    SKOS = Namespace('http://www.w3.org/2004/02/skos/core#'); PROV = Namespace('http://www.w3.org/ns/prov#')
+    RDFT = URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
+    KEEP = ('http://fuzzy-sl.squirrel.link/ontology/Site', 'http://w3id.org/geo-lod/CIArchaeologicalSite', 'http://w3id.org/geo-lod/CIFindspot',
+            'http://www.cidoc-crm.org/extensions/crmarchaeo/A2_Stratigraphic_Volume_Unit')
+    PH = 800; H = 2 * PH + 40
+    f = Fig('fig7_ci_instances', H)
+    def panel(y0, letter, n):
+        site = [x for x in S if x['id'] == n][0]; iri = site['iri']; gi = g.value(iri, GEO.hasGeometry)
+        title = site['label']
+        f.o.append(f'<rect x="20" y="{y0}" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
+        f.text(40, y0 + 30, letter, 28, 500, '#fff'); f.text(76, y0 + 30, title, 28, 500, INK, 'start')
+        types = [short(t) for t in KEEP if (iri, RDFT, URIRef(t)) in g]
+        assert len(types) == 4, types
+        wkt = re.search(r'POINT\s*\([^)]*\)', site['wkt']).group(0)
+        level = short(g.value(iri, GL.hasCertaintyLevel)); desc = str(g.value(iri, GL.hasCertaintyDescription)); lit = str(g.value(iri, GL.hasLiteratureReference))
+        cm = sorted(short(o) for o in g.objects(iri, SKOS.closeMatch)); gen = short(g.value(iri, PROV.wasGeneratedBy))
+        bus, bx0, bw = 360, 840, 560
+        rows = [('rdf:type', 'box', types, CLS, '#fff'), ('geo:hasGeometry', 'geom', None, None, None), ('geolod:hasCertaintyLevel', 'box', [level], TERM, '#fff'),
+                ('geolod:hasCertaintyDescription', 'box', wrap(desc, bw - 40), '#fff', INK), ('geolod:hasLiteratureReference', 'box', [lit], '#fff', INK),
+                ('skos:closeMatch', 'box', cm, '#fff', INK), ('prov:wasGeneratedBy', 'box', [gen], '#fff', INK)]
+        hs = [max(64, len(r[2]) * 30.7 + 26) if r[2] else 96 for r in rows]
+        top, bottom = y0 + 80, y0 + PH - 20
+        gap = (bottom - top - sum(hs)) / (len(rows) - 1)
+        ys = []; y = top
+        for h_ in hs: ys.append(y); y += h_ + gap
+        cs = [a + h_ / 2 for a, h_ in zip(ys, hs)]; mid = (cs[0] + cs[-1]) / 2
+        sw_, sh_ = 300, 110
+        f.box(20, mid - sh_ / 2, sw_, sh_, INST, [short(iri), site['label']], size=MIN_TYPE)
+        f.o.append(f'<line x1="{20 + sw_}" y1="{mid:.1f}" x2="{bus}" y2="{mid:.1f}" stroke="#000" stroke-width="2.5"/>')
+        f.o.append(f'<line x1="{bus}" y1="{cs[0]:.1f}" x2="{bus}" y2="{cs[-1]:.1f}" stroke="#000" stroke-width="2.5"/>')
+        for (lab, kind, val, fill, tc), a, h_, c in zip(rows, ys, hs, cs):
+            if kind == 'box':
+                f.box(bx0, a, bw, h_, fill, val, tc=tc, size=MIN_TYPE)
+                f.arrow(bus, c, bx0, c); f.chip((bus + bx0) / 2, c, lab)
+            else:
+                f.box(bx0, a, 250, h_, INST, [short(gi), 'a sf:Point'][:2], size=MIN_TYPE)
+                f.arrow(bus, c, bx0, c); f.chip((bus + bx0) / 2, c, lab)
+                f.box(1380, a, 300, h_, '#fff', [wkt], size=MIN_TYPE)
+                f.arrow(bx0 + 250, c, 1380, c); f.chip((bx0 + 250 + 1380) / 2, c, 'geo:asWKT')
+    panel(16, 'A', 44); panel(16 + PH + 40, 'B', 45)
+    f.o.append(f'<line x1="20" y1="{PH + 20}" x2="{W - 20}" y2="{PH + 20}" stroke="#d4d4d0" stroke-width="2"/>')
+    f.done()
+
 if __name__ == '__main__':
     want = sys.argv[1:] or ['fig4']
     if 'fig4' in want: fig4()
     if 'z3' in want: z3()
     if 'z2' in want: z2()
+    if 'fig7' in want: fig7()

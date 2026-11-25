@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1640" viewBox="0 0 1700 1640"><rect width="1700" height="1640" fill="#ffffff"/><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs><rect x="20" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="40.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">A</text>
+<text x="76.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Toplitsa Cave (Bulgaria)</text>
+<rect x="20.0" y="412.2" width="300.0" height="110.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="170.0" y="460.0" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">ci:cisite_44</text>
+<text x="170.0" y="490.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Toplitsa Cave (Bulgaria)</text>
+<line x1="320" y1="467.2" x2="360" y2="467.2" stroke="#000" stroke-width="2.5"/>
+<line x1="360" y1="170.4" x2="360" y2="764.0" stroke="#000" stroke-width="2.5"/>
+<rect x="840.0" y="96.0" width="560.0" height="148.8" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="132.5" font-family="Fira Sans" font-size="24" font-weight="500" fill="#fff" text-anchor="middle">fsl:Site</text>
+<text x="1120.0" y="163.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:CIArchaeologicalSite</text>
+<text x="1120.0" y="193.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:CIFindspot</text>
+<text x="1120.0" y="224.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">crmarchaeo:A2_Stratigraphic_Volume_Unit</text>
+<line x1="360.0" y1="170.4" x2="840.0" y2="170.4" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="543.5" y="148.4" width="113.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="178.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">rdf:type</text>
+<rect x="840.0" y="263.4" width="250.0" height="96.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="965.0" y="304.2" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">ci:cisite_44_geom</text>
+<text x="965.0" y="335.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">a sf:Point</text>
+<line x1="360.0" y1="311.4" x2="840.0" y2="311.4" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="491.5" y="289.4" width="217.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="319.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:hasGeometry</text>
+<rect x="1380.0" y="263.4" width="300.0" height="96.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1530.0" y="319.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">POINT(24.0053 43.1907)</text>
+<line x1="1090.0" y1="311.4" x2="1380.0" y2="311.4" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="1163.5" y="289.4" width="143.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1235.0" y="319.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:asWKT</text>
+<rect x="840.0" y="378.1" width="560.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="418.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">fsl:high</text>
+<line x1="360.0" y1="410.1" x2="840.0" y2="410.1" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="449.0" y="388.1" width="302.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="418.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:hasCertaintyLevel</text>
+<rect x="840.0" y="460.7" width="560.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="500.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">findspot mentioned in a scientific paper</text>
+<line x1="360.0" y1="492.7" x2="840.0" y2="492.7" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="415.5" y="470.7" width="369.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="500.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:hasCertaintyDescription</text>
+<rect x="840.0" y="543.3" width="560.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="583.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Tsanova et al., 2021</text>
+<line x1="360.0" y1="575.3" x2="840.0" y2="575.3" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="418.5" y="553.3" width="363.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="583.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:hasLiteratureReference</text>
+<rect x="840.0" y="626.0" width="560.0" height="87.4" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="662.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">osm-node:11109379095</text>
+<text x="1120.0" y="693.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">wd:Q61788595</text>
+<line x1="360.0" y1="669.7" x2="840.0" y2="669.7" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="498.5" y="647.7" width="203.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="677.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">skos:closeMatch</text>
+<rect x="840.0" y="732.0" width="560.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="772.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">ci:cisite_44_pyscript</text>
+<line x1="360.0" y1="764.0" x2="840.0" y2="764.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="469.0" y="742.0" width="262.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="772.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">prov:wasGeneratedBy</text>
+<rect x="20" y="856" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="40.0" y="886.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">B</text>
+<text x="76.0" y="886.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Franchthi Cave (Greece)</text>
+<rect x="20.0" y="1252.2" width="300.0" height="110.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="170.0" y="1300.0" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">ci:cisite_45</text>
+<text x="170.0" y="1330.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Franchthi Cave (Greece)</text>
+<line x1="320" y1="1307.2" x2="360" y2="1307.2" stroke="#000" stroke-width="2.5"/>
+<line x1="360" y1="1010.4" x2="360" y2="1604.0" stroke="#000" stroke-width="2.5"/>
+<rect x="840.0" y="936.0" width="560.0" height="148.8" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="972.5" font-family="Fira Sans" font-size="24" font-weight="500" fill="#fff" text-anchor="middle">fsl:Site</text>
+<text x="1120.0" y="1003.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:CIArchaeologicalSite</text>
+<text x="1120.0" y="1033.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:CIFindspot</text>
+<text x="1120.0" y="1064.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">crmarchaeo:A2_Stratigraphic_Volume_Unit</text>
+<line x1="360.0" y1="1010.4" x2="840.0" y2="1010.4" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="543.5" y="988.4" width="113.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="1018.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">rdf:type</text>
+<rect x="840.0" y="1099.5" width="250.0" height="96.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="965.0" y="1140.3" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">ci:cisite_45_geom</text>
+<text x="965.0" y="1171.1" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">a sf:Point</text>
+<line x1="360.0" y1="1147.5" x2="840.0" y2="1147.5" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="491.5" y="1125.5" width="217.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="1155.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:hasGeometry</text>
+<rect x="1380.0" y="1099.5" width="300.0" height="96.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1530.0" y="1155.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">POINT(23.1311 37.4226)</text>
+<line x1="1090.0" y1="1147.5" x2="1380.0" y2="1147.5" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="1163.5" y="1125.5" width="143.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1235.0" y="1155.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:asWKT</text>
+<rect x="840.0" y="1210.3" width="560.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="1250.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">fsl:high</text>
+<line x1="360.0" y1="1242.3" x2="840.0" y2="1242.3" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="449.0" y="1220.3" width="302.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="1250.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:hasCertaintyLevel</text>
+<rect x="840.0" y="1289.0" width="560.0" height="87.4" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="1325.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">findspot mentioned in a scientific paper and</text>
+<text x="1120.0" y="1356.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">found on OpenStreetMap</text>
+<line x1="360.0" y1="1332.7" x2="840.0" y2="1332.7" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="415.5" y="1310.7" width="369.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="1340.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:hasCertaintyDescription</text>
+<rect x="840.0" y="1391.1" width="560.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="1431.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Fedele et al., 2003</text>
+<line x1="360.0" y1="1423.1" x2="840.0" y2="1423.1" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="418.5" y="1401.1" width="363.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="1431.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:hasLiteratureReference</text>
+<rect x="840.0" y="1469.9" width="560.0" height="87.4" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="1506.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">osm-node:1221172611</text>
+<text x="1120.0" y="1537.1" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">wd:Q1441331</text>
+<line x1="360.0" y1="1513.6" x2="840.0" y2="1513.6" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="498.5" y="1491.6" width="203.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="1521.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">skos:closeMatch</text>
+<rect x="840.0" y="1572.0" width="560.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1120.0" y="1612.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">ci:cisite_45_pyscript</text>
+<line x1="360.0" y1="1604.0" x2="840.0" y2="1604.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="469.0" y="1582.0" width="262.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="600.0" y="1612.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">prov:wasGeneratedBy</text>
+<line x1="20" y1="820" x2="1680" y2="820" stroke="#d4d4d0" stroke-width="2"/></svg>
