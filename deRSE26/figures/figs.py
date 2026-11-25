@@ -81,10 +81,10 @@ def land():
 # ---------------------------------------------------------------- Fig. 4
 def fig4():
     g, S = load_ci()
-    H = 880
+    H = 930
     f = Fig('fig4_ci_findspots', H)
     # --- panel a: map
-    mx, my, mw = 20, 20, 780
+    mx, my, mw = 20, 80, 780
     LON0, LON1, LAT0, LAT1, LATC = 4.0, 46.0, 31.0, 57.0, 44.0
     kx = mw / (LON1 - LON0); ky = kx / math.cos(math.radians(LATC)); mh = (LAT1 - LAT0) * ky
     X = lambda lon: mx + (lon - LON0) * kx
@@ -144,9 +144,13 @@ def fig4():
     call([60], 'Kostenki', -150, 60)
     call([201, 202, 203], 'Auel and Dehner Maar', 40, -75)
     f.text(sx - 20, sy + 62, 'Phlegraean Fields', MIN_TYPE, 500, TERM, 'middle')
-    # panel letters
-    for cx, cy, t in ((mx + 28, my + 28, 'a'), (850 - 10, 40, 'b')):
-        f.o.append(f'<circle cx="{cx}" cy="{cy}" r="22" fill="#fff" stroke="#000" stroke-width="2"/>'); f.text(cx, cy + 9, t, 26, 500)
+    # panel titles: black square with a white letter, then a bold title (as in the figures of the other paper)
+    def panel_title(x, letter, text):
+        f.o.append(f'<rect x="{x}" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
+        f.text(x + 20, 46, letter, 28, 500, '#fff')
+        f.text(x + 56, 46, text, 28, 500, INK, 'start')
+    panel_title(20, 'a', 'The 74 findspots and the certainty of their coordinates')
+    panel_title(840, 'b', 'One coordinate statement and its qualifiers')
     # legend under the map
     ly = my + mh + 40
     cnt = {lv: sum(1 for s_ in S if s_['level'] == lv) for lv in order}
@@ -190,7 +194,7 @@ def fig4():
     ]
     bx0, bw = 1350, 350          # value boxes
     cx0, cw = 840, 200           # coordinate box
-    top, bottom = 30, H - 30
+    top, bottom = 90, H - 30
     heights = [max(70, 24 * 1.28 * len(v) + 30) for _, v in rows]
     gap = (bottom - top - sum(heights)) / (len(rows) - 1)
     ys = []; y = top
@@ -198,10 +202,10 @@ def fig4():
     cy_mid = (top + bottom) / 2 + 40
     # item box and coordinate box
     lab_ = str(g.value(it, RDFS.label)); nm_, ct_ = re.match(r'(.+?) \((.+)\)', lab_).groups()
-    f.box(cx0, 60, cw, 96, INST, [nm_, f'({ct_})'], size=MIN_TYPE)
+    f.box(cx0, 100, cw, 96, INST, [nm_, f'({ct_})'], size=MIN_TYPE)
     f.box(cx0, cy_mid - 60, cw, 120, INST, ['sf:Point', f'POINT({wkt.group(1)}', f'{wkt.group(2)})'], size=MIN_TYPE)
-    f.arrow(cx0 + cw / 2, 156, cx0 + cw / 2, cy_mid - 60)
-    f.chip(cx0 + cw / 2, (156 + cy_mid - 60) / 2, 'geo:hasGeometry')
+    f.arrow(cx0 + cw / 2, 196, cx0 + cw / 2, cy_mid - 60)
+    f.chip(cx0 + cw / 2, (196 + cy_mid - 60) / 2, 'geo:hasGeometry')
     bus = cx0 + cw + 24
     centres = [y_ + h_ / 2 for y_, h_ in zip(ys, heights)]
     f.o.append(f'<line x1="{cx0 + cw}" y1="{cy_mid}" x2="{bus}" y2="{cy_mid}" stroke="#000" stroke-width="2.5"/>')
