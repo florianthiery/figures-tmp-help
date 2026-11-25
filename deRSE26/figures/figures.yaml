@@ -115,9 +115,9 @@ additions:
   new: z2_one_stone_five_models
   title: One Ogham stone in five modelling styles
   section: §3 or §4 (placement open)
-  status: waiting
+  status: done
   notes:
-  - Panel A needs data/wd/ from fetch_wd.py (done on the Windows machine)
+  - Panel A read from data/wd/ (fetch_wd.py, run on the Windows machine)
 - id: z3
   new: z3_showcase_map
   title: Where the showcases are
