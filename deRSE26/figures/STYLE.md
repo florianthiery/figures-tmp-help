@@ -22,6 +22,8 @@ uses these building blocks instead of inventing its own.
 | Class | #9a3412 (dark orange) | white |
 | Vocabulary term, controlled value | #4c1d95 (dark purple) | white |
 | Literal, plain value | white | black |
+| External resource (URI) | white, dashed outline | black |
+| Coordinate (WKT literal) | #1f1f1d | white |
 | Property or edge label | #fbbf24 (amber chip) | black |
 | Highlight (the thing the figure is about) | red #dc2626 outline, 4 px | |
 

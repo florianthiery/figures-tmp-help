@@ -511,9 +511,115 @@ def fig6():
     f.o.append(f'<rect x="1360" y="{ly - 20}" width="60" height="40" rx="20" fill="{AMB}" stroke="#000" stroke-width="1.5"/>'); f.text(1436, ly + 8, 'property', MIN_TYPE, 400, INK, 'start')
     f.done()
 
+# ---------------------------------------------------------------- Fig. 3: data model of the fuzzy-sl Wikibase
+def fig3():
+    """Redraw of fuzzy-sl_Wikibase.jpg: coordinate metadata (CM) and geolocation metadata (GLM) of a fuzzy-sl entity.
+    Properties, labels, datatypes and the class of every value are read from the static Wikibase copy (data/wb/); the item Q70
+    (Auel Maar AU3) is the witness that every statement, qualifier and reference of the picture really occurs."""
+    it = wb_entity('Q70'); assert it['labels']['en']['value'] == 'Auel Maar AU3'
+    cl = it['claims']
+    def plabel(p): return wb_label(p)
+    def itemid(sn): return sn['datavalue']['value']['id']
+    def cls(q):                                         # class of a value item: its P1 (instance of)
+        c = itemid(wb_entity(q)['claims']['P1'][0]['mainsnak'])
+        return f'{wb_label(c)} ({c})'
+    coord = cl['P4'][0]; quals, refs = coord['qualifiers'], coord['references'][0]['snaks']
+    QL = ['P5', 'P13', 'P7', 'P14', 'P6', 'P16', 'P15', 'P24', 'P33', 'P23']
+    RL = ['P17', 'P25', 'P31']
+    assert set(QL) == set(quals), set(QL) ^ set(quals)
+    assert set(refs) == {'P17'} and all(wb_entity(p)['descriptions']['en']['value'] == 'reference property' for p in ('P25', 'P31'))
+    assert all(wb_entity(p)['descriptions']['en']['value'] == 'coordinate qualifier' for p in QL if p not in ('P12',))
+    assert wb_entity('P4')['datatype'] == 'globe-coordinate'
+    LIT = {'P13': 'Certainty Description', 'P15': 'Method Description', 'P23': 'WGS precision', 'P11': 'Reference String', 'P25': 'Reference String'}
+    def target(p, snak=None):                           # (text, kind) of the value node of property p
+        d = wb_entity(p)['datatype']
+        if d == 'wikibase-item': return (cls(itemid(snak)) if snak else 'fuzzy-sl Entity', 'term' if snak else 'inst')
+        if d == 'string': return LIT[p], 'lit'
+        if d == 'url': return 'External Resource URI', 'ext'
+        raise ValueError(p)
+    GM = ['P1', 'P3', 'P11', 'P10']                     # main statements of the entity (picture order), then P8 and P32
+    for p in GM + ['P8', 'P32']: assert p in cl, p
+    assert 'P12' in cl['P10'][0]['qualifiers'] and wb_entity('P12')['datatype'] == 'url'
+    assert 'wikidata.org/entity/' in cl['P32'][0]['mainsnak']['datavalue']['value']
+    assert 'P17' in cl['P11'][0]['references'][0]['snaks']
+
+    def pr(prefix, p): return f'{prefix}{p}: {plabel(p)}'
+    BX, NH = 700, 44
+    chip_max = tw(pr('', 'P32'), MIN_TYPE) + 28
+    GZ = chip_max + 76                                   # zone between bus and the value nodes on the right
+    GW = 300
+    assert BX + GZ + GW <= 1660, (BX + GZ + GW)
+    f = Fig('fig3_fuzzysl_datamodel', 1570)
+    FILL = {'inst': (INST, INK, False), 'term': (TERM, '#fff', False), 'ext': ('#fff', INK, True), 'lit': ('#fff', INK, False), 'wkt': (INK, '#fff', False)}
+    def node(x, cy, w, text, kind):
+        fill, tc, dash = FILL[kind]
+        f.box(x, cy - NH / 2, w, NH, fill, [text], '#000', 2, 22 if kind in ('inst', 'term') else 8, tc, dash=dash)
+    def line(x1, y1, x2, y2, dashed=False, arrow=True):
+        da = ' stroke-dasharray="10 7"' if dashed else ''
+        mk = ' marker-end="url(#a)"' if arrow else ''
+        f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#000" stroke-width="2.5"{da}{mk}/>')
+    def edge(x1, y1, x2, y2, label, dashed=False):
+        line(x1, y1, x2, y2, dashed); f.chip((x1 + x2) / 2, (y1 + y2) / 2, label)
+    def title(x, y, tag, text):
+        bw = 24 + tw(tag, 26, 500)
+        f.o.append(f'<rect x="{x}" y="{y}" width="{bw:.1f}" height="40" rx="6" fill="#000"/>')
+        f.text(x + bw / 2, y + 29, tag, 26, 500, '#fff')
+        f.text(x + bw + 16, y + 30, text, 28, 500, INK, 'start')
+    def frame(y0, y1):
+        f.o.append(f'<rect x="20" y="{y0}" width="1660" height="{y1 - y0}" rx="16" fill="none" stroke="#d4d4d0" stroke-width="3"/>')
+
+    # ---- GLM (top)
+    frame(20, 870); title(44, 40, 'GLM', 'Geolocation Metadata')
+    yl, yd, ye = 140, 215, 290
+    node(BX - 130, yl, 260, 'label (en)', 'lit'); node(BX - 130, yd, 260, 'description (en)', 'lit'); node(BX - 130, ye, 260, 'fuzzy-sl Entity', 'inst')
+    line(BX, ye - NH / 2, BX, yd + NH / 2 + 2); line(BX, yd - NH / 2, BX, yl + NH / 2 + 2)
+    rows = [(360, 'P1'), (420, 'P3'), (480, 'P11'), (540, 'P10'), (750, 'P8'), (810, 'P32')]
+    y_p12 = 690
+    line(BX, ye + NH / 2, BX, rows[-1][0], arrow=False)
+    tx = BX + GZ
+    for cy, p in rows:
+        snak = cl[p][0]['mainsnak']
+        if p == 'P32': text, kind = 'Wikidata Entity', 'ext'
+        else: text, kind = target(p, snak if wb_entity(p)['datatype'] == 'wikibase-item' else None)
+        node(tx, cy, GW, text, kind)
+        edge(BX, cy, tx, cy, pr('', p))
+    node(tx, y_p12, GW, 'External Resource URI', 'ext')
+    cxm = tx + GW / 2
+    edge(cxm, 540 + NH / 2, cxm, y_p12 - NH / 2, pr('q', 'P12'))
+    # legend (left)
+    lx0, ly0, lw = 44, 330, 440
+    f.o.append(f'<rect x="{lx0}" y="{ly0}" width="{lw}" height="480" rx="12" fill="#fafaf8" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="10 6"/>')
+    f.text(lx0 + 20, ly0 + 40, 'Legend', 24, 500, INK, 'start')
+    for i, (text, kind) in enumerate([('Instance', 'inst'), ('Vocabulary item (Q)', 'term'), ('External resource', 'ext'), ('Literal', 'lit'), ('Coordinate (WKT literal)', 'wkt')]):
+        node(lx0 + 30, ly0 + 90 + i * 58, lw - 60, text, kind)
+    for j, (t, d) in enumerate([('qualifier of the coordinate', False), ('reference of the coordinate', True)]):
+        y = ly0 + 90 + (5 + j) * 58
+        line(lx0 + 30, y, lx0 + 100, y, d); f.text(lx0 + 118, y + 8, t, 24, 400, INK, 'start', maxw=lw - 130)
+
+    # ---- CM (bottom)
+    frame(890, 1550); title(44, 910, 'CM', 'Coordinate Metadata')
+    yc = 1050
+    node(BX - 130, yc, 260, '@LAT/LON', 'wkt')
+    edge(BX, rows[-1][0], BX, yc - NH / 2, pr('', 'P4'))
+    r0 = 1130; pitch = 60
+    line(BX, yc + NH / 2, BX, r0 + 6 * pitch, arrow=False)
+    NW = 280; lxn, rxn = 40, 1700 - 40 - NW
+    def cmrow(i, side, p, dashed):
+        cy = r0 + i * pitch
+        snak = (refs if dashed else quals)[p][0] if p in (refs if dashed else quals) else None
+        text, kind = target(p, snak if (snak and wb_entity(p)['datatype'] == 'wikibase-item') else None)
+        pre = 'r' if dashed else 'q'
+        if side == 'L': node(lxn, cy, NW, text, kind); edge(BX, cy, lxn + NW, cy, pr(pre, p), dashed)
+        else: node(rxn, cy, NW, text, kind); edge(BX, cy, rxn, cy, pr(pre, p), dashed)
+    for i, p in enumerate(QL[:7]): cmrow(i, 'L', p, False)
+    for i, p in enumerate(QL[7:]): cmrow(i, 'R', p, False)
+    for k, p in enumerate(RL): cmrow(4 + k, 'R', p, True)
+    f.done()
+
 if __name__ == '__main__':
     want = sys.argv[1:] or ['fig4']
     if 'fig4' in want: fig4()
+    if 'fig3' in want: fig3()
     if 'z3' in want: z3()
     if 'z2' in want: z2()
     if 'fig7' in want: fig7()

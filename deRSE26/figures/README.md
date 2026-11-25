@@ -16,7 +16,9 @@ cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow
 |---|---|---|---|
 | `fig4_ci_findspots` | Fig. 4 (screenshot collage) | (A) the 74 CI findspots, archaeological site or not, with distance rings around the Phlegraean Fields; (B) the coordinate statement of Auel Maar AU3 (Q70) with its qualifiers | `data/ci_findspots.ttl`, `data/wb/*.json` (static copy of n4o-rse/wb-fuzzysl-static, commit d22dc4e), `data/ne_50m_land.geojson` |
 
-Planned: Fig. 7, Fig. 6, Fig. 3, Fig. 10, and the additions Z2 (one findspot in RDF, LPG and HIN) and Z3 (map of the showcases). Captions: `captions.yaml`.
+| `fig3_fuzzysl_datamodel` | Fig. 3 (old data-model picture) | Geolocation metadata (GLM) and coordinate metadata (CM) of a fuzzy-sl entity: properties, qualifiers, references, value classes | `data/wb/*.json` (properties P1 to P33, classes Q2 to Q125, witness item Q70) |
+
+Planned: Fig. 7, Fig. 6, Fig. 10, and the additions Z2 (one findspot in RDF, LPG and HIN) and Z3 (map of the showcases). Captions: `captions.yaml`.
 
 ## Data
 

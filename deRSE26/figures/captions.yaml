@@ -9,6 +9,19 @@ fig4_ci_findspots:
     precision, location and point type, and the literature reference. Purple: vocabulary terms; grey: items; white: literals. The inset map shows the Eifel around the Auel Maar with rivers, borders, Cologne and Daun. Licence: Florian Thiery and Fiona Schenk,
     CC BY 4.0; base map: Natural Earth, public domain.
 
+fig3_fuzzysl_datamodel:
+  replaces: Fig. 3
+  caption: >-
+    Data model of the fuzzy-sl Wikibase. (GLM) Geolocation metadata: a fuzzy-sl entity has a label and a description
+    and is described by its instance type (P1), project (P3), literature reference (P11), related external resource
+    with its relation type (P10, qP12), spatial type (P8), the administrative territorial entity in Wikidata (P32) and
+    its coordinate (P4). (CM) Coordinate metadata: the coordinate statement carries ten qualifiers (solid arrows:
+    certainty level and description, method used and description, acting person, source type in generic and detailed
+    form, location type, point type and precision) and three reference properties (dashed arrows: reference URL,
+    reference string, reference item). Grey: instance; purple: vocabulary item with its Q number; dashed outline:
+    external resource; white: literal; black: coordinate. Property labels and classes are those of the static copy of
+    the fuzzy-sl Wikibase. Licence: Florian Thiery, CC BY 4.0.
+
 z2_one_stone_five_models:
   replaces: new figure (end of Section 3 or Section 4; placement open)
   caption: >-
