@@ -88,8 +88,8 @@ def fig1():
         for j, (tt, sz, md) in enumerate([(t, 17, True), (f"confidence {c} (AI estimate)", 14, False), (st, 13, False)]):
             svg.text(XC[2], y + 17 + j * 22, tt, sz, md, "#fff", "middle", maxw=SW - 100)
     svg.rect(X0[2] + 40, DT + 226, SW - 80, 56, WHITE, name="m1")
-    svg.text(XC[2], DT + 243, "Model 1: four hypotheses, all open", 15, True, INK, "middle", maxw=SW - 90)
-    svg.text(XC[2], DT + 265, "status stays a conjecture", 13, False, MUTED, "middle", maxw=SW - 100)
+    svg.text(XC[2], DT + 243, "Model 1: a pyramid, meaning open", 15, True, INK, "middle", maxw=SW - 90)
+    svg.text(XC[2], DT + 265, "four hypotheses, all still conjectures", 13, False, MUTED, "middle", maxw=SW - 100)
     for j, t in enumerate(["Named agent: Claude Sonnet 5.5", "Evidence, Wikidata candidates,", "builder confirms or not"]):
         svg.text(XC[2], DT + 316 + j * 24, t, 15, False, INK, "middle", maxw=SW - 10)
     items = [("RO-Crate", "ro-crate-metadata.json describes every part"), ("3D model", "GLB, scan and reconstruction"),
@@ -194,7 +194,6 @@ def fig2():
                 svg.text(xb + BW / 2, y + 40, s, 13, False, ON[fill], "middle", maxw=BW - 16)
             a, b = (xb + BW / 2, yb - 3), (xb + BW / 2, yg + BH + 3)
             svg.arrow([a, b], marker="g")
-            svg.chip(a[0], (a[1] + b[1]) / 2, "subClassOf")
     PY0, PH = 120 + PAIR * ROW + 10, 190
     for c, (head, sub, fill, pairs) in enumerate(cols):
         x0 = M + c * (SW + GAP)
@@ -221,61 +220,62 @@ def fig2():
 def fig3():
     W, H = 2400, 940
     svg = Svg(W, H)
-    P0, PY, PWD, PHT = 740, 110, 600, 732
-    LW = 620
-    svg.text(55 + LW / 2, 34, "Statements about Model 2", 30, True, INK, "middle", maxw=LW)
-    svg.text(55 + LW / 2, 70, "measured, assumed, reconstructed", 19, False, MUTED, "middle", maxw=LW)
-    svg.text(P0 + PWD / 2, 34, "Photograph", 30, True, INK, "middle", maxw=PWD)
-    svg.text(P0 + PWD / 2, 70, "Daria Stefan, Galaxy A71, 115 photos", 19, False, MUTED, "middle", maxw=PWD)
-    TX, TW_ = 1500, 860
-    svg.text(TX + TW_ / 2, 34, "Interpreted by Claude", 30, True, INK, "middle", maxw=TW_)
-    svg.text(TX + TW_ / 2, 70, "result of a SPARQL query over the FDOx RDF", 19, False, MUTED, "middle", maxw=TW_)
+    P0, PY, PWD, PHT = 710, 110, 580, 708
+    LW = 600
+    svg.text(55 + LW / 2, 34, "Statements about Model 2", 34, True, INK, "middle", maxw=LW + 40)
+    svg.text(55 + LW / 2, 72, "measured, assumed, reconstructed", 21, False, MUTED, "middle", maxw=LW)
+    svg.text(P0 + PWD / 2, 34, "Photograph", 34, True, INK, "middle", maxw=PWD)
+    svg.text(P0 + PWD / 2, 72, "Daria Stefan, Galaxy A71", 21, False, MUTED, "middle", maxw=PWD)
+    TX, TW_ = 1500, 880
+    svg.text(TX + TW_ / 2, 34, "Interpreted by Claude", 34, True, INK, "middle", maxw=TW_)
+    svg.text(TX + TW_ / 2, 72, "result of a SPARQL query over the FDOx RDF", 21, False, MUTED, "middle", maxw=TW_)
     photo(svg, HERE / "photos" / "model2.jpg", P0, PY, PWD, PHT)
 
     def pt(ox, oy):   # original photograph (810 x 1080) to the figure
         return P0 + (ox - 12) * PWD / 787, PY + (oy - 120) * PWD / 787
     callouts = [
-        (ORANGE, "Reconstructed: temple", "Four courses: grey 4 x 4, four white 1 x 1 pillars (hollow), grey lintel", pt(410, 500)),
-        (AMBER, "Assumed: hidden bricks", "Inner distribution of the bricks is estimated, not read from the scan", pt(410, 700)),
-        (AMBER, "Assumed: seven levels", "According to the photo and the builder; the scan suggests eight levels", pt(190, 740)),
-        (GREY, "Measured: scan distorted", "Compressed along one axis (about factor 0.72); ground rises towards the pyramid", pt(300, 900)),
-        (GREY, "Measured: capture", "115 photographs, Samsung Galaxy A71, KIRI Engine (structure from motion)", (P0, PY + PHT - 50)),
+        (ORANGE, "Reconstructed: temple", "Four courses, four hollow white pillars", pt(410, 500)),
+        (AMBER, "Assumed: hidden bricks", "Inner bricks estimated, not read from the scan", pt(410, 700)),
+        (AMBER, "Assumed: seven levels", "Photo and builder: seven; the scan: eight", pt(190, 740)),
+        (GREY, "Measured: scan distorted", "Compressed along one axis, factor about 0.72", pt(300, 900)),
+        (GREY, "Measured: capture", "115 photographs, Galaxy A71, KIRI Engine", (P0, PY + PHT - 50)),
     ]
     for i, (fill, head, line, target) in enumerate(callouts):
         y = 110 + i * 146
-        svg.block(55, y, LW, 128, [line], fill, head=head, size=23, pad=16)
-        svg.arrow([(55 + LW, y + 64), (target[0] - 2, target[1])], head=False, dot=True, sw=1.3)
+        svg.block(55, y, LW, 120, [line], fill, head=head, size=26, pad=16)
+        svg.arrow([(55 + LW, y + 60), (target[0] - 2, target[1])], head=False, dot=True, sw=2.8)
 
     rows = [("Mesoamerican (Maya) step pyramid with a temple on top", "0.70", "confirmed by the builder, 17 Nov 2026", "none yet"),
             ("El Castillo at Chichén Itzá (special case of the first)", "0.35", "not confirmed by the builder", "none yet"),
             ("Free design without a specific model", "0.15", "open", "none yet"),
             ("Angkor temple mountain with sanctuary", "0.10", "open", "Q788982"),
             ("Ziggurat with temple", "0.08", "open", "Q170153")]
-    cx = [TX + 18, TX + 440, TX + 545, TX + 770]
-    HH, RH = 60, 104
+    cx = [TX + 16, TX + 445, TX + 550, TX + 755]
+    HH, RH = 64, 100
 
     def mtext(x, cy, lines, size, med, fill=INK, anchor="start", maxw=None):
         lh = size * 1.25
         for j, ln in enumerate(lines):
             svg.text(x, cy + (j - (len(lines) - 1) / 2) * lh, ln, size, med, fill, anchor, maxw=maxw)
     svg.rect(TX, 110, TW_, HH, PURPLE, name="thead")
-    for x, t in zip([cx[0], cx[1] - 24, cx[2], cx[3]], ["Hypothesis", "Confidence", "Status", "Wikidata"]):
-        svg.text(x, 110 + HH / 2, t, 19, True, "#fff", "start", maxw=250)
+    for x, t in zip([cx[0], cx[1] - 28, cx[2], cx[3]], ["Hypothesis", "Confidence", "Status", "Wikidata"]):
+        svg.text(x, 110 + HH / 2, t, 22, True, "#fff", "start", maxw=250)
     for i, (h, c, st, w) in enumerate(rows):
         y = 110 + HH + i * RH
         cy = y + RH / 2
         svg.rect(TX, y, TW_, RH, WHITE, name=f"row{i}")
-        mtext(cx[0], cy, wrap(h, 20, 390, i == 0), 20, i == 0, maxw=400)
-        mtext(cx[1] + 24, cy, [c], 23, True, maxw=90)
-        mtext(cx[2], cy, wrap(st, 18, 210, i == 0), 18, i == 0, maxw=215)
-        mtext(cx[3], cy, [w], 18, False, MUTED if w == "none yet" else INK, maxw=90)
-    my = 110 + HH + 5 * RH + 24
-    svg.block(TX, my, TW_, 842 - my, ["Model 1 has four hypotheses, all open; the best is a monument with a warrior statue on a column (0.55). "
-                                      "Confidence is the AI's own estimate, not a measurement."], GREY, head="Model 1 and the limits", size=22, pad=16)
+        mtext(cx[0], cy, wrap(h, 24, 420, i == 0), 24, i == 0, maxw=430)
+        mtext(cx[1] + 20, cy, [c], 28, True, maxw=90)
+        mtext(cx[2], cy, wrap(st, 21, 190, i == 0), 21, i == 0, maxw=200)
+        mtext(cx[3], cy, [w], 21, False, MUTED if w == "none yet" else INK, maxw=100)
+    my = 110 + HH + 5 * RH + 20
+    svg.block(TX, my, TW_, 842 - my, ["Model 1 is also a step pyramid; its four hypotheses on what it represents are all open. "
+                                      "The best is a monument with a warrior statue on a column (0.55). Confidence is the AI's own estimate."],
+              GREY, head="Model 1 and the limits", size=24, pad=16)
     a, b = (P0 + PWD + 8, 470), (TX - 8, 470)
-    svg.arrow([a, b])
-    svg.chip((a[0] + b[0]) / 2, 470, "interpreted", 16)
-    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, H - 44, 17)
+    svg.arrow([a, b], sw=3)
+    svg.chip((a[0] + b[0]) / 2, 470, "interpreted", 18)
+    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, H - 44, 19)
     save(svg, "fig3_model2")
 
 

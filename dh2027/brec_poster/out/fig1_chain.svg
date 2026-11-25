@@ -46,8 +46,8 @@
 <text x="1200.0" y="273.0" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#fff">confidence 0.35 (AI estimate)</text>
 <text x="1200.0" y="295.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#fff">not confirmed</text>
 <rect x="1055.0" y="326.0" width="290.0" height="56.0" rx="6" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-<text x="1200.0" y="343.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Model 1: four hypotheses, all open</text>
-<text x="1200.0" y="365.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#55544f">status stays a conjecture</text>
+<text x="1200.0" y="343.0" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="500" fill="#1f1f1d">Model 1: a pyramid, meaning open</text>
+<text x="1200.0" y="365.0" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#55544f">four hypotheses, all still conjectures</text>
 <text x="1200.0" y="416.0" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#1f1f1d">Named agent: Claude Sonnet 5.5</text>
 <text x="1200.0" y="440.0" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#1f1f1d">Evidence, Wikidata candidates,</text>
 <text x="1200.0" y="464.0" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#1f1f1d">builder confirms or not</text>
