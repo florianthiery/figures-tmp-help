@@ -714,3 +714,6 @@ if __name__ == '__main__':
     if 'z2' in want: z2()
     if 'fig7' in want: fig7()
     if 'fig6' in want: fig6()
+    try:                                                 # keep the gallery (docs/derse26_geographs/index.html) in step with out/
+        import build_gallery
+    except ImportError as e: print('gallery not rebuilt:', e)

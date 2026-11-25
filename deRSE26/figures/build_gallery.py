@@ -1,7 +1,8 @@
-"""Builds gallery.html: all figures of the paper, old next to new, with captions and notes. Open the file with a double click.
+"""Builds docs/derse26_geographs/index.html (repository root): all figures of the paper, old next to new, with captions and notes.
+The page is self-contained (fonts, old and new images are copied next to it), so it opens with a double click and runs on GitHub Pages (folder /docs).
 Reads figures.yaml and captions.yaml; images come from gallery/old/ (downsized copies of the submitted figures) and out/ (new figures).
   cd /d C:\\git\\wikibase-static-help\\deRSE26\\figures && pip install pyyaml && python build_gallery.py"""
-import html, os, time, yaml
+import html, os, shutil, yaml
 HERE = os.path.dirname(os.path.abspath(__file__))
 F = yaml.safe_load(open(os.path.join(HERE, 'figures.yaml'), encoding='utf8'))
 C = yaml.safe_load(open(os.path.join(HERE, 'captions.yaml'), encoding='utf8'))
@@ -42,11 +43,20 @@ figure.new{{border-color:#c2410c;background:#fff}}figcaption{{font-weight:500;co
 #lb{{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:9;cursor:zoom-out;overflow:auto}}#lb img{{max-width:96vw;max-height:96vh;background:#fff}}
 @media(max-width:900px){{.pair{{grid-template-columns:1fr}}}}
 </style></head><body>
-<header><h1>From Relations to Graphs: figures, submitted and new</h1><div class="meta">deRSE26 / ECEASST, revision of November 2026. Generated {time.strftime("%d.%m.%Y %H:%M")}. Click an image to enlarge, Esc or click to close.</div></header>
+<header><h1>From Relations to Graphs: figures, submitted and new</h1><div class="meta">deRSE26 / ECEASST, revision of November 2026. Click an image to enlarge, Esc or click to close.</div></header>
 <main><table><tr><td><b>No.</b></td><td><b>Figure</b></td><td><b>Section</b></td><td><b>Status</b></td></tr>{rows}</table>
 {''.join(cards)}</main>
 <div id="lb"><img alt=""></div>
 <script>const lb=document.getElementById('lb'),li=lb.querySelector('img');document.querySelectorAll('a.zoom').forEach(a=>a.addEventListener('click',e=>{{e.preventDefault();li.src=a.href;lb.style.display='flex'}}));lb.addEventListener('click',()=>lb.style.display='none');document.addEventListener('keydown',e=>{{if(e.key==='Escape')lb.style.display='none'}});</script>
 </body></html>'''
-open(os.path.join(HERE, 'gallery.html'), 'w', encoding='utf8').write(page)
-print('wrote gallery.html', len(page) // 1024, 'KB')
+SITE = os.path.abspath(os.path.join(HERE, '..', '..', 'docs', 'derse26_geographs'))
+os.makedirs(SITE, exist_ok=True)
+shutil.copytree(os.path.join(HERE, 'fonts'), os.path.join(SITE, 'fonts'), dirs_exist_ok=True)
+shutil.copytree(os.path.join(HERE, 'gallery', 'old'), os.path.join(SITE, 'gallery', 'old'), dirs_exist_ok=True)
+os.makedirs(os.path.join(SITE, 'out'), exist_ok=True)
+for fn in os.listdir(os.path.join(HERE, 'out')):
+    if fn.endswith('.png'): shutil.copy2(os.path.join(HERE, 'out', fn), os.path.join(SITE, 'out', fn))
+open(os.path.join(SITE, 'index.html'), 'w', encoding='utf8').write(page)
+open(os.path.join(SITE, '..', '.nojekyll'), 'w').close()
+open(os.path.join(SITE, '..', 'index.html'), 'w', encoding='utf8').write('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=derse26_geographs/"><a href="derse26_geographs/">derse26_geographs</a>')
+print('wrote', os.path.join(SITE, 'index.html'), len(page) // 1024, 'KB')

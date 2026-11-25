@@ -40,4 +40,4 @@ Planned: Fig. 7, Fig. 6, and the additions Z2 (one findspot in RDF, LPG and HIN)
 
 Base-map layers: `prep_ne.py` slims the Natural Earth 10 m layers (rivers, lakes, land borders, populated places) to Europe: `data/ne_eu_*.json` (public domain).
 
-Gallery: `python build_gallery.py` (needs `pip install pyyaml`) writes `gallery.html`, all figures old next to new, from `figures.yaml` and `captions.yaml`; old images are downsized copies in `gallery/old/`.
+Gallery: `docs/derse26_geographs/index.html` in the repository root (GitHub Pages: folder `/docs`). `python build_gallery.py` (needs `pip install pyyaml`) rebuilds it from `figures.yaml` and `captions.yaml`, and every run of `figs.py` does so as well; fonts, old images (`gallery/old/`, downsized copies of the submitted figures) and `out/*.png` are copied next to the page, so it opens with a double click. No time stamp inside, so identical inputs give an identical file.
