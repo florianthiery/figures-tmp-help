@@ -617,10 +617,99 @@ def fig3():
     for k, p in enumerate(RL): cmrow(4 + k, 'R', p, True)
     f.done()
 
+# ---------------------------------------------------------------- Fig. 10: spatial classes of ArNO and the Poseidon network schema
+def fig10():
+    """Redraw of ARNONetworkSchema: (A) the spatial part of the ArNO class hierarchy, (B) the spatial node types of the Poseidon HIN.
+    Classes, labels, subclass edges, properties, domains and ranges are read from data/ArNO.ttl (archaeonatural-cloud/archaeonatural-ontology)
+    and asserted. What the Poseidon data really contain follows poseidon2lod/py/Poseidon2LOD.py (geometry only at the Discovery Site)."""
+    from rdflib import OWL
+    g = Graph(); g.parse(os.path.join(HERE, 'data/ArNO.ttl'), format='turtle')
+    AR, LADO, PL, CRM, GS, SFN = ('http://archaeonatural.cloud/ont/', 'http://archaeology.link/ontology#', 'http://pleiades.stoa.org/places/vocab#',
+                                  'http://www.cidoc-crm.org/cidoc-crm/', 'http://www.opengis.net/ont/geosparql#', 'http://www.opengis.net/ont/sf#')
+    def lab(iri):
+        v = [str(l) for l in g.objects(URIRef(iri), RDFS.label) if l.language == 'en']
+        assert v, iri
+        return v[0].replace('disovery', 'discovery')      # ArNO.ttl spells "disovery" in the label of foundAtDiscoverySite
+    def sub(c, p): assert (URIRef(c), RDFS.subClassOf, URIRef(p)) in g, (c, p)
+    # tree: parent -> children (x centre, row)
+    N = {  # key: (iri, x, row)
+        'e1': (CRM + 'E1_CRM_Entity', 1045, 0), 'ppl': (PL + 'Place', 1045, 1), 'e53': (CRM + 'E53_Place', 640, 2), 'lplace': (LADO + 'Place', 1450, 2),
+        'cty': (AR + 'Country', 1330, 3), 'plc': (AR + 'Place', 1580, 3), 'so': (GS + 'SpatialObject', 640, 3),
+        'feat': (GS + 'Feature', 175, 4), 'geom': (GS + 'Geometry', 470, 4), 'ploc': (PL + 'Location', 1230, 4),
+        'sfg': (SFN + 'Geometry', 470, 5), 'sfp': (SFN + 'Point', 470, 6),
+        'lloc': (LADO + 'Location', 960, 5), 'ds': (AR + 'DiscoverySite', 1260, 5), 'site': (AR + 'Site', 1480, 5),
+        'lds': (LADO + 'DiscoverySite', 690, 6), 'kiln': (LADO + 'KilnRegion', 960, 6), 'rep': (LADO + 'RepositoryLocation', 1290, 6), 'prod': (LADO + 'ProductionCentre', 960, 7)}
+    TREE = {'e1': ['ppl'], 'ppl': ['e53', 'lplace'], 'lplace': ['cty', 'plc'], 'e53': ['so'], 'so': ['feat', 'geom', 'ploc'], 'geom': ['sfg'], 'sfg': ['sfp'],
+            'ploc': ['lloc', 'ds', 'site'], 'lloc': ['lds', 'kiln', 'rep'], 'kiln': ['prod']}
+    for p, cs in TREE.items():
+        for c in cs: sub(N[c][0], N[p][0])
+    ARNO_CLS = {'cty', 'plc', 'ds', 'site'}
+    f = Fig('fig10_arno_spatial', 1690)
+    def frame(y0, y1): f.o.append(f'<rect x="20" y="{y0}" width="1660" height="{y1 - y0}" rx="16" fill="none" stroke="#d4d4d0" stroke-width="3"/>')
+    def title(x, y, tag, text):
+        f.o.append(f'<rect x="{x}" y="{y}" width="40" height="40" rx="6" fill="#000"/>'); f.text(x + 20, y + 30, tag, 28, 500, '#fff'); f.text(x + 56, y + 30, text, 28, 500, INK, 'start')
+    def node(cx, cy, text, fill, tc, red=False, dash=False, w=None):
+        w = w or tw(text, MIN_TYPE) + 40
+        f.box(cx - w / 2, cy - 22, w, 44, fill, [text], RED if red else '#000', 4 if red else 2, 22 if fill == CLS else 8, tc, dash=dash)
+        return w
+    def line(x1, y1, x2, y2, d=False, mk=True):
+        da = ' stroke-dasharray="10 7"' if d else ''
+        mk_ = ' marker-end="url(#a)"' if mk else ''
+        f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#000" stroke-width="2.5"{da}{mk_}/>')
+    def edge(x1, y1, x2, y2, label): line(x1, y1, x2, y2); f.chip((x1 + x2) / 2, (y1 + y2) / 2, label)
+    # ---- A: class hierarchy
+    frame(10, 840); title(44, 28, 'A', 'ArNO class hierarchy, spatial part')
+    PITCH, Y0 = 92, 140
+    cy = lambda r: Y0 + r * PITCH
+    W_ = {}
+    for k, (iri, x, r) in N.items():
+        W_[k] = node(x, cy(r), lab(iri), CLS, '#fff', red=k in ARNO_CLS)
+    for p, cs in TREE.items():
+        px, pr = N[p][1], N[p][2]; pb = cy(pr) + 22; bus = pb + 18 + 22
+        f.o.append(f'<path d="M{px - 13},{pb + 20} L{px + 13},{pb + 20} L{px},{pb} Z" fill="#fff" stroke="#000" stroke-width="2.5"/>')
+        xs = [N[c][1] for c in cs] + [px]
+        line(px, pb + 20, px, bus, mk=False)
+        if len(cs) > 1 or cs[0] and N[cs[0]][1] != px: line(min(xs), bus, max(xs), bus, mk=False)
+        for c in cs: line(N[c][1], bus, N[c][1], cy(N[c][2]) - 22, mk=False)
+    # key
+    kx, ky = 60, 110
+    f.o.append(f'<rect x="{kx}" y="{ky}" width="470" height="230" rx="12" fill="#fafaf8" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="10 6"/>')
+    f.text(kx + 20, ky + 40, 'Key', 24, 500, INK, 'start')
+    node(kx + 110, ky + 88, 'Class', CLS, '#fff', w=160)
+    node(kx + 110, ky + 146, 'ArNO class', CLS, '#fff', red=True, w=160)
+    f.o.append(f'<path d="M{kx + 40},{ky + 208} L{kx + 66},{ky + 208} L{kx + 53},{ky + 188} Z" fill="#fff" stroke="#000" stroke-width="2.5"/>'); f.text(kx + 90, ky + 206, 'is a subclass of', 24, 400, INK, 'start')
+    f.text(kx + 220, ky + 96, 'class of an ontology', 24, 400, INK, 'start', maxw=240); f.text(kx + 220, ky + 154, 'defined in ArNO', 24, 400, INK, 'start', maxw=240)
+    # ---- B: network schema
+    frame(860, 1670); title(44, 878, 'B', 'Network schema of the Poseidon data, spatial part')
+    for p, dom, rng in [('foundAtDiscoverySite', 'Sample', 'DiscoverySite'), ('atSite', 'DiscoverySite', 'Site'), ('atPlace', 'Site', 'Place'), ('inCountry', 'Place', 'Country')]:
+        P = URIRef(AR + p); assert (P, RDFS.domain, URIRef(AR + dom)) in g and (P, RDFS.range, URIRef(AR + rng)) in g, p
+    assert (URIRef(AR + 'aDNASample'), RDFS.subClassOf, URIRef(AR + 'BiologicalSample')) in g and (URIRef(AR + 'BiologicalSample'), RDFS.subClassOf, URIRef(AR + 'Sample')) in g
+    assert (URIRef(AR + 'hasISOCode'), RDFS.domain, URIRef(AR + 'Country')) in g and (URIRef(AR + 'hasLabel'), RDFS.domain, None) in g
+    assert (URIRef(GS + 'asWKT'), RDFS.domain, URIRef(GS + 'SpatialObject')) in g
+    BX = 800; rows = [1010, 1150, 1290, 1430, 1570]
+    chain = [(AR + 'aDNASample', None), (AR + 'DiscoverySite', 'foundAtDiscoverySite'), (AR + 'Site', 'atSite'), (AR + 'Place', 'atPlace'), (AR + 'Country', 'atPlace')]
+    props = [None, AR + 'foundAtDiscoverySite', AR + 'atSite', AR + 'atPlace', AR + 'inCountry']
+    wd_ = []
+    for (iri, _), y in zip(chain, rows): wd_.append(node(BX, y, lab(iri), CLS, '#fff'))
+    for i in range(1, 5): edge(BX, rows[i - 1] + 22, BX, rows[i] - 22, lab(props[i]))
+    # labels (left) and ISO code (right)
+    for i in range(1, 5):
+        lw = node(300, rows[i], 'Label', '#fff', INK, w=130)
+        edge(BX - wd_[i] / 2, rows[i], 300 + lw / 2, rows[i], lab(AR + 'hasLabel'))
+    iw = node(1210, rows[4], 'ISO code', '#fff', INK, w=170)
+    edge(BX + wd_[4] / 2, rows[4], 1210 - iw / 2, rows[4], lab(AR + 'hasISOCode'))
+    # geometry of the Discovery Site (poseidon2lod: geo:hasGeometry -> sf:Point -> geo:asWKT)
+    pw = node(1210, rows[1], lab(SFN + 'Point'), CLS, '#fff')
+    edge(BX + wd_[1] / 2, rows[1], 1210 - pw / 2, rows[1], lab(GS + 'hasGeometry'))
+    ww = node(1560, rows[1], 'WKT literal', '#fff', INK)
+    edge(1210 + pw / 2, rows[1], 1560 - ww / 2, rows[1], lab(GS + 'asWKT'))
+    f.done()
+
 if __name__ == '__main__':
     want = sys.argv[1:] or ['fig4']
     if 'fig4' in want: fig4()
     if 'fig3' in want: fig3()
+    if 'fig10' in want: fig10()
     if 'z3' in want: z3()
     if 'z2' in want: z2()
     if 'fig7' in want: fig7()

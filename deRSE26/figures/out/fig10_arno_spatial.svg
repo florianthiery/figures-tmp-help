@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1690" viewBox="0 0 1700 1690"><rect width="1700" height="1690" fill="#ffffff"/><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs><rect x="20" y="10" width="1660" height="830" rx="16" fill="none" stroke="#d4d4d0" stroke-width="3"/>
+<rect x="44" y="28" width="40" height="40" rx="6" fill="#000"/>
+<text x="64.0" y="58.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">A</text>
+<text x="100.0" y="58.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">ArNO class hierarchy, spatial part</text>
+<rect x="953.0" y="118.0" width="184.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1045.0" y="148.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">E1 CRM Entity</text>
+<rect x="947.0" y="210.0" width="196.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1045.0" y="240.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Pleiades Place</text>
+<rect x="570.0" y="302.0" width="140.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="640.0" y="332.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">E53 Place</text>
+<rect x="1298.0" y="302.0" width="304.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1450.0" y="332.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">LADO Place as a Concept</text>
+<rect x="1267.5" y="394.0" width="125.0" height="44.0" rx="22" fill="#9a3412" stroke="#dc2626" stroke-width="4"/>
+<text x="1330.0" y="424.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Country</text>
+<rect x="1531.0" y="394.0" width="98.0" height="44.0" rx="22" fill="#9a3412" stroke="#dc2626" stroke-width="4"/>
+<text x="1580.0" y="424.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Place</text>
+<rect x="478.5" y="394.0" width="323.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="640.0" y="424.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">GeoSPARQL Spatial Object</text>
+<rect x="48.5" y="486.0" width="253.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="175.0" y="516.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">GeoSPARQL Feature</text>
+<rect x="331.5" y="486.0" width="277.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="470.0" y="516.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">GeoSPARQL Geometry</text>
+<rect x="1114.0" y="486.0" width="232.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1230.0" y="516.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Pleiades Location</text>
+<rect x="382.0" y="578.0" width="176.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="470.0" y="608.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">SF Geometry</text>
+<rect x="406.0" y="670.0" width="128.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="470.0" y="700.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">SF Point</text>
+<rect x="861.5" y="578.0" width="197.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="960.0" y="608.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">LADO Location</text>
+<rect x="1164.0" y="578.0" width="192.0" height="44.0" rx="22" fill="#9a3412" stroke="#dc2626" stroke-width="4"/>
+<text x="1260.0" y="608.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Discovery Site</text>
+<rect x="1439.0" y="578.0" width="82.0" height="44.0" rx="22" fill="#9a3412" stroke="#dc2626" stroke-width="4"/>
+<text x="1480.0" y="608.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Site</text>
+<rect x="562.5" y="670.0" width="255.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="690.0" y="700.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">LADO Discovery Site</text>
+<rect x="847.0" y="670.0" width="226.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="960.0" y="700.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">LADO Kiln Region</text>
+<rect x="1130.0" y="670.0" width="320.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1290.0" y="700.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">LADO Repository Location</text>
+<rect x="810.0" y="762.0" width="300.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="960.0" y="792.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">LADO Production Centre</text>
+<path d="M1032,182 L1058,182 L1045,162 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="1045.0" y1="182.0" x2="1045.0" y2="202.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1045.0" y1="202.0" x2="1045.0" y2="210.0" stroke="#000" stroke-width="2.5"/>
+<path d="M1032,274 L1058,274 L1045,254 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="1045.0" y1="274.0" x2="1045.0" y2="294.0" stroke="#000" stroke-width="2.5"/>
+<line x1="640.0" y1="294.0" x2="1450.0" y2="294.0" stroke="#000" stroke-width="2.5"/>
+<line x1="640.0" y1="294.0" x2="640.0" y2="302.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1450.0" y1="294.0" x2="1450.0" y2="302.0" stroke="#000" stroke-width="2.5"/>
+<path d="M1437,366 L1463,366 L1450,346 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="1450.0" y1="366.0" x2="1450.0" y2="386.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1330.0" y1="386.0" x2="1580.0" y2="386.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1330.0" y1="386.0" x2="1330.0" y2="394.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1580.0" y1="386.0" x2="1580.0" y2="394.0" stroke="#000" stroke-width="2.5"/>
+<path d="M627,366 L653,366 L640,346 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="640.0" y1="366.0" x2="640.0" y2="386.0" stroke="#000" stroke-width="2.5"/>
+<line x1="640.0" y1="386.0" x2="640.0" y2="394.0" stroke="#000" stroke-width="2.5"/>
+<path d="M627,458 L653,458 L640,438 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="640.0" y1="458.0" x2="640.0" y2="478.0" stroke="#000" stroke-width="2.5"/>
+<line x1="175.0" y1="478.0" x2="1230.0" y2="478.0" stroke="#000" stroke-width="2.5"/>
+<line x1="175.0" y1="478.0" x2="175.0" y2="486.0" stroke="#000" stroke-width="2.5"/>
+<line x1="470.0" y1="478.0" x2="470.0" y2="486.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1230.0" y1="478.0" x2="1230.0" y2="486.0" stroke="#000" stroke-width="2.5"/>
+<path d="M457,550 L483,550 L470,530 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="470.0" y1="550.0" x2="470.0" y2="570.0" stroke="#000" stroke-width="2.5"/>
+<line x1="470.0" y1="570.0" x2="470.0" y2="578.0" stroke="#000" stroke-width="2.5"/>
+<path d="M457,642 L483,642 L470,622 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="470.0" y1="642.0" x2="470.0" y2="662.0" stroke="#000" stroke-width="2.5"/>
+<line x1="470.0" y1="662.0" x2="470.0" y2="670.0" stroke="#000" stroke-width="2.5"/>
+<path d="M1217,550 L1243,550 L1230,530 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="1230.0" y1="550.0" x2="1230.0" y2="570.0" stroke="#000" stroke-width="2.5"/>
+<line x1="960.0" y1="570.0" x2="1480.0" y2="570.0" stroke="#000" stroke-width="2.5"/>
+<line x1="960.0" y1="570.0" x2="960.0" y2="578.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1260.0" y1="570.0" x2="1260.0" y2="578.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1480.0" y1="570.0" x2="1480.0" y2="578.0" stroke="#000" stroke-width="2.5"/>
+<path d="M947,642 L973,642 L960,622 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="960.0" y1="642.0" x2="960.0" y2="662.0" stroke="#000" stroke-width="2.5"/>
+<line x1="690.0" y1="662.0" x2="1290.0" y2="662.0" stroke="#000" stroke-width="2.5"/>
+<line x1="690.0" y1="662.0" x2="690.0" y2="670.0" stroke="#000" stroke-width="2.5"/>
+<line x1="960.0" y1="662.0" x2="960.0" y2="670.0" stroke="#000" stroke-width="2.5"/>
+<line x1="1290.0" y1="662.0" x2="1290.0" y2="670.0" stroke="#000" stroke-width="2.5"/>
+<path d="M947,734 L973,734 L960,714 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<line x1="960.0" y1="734.0" x2="960.0" y2="754.0" stroke="#000" stroke-width="2.5"/>
+<line x1="960.0" y1="754.0" x2="960.0" y2="762.0" stroke="#000" stroke-width="2.5"/>
+<rect x="60" y="110" width="470" height="230" rx="12" fill="#fafaf8" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="80.0" y="150.0" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="start">Key</text>
+<rect x="90.0" y="176.0" width="160.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="170.0" y="206.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Class</text>
+<rect x="90.0" y="234.0" width="160.0" height="44.0" rx="22" fill="#9a3412" stroke="#dc2626" stroke-width="4"/>
+<text x="170.0" y="264.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">ArNO class</text>
+<path d="M100,318 L126,318 L113,298 Z" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="150.0" y="316.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">is a subclass of</text>
+<text x="280.0" y="206.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">class of an ontology</text>
+<text x="280.0" y="264.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">defined in ArNO</text>
+<rect x="20" y="860" width="1660" height="810" rx="16" fill="none" stroke="#d4d4d0" stroke-width="3"/>
+<rect x="44" y="878" width="40" height="40" rx="6" fill="#000"/>
+<text x="64.0" y="908.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">B</text>
+<text x="100.0" y="908.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Network schema of the Poseidon data, spatial part</text>
+<rect x="670.5" y="988.0" width="259.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="800.0" y="1018.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">ancient DNA Sample</text>
+<rect x="704.0" y="1128.0" width="192.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="800.0" y="1158.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Discovery Site</text>
+<rect x="759.0" y="1268.0" width="82.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="800.0" y="1298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Site</text>
+<rect x="751.0" y="1408.0" width="98.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="800.0" y="1438.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Place</text>
+<rect x="737.5" y="1548.0" width="125.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="800.0" y="1578.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Country</text>
+<line x1="800.0" y1="1032.0" x2="800.0" y2="1128.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="662.0" y="1058.0" width="276.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="800.0" y="1088.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">found at discovery site</text>
+<line x1="800.0" y1="1172.0" x2="800.0" y2="1268.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="752.0" y="1198.0" width="96.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="800.0" y="1228.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">at site</text>
+<line x1="800.0" y1="1312.0" x2="800.0" y2="1408.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="743.0" y="1338.0" width="114.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="800.0" y="1368.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">at place</text>
+<line x1="800.0" y1="1452.0" x2="800.0" y2="1548.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="731.0" y="1478.0" width="138.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="800.0" y="1508.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">in country</text>
+<rect x="235.0" y="1128.0" width="130.0" height="44.0" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="300.0" y="1158.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Label</text>
+<line x1="704.0" y1="1150.0" x2="365.0" y2="1150.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="471.5" y="1128.0" width="126.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="534.5" y="1158.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has label</text>
+<rect x="235.0" y="1268.0" width="130.0" height="44.0" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="300.0" y="1298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Label</text>
+<line x1="759.0" y1="1290.0" x2="365.0" y2="1290.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="499.0" y="1268.0" width="126.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="562.0" y="1298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has label</text>
+<rect x="235.0" y="1408.0" width="130.0" height="44.0" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="300.0" y="1438.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Label</text>
+<line x1="751.0" y1="1430.0" x2="365.0" y2="1430.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="495.0" y="1408.0" width="126.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="558.0" y="1438.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has label</text>
+<rect x="235.0" y="1548.0" width="130.0" height="44.0" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="300.0" y="1578.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Label</text>
+<line x1="737.5" y1="1570.0" x2="365.0" y2="1570.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="488.2" y="1548.0" width="126.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="551.2" y="1578.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has label</text>
+<rect x="1125.0" y="1548.0" width="170.0" height="44.0" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1210.0" y="1578.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">ISO code</text>
+<line x1="862.5" y1="1570.0" x2="1125.0" y2="1570.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="910.8" y="1548.0" width="166.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="993.8" y="1578.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has ISO code</text>
+<rect x="1146.0" y="1128.0" width="128.0" height="44.0" rx="22" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1210.0" y="1158.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">SF Point</text>
+<line x1="896.0" y1="1150.0" x2="1146.0" y2="1150.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="933.0" y="1128.0" width="176.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1021.0" y="1158.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has geometry</text>
+<rect x="1481.5" y="1128.0" width="157.0" height="44.0" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1560.0" y="1158.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">WKT literal</text>
+<line x1="1274.0" y1="1150.0" x2="1481.5" y2="1150.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="1325.8" y="1128.0" width="104.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1377.8" y="1158.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">as WKT</text></svg>

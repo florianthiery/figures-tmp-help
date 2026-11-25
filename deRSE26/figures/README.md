@@ -18,7 +18,9 @@ cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow
 
 | `fig3_fuzzysl_datamodel` | Fig. 3 (old data-model picture) | Geolocation metadata (GLM) and coordinate metadata (CM) of a fuzzy-sl entity: properties, qualifiers, references, value classes | `data/wb/*.json` (properties P1 to P33, classes Q2 to Q125, witness item Q70) |
 
-Planned: Fig. 7, Fig. 6, Fig. 10, and the additions Z2 (one findspot in RDF, LPG and HIN) and Z3 (map of the showcases). Captions: `captions.yaml`.
+| `fig10_arno_spatial` | Fig. 10 (ArNO class tree and HIN schema) | (A) spatial part of the ArNO class hierarchy; (B) spatial node types of the Poseidon network schema with properties | `data/ArNO.ttl` (archaeonatural-cloud/archaeonatural-ontology, commit 5b1ad40, 2025-08-28); structure of the Poseidon data after archaeonatural-cloud/poseidon2lod `py/Poseidon2LOD.py` |
+
+Planned: Fig. 7, Fig. 6, and the additions Z2 (one findspot in RDF, LPG and HIN) and Z3 (map of the showcases). Captions: `captions.yaml`.
 
 ## Data
 

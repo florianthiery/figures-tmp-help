@@ -22,6 +22,18 @@ fig3_fuzzysl_datamodel:
     external resource; white: literal; black: coordinate. Property labels and classes are those of the static copy of
     the fuzzy-sl Wikibase. Licence: Florian Thiery, CC BY 4.0.
 
+fig10_arno_spatial:
+  replaces: Fig. 10
+  caption: >-
+    Spatial classes of the Archaeo-Natural Ontology (ArNO) and their use in the Poseidon network schema. (A) Class
+    hierarchy: hollow arrows point from a subclass to its superclass; the four classes defined in ArNO (red outline,
+    Discovery Site, Site, Place, Country) sit below the Pleiades, LADO, GeoSPARQL and CIDOC CRM classes that they extend.
+    (B) The spatial node types of the Poseidon network: an ancient DNA sample is found at a discovery site, which lies
+    at a site, at a place, in a country; the discovery site has a point geometry with a WKT literal, and the
+    nodes carry labels and, for the country, an ISO code. Dark orange: classes; white: literals; amber: object and
+    data properties. Redrawn after Mattis thor Straten et al. (2025) from ArNO and poseidon2lod. Licence: Mattis thor
+    Straten and Florian Thiery, CC BY 4.0.
+
 z2_one_stone_five_models:
   replaces: new figure (end of Section 3 or Section 4; placement open)
   caption: >-
