@@ -838,12 +838,14 @@ def fig9():
     ang = [0, 60, 120, 180, 240, 300]
     outer = [V(R, a) for a in ang]; inner = [V(r, a) for a in ang]
     pts_ = lambda P: ' '.join(f'{x:.1f},{y:.1f}' for x, y in P)
-    f.o.append(f'<polygon points="{pts_(outer)}" fill="#fff" stroke="#d9dbe3" stroke-width="12" stroke-linejoin="round"/>')
-    for (x1, y1), (x2, y2) in zip(outer, inner): f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#b3bfd9" stroke-width="12"/>')
-    f.o.append(f'<polygon points="{pts_(inner)}" fill="#fff" stroke="#d9dbe3" stroke-width="14" stroke-linejoin="round"/>')
-    f.text(cx, cy - 66, 'Cultural', 52, 700, BLUE, maxw=2 * r - 160)
-    f.text(cx, cy + 12, 'CIDOC', 36, 400, INK); f.text(cx, cy + 58, 'CRM', 36, 400, INK)
-    f.text(cx, cy + 136, 'Heritage', 52, 700, BLUE, maxw=2 * r - 160)
+    PAST, NAVY = ['#dce6f5', '#b9cbe8'], '#1f3a6b'      # six outer sectors in alternating pastel blues, dark blue core
+    for i in range(6):
+        q = [outer[i], outer[(i + 1) % 6], inner[(i + 1) % 6], inner[i]]
+        f.o.append(f'<polygon points="{pts_(q)}" fill="{PAST[i % 2]}" stroke="#fff" stroke-width="12" stroke-linejoin="round"/>')
+    f.o.append(f'<polygon points="{pts_(inner)}" fill="{NAVY}" stroke="#fff" stroke-width="12" stroke-linejoin="round"/>')
+    f.text(cx, cy - 66, 'Cultural', 52, 700, '#fff', maxw=2 * r - 160)
+    f.text(cx, cy + 12, 'CIDOC', 40, 400, '#fff'); f.text(cx, cy + 60, 'CRM', 40, 400, '#fff')
+    f.text(cx, cy + 136, 'Heritage', 52, 700, '#fff', maxw=2 * r - 160)
     d = ap + 78
     def lab(deg, rot, lines):
         x, y = V(d, deg); n = len(lines)
@@ -857,7 +859,7 @@ def fig9():
     k = 2.655                                           # positions of the ontology names measured in the original (580 px hexagon width)
     for t, x, y in [('FOAF', 362, 165), ('CRMdig', 218, 226), ('PROV-O', 176, 296), ('dcterms', 493, 233), ('BIBO', 524, 286), ('OWL-TIME', 199, 392),
                     ('EDTF', 228, 460), ('GeoSPARQL', 524, 396), ('Pleiades', 508, 471), ('UBERON', 361, 485), ('GSSO', 301, 555), ('PATO', 427, 555)]:
-        f.text(cx + (x - 362) * k, cy + (y - 343) * k + 15, t, 44, 400, INK)
+        f.text(cx + (x - 362) * k, cy + (y - 343) * k + 15, t, 56, 700, '#1b2f55', maxw=330)
     f.done()
 
 if __name__ == '__main__':

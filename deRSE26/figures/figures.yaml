@@ -95,7 +95,7 @@ figures:
   caption_old: The ontologies combined in the ArNO ontology grouped by the concept domain they are used for. Licence -- Mattis thor Straten et al., CC BY
     4.0.
   notes:
-  - "1:1 redraw of the original after the screenshot Flo supplied (the 644 px file was transparent and showed no ontology names): hexagon, six domains and the twelve ontology names (FOAF, CRMdig, PROV-O, dcterms, BIBO, OWL-TIME, EDTF, GeoSPARQL, Pleiades, UBERON, GSSO, PATO) at the original positions; Fira Sans Bold in the original blue (#2f5597), original line colours, opaque white background; only typeface and resolution differ"
+  - "1:1 redraw of the original after the screenshot Flo supplied (the 644 px file was transparent and showed no ontology names): hexagon, six domains and the twelve ontology names (FOAF, CRMdig, PROV-O, dcterms, BIBO, OWL-TIME, EDTF, GeoSPARQL, Pleiades, UBERON, GSSO, PATO) at the original positions; Fira Sans Bold in the original blue (#2f5597) for the domains; at Flo's request the ontology names are larger and bold, the core is dark blue (#1f3a6b) and the six sectors alternate in two pastel blues; opaque white background"
   - "The original is by Mattis thor Straten et al. (CC BY 4.0): say in the caption that it is redrawn after the original, and let him look at it"
 - n: 10
   old: ARNONetworkSchema.png
