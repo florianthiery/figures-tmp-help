@@ -7,7 +7,7 @@ Use the PNG in LaTeX: the SVG names Fira Sans without embedding it. A text that 
 ## Run (Windows cmd, one line)
 
 ```
-cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow rdflib && python fetch_wd.py && python figs.py fig4 fig7 z2 z3
+cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow rdflib pyyaml && python fetch_wd.py && python figs.py fig4 fig7 z2 z3
 ```
 
 ## Figures (numbers as in the submitted PDF)
@@ -35,3 +35,5 @@ Planned: Fig. 7, Fig. 6, Fig. 3, Fig. 10, and the additions Z2 (one findspot in 
 | `fig6_place_taxonomy` | Fig. 6 (slice) | place classes with their CRM, CRMarchaeo, GeoSPARQL anchors; every arrow is checked against the ontology files | `ontology/*.ttl`, `SISAL/rdf/sisal_ontology.ttl`, `EPICA/rdf/epica_ontology.ttl` of GeoScience-FAIRification-LOD (clone path in `GEOLOD_DIR`, default Linux path in `figs.py`) |
 
 Base-map layers: `prep_ne.py` slims the Natural Earth 10 m layers (rivers, lakes, land borders, populated places) to Europe: `data/ne_eu_*.json` (public domain).
+
+Gallery: `python build_gallery.py` (needs `pip install pyyaml`) writes `gallery.html`, all figures old next to new, from `figures.yaml` and `captions.yaml`; old images are downsized copies in `gallery/old/`.

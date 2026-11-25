@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1450" viewBox="0 0 1700 1450"><rect width="1700" height="1450" fill="#ffffff"/><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs><rect x="20" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1560" viewBox="0 0 1700 1560"><rect width="1700" height="1560" fill="#ffffff"/><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs><rect x="20" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
 <text x="40.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">A</text>
 <text x="76.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Place classes and their anchors</text>
 <rect x="51.0" y="100.0" width="198.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
@@ -59,33 +59,37 @@
 <rect x="20" y="920" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
 <text x="40.0" y="950.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">B</text>
 <text x="76.0" y="950.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Geometry pattern (GeoSPARQL, Simple Features, CRMgeo)</text>
-<rect x="164.5" y="1020.0" width="171.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="250.0" y="1068.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:Feature</text>
-<rect x="662.5" y="1020.0" width="195.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="760.0" y="1068.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:Geometry</text>
-<rect x="1141.5" y="1020.0" width="377.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1330.0" y="1068.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">crmgeo:SP6_Declarative_Place</text>
-<rect x="641.5" y="1250.0" width="197.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="740.0" y="1298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:wktLiteral</text>
-<rect x="986.5" y="1250.0" width="127.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1050.0" y="1298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">sf:Point</text>
-<line x1="335.5" y1="1060.0" x2="662.5" y2="1060.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
-<rect x="390.5" y="1038.0" width="217.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="499.0" y="1068.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:hasGeometry</text>
-<line x1="740.0" y1="1100.0" x2="740.0" y2="1250.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
-<rect x="668.5" y="1143.0" width="143.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="740.0" y="1173.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:asWKT</text>
-<line x1="1050" y1="1250" x2="1050" y2="1180" stroke="#000" stroke-width="2.5"/>
-<line x1="830" y1="1180" x2="1330" y2="1180" stroke="#000" stroke-width="2.5"/>
-<line x1="830" y1="1180" x2="830" y2="1126" stroke="#000" stroke-width="2.5"/>
-<polygon points="830,1100 815,1127 845,1127" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
-<line x1="1330" y1="1180" x2="1330" y2="1126" stroke="#000" stroke-width="2.5"/>
-<polygon points="1330,1100 1315,1127 1345,1127" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
-<rect x="20" y="1379" width="44" height="32" rx="8" fill="#9a3412" stroke="#000" stroke-width="2"/>
-<text x="76.0" y="1403.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">class of the geo-lod ontologies</text>
-<rect x="520" y="1379" width="44" height="32" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="576.0" y="1403.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">external class</text>
-<polygon points="860,1381 845,1408 875,1408" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
-<text x="895.0" y="1403.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">inherits from (rdfs:subClassOf)</text>
-<rect x="1360" y="1375" width="60" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="1436.0" y="1403.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">property</text></svg>
+<rect x="164.5" y="1010.0" width="171.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="250.0" y="1058.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:Feature</text>
+<rect x="90.0" y="1170.0" width="320.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="250.0" y="1218.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:SamplingLocation</text>
+<line x1="250" y1="1170" x2="250" y2="1116" stroke="#000" stroke-width="2.5"/>
+<polygon points="250,1090 235,1117 265,1117" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="802.5" y="1170.0" width="195.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="900.0" y="1218.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:Geometry</text>
+<rect x="1241.5" y="1170.0" width="377.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1430.0" y="1218.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">crmgeo:SP6_Declarative_Place</text>
+<rect x="781.5" y="1390.0" width="197.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="880.0" y="1438.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:wktLiteral</text>
+<rect x="1136.5" y="1390.0" width="127.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="1438.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">sf:Point</text>
+<line x1="410.0" y1="1210.0" x2="802.5" y2="1210.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="497.8" y="1188.0" width="217.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="606.2" y="1218.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:hasGeometry</text>
+<line x1="880.0" y1="1250.0" x2="880.0" y2="1390.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="808.5" y="1288.0" width="143.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="880.0" y="1318.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:asWKT</text>
+<line x1="1200" y1="1390" x2="1200" y2="1320" stroke="#000" stroke-width="2.5"/>
+<line x1="970" y1="1320" x2="1430" y2="1320" stroke="#000" stroke-width="2.5"/>
+<line x1="970" y1="1320" x2="970" y2="1276" stroke="#000" stroke-width="2.5"/>
+<polygon points="970,1250 955,1277 985,1277" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="1430" y1="1320" x2="1430" y2="1276" stroke="#000" stroke-width="2.5"/>
+<polygon points="1430,1250 1415,1277 1445,1277" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="20" y="1489" width="44" height="32" rx="8" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="76.0" y="1513.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">class of the geo-lod ontologies</text>
+<rect x="520" y="1489" width="44" height="32" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="576.0" y="1513.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">external class</text>
+<polygon points="860,1491 845,1518 875,1518" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="895.0" y="1513.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">inherits from (rdfs:subClassOf)</text>
+<rect x="1360" y="1485" width="60" height="40" rx="20" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1436.0" y="1513.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">property</text></svg>

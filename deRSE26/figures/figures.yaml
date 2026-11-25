@@ -1,0 +1,123 @@
+figures:
+- n: 1
+  old: fkge.jpg
+  section: §1 Introduction
+  status: keep
+  title: Federated Knowledge Graph Ecosystem
+  new: null
+  caption_old: Scheme of the Federated Knowledge Graph Ecosystem. Licence -- Florian Thiery & Andreas Noback, CC BY 4.0
+  notes:
+  - 'Source: thiery_stones_2026, Fig. 1'
+  - Typo "Publikation" in the image (to be fixed at the source)
+- n: 2
+  old: ogham-wikidata.jpg
+  section: §5.1 Wikidata
+  status: keep
+  title: Ogham stone in Wikidata and the fuzzy-sl Wikibase
+  new: null
+  caption_old: Ogham Stone CIIC 81 and its spatial locations in Wikidata and the fuzzy-sl Wikibase. Licence -- Florian Thiery, CC BY 4.0; (A) Wikidata Community,
+    Public Domain; (B) Florian Thiery, CC BY-NC-SA 4.0; (C/E) Research Squirrel Engineers Network, CC BY 4.0; (E) \copyright~\'O R\'{\i}ord\'ain and Ryan;
+    (F) OpenStreetMap Contributors, Open Database License.
+  notes:
+  - Screenshots; z2 (below) can complement it as a model comparison
+  - 'Reviewer C refers to "Section 5, Figure 2": probably this figure (assumption)'
+- n: 3
+  old: fuzzy-sl_Wikibase.jpg
+  section: §5.2 fuzzy-sl
+  status: todo
+  title: Schematic data model of the fuzzy-sl Wikibase
+  new: null
+  caption_old: Schematic data model of the fuzzy-sl Wikibase. License -- Florian Thiery, CC BY 4.0.
+  notes:
+  - Redraw in the new style (next step)
+- n: 4
+  old: ci-fuzzy-sl-wikibase.jpg
+  section: §5.2 fuzzy-sl
+  status: done
+  title: Campanian Ignimbrite findspots in the fuzzy-sl Wikibase
+  new: fig4_ci_findspots
+  caption_old: 'Geospatial modelling of Campanian Ignimbrite Findspots within the fuzzy-sl Wikibase. Licence -- Florian Thiery & Fiona Schenk, CC BY 4.0;
+    OSM maps: OpenStreetMap Contributors, Open Database License.'
+  notes:
+  - 'v3: archaeology vs. other, Auel Maar AU3 from the static Wikibase copy, minimap'
+  - Static Wikibase has 19 CI items, the graph 74
+- n: 5
+  old: bb-5kbc-ontology.jpg
+  section: §5.3 BB-5KBC
+  status: keep
+  title: The bb5kbc ontology
+  new: null
+  caption_old: The bb5kbc Ontology. Licence -- Florian Thiery & Sophie C. Schmidt, CC BY 4.0.
+  notes:
+  - Check the triple counts against the repository
+- n: 6
+  old: taxonomy.png
+  section: §5.4 Pipeline
+  status: done
+  title: Ontology scheme of the palaeoclimate pipeline
+  new: fig6_place_taxonomy
+  caption_old: Ontology Scheme of the Palaeoclimate Data Processing Pipeline (GeoSciece-FAIRification-LOD). Licence -- Florian Thiery & Fiona Schenk, CC
+    BY 4.0.
+  notes:
+  - 'Slice: place classes and geometry pattern; the full scheme could move to the supplement'
+  - '"GeoSciece" typo disappears with the new figure'
+- n: 7
+  old: instance_ci.png
+  section: §5.4 Pipeline
+  status: done
+  title: CI instances
+  new: fig7_ci_instances
+  caption_old: CI Instances Scheme. Licence -- Florian Thiery & Fiona Schenk, CC BY 4.0.
+  notes:
+  - Toplitsa and Franchthi, every value read from the graph
+  - Text says 9 archaeological sites, the graph has 12
+- n: 8
+  old: BigExchangeMetaPath.png
+  section: §5.6 HIN
+  status: keep
+  title: Big Exchange meta path
+  new: null
+  caption_old: The meta path connecting two materials through finds of these materials that are found in sites with geolocations that share a spatially
+    similar geolocation. Licence -- Mattis thor Straten et al., CC BY 4.0.
+  notes:
+  - From thor Straten et al. (CC BY 4.0); keeps its own look
+- n: 9
+  old: ARNO.png
+  section: §5.7 HIN to KG
+  status: keep
+  title: ArNO ontology modules
+  new: null
+  caption_old: The ontologies combined in the ArNO ontology grouped by the concept domain they are used for. Licence -- Mattis thor Straten et al., CC BY
+    4.0.
+  notes:
+  - 'Low resolution (644 x 671 px): ask for a better source'
+- n: 10
+  old: ARNONetworkSchema.png
+  section: §5.7 HIN to KG
+  status: todo
+  title: Mapping of HIN node types to ArNO classes
+  new: null
+  caption_old: The mapping of the spatial node types of the HIN networks schema (on the right) to the hierarchical ArNO ontology classes. Licence -- Mattis
+    thor Straten et al., CC BY 4.0.
+  notes:
+  - Redraw or re-use the source after checking the licence
+unused:
+- old: moselkarte.jpg
+  title: Map of the Moselle (not referenced in the LaTeX source)
+  notes:
+  - 'Decision pending: drop it or use it as an orientation map'
+additions:
+- id: z2
+  new: z2_one_stone_five_models
+  title: One Ogham stone in five modelling styles
+  section: §3 or §4 (placement open)
+  status: waiting
+  notes:
+  - Panel A needs data/wd/ from fetch_wd.py (done on the Windows machine)
+- id: z3
+  new: z3_showcase_map
+  title: Where the showcases are
+  section: §5 (overview)
+  status: done
+  notes:
+  - Colour = infrastructure (Wikibase vs. bespoke RDF pipeline); LPG and HIN showcases have no point data

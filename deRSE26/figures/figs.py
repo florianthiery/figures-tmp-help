@@ -38,7 +38,8 @@ class Fig:
         if maxw and tw(t, size, w) > maxw: raise ValueError(f'{s.name}: overflow {tw(t, size, w):.0f}>{maxw}: {t}')
         s.o.append(f'<text x="{x:.1f}" y="{y:.1f}" font-family="Fira Sans" font-size="{size}" font-weight="{w}" fill="{fill}" text-anchor="{anchor}">{esc(t)}</text>')
     def box(s, x, y, w, h, fill, lines, stroke='#000', sw=2, r=14, tc=INK, size=MIN_TYPE, dash=False):
-        s.o.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" rx="{r}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"{" stroke-dasharray=\"10 6\"" if dash else ""}/>')
+        da = ' stroke-dasharray="10 6"' if dash else ''
+        s.o.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" rx="{r}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"{da}/>')
         n = len(lines); gap = size * 1.28; y0 = y + h / 2 - (n - 1) * gap / 2 + size * 0.34
         for i, l in enumerate(lines): s.text(x + w / 2, y0 + i * gap, l, size, 500 if (i == 0 and n > 1 and fill != '#fff') else 400, tc, maxw=w - 24)
     def chip(s, cx, cy, t, size=MIN_TYPE):
@@ -151,19 +152,23 @@ def fig4():
     na = sum(1 for s_ in S if s_['arch'])
     panel_title(90, 'A', 'The 74 findspots: archaeology or not')
     panel_title(840, 'B', 'One coordinate statement: Auel Maar AU3')
-    ly = my + mh + 84; x = 20
-    f.o.append(f'<circle cx="{x}" cy="{ly}" r="9" fill="{CLS}" stroke="#000" stroke-width="1.8"/>'); f.text(x + 18, ly + 8, f'archaeological site ({na})', MIN_TYPE, 400, INK, 'start')
-    x = 20 + 18 + tw(f'archaeological site ({na})', MIN_TYPE) + 46
-    f.o.append(f'<circle cx="{x}" cy="{ly}" r="9" fill="#fff" stroke="#000" stroke-width="1.8"/>'); f.text(x + 18, ly + 8, f'no archaeological site ({len(S) - na})', MIN_TYPE, 400, INK, 'start')
-    ly += 46
-    f.o.append(f'<circle cx="{20 + 14}" cy="{ly}" r="14" fill="none" stroke="{RED}" stroke-width="4"/>'); f.text(20 + 38, ly + 8, 'item of', MIN_TYPE, 400, INK, 'start'); badge(f, 20 + 38 + tw('item of ', MIN_TYPE) + 10, ly - 18, 'B', 34)
-    x = 20 + 38 + tw('item of ', MIN_TYPE) + 10 + 34 + 46
-    sy2 = ly; star2 = ' '.join(f'{x + (14 if i % 2 == 0 else 6) * math.sin(i * math.pi / 5):.1f},{sy2 - (14 if i % 2 == 0 else 6) * math.cos(i * math.pi / 5):.1f}' for i in range(10))
-    f.o.append(f'<polygon points="{star2}" fill="{TERM}" stroke="#000" stroke-width="1.5"/>'); f.text(x + 22, ly + 8, 'source area of the eruption', MIN_TYPE, 400, INK, 'start')
-    ky_ = ly + 62
-    for i, (fl, tcx, t) in enumerate(((TERM, '#fff', 'vocabulary term'), (INST, INK, 'item'), ('#fff', INK, 'literal'))):
-        bxx = 20 + i * 0 ; xx = 20 + [0, 250, 400][i]
-        f.o.append(f'<rect x="{xx}" y="{ky_ - 16}" width="44" height="32" rx="8" fill="{fl}" stroke="#000" stroke-width="2"/>'); f.text(xx + 56, ky_ + 8, t, MIN_TYPE, 400, INK, 'start')
+    lx0, lx1, lt, lb = 90, 800, my + mh + 70, my + mh + 70 + 190          # legend card under the map, same width as the map
+    f.o.append(f'<rect x="{lx0}" y="{lt}" width="{lx1 - lx0}" height="{lb - lt}" rx="14" fill="#fff" stroke="#d4d4d0" stroke-width="2"/>')
+    def lbadge(y, letter):
+        f.o.append(f'<rect x="{lx0 + 20}" y="{y - 18}" width="36" height="36" rx="6" fill="#000"/>'); f.text(lx0 + 38, y + 8, letter, 26, 500, '#fff')
+    r1_, r2_, r3_ = lt + 40, lt + 92, lt + 160
+    lbadge(r1_, 'A'); lbadge(r2_, 'A')
+    cxa, cxb = lx0 + 80, lx0 + 400
+    f.o.append(f'<circle cx="{cxa}" cy="{r1_}" r="9" fill="{CLS}" stroke="#000" stroke-width="1.8"/>'); f.text(cxa + 20, r1_ + 8, f'archaeological site ({na})', MIN_TYPE, 400, INK, 'start')
+    f.o.append(f'<circle cx="{cxb}" cy="{r1_}" r="9" fill="#fff" stroke="#000" stroke-width="1.8"/>'); f.text(cxb + 20, r1_ + 8, f'other findspot ({len(S) - na})', MIN_TYPE, 400, INK, 'start')
+    f.o.append(f'<circle cx="{cxa}" cy="{r2_}" r="14" fill="none" stroke="{RED}" stroke-width="4"/>'); f.text(cxa + 26, r2_ + 8, 'item of', MIN_TYPE, 400, INK, 'start'); badge(f, cxa + 26 + tw('item of ', MIN_TYPE) + 8, r2_ - 17, 'B', 34)
+    sx2 = cxb; star2 = ' '.join(f'{sx2 + (14 if i % 2 == 0 else 6) * math.sin(i * math.pi / 5):.1f},{r2_ - (14 if i % 2 == 0 else 6) * math.cos(i * math.pi / 5):.1f}' for i in range(10))
+    f.o.append(f'<polygon points="{star2}" fill="{TERM}" stroke="#000" stroke-width="1.5"/>'); f.text(sx2 + 22, r2_ + 8, 'eruption source', MIN_TYPE, 400, INK, 'start')
+    f.o.append(f'<line x1="{lx0 + 20}" y1="{lt + 126}" x2="{lx1 - 20}" y2="{lt + 126}" stroke="#d4d4d0" stroke-width="2"/>')
+    lbadge(r3_, 'B')
+    xx = lx0 + 80
+    for fl, t in ((TERM, 'vocabulary term'), (INST, 'item'), ('#fff', 'literal')):
+        f.o.append(f'<rect x="{xx}" y="{r3_ - 16}" width="44" height="32" rx="8" fill="{fl}" stroke="#000" stroke-width="2"/>'); f.text(xx + 56, r3_ + 8, t, MIN_TYPE, 400, INK, 'start'); xx += 56 + tw(t, MIN_TYPE) + 36
     # --- panel B: the coordinate statement of Q70 with its qualifiers, as the Wikibase has it
     ql = coord['qualifiers-order'] if 'qualifiers-order' in coord else list(coord['qualifiers'].keys())
     rows = []
@@ -187,8 +192,8 @@ def fig4():
     f.box(cx0, 100, cw, 96, INST, [part[0], f'{part[1]} ({it["id"]})'], size=MIN_TYPE)
     f.box(cx0, cy_mid - 70, cw, 140, INST, [wb_label('P4'), f'{cv["latitude"]}', f'{cv["longitude"]}'], size=MIN_TYPE)
     # minimap of the item (Central Europe), below the coordinate node
-    MX, MY, MW = cx0, cy_mid + 90, cw
-    mX, mY, mmh = basemap(f, MX, MY, MW, 4.5, 9.0, 48.9, 51.7, 50.3, 'mm4', 1.0, grid=(1, 1), labels=False, detail=(8, True), cities=(500000, ('Cologne',)))
+    MX, MY, MW = cx0, cy_mid + 140, cw
+    mX, mY, mmh = basemap(f, MX, MY, MW, 4.5, 9.0, 48.9, 51.7, 50.3, 'mm4', 1.0, grid=(1, 1), labels=False, detail=(8, True), cities=(0, {'Cologne': 'end', 'Daun': 'start'}))
     for s_ in S:
         if s_ is au3 or not (4.5 <= s_['lon'] <= 9.0 and 48.9 <= s_['lat'] <= 51.7): continue
         f.o.append(f'<circle cx="{mX(s_["lon"]):.1f}" cy="{mY(s_["lat"]):.1f}" r="4.5" fill="{CLS if s_["arch"] else "#fff"}" stroke="#000" stroke-width="1"/>')
@@ -215,6 +220,8 @@ PIPE, WBK = CLS, AMB
 def pts(setname):
     return [(float(r['lon']), float(r['lat']), r['label']) for r in csv.DictReader(open(os.path.join(HERE, 'data/showcase_points.csv'), encoding='utf8')) if r['set'] == setname]
 
+EXTRA_PLACES = {'Daun': (6.833, 50.199)}      # not in Natural Earth; added for orientation next to the Auel Maar (Daun, Eifel; coordinates from OpenStreetMap)
+
 def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, grid=None, labels=True, detail=None, cities=None):
     kx = mw / (lon1 - lon0); ky = kx / math.cos(math.radians(latc)); mh = (lat1 - lat0) * ky
     X = lambda lon: mx + (lon - lon0) * kx
@@ -237,13 +244,13 @@ def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, gr
                 for l in rv['l']: f.o.append(f'<path d="{P(l)}" fill="none" stroke="#8fb4cf" stroke-width="{2.2 if zmax > 5 else 1.6}" stroke-linejoin="round"/>')
         if bord:
             for l in json.load(open(os.path.join(HERE, 'data/ne_eu_borders.json'))): f.o.append(f'<path d="{P(l)}" fill="none" stroke="#8a877d" stroke-width="{1.6 if zmax > 5 else 1.2}" stroke-dasharray="7 5"/>')
-    if cities:                                      # (minimum population of the dots, names that get a label)
-        minpop, names = cities
-        for c in json.load(open(os.path.join(HERE, 'data/ne_eu_places.json'))):
-            if c['p'] >= minpop and lon0 <= c['x'] <= lon1 and lat0 <= c['y'] <= lat1:
+    if cities:                                      # {name: label anchor}; places come from Natural Earth plus EXTRA_PLACES
+        wanted = cities[1]
+        for c in json.load(open(os.path.join(HERE, 'data/ne_eu_places.json'))) + [dict(n=k, x=v[0], y=v[1]) for k, v in EXTRA_PLACES.items()]:
+            if c['n'] in wanted and lon0 <= c['x'] <= lon1 and lat0 <= c['y'] <= lat1:
                 f.o.append(f'<rect x="{X(c["x"]) - 5:.1f}" y="{Y(c["y"]) - 5:.1f}" width="10" height="10" fill="{MUT}" stroke="#fff" stroke-width="1.5"/>')
-                if c['n'] in names:
-                    f.o.append(f'<text x="{X(c["x"]) - 10:.1f}" y="{Y(c["y"]) + 8:.1f}" text-anchor="end" font-family="Fira Sans" font-size="{MIN_TYPE}" font-weight="400" fill="{INK}" stroke="{LAND}" stroke-width="5" paint-order="stroke">{esc(c["n"])}</text>')
+                dx = -10 if wanted[c['n']] == 'end' else 10
+                f.o.append(f'<text x="{X(c["x"]) + dx:.1f}" y="{Y(c["y"]) + 8:.1f}" text-anchor="{wanted[c["n"]]}" font-family="Fira Sans" font-size="{MIN_TYPE}" font-weight="400" fill="{INK}" stroke="{LAND}" stroke-width="5" paint-order="stroke">{esc(c["n"])}</text>')
     if grid:                                        # graticule inside, degree labels outside the frame
         dlon, dlat = grid
         for lo in range(math.ceil(lon0 / dlon) * dlon, int(lon1) + 1, dlon):
@@ -446,7 +453,7 @@ def fig6():
           'geo:': 'http://www.opengis.net/ont/geosparql#', 'fsl:': 'http://fuzzy-sl.squirrel.link/ontology/', 'crmgeo:': 'http://www.ics.forth.gr/isl/CRMgeo/', 'sf:': 'http://www.opengis.net/ont/sf#'}
     def iri(q): return URIRef(next(v + q[len(k):] for k, v in EX.items() if q.startswith(k)))
     RS = URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf')
-    H = 1450
+    H = 1560
     f = Fig('fig6_place_taxonomy', H)
     GRP = '<marker id="h" markerUnits="userSpaceOnUse" markerWidth="1" markerHeight="1"/>'
     def box(cx, y, label, kind, lines=None, h=80):
@@ -483,17 +490,19 @@ def fig6():
     inherit(660, y4, y3 + 80)                          # ArchaeologicalCaveSite -> Cave
     seg(800, y4, 800, 710); seg(1100, y4, 1100, 710); seg(800, 710, 1100, 710); inherit(1000, 710, y3 + 110)   # both archaeological classes -> A2
     inherit(1230, y4, y2 + 80)                         # CIArchaeologicalSite -> CIFindspot (passes between A2 and the right margin)
-    # ---- B: how the geometry is modelled
+    # ---- B: how the geometry is modelled; starts at geolod:SamplingLocation of panel A, which inherits from geo:Feature
     yb = 920
     f.o.append(f'<line x1="20" y1="{yb - 30}" x2="{W - 20}" y2="{yb - 30}" stroke="#d4d4d0" stroke-width="2"/>')
     title(20, yb, 'B', 'Geometry pattern (GeoSPARQL, Simple Features, CRMgeo)')
-    r1, r2 = yb + 100, yb + 330
-    ft = box(250, r1, 'geo:Feature', 'x'); ge = box(760, r1, 'geo:Geometry', 'x'); sp = box(1330, r1, 'crmgeo:SP6_Declarative_Place', 'x')
-    wk = box(740, r2, 'geo:wktLiteral', 'x'); pt = box(1050, r2, 'sf:Point', 'x')
-    f.arrow(ft[0] + ft[2] / 2, r1 + 40, ge[0] - ge[2] / 2, r1 + 40); f.chip((ft[0] + ft[2] / 2 + ge[0] - ge[2] / 2) / 2, r1 + 40, 'geo:hasGeometry')
-    f.arrow(740, r1 + 80, 740, r2); f.chip(740, (r1 + 80 + r2) / 2 - 10, 'geo:asWKT')
-    seg(1050, r2, 1050, r2 - 70); seg(830, r2 - 70, 1330, r2 - 70); inherit(830, r2 - 70, r1 + 80); inherit(1330, r2 - 70, r1 + 80)
-    for a_, b_ in (('sf:Point', 'crmgeo:SP6_Declarative_Place'),): assert (iri(a_), RS, iri(b_)) in onto, (a_, b_)
+    r0, r1, r2 = yb + 90, yb + 250, yb + 470
+    ft = box(250, r0, 'geo:Feature', 'x'); sl = box(250, r1, 'geolod:SamplingLocation', 'c')
+    inherit(250, r1, r0 + 80)
+    ge = box(900, r1, 'geo:Geometry', 'x'); sp = box(1430, r1, 'crmgeo:SP6_Declarative_Place', 'x')
+    wk = box(880, r2, 'geo:wktLiteral', 'x'); pt = box(1200, r2, 'sf:Point', 'x')
+    f.arrow(sl[0] + sl[2] / 2, r1 + 40, ge[0] - ge[2] / 2, r1 + 40); f.chip((sl[0] + sl[2] / 2 + ge[0] - ge[2] / 2) / 2, r1 + 40, 'geo:hasGeometry')
+    f.arrow(880, r1 + 80, 880, r2); f.chip(880, (r1 + 80 + r2) / 2 - 10, 'geo:asWKT')
+    seg(1200, r2, 1200, r2 - 70); seg(970, r2 - 70, 1430, r2 - 70); inherit(970, r2 - 70, r1 + 80); inherit(1430, r2 - 70, r1 + 80)
+    for a_, b_ in (('sf:Point', 'crmgeo:SP6_Declarative_Place'), ('geolod:SamplingLocation', 'geo:Feature')): assert (iri(a_), RS, iri(b_)) in onto, (a_, b_)
     # ---- key
     ly = H - 55
     f.o.append(f'<rect x="20" y="{ly - 16}" width="44" height="32" rx="8" fill="{CLS}" stroke="#000" stroke-width="2"/>'); f.text(76, ly + 8, 'class of the geo-lod ontologies', MIN_TYPE, 400, INK, 'start')
