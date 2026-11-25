@@ -1,12 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1230" viewBox="0 0 1700 1230"><rect width="1700" height="1230" fill="#ffffff"/><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs><line x1="565" y1="20" x2="565" y2="1210" stroke="#d4d4d0" stroke-width="2"/>
-<line x1="1135" y1="20" x2="1135" y2="1210" stroke="#d4d4d0" stroke-width="2"/>
-<line x1="20" y1="656" x2="1680" y2="656" stroke="#d4d4d0" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1280" viewBox="0 0 1700 1280"><rect width="1700" height="1280" fill="#ffffff"/><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs><line x1="565" y1="20" x2="565" y2="1260" stroke="#d4d4d0" stroke-width="2"/>
+<line x1="1135" y1="20" x2="1135" y2="1260" stroke="#d4d4d0" stroke-width="2"/>
+<line x1="20" y1="706" x2="1680" y2="706" stroke="#d4d4d0" stroke-width="2"/>
 <rect x="20" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
 <text x="40.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">A</text>
 <text x="76.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Wikidata</text>
-<rect x="70.0" y="106.0" width="440.0" height="200.0" rx="14" fill="#fff" stroke="#dc2626" stroke-width="4" stroke-dasharray="10 6"/>
-<text x="290.0" y="198.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">data/wd/ missing:</text>
-<text x="290.0" y="229.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">run fetch_wd.py</text>
+<rect x="70.0" y="106.0" width="440.0" height="123.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="290.0" y="144.9" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">Ogham Stone Coumeenole North</text>
+<text x="290.0" y="175.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Dunmore Head, Co. Kerry</text>
+<text x="290.0" y="206.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q126503090</text>
+<line x1="290.0" y1="229.0" x2="290.0" y2="306.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="169.5" y="245.5" width="241.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="290.0" y="275.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">coordinate location</text>
+<rect x="70.0" y="306.0" width="440.0" height="319.0" rx="14" fill="#fff" stroke="#dc2626" stroke-width="4"/>
+<text x="290.0" y="350.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">52.1103, -10.4732</text>
+<text x="290.0" y="381.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">location: ex situ</text>
+<text x="290.0" y="412.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">sourcing circumstances: on-site</text>
+<text x="290.0" y="442.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">survey</text>
+<text x="290.0" y="473.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">determination method or standard:</text>
+<text x="290.0" y="504.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">on-site survey</text>
+<text x="290.0" y="535.1" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subject has role: exhibition in the</text>
+<text x="290.0" y="565.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">wild</text>
+<text x="290.0" y="596.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">stated in: OpenStreetMap</text>
 <rect x="590" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
 <text x="610.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">B</text>
 <text x="646.0" y="46.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">fuzzy-sl Wikibase</text>
@@ -40,34 +54,32 @@
 <rect x="1210.0" y="486.0" width="440.0" height="96.0" rx="14" fill="#fff" stroke="#dc2626" stroke-width="4"/>
 <text x="1430.0" y="526.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">POINT(-10.4732 52.1103)</text>
 <text x="1430.0" y="557.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">^^geo:wktLiteral</text>
-<rect x="20" y="676" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
-<text x="40.0" y="706.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">D</text>
-<text x="76.0" y="706.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Labelled property graph</text>
-<rect x="70.0" y="766.0" width="440.0" height="96.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
-<text x="290.0" y="806.8" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">(:OghamStone)</text>
-<text x="290.0" y="837.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">name: "Coumeenole North"</text>
-<line x1="290.0" y1="862" x2="290.0" y2="966" stroke="#000" stroke-width="2.5"/>
-<rect x="70.0" y="966.0" width="440.0" height="130.0" rx="14" fill="#fff" stroke="#dc2626" stroke-width="4"/>
-<text x="290.0" y="1008.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">location:</text>
-<text x="290.0" y="1039.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">point({longitude: -10.4732,</text>
-<text x="290.0" y="1069.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">latitude: 52.1103})</text>
-<text x="290.0" y="1146.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="middle">property of the node, type Point</text>
-<rect x="590" y="676" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
-<text x="610.0" y="706.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">E</text>
-<text x="646.0" y="706.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Heterogeneous information network</text>
-<rect x="640.0" y="766.0" width="440.0" height="70.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
-<text x="860.0" y="809.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Coumeenole North</text>
-<line x1="860.0" y1="836.0" x2="860.0" y2="966.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
-<rect x="791.5" y="879.0" width="137.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
-<text x="860.0" y="909.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">located at</text>
-<rect x="640.0" y="966.0" width="440.0" height="96.0" rx="14" fill="#fff" stroke="#dc2626" stroke-width="4"/>
-<text x="860.0" y="1006.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Geolocation</text>
-<text x="860.0" y="1037.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">52.1103_-10.4732</text>
-<text x="860.0" y="1116.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="middle">a node of its own; nearby geolocations</text>
-<text x="860.0" y="1148.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="middle">can be linked by distance classes</text>
-<rect x="1190" y="696" width="46" height="30" rx="8" fill="#fff" stroke="#dc2626" stroke-width="4"/>
-<text x="1256.0" y="720.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">where the coordinate sits</text>
-<text x="1190.0" y="806.0" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="start">One coordinate: 52.1103 N, 10.4732 W</text>
-<text x="1190.0" y="846.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="start">Macalister (1945), textual description</text>
-<text x="1190.0" y="896.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="start">Panels A to C are RDF-based,</text>
-<text x="1190.0" y="928.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="start">D and E are not.</text></svg>
+<rect x="20" y="726" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="40.0" y="756.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">D</text>
+<text x="76.0" y="756.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Labelled property graph</text>
+<rect x="70.0" y="816.0" width="440.0" height="96.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="290.0" y="856.8" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">(:OghamStone)</text>
+<text x="290.0" y="887.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">name: "Coumeenole North"</text>
+<line x1="290.0" y1="912" x2="290.0" y2="1016" stroke="#000" stroke-width="2.5"/>
+<rect x="70.0" y="1016.0" width="440.0" height="130.0" rx="14" fill="#fff" stroke="#dc2626" stroke-width="4"/>
+<text x="290.0" y="1058.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">location:</text>
+<text x="290.0" y="1089.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">point({longitude: -10.4732,</text>
+<text x="290.0" y="1119.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">latitude: 52.1103})</text>
+<text x="290.0" y="1196.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="middle">property of the node, type Point</text>
+<rect x="590" y="726" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>
+<text x="610.0" y="756.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#fff" text-anchor="middle">E</text>
+<text x="646.0" y="756.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="start">Heterogeneous information network</text>
+<rect x="640.0" y="816.0" width="440.0" height="70.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="860.0" y="859.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Coumeenole North</text>
+<line x1="860.0" y1="886.0" x2="860.0" y2="1016.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="791.5" y="929.0" width="137.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="860.0" y="959.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">located at</text>
+<rect x="640.0" y="1016.0" width="440.0" height="96.0" rx="14" fill="#fff" stroke="#dc2626" stroke-width="4"/>
+<text x="860.0" y="1056.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Geolocation</text>
+<text x="860.0" y="1087.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">52.1103_-10.4732</text>
+<text x="860.0" y="1166.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="middle">a node of its own; nearby geolocations</text>
+<text x="860.0" y="1198.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="middle">can be linked by distance classes</text>
+<rect x="1190" y="746" width="46" height="30" rx="8" fill="#fff" stroke="#dc2626" stroke-width="4"/>
+<text x="1256.0" y="770.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">where the coordinate sits</text>
+<text x="1190.0" y="856.0" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="start">One coordinate: 52.1103 N, 10.4732 W</text>
+<text x="1190.0" y="896.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#55544f" text-anchor="start">Macalister (1945), textual description</text></svg>

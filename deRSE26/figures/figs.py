@@ -323,12 +323,12 @@ def z2():
     lat, lon = round(v['latitude'], 4), round(v['longitude'], 4)
     quals = [(wb_label(p), snak_text(st['qualifiers'][p][0])) for p in ('P5', 'P7', 'P23', 'P24')]
     wd, wdl = wd_data()
-    H = 1230
+    H = 1280
     f = Fig('z2_one_stone_five_models', H)
     def panel_title(x, y, letter, text):
         f.o.append(f'<rect x="{x}" y="{y}" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
         f.text(x + 20, y + 30, letter, 28, 500, '#fff'); f.text(x + 56, y + 30, text, 28, 500, INK, 'start')
-    cols = (20, 590, 1160); rows = (16, 676)
+    cols = (20, 590, 1160); rows = (16, 726)
     for x in (570, 1140): f.o.append(f'<line x1="{x - 5}" y1="20" x2="{x - 5}" y2="{H - 20}" stroke="#d4d4d0" stroke-width="2"/>')
     f.o.append(f'<line x1="20" y1="{rows[1] - 20}" x2="{W - 20}" y2="{rows[1] - 20}" stroke="#d4d4d0" stroke-width="2"/>')
     # A: Wikidata (read from data/wd/, see fetch_wd.py)
@@ -343,7 +343,8 @@ def z2():
         wl = wd['labels']['en']['value'].split(' / ') + ['Q126503090']
         f.box(x0, y + 90, w, 30 + 31 * len(wl), INST, wl)
         f.arrow(cx, y + 120 + 31 * len(wl), cx, y + 290); f.chip(cx, y + (120 + 31 * len(wl) + 290) / 2, 'coordinate location')
-        f.box(x0, y + 290, w, 60 + 36 * len(lines), '#fff', lines, stroke=RED, sw=4)
+        lines = [t for l in lines for t in wrap(l, w - 30)]
+        f.box(x0, y + 290, w, 40 + 31 * len(lines), '#fff', lines, stroke=RED, sw=4)
     else:
         f.box(x0, y + 90, w, 200, '#fff', ['data/wd/ missing:', 'run fetch_wd.py'], stroke=RED, sw=4, dash=True)
     # B: fuzzy-sl Wikibase
@@ -377,9 +378,8 @@ def z2():
     # F: key
     x0 = cols[2] + 30
     f.o.append(f'<rect x="{x0}" y="{y + 20}" width="46" height="30" rx="8" fill="#fff" stroke="{RED}" stroke-width="4"/>'); f.text(x0 + 66, y + 44, 'where the coordinate sits', MIN_TYPE, 400, INK, 'start')
-    f.text(x0, y + 130, 'One coordinate: 52.1103 N, 10.4732 W', MIN_TYPE, 500, INK, 'start')
+    f.text(x0, y + 130, f'One coordinate: {lat} N, {abs(lon)} W', MIN_TYPE, 500, INK, 'start')
     f.text(x0, y + 170, 'Macalister (1945), textual description', MIN_TYPE, 400, MUT, 'start')
-    f.text(x0, y + 220, 'Panels A to C are RDF-based,', MIN_TYPE, 400, MUT, 'start'); f.text(x0, y + 252, 'D and E are not.', MIN_TYPE, 400, MUT, 'start')
     f.done()
 
 # ---------------------------------------------------------------- Fig. 7: CI instances
