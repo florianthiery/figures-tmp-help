@@ -2,13 +2,13 @@ figures:
 - n: 1
   old: fkge.jpg
   section: §1 Introduction
-  status: keep
+  status: done
   title: Federated Knowledge Graph Ecosystem
-  new: null
+  new: fig1_fkge
   caption_old: Scheme of the Federated Knowledge Graph Ecosystem. Licence -- Florian Thiery & Andreas Noback, CC BY 4.0
   notes:
   - 'Source: thiery_stones_2026, Fig. 1'
-  - Typo "Publikation" in the image (to be fixed at the source)
+  - 'Typo Publikation corrected by Flo (OA Publication), margin enlarged on all sides; the figure is his own drawing, so it is only re-exported here (2400 px wide)'
 - n: 2
   old: ogham-wikidata.jpg
   section: §5.1 Wikidata
@@ -108,11 +108,6 @@ figures:
   - Redrawn from data/ArNO.ttl (commit 5b1ad40) and poseidon2lod; the old picture mixed a Protege screenshot with a slide
   - "Differences to the old picture (to be checked with Mattis thor Straten): only the Discovery Site has a geometry in poseidon2lod (the old picture also gave the Site a WKT point); ArNO.ttl spells disovery in the label of foundAtDiscoverySite (corrected in the figure)"
   - "Licence of the old picture: Mattis thor Straten et al., CC BY 4.0; the new figure is a redraw, say so in the caption"
-unused:
-- old: moselkarte.jpg
-  title: Map of the Moselle (not referenced in the LaTeX source)
-  notes:
-  - 'Decision pending: drop it or use it as an orientation map'
 additions:
 - id: z2
   new: z2_one_stone_five_models

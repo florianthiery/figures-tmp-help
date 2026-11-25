@@ -87,3 +87,8 @@ fig5_bb5kbc_spatial:
     accuracy (±1000 m, because the published coordinates are rounded to two decimal places), the precision (±0.01°), the certainty level and location type from the fuzzy-sl vocabulary, the municipality and the
     georeferencing activity. Data: BB-5KBC bundle (commit c2e989b); base map: Natural Earth. Licence: Florian Thiery &
     Sophie C. Schmidt, CC BY 4.0.
+
+fig1_fkge:
+  replaces: Fig. 1
+  caption: >-
+    Scheme of the Federated Knowledge Graph Ecosystem. Licence: Florian Thiery & Andreas Noback, CC BY 4.0.
