@@ -98,7 +98,7 @@ def snak_text(sn):
 
 def fig4():
     g, S = load_ci()
-    H = 960
+    H = 990
     f = Fig('fig4_ci_findspots', H)
     arch_iri = URIRef('http://w3id.org/geo-lod/CIArchaeologicalSite')
     for s_ in S: s_['arch'] = (s_['iri'], URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), arch_iri) in g
@@ -108,20 +108,11 @@ def fig4():
     au3 = [s_ for s_ in S if s_['label'] == 'Auel Maar AU3'][0]
     assert abs(au3['lon'] - cv['longitude']) < 1e-6 and abs(au3['lat'] - cv['latitude']) < 1e-6, 'graph and Wikibase disagree on AU3'
     # --- panel A: map
-    mx, my, mw = 20, 80, 780
+    mx, my, mw = 90, 80, 710
     LON0, LON1, LAT0, LAT1, LATC = 4.0, 46.0, 31.0, 57.0, 44.0
-    kx = mw / (LON1 - LON0); ky = kx / math.cos(math.radians(LATC)); mh = (LAT1 - LAT0) * ky
-    X = lambda lon: mx + (lon - LON0) * kx
-    Y = lambda lat: my + (LAT1 - lat) * ky
-    f.o.append(f'<clipPath id="mc"><rect x="{mx}" y="{my}" width="{mw}" height="{mh:.1f}"/></clipPath>')
-    f.o.append(f'<rect x="{mx}" y="{my}" width="{mw}" height="{mh:.1f}" fill="{SEA}"/><g clip-path="url(#mc)">')
-    for poly in land():
-        ring = poly[0]
-        if max(p[0] for p in ring) < LON0 - 1 or min(p[0] for p in ring) > LON1 + 1 or max(p[1] for p in ring) < LAT0 - 1 or min(p[1] for p in ring) > LAT1 + 1: continue
-        d = ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(ring)) + 'Z'
-        for hole in poly[1:]:
-            d += ' ' + ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(hole)) + 'Z'
-        f.o.append(f'<path d="{d}" fill="{LAND}" stroke="{COAST}" stroke-width="1.2"/>')
+    X, Y, mh = basemap(f, mx, my, mw, LON0, LON1, LAT0, LAT1, LATC, 'mc', grid=(5, 5))
+    kx = mw / (LON1 - LON0); ky = kx / math.cos(math.radians(LATC))
+    f.o.append('<g clip-path="url(#mc)">')
     slon, slat = 14.14, 40.83                       # Phlegraean Fields (wd:Q755123), schematic
     for km in (500, 1000):
         rx = km / (111.2 * math.cos(math.radians(slat))) * kx; ry = km / 111.2 * ky
@@ -158,15 +149,15 @@ def fig4():
         f.o.append(f'<rect x="{x}" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
         f.text(x + 20, 46, letter, 28, 500, '#fff'); f.text(x + 56, 46, text, 28, 500, INK, 'start')
     na = sum(1 for s_ in S if s_['arch'])
-    panel_title(20, 'A', 'The 74 findspots: archaeology or not')
+    panel_title(90, 'A', 'The 74 findspots: archaeology or not')
     panel_title(840, 'B', 'One coordinate statement: Auel Maar AU3')
-    ly = my + mh + 40; x = mx
+    ly = my + mh + 84; x = 20
     f.o.append(f'<circle cx="{x}" cy="{ly}" r="9" fill="{CLS}" stroke="#000" stroke-width="1.8"/>'); f.text(x + 18, ly + 8, f'archaeological site ({na})', MIN_TYPE, 400, INK, 'start')
-    x = mx + 18 + tw(f'archaeological site ({na})', MIN_TYPE) + 46
+    x = 20 + 18 + tw(f'archaeological site ({na})', MIN_TYPE) + 46
     f.o.append(f'<circle cx="{x}" cy="{ly}" r="9" fill="#fff" stroke="#000" stroke-width="1.8"/>'); f.text(x + 18, ly + 8, f'no archaeological site ({len(S) - na})', MIN_TYPE, 400, INK, 'start')
     ly += 46
-    f.o.append(f'<circle cx="{mx}" cy="{ly}" r="14" fill="none" stroke="{RED}" stroke-width="4"/>'); f.text(mx + 26, ly + 8, 'item of', MIN_TYPE, 400, INK, 'start'); badge(f, mx + 26 + tw('item of ', MIN_TYPE) + 10, ly - 18, 'B', 34)
-    x = mx + 26 + tw('item of ', MIN_TYPE) + 10 + 34 + 46
+    f.o.append(f'<circle cx="{20 + 14}" cy="{ly}" r="14" fill="none" stroke="{RED}" stroke-width="4"/>'); f.text(20 + 38, ly + 8, 'item of', MIN_TYPE, 400, INK, 'start'); badge(f, 20 + 38 + tw('item of ', MIN_TYPE) + 10, ly - 18, 'B', 34)
+    x = 20 + 38 + tw('item of ', MIN_TYPE) + 10 + 34 + 46
     sy2 = ly; star2 = ' '.join(f'{x + (14 if i % 2 == 0 else 6) * math.sin(i * math.pi / 5):.1f},{sy2 - (14 if i % 2 == 0 else 6) * math.cos(i * math.pi / 5):.1f}' for i in range(10))
     f.o.append(f'<polygon points="{star2}" fill="{TERM}" stroke="#000" stroke-width="1.5"/>'); f.text(x + 22, ly + 8, 'source area of the eruption', MIN_TYPE, 400, INK, 'start')
     # --- panel B: the coordinate statement of Q70 with its qualifiers, as the Wikibase has it
