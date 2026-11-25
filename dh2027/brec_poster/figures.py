@@ -217,7 +217,7 @@ def fig2():
 
 # ---------------------------------------------------------------- Fig. 3: Model 2
 def fig3():
-    W, H = 2400, 1160
+    W, H = 2400, 1130
     svg = Svg(W, H)
     P0, PY, PWD, PHT = 710, 110, 580, 708
     LW = 600
@@ -244,8 +244,8 @@ def fig3():
         svg.block(55, y, LW, 120, [line], fill, head=head, size=26, pad=16)
         svg.arrow([(55 + LW, y + 60), (target[0] - 2, target[1])], head=False, dot=True, sw=2.8)
 
-    rows = [("Mesoamerican (Maya) step pyramid with a temple on top", "0.70", "confirmed by the builder, 17 Nov 2026", "none yet"),
-            ("El Castillo at Chichén Itzá (special case of the first)", "0.35", "not confirmed by the builder", "none yet"),
+    rows = [("Mesoamerican (Maya) step pyramid with a temple on top", "0.70", "confirmed by the builder, 17 Nov 2026", "Q1456099|(broader)"),
+            ("El Castillo at Chichén Itzá (special case of the first)", "0.35", "not confirmed by the builder", "Q1128327"),
             ("Free design without a specific model", "0.15", "open", "none yet"),
             ("Angkor temple mountain with sanctuary", "0.10", "open", "Q788982"),
             ("Ziggurat with temple", "0.08", "open", "Q170153")]
@@ -266,7 +266,12 @@ def fig3():
         mtext(cx[0], cy, wrap(h, 24, 420, i == 0), 24, i == 0, maxw=430)
         mtext(cx[1] + 20, cy, [c], 28, True, maxw=90)
         mtext(cx[2], cy, wrap(st, 21, 190, i == 0), 21, i == 0, maxw=200)
-        mtext(cx[3], cy, [w], 21, False, MUTED if w == "none yet" else INK, maxw=100)
+        ws = w.split("|")
+        if len(ws) > 1:
+            svg.text(cx[3], cy - 11, ws[0], 21, False, INK, maxw=110)
+            svg.text(cx[3], cy + 13, ws[1], 15, False, MUTED, maxw=110)
+        else:
+            svg.text(cx[3], cy, w, 21, False, MUTED if w == "none yet" else INK, maxw=110)
     my = 110 + HH + 5 * RH + 20
     svg.block(TX, my, TW_, 842 - my, ["Model 1 is also a step pyramid; its four hypotheses on what it represents are all open. "
                                       "The best is a monument with a warrior statue on a column (0.55). Confidence is the AI's own estimate."],
@@ -274,9 +279,9 @@ def fig3():
     a, b = (P0 + PWD + 8, 470), (TX - 8, 470)
     svg.arrow([a, b], sw=3)
     svg.chip((a[0] + b[0]) / 2, 470, "interpreted", 18)
-    qy, qh = 872, 250
-    svg.rect(TX, qy, TW_, qh, "#fbfbf9", stroke="#9a9a94", name="query")
-    svg.text(TX + 16, qy + 22, "SPARQL query behind the table (prefixes omitted)", 17, True, MUTED, maxw=TW_ - 32)
+    qy, qh = 880, 220
+    svg.rect(55, qy, W - 110, qh, "#fbfbf9", stroke="#9a9a94", name="query")
+    svg.text(75, qy + 24, "SPARQL query behind the table (prefixes omitted)", 19, True, MUTED, maxw=1100)
     code = [(0, "SELECT ?hypothesis ?confidence ?status ?term WHERE {"),
             (1, "?h brec:hypothesisAbout ex:lego_pyramid_2 ;"),
             (2, "brec:confidence ?confidence ; rdfs:label ?hypothesis ;"),
@@ -284,9 +289,14 @@ def fig3():
             (1, "OPTIONAL { ?h brec:verificationStatus ?status }"),
             (0, "} ORDER BY DESC(?confidence)")]
     for j, (ind, t) in enumerate(code):
-        svg.text(TX + 16 + ind * 24, qy + 56 + j * 26, t, 18, False, INK, maxw=TW_ - 40 - ind * 24)
-    svg.text(TX + 16, qy + qh - 20, "Wikidata column: a search for ?term, run separately; none yet means no match.", 15, False, MUTED, maxw=TW_ - 32)
-    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, 885, 19)
+        svg.text(75 + ind * 28, qy + 62 + j * 28, t, 20, False, INK, maxw=1100 - ind * 28)
+    nx = 1300
+    svg.text(nx, qy + 24, "About the Wikidata column", 19, True, MUTED, maxw=1000)
+    for j, t in enumerate(wrap("The query returns the search term of each candidate. The Wikidata items were then looked up with that term "
+                               "(wbsearchentities, 25 Nov 2026). No item exists for Mesoamerican pyramids as such, so the Maya hypothesis "
+                               "shows the broader class, step pyramid. Free design has no candidate.", 19, 1030)):
+        svg.text(nx, qy + 62 + j * 28, t, 19, False, INK, maxw=1040)
+    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, 852, 19)
     save(svg, "fig3_model2")
 
 
