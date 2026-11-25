@@ -14,7 +14,7 @@ fig3_fuzzysl_datamodel:
   caption: >-
     Data model of the fuzzy-sl Wikibase. (GLM) Geolocation metadata: a fuzzy-sl entity has a label and a description
     and is described by its instance type (P1), project (P3), literature reference (P11), related external resource
-    with its relation type (P10, qP12), spatial type (P8), the administrative territorial entity in Wikidata (P32) and
+    with its relation type (P10, qP12), spatial type (P8), spatial category (P26), the administrative territorial entity in Wikidata (P32) and
     its coordinate (P4). (CM) Coordinate metadata: the coordinate statement carries ten qualifiers (solid arrows:
     certainty level and description, method used and description, acting person, source type in generic and detailed
     form, location type, point type and precision) and three reference properties (dashed arrows: reference URL,

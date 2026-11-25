@@ -30,7 +30,7 @@ figures:
   caption_old: Schematic data model of the fuzzy-sl Wikibase. License -- Florian Thiery, CC BY 4.0.
   notes:
   - Redrawn after the old picture (same nodes, properties and arrows); labels, datatypes and classes read from the static Wikibase copy
-  - Same model as Fig. 4B of Thiery et al. 2026 (JOHD 12:10); the old picture omits P26 (has spatial category), which Q70 carries
+  - Same model as Fig. 4B of Thiery et al. 2026 (JOHD 12:10); P26 (has spatial category) added because the old picture omitted it
   - Layout stacked (GLM above CM) because 24 px type needs the width; the old picture placed CM left of GLM
 - n: 4
   old: ci-fuzzy-sl-wikibase.jpg

@@ -340,8 +340,9 @@ def z2():
         lines = [f"{round(cv['latitude'], 4)}, {round(cv['longitude'], 4)}"]
         for qp, sn in c.get('qualifiers', {}).items():
             vv = sn[0]['datavalue']['value']; lines.append(f"{lab(qp)}: " + (lab(vv['id']) if isinstance(vv, dict) and 'id' in vv else str(vv)))
-        f.box(x0, y + 90, w, 96, INST, [wd['labels']['en']['value'], 'Q126503090'])
-        f.arrow(cx, y + 186, cx, y + 290); f.chip(cx, y + 238, 'coordinate location')
+        wl = wd['labels']['en']['value'].split(' / ') + ['Q126503090']
+        f.box(x0, y + 90, w, 30 + 31 * len(wl), INST, wl)
+        f.arrow(cx, y + 120 + 31 * len(wl), cx, y + 290); f.chip(cx, y + (120 + 31 * len(wl) + 290) / 2, 'coordinate location')
         f.box(x0, y + 290, w, 60 + 36 * len(lines), '#fff', lines, stroke=RED, sw=4)
     else:
         f.box(x0, y + 90, w, 200, '#fff', ['data/wd/ missing:', 'run fetch_wd.py'], stroke=RED, sw=4, dash=True)
@@ -538,7 +539,7 @@ def fig3():
         if d == 'url': return 'External Resource URI', 'ext'
         raise ValueError(p)
     GM = ['P1', 'P3', 'P11', 'P10']                     # main statements of the entity (picture order), then P8 and P32
-    for p in GM + ['P8', 'P32']: assert p in cl, p
+    for p in GM + ['P8', 'P26', 'P32']: assert p in cl, p
     assert 'P12' in cl['P10'][0]['qualifiers'] and wb_entity('P12')['datatype'] == 'url'
     assert 'wikidata.org/entity/' in cl['P32'][0]['mainsnak']['datavalue']['value']
     assert 'P17' in cl['P11'][0]['references'][0]['snaks']
@@ -549,7 +550,7 @@ def fig3():
     GZ = chip_max + 76                                   # zone between bus and the value nodes on the right
     GW = 300
     assert BX + GZ + GW <= 1660, (BX + GZ + GW)
-    f = Fig('fig3_fuzzysl_datamodel', 1570)
+    f = Fig('fig3_fuzzysl_datamodel', 1630)
     FILL = {'inst': (INST, INK, False), 'term': (TERM, '#fff', False), 'ext': ('#fff', INK, True), 'lit': ('#fff', INK, False), 'wkt': (INK, '#fff', False)}
     def node(x, cy, w, text, kind):
         fill, tc, dash = FILL[kind]
@@ -569,11 +570,11 @@ def fig3():
         f.o.append(f'<rect x="20" y="{y0}" width="1660" height="{y1 - y0}" rx="16" fill="none" stroke="#d4d4d0" stroke-width="3"/>')
 
     # ---- GLM (top)
-    frame(20, 870); title(44, 40, 'GLM', 'Geolocation Metadata')
+    frame(20, 930); title(44, 40, 'GLM', 'Geolocation Metadata')
     yl, yd, ye = 140, 215, 290
     node(BX - 130, yl, 260, 'label (en)', 'lit'); node(BX - 130, yd, 260, 'description (en)', 'lit'); node(BX - 130, ye, 260, 'fuzzy-sl Entity', 'inst')
     line(BX, ye - NH / 2, BX, yd + NH / 2 + 2); line(BX, yd - NH / 2, BX, yl + NH / 2 + 2)
-    rows = [(360, 'P1'), (420, 'P3'), (480, 'P11'), (540, 'P10'), (750, 'P8'), (810, 'P32')]
+    rows = [(360, 'P1'), (420, 'P3'), (480, 'P11'), (540, 'P10'), (750, 'P8'), (810, 'P26'), (870, 'P32')]
     y_p12 = 690
     line(BX, ye + NH / 2, BX, rows[-1][0], arrow=False)
     tx = BX + GZ
@@ -597,11 +598,11 @@ def fig3():
         line(lx0 + 30, y, lx0 + 100, y, d); f.text(lx0 + 118, y + 8, t, 24, 400, INK, 'start', maxw=lw - 130)
 
     # ---- CM (bottom)
-    frame(890, 1550); title(44, 910, 'CM', 'Coordinate Metadata')
-    yc = 1050
+    frame(950, 1610); title(44, 970, 'CM', 'Coordinate Metadata')
+    yc = 1110
     node(BX - 130, yc, 260, '@LAT/LON', 'wkt')
     edge(BX, rows[-1][0], BX, yc - NH / 2, pr('', 'P4'))
-    r0 = 1130; pitch = 60
+    r0 = 1190; pitch = 60
     line(BX, yc + NH / 2, BX, r0 + 6 * pitch, arrow=False)
     NW = 280; lxn, rxn = 40, 1700 - 40 - NW
     def cmrow(i, side, p, dashed):
