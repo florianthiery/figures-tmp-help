@@ -110,7 +110,7 @@ def fig4():
     # --- panel A: map
     mx, my, mw = 90, 80, 710
     LON0, LON1, LAT0, LAT1, LATC = 4.0, 46.0, 31.0, 57.0, 44.0
-    X, Y, mh = basemap(f, mx, my, mw, LON0, LON1, LAT0, LAT1, LATC, 'mc', grid=(5, 5))
+    X, Y, mh = basemap(f, mx, my, mw, LON0, LON1, LAT0, LAT1, LATC, 'mc', grid=(5, 5), detail=(4, True))
     kx = mw / (LON1 - LON0); ky = kx / math.cos(math.radians(LATC))
     f.o.append('<g clip-path="url(#mc)">')
     slon, slat = 14.14, 40.83                       # Phlegraean Fields (wd:Q755123), schematic
@@ -188,9 +188,9 @@ def fig4():
     f.box(cx0, cy_mid - 70, cw, 140, INST, [wb_label('P4'), f'{cv["latitude"]}', f'{cv["longitude"]}'], size=MIN_TYPE)
     # minimap of the item (Central Europe), below the coordinate node
     MX, MY, MW = cx0, cy_mid + 90, cw
-    mX, mY, mmh = basemap(f, MX, MY, MW, 3, 13, 47, 55, 51, 'mm4', 1.0, grid=(5, 4), labels=False)
+    mX, mY, mmh = basemap(f, MX, MY, MW, 4.5, 9.0, 48.9, 51.7, 50.3, 'mm4', 1.0, grid=(1, 1), labels=False, detail=(8, True), cities=(500000, ('Cologne',)))
     for s_ in S:
-        if s_ is au3 or not (3 <= s_['lon'] <= 13 and 47 <= s_['lat'] <= 55): continue
+        if s_ is au3 or not (4.5 <= s_['lon'] <= 9.0 and 48.9 <= s_['lat'] <= 51.7): continue
         f.o.append(f'<circle cx="{mX(s_["lon"]):.1f}" cy="{mY(s_["lat"]):.1f}" r="4.5" fill="{CLS if s_["arch"] else "#fff"}" stroke="#000" stroke-width="1"/>')
     f.o.append(f'<circle cx="{mX(au3["lon"]):.1f}" cy="{mY(au3["lat"]):.1f}" r="15" fill="none" stroke="{RED}" stroke-width="4"/>')
     f.o.append(f'<circle cx="{mX(au3["lon"]):.1f}" cy="{mY(au3["lat"]):.1f}" r="6" fill="{CLS if au3["arch"] else "#fff"}" stroke="#000" stroke-width="1.2"/>')
@@ -215,7 +215,7 @@ PIPE, WBK = CLS, AMB
 def pts(setname):
     return [(float(r['lon']), float(r['lat']), r['label']) for r in csv.DictReader(open(os.path.join(HERE, 'data/showcase_points.csv'), encoding='utf8')) if r['set'] == setname]
 
-def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, grid=None, labels=True):
+def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, grid=None, labels=True, detail=None, cities=None):
     kx = mw / (lon1 - lon0); ky = kx / math.cos(math.radians(latc)); mh = (lat1 - lat0) * ky
     X = lambda lon: mx + (lon - lon0) * kx
     Y = lambda lat: my + (lat1 - lat) * ky
@@ -227,6 +227,23 @@ def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, gr
         step = 1 if kx > 5 else 4
         d = ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(ring[::step])) + 'Z'
         f.o.append(f'<path d="{d}" fill="{LAND}" stroke="{COAST}" stroke-width="{stroke}"/>')
+    if detail:                                      # lakes, rivers and country borders: (max min_zoom of the rivers, borders yes/no)
+        zmax, bord = detail
+        P = lambda c: ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(c))
+        for lk in json.load(open(os.path.join(HERE, 'data/ne_eu_lakes.json'))):
+            for poly in lk['p']: f.o.append(f'<path d="{P(poly[0])}Z" fill="{SEA}" stroke="{COAST}" stroke-width="{stroke}"/>')
+        for rv in json.load(open(os.path.join(HERE, 'data/ne_eu_rivers.json'))):
+            if rv['z'] <= zmax:
+                for l in rv['l']: f.o.append(f'<path d="{P(l)}" fill="none" stroke="#8fb4cf" stroke-width="{2.2 if zmax > 5 else 1.6}" stroke-linejoin="round"/>')
+        if bord:
+            for l in json.load(open(os.path.join(HERE, 'data/ne_eu_borders.json'))): f.o.append(f'<path d="{P(l)}" fill="none" stroke="#8a877d" stroke-width="{1.6 if zmax > 5 else 1.2}" stroke-dasharray="7 5"/>')
+    if cities:                                      # (minimum population of the dots, names that get a label)
+        minpop, names = cities
+        for c in json.load(open(os.path.join(HERE, 'data/ne_eu_places.json'))):
+            if c['p'] >= minpop and lon0 <= c['x'] <= lon1 and lat0 <= c['y'] <= lat1:
+                f.o.append(f'<rect x="{X(c["x"]) - 5:.1f}" y="{Y(c["y"]) - 5:.1f}" width="10" height="10" fill="{MUT}" stroke="#fff" stroke-width="1.5"/>')
+                if c['n'] in names:
+                    f.o.append(f'<text x="{X(c["x"]) - 10:.1f}" y="{Y(c["y"]) + 8:.1f}" text-anchor="end" font-family="Fira Sans" font-size="{MIN_TYPE}" font-weight="400" fill="{INK}" stroke="{LAND}" stroke-width="5" paint-order="stroke">{esc(c["n"])}</text>')
     if grid:                                        # graticule inside, degree labels outside the frame
         dlon, dlat = grid
         for lo in range(math.ceil(lon0 / dlon) * dlon, int(lon1) + 1, dlon):
@@ -254,7 +271,7 @@ def z3():
         f.o.append(f'<rect x="{x}" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
         f.text(x + 20, 46, letter, 28, 500, '#fff'); f.text(x + 56, 46, text, 28, 500, INK, 'start')
     panel_title(90, 'A', 'Europe and the Mediterranean')
-    X, Y, mh = basemap(f, 90, 80, 930, -13, 46, 30, 57, 44, 'za', grid=(10, 5))
+    X, Y, mh = basemap(f, 90, 80, 930, -13, 46, 30, 57, 44, 'za', grid=(10, 5), detail=(4, True))
     for lon, lat, _ in bb: f.o.append(f'<circle cx="{X(lon):.1f}" cy="{Y(lat):.1f}" r="5" fill="{PIPE}" fill-opacity="0.55" stroke="none"/>')
     for lon, lat, _ in ci: f.o.append(f'<circle cx="{X(lon):.1f}" cy="{Y(lat):.1f}" r="8" fill="{PIPE}" stroke="#000" stroke-width="1.6"/>')
     for lon, lat, _ in wbk:
@@ -399,7 +416,7 @@ def fig7():
         f.box(20, mid - sh_ / 2, sw_, sh_, INST, [short(iri), site['label']], size=MIN_TYPE)
         f.o.append(f'<line x1="{20 + sw_}" y1="{mid:.1f}" x2="{bus}" y2="{mid:.1f}" stroke="#000" stroke-width="2.5"/>')
         MX, MY, MW = 20, mid + 85, 300                  # minimap below the instance node
-        X, Y, mh = basemap(f, MX, MY, MW, 4, 46, 31, 57, 44, f'mm{n}', 1.0, grid=(10, 10), labels=False)
+        X, Y, mh = basemap(f, MX, MY, MW, 4, 46, 31, 57, 44, f'mm{n}', 1.0, grid=(10, 10), labels=False, detail=(3, True))
         for o in S:
             if o['id'] == n: continue
             f.o.append(f'<circle cx="{X(o["lon"]):.1f}" cy="{Y(o["lat"]):.1f}" r="4.5" fill="{CLS if o["arch"] else "#fff"}" stroke="#000" stroke-width="1"/>')
@@ -419,48 +436,70 @@ def fig7():
     f.o.append(f'<line x1="20" y1="{PH + 20}" x2="{W - 20}" y2="{PH + 20}" stroke="#d4d4d0" stroke-width="2"/>')
     f.done()
 
-# ---------------------------------------------------------------- Fig. 6: the place classes of the taxonomy
+# ---------------------------------------------------------------- Fig. 6: place classes and the geometry pattern
 def fig6():
     onto = Graph()
-    base = '/home/claude/research-squirrel-engineers/geoscience-fairification-lod'
+    base = os.environ.get('GEOLOD_DIR', '/home/claude/research-squirrel-engineers/geoscience-fairification-lod')
     for p in ('ontology/geo_lod_core.ttl', 'ontology/crm_bridging.ttl', 'SISAL/rdf/sisal_ontology.ttl', 'EPICA/rdf/epica_ontology.ttl'):
-        onto.parse(os.path.join(os.environ.get('GEOLOD_DIR', base), p), format='turtle')
-    EX = {'geolod:': 'http://w3id.org/geo-lod/', 'crm:': 'http://www.cidoc-crm.org/cidoc-crm/', 'crmarchaeo:': 'http://www.cidoc-crm.org/extensions/crmarchaeo/', 'geo:': 'http://www.opengis.net/ont/geosparql#', 'fsl:': 'http://fuzzy-sl.squirrel.link/ontology/'}
+        onto.parse(os.path.join(base, p), format='turtle')
+    EX = {'geolod:': 'http://w3id.org/geo-lod/', 'crm:': 'http://www.cidoc-crm.org/cidoc-crm/', 'crmarchaeo:': 'http://www.cidoc-crm.org/extensions/crmarchaeo/',
+          'geo:': 'http://www.opengis.net/ont/geosparql#', 'fsl:': 'http://fuzzy-sl.squirrel.link/ontology/', 'crmgeo:': 'http://www.ics.forth.gr/isl/CRMgeo/', 'sf:': 'http://www.opengis.net/ont/sf#'}
     def iri(q): return URIRef(next(v + q[len(k):] for k, v in EX.items() if q.startswith(k)))
     RS = URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf')
-    f = Fig('fig6_place_taxonomy', 900)
-    nodes = {   # label: (x centre, y top, kind, lines)
-        'crm:E53_Place': (150, 30, 'x', None), 'geo:Feature': (470, 30, 'x', None), 'crm:E27_Site': (800, 30, 'x', None),
-        'geolod:SamplingLocation': (330, 250, 'c', None), 'geolod:CIFindspot': (1030, 250, 'c', None), 'fsl:Site': (1330, 250, 'x', None),
-        'geolod:DrillingSite': (125, 470, 'c', None), 'geolod:Borehole': (410, 470, 'c', None), 'geolod:Cave': (720, 470, 'c', None),
-        'geolod:CIArchaeologicalSite': (1030, 470, 'c', None),
-        'crmarchaeo:A2_Stratigraphic_Volume_Unit': (1480, 705, 'x', ['crmarchaeo:A2_', 'Stratigraphic_Volume_Unit']),
-        'geolod:ArchaeologicalCaveSite': (720, 720, 'c', None)}
-    edges = [('geolod:SamplingLocation', 'crm:E53_Place'), ('geolod:SamplingLocation', 'geo:Feature'), ('geolod:SamplingLocation', 'crm:E27_Site'),
-             ('geolod:CIFindspot', 'crm:E27_Site'), ('fsl:Site', 'crm:E27_Site'),
-             ('geolod:DrillingSite', 'geolod:SamplingLocation'), ('geolod:Borehole', 'geolod:SamplingLocation'), ('geolod:Cave', 'geolod:SamplingLocation'),
-             ('geolod:ArchaeologicalCaveSite', 'geolod:Cave'), ('geolod:ArchaeologicalCaveSite', 'crmarchaeo:A2_Stratigraphic_Volume_Unit'),
-             ('geolod:CIArchaeologicalSite', 'geolod:CIFindspot'), ('geolod:CIArchaeologicalSite', 'crmarchaeo:A2_Stratigraphic_Volume_Unit')]
-    for a, b in edges:
-        assert (iri(a), RS, iri(b)) in onto, (a, b)
-    geom = {}
-    for lab, (cx, y, kind, lines) in nodes.items():
-        ls = lines or [lab]; geom[lab] = (cx, y, max(tw(l, MIN_TYPE) for l in ls) + 44, 80 if len(ls) == 1 else 110)
-    def edge_pt(g_, tx, ty):                          # point where the line from the centre of g_ towards (tx, ty) leaves the box
-        cx, y, w, h = g_; cy = y + h / 2; dx, dy = tx - cx, ty - cy
-        k = min((w / 2) / abs(dx) if dx else 1e9, (h / 2) / abs(dy) if dy else 1e9)
-        return cx + dx * k, cy + dy * k
-    for a, b in edges:
-        ga, gb = geom[a], geom[b]
-        x1, y1 = edge_pt(ga, gb[0], gb[1] + gb[3] / 2); x2, y2 = edge_pt(gb, ga[0], ga[1] + ga[3] / 2)
-        t_ = 0.62 if a == 'geolod:Borehole' else 0.5
-        f.arrow(x1, y1, x2, y2); f.chip(x1 + (x2 - x1) * t_, y1 + (y2 - y1) * t_, 'subClassOf')
-    for lab, (cx, y, w, h) in geom.items():
-        k = nodes[lab][2]
-        f.box(cx - w / 2, y, w, h, CLS if k == 'c' else '#fff', nodes[lab][3] or [lab], tc='#fff' if k == 'c' else INK)
-    ly = 850
+    H = 1450
+    f = Fig('fig6_place_taxonomy', H)
+    GRP = '<marker id="h" markerUnits="userSpaceOnUse" markerWidth="1" markerHeight="1"/>'
+    def box(cx, y, label, kind, lines=None, h=80):
+        ls = lines or [label]; w = max(tw(l, MIN_TYPE) for l in ls) + 44
+        f.box(cx - w / 2, y, w, h, CLS if kind == 'c' else '#fff', ls, tc='#fff' if kind == 'c' else INK)
+        return (cx, y, w, h)
+    def seg(x1, y1, x2, y2): f.o.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#000" stroke-width="2.5"/>')
+    def inherit(x, y_from, y_tip):                    # vertical line up to the parent, hollow triangle at the parent
+        seg(x, y_from, x, y_tip + 26)
+        f.o.append(f'<polygon points="{x},{y_tip} {x - 15},{y_tip + 27} {x + 15},{y_tip + 27}" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>')
+    def title(x, y, letter, text):
+        f.o.append(f'<rect x="{x}" y="{y}" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
+        f.text(x + 20, y + 30, letter, 28, 500, '#fff'); f.text(x + 56, y + 30, text, 28, 500, INK, 'start')
+    # ---- A: class hierarchy, every edge vertical (horizontal only on a bus); every inheritance is asserted in the ontology files
+    title(20, 16, 'A', 'Place classes and their anchors')
+    y1, y2, y3, y4 = 100, 320, 540, 770
+    n = {}
+    n['crm:E53_Place'] = box(150, y1, 'crm:E53_Place', 'x'); n['geo:Feature'] = box(450, y1, 'geo:Feature', 'x'); n['crm:E27_Site'] = box(1150, y1, 'crm:E27_Site', 'x')
+    n['geolod:SamplingLocation'] = box(300, y2, 'geolod:SamplingLocation', 'c'); n['geolod:CIFindspot'] = box(1230, y2, 'geolod:CIFindspot', 'c'); n['fsl:Site'] = box(1560, y2, 'fsl:Site', 'x')
+    n['geolod:DrillingSite'] = box(150, y3, 'geolod:DrillingSite', 'c'); n['geolod:Borehole'] = box(440, y3, 'geolod:Borehole', 'c'); n['geolod:Cave'] = box(700, y3, 'geolod:Cave', 'c')
+    n['crmarchaeo:A2_Stratigraphic_Volume_Unit'] = box(1000, y3, '', 'x', ['crmarchaeo:A2_', 'Stratigraphic_Volume_Unit'], 110)
+    n['geolod:ArchaeologicalCaveSite'] = box(700, y4, 'geolod:ArchaeologicalCaveSite', 'c'); n['geolod:CIArchaeologicalSite'] = box(1230, y4, 'geolod:CIArchaeologicalSite', 'c')
+    for a_, b_ in [('geolod:SamplingLocation', 'crm:E53_Place'), ('geolod:SamplingLocation', 'geo:Feature'), ('geolod:SamplingLocation', 'crm:E27_Site'), ('geolod:CIFindspot', 'crm:E27_Site'), ('fsl:Site', 'crm:E27_Site'),
+                   ('geolod:DrillingSite', 'geolod:SamplingLocation'), ('geolod:Borehole', 'geolod:SamplingLocation'), ('geolod:Cave', 'geolod:SamplingLocation'),
+                   ('geolod:ArchaeologicalCaveSite', 'geolod:Cave'), ('geolod:ArchaeologicalCaveSite', 'crmarchaeo:A2_Stratigraphic_Volume_Unit'),
+                   ('geolod:CIArchaeologicalSite', 'geolod:CIFindspot'), ('geolod:CIArchaeologicalSite', 'crmarchaeo:A2_Stratigraphic_Volume_Unit')]:
+        assert (iri(a_), RS, iri(b_)) in onto, (a_, b_)
+    bot = y1 + 80                                      # bottom of the top row
+    seg(300, y2, 300, 250); seg(150, 250, 1090, 250)   # SamplingLocation bus
+    inherit(150, 250, bot); inherit(450, 250, bot); inherit(1090, 250, bot)
+    inherit(1170, y2, bot)                             # CIFindspot straight up
+    seg(1560, y2, 1560, 285); seg(1560, 285, 1230, 285); inherit(1230, 285, bot)   # fsl:Site
+    seg(150, y3, 150, 470); seg(440, y3, 440, 470); seg(700, y3, 700, 470); seg(150, 470, 700, 470); inherit(300, 470, y2 + 80)   # drilling, borehole, cave -> SamplingLocation
+    inherit(660, y4, y3 + 80)                          # ArchaeologicalCaveSite -> Cave
+    seg(800, y4, 800, 710); seg(1100, y4, 1100, 710); seg(800, 710, 1100, 710); inherit(1000, 710, y3 + 110)   # both archaeological classes -> A2
+    inherit(1230, y4, y2 + 80)                         # CIArchaeologicalSite -> CIFindspot (passes between A2 and the right margin)
+    # ---- B: how the geometry is modelled
+    yb = 920
+    f.o.append(f'<line x1="20" y1="{yb - 30}" x2="{W - 20}" y2="{yb - 30}" stroke="#d4d4d0" stroke-width="2"/>')
+    title(20, yb, 'B', 'Geometry pattern (GeoSPARQL, Simple Features, CRMgeo)')
+    r1, r2 = yb + 100, yb + 330
+    ft = box(250, r1, 'geo:Feature', 'x'); ge = box(760, r1, 'geo:Geometry', 'x'); sp = box(1330, r1, 'crmgeo:SP6_Declarative_Place', 'x')
+    wk = box(740, r2, 'geo:wktLiteral', 'x'); pt = box(1050, r2, 'sf:Point', 'x')
+    f.arrow(ft[0] + ft[2] / 2, r1 + 40, ge[0] - ge[2] / 2, r1 + 40); f.chip((ft[0] + ft[2] / 2 + ge[0] - ge[2] / 2) / 2, r1 + 40, 'geo:hasGeometry')
+    f.arrow(740, r1 + 80, 740, r2); f.chip(740, (r1 + 80 + r2) / 2 - 10, 'geo:asWKT')
+    seg(1050, r2, 1050, r2 - 70); seg(830, r2 - 70, 1330, r2 - 70); inherit(830, r2 - 70, r1 + 80); inherit(1330, r2 - 70, r1 + 80)
+    for a_, b_ in (('sf:Point', 'crmgeo:SP6_Declarative_Place'),): assert (iri(a_), RS, iri(b_)) in onto, (a_, b_)
+    # ---- key
+    ly = H - 55
     f.o.append(f'<rect x="20" y="{ly - 16}" width="44" height="32" rx="8" fill="{CLS}" stroke="#000" stroke-width="2"/>'); f.text(76, ly + 8, 'class of the geo-lod ontologies', MIN_TYPE, 400, INK, 'start')
-    f.o.append(f'<rect x="560" y="{ly - 16}" width="44" height="32" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>'); f.text(616, ly + 8, 'class of CIDOC CRM, CRMarchaeo, GeoSPARQL or fuzzy-sl', MIN_TYPE, 400, INK, 'start')
+    f.o.append(f'<rect x="520" y="{ly - 16}" width="44" height="32" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>'); f.text(576, ly + 8, 'external class', MIN_TYPE, 400, INK, 'start')
+    f.o.append(f'<polygon points="860,{ly - 14} 845,{ly + 13} 875,{ly + 13}" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>'); f.text(895, ly + 8, 'inherits from (rdfs:subClassOf)', MIN_TYPE, 400, INK, 'start')
+    f.o.append(f'<rect x="1360" y="{ly - 20}" width="60" height="40" rx="20" fill="{AMB}" stroke="#000" stroke-width="1.5"/>'); f.text(1436, ly + 8, 'property', MIN_TYPE, 400, INK, 'start')
     f.done()
 
 if __name__ == '__main__':

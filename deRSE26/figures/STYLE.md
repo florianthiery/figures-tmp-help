@@ -25,13 +25,14 @@ uses these building blocks instead of inventing its own.
 | Property or edge label | #fbbf24 (amber chip) | black |
 | Highlight (the thing the figure is about) | red #dc2626 outline, 4 px | |
 
-Edge labels are always amber chips centred on the middle of the arrow, never beside it. Arrows black, 2.5 px, filled head.
+Edge labels are always amber chips centred on the middle of the arrow, never beside it. Arrows black, 2.5 px, filled head. Class hierarchies: vertical edges with a hollow triangle at the parent (rdfs:subClassOf, no chip), several children or parents joined by a horizontal bus; chips only for real properties.
 One bus line fans out to many values; chips sit on the branches.
 
 ## Maps
 - Sea #dce9f1, land #f3f0e7, coast #b3b0a4, base map Natural Earth (public domain), plate carree scaled by cos(latitude) of the map centre.
 - Large maps: dashed white graticule, degree labels outside the frame (10 or 5 degrees), black frame with ticks.
-- Minimaps (below an instance node): same base map, graticule without labels, all points small, the item of the panel ringed in red.
+- Minimaps (below an instance node): same base map, graticule without labels, all points small, the item of the panel ringed in red. Zoom to the item where a region helps (Fig. 4: Eifel with rivers, borders, big cities as grey squares, one or two city names); at Europe scale (Fig. 7) only borders and major rivers, no city names.
+- Orientation layers (`ne_eu_*.json`): lakes in sea colour, rivers #8fb4cf, borders grey dashed; only as much as stays quiet behind the points.
 - Point colour follows the same roles: dark orange = archaeological site (class), white = other findspot, amber = fuzzy-sl Wikibase statement, purple star = special place (Phlegraean Fields).
 - Callouts: white label with 8 px padding and a thin black leader line; never over the item they name.
 

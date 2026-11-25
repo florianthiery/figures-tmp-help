@@ -33,3 +33,5 @@ Planned: Fig. 7, Fig. 6, Fig. 3, Fig. 10, and the additions Z2 (one findspot in 
 | `z3_showcase_map` | new (Section 5) | map of the showcase datasets (fuzzy-sl Wikibase vs. bespoke RDF pipeline) | `data/showcase_points.csv` (built by `prep_points.py` from bb-5kbc-sites, geoscience-fairification-lod/SISAL and wb-fuzzysl-static), `data/ne_50m_land.geojson` |
 | `fig7_ci_instances` | Fig. 7 | Toplitsa Cave and Franchthi Cave (ci:cisite_44, _45) as instances, read from the graph | `data/ci_findspots.ttl` |
 | `fig6_place_taxonomy` | Fig. 6 (slice) | place classes with their CRM, CRMarchaeo, GeoSPARQL anchors; every arrow is checked against the ontology files | `ontology/*.ttl`, `SISAL/rdf/sisal_ontology.ttl`, `EPICA/rdf/epica_ontology.ttl` of GeoScience-FAIRification-LOD (clone path in `GEOLOD_DIR`, default Linux path in `figs.py`) |
+
+Base-map layers: `prep_ne.py` slims the Natural Earth 10 m layers (rivers, lakes, land borders, populated places) to Europe: `data/ne_eu_*.json` (public domain).
