@@ -95,7 +95,7 @@ figures:
   caption_old: The ontologies combined in the ArNO ontology grouped by the concept domain they are used for. Licence -- Mattis thor Straten et al., CC BY
     4.0.
   notes:
-  - "1:1 redraw of the original (644 x 671 px): same hexagon, same seven labels, nothing added or changed; only typeface, colours and resolution follow the common style"
+  - "1:1 redraw of the original (644 x 671 px): same hexagon, same seven labels, nothing added or changed; Fira Sans Bold in the original blue (#2f5597), original line colours, transparent sectors and white centre as in the original; only typeface and resolution differ"
   - "The original is by Mattis thor Straten et al. (CC BY 4.0): say in the caption that it is redrawn after the original, and let him look at it"
 - n: 10
   old: ARNONetworkSchema.png

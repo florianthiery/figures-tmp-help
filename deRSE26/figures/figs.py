@@ -15,7 +15,7 @@ from PIL import ImageFont
 from rdflib import Graph, Namespace, URIRef, RDFS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-F4, F5 = os.path.join(HERE, 'fonts/FiraSans-400.ttf'), os.path.join(HERE, 'fonts/FiraSans-500.ttf')
+F4, F5, F7 = (os.path.join(HERE, 'fonts/FiraSans-%d.ttf' % n) for n in (400, 500, 700))
 W = 1700
 MIN_TYPE = 24
 INST, CLS, TERM, AMB = '#e2e8f0', '#9a3412', '#4c1d95', '#fbbf24'
@@ -26,7 +26,7 @@ _fonts = {}
 def tw(s, size, w=400):
     k = (size, w)
     if k not in _fonts:
-        _fonts[k] = ImageFont.truetype(F5 if w == 500 else F4, size, layout_engine=ImageFont.Layout.BASIC)
+        _fonts[k] = ImageFont.truetype({500: F5, 700: F7}.get(w, F4), size, layout_engine=ImageFont.Layout.BASIC)
     return _fonts[k].getlength(s)
 def esc(s): return s.replace('&', '&amp;').replace('<', '&lt;')
 
@@ -49,12 +49,12 @@ class Fig:
     def arrow(s, x1, y1, x2, y2, col='#000', w=2.5):
         s.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{col}" stroke-width="{w}" marker-end="url(#a)"/>')
     def done(s):
-        head = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{s.h}" viewBox="0 0 {W} {s.h}"><rect width="{W}" height="{s.h}" fill="#ffffff"/>'
+        head = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{s.h}" viewBox="0 0 {W} {s.h}">' + ('' if getattr(s, 'transparent', False) else f'<rect width="{W}" height="{s.h}" fill="#ffffff"/>') + ''
                 '<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs>')
         svg = head + '\n'.join(s.o) + '</svg>'
         os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
         open(os.path.join(HERE, f'out/{s.name}.svg'), 'w', encoding='utf8').write(svg)
-        open(os.path.join(HERE, f'out/{s.name}.png'), 'wb').write(bytes(resvg_py.svg_to_bytes(svg_string=svg, font_files=[F4, F5], skip_system_fonts=True, zoom=1.0)))
+        open(os.path.join(HERE, f'out/{s.name}.png'), 'wb').write(bytes(resvg_py.svg_to_bytes(svg_string=svg, font_files=[F4, F5, F7], skip_system_fonts=True, zoom=1.0)))
         print('wrote', s.name, f'{W}x{s.h}')
 
 # ---------------------------------------------------------------- data
@@ -830,27 +830,28 @@ def fig5():
 def fig9():
     """1:1 redraw of ARNO.png (thor Straten et al.): hexagon with the CIDOC CRM core and six surrounding concept domains. No content added or changed; only type and colours follow the common style."""
     import math
-    f = Fig('fig9_arno_modules', 1670)
+    f = Fig('fig9_arno_modules', 1670); f.transparent = True   # as the original: the six outer sectors are transparent, only the centre is white
+    BLUE = '#2f5597'
     cx, cy, R, r = 850, 780, 770, 250
     ap = R * math.cos(math.radians(30))
     def V(rad, deg): return (cx + rad * math.cos(math.radians(deg)), cy - rad * math.sin(math.radians(deg)))
     ang = [0, 60, 120, 180, 240, 300]
     outer = [V(R, a) for a in ang]; inner = [V(r, a) for a in ang]
     pts_ = lambda P: ' '.join(f'{x:.1f},{y:.1f}' for x, y in P)
-    f.o.append(f'<polygon points="{pts_(outer)}" fill="#fff" stroke="#cbd5e1" stroke-width="12" stroke-linejoin="round"/>')
-    for (x1, y1), (x2, y2) in zip(outer, inner): f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#94a3b8" stroke-width="12"/>')
-    f.o.append(f'<polygon points="{pts_(inner)}" fill="#fff" stroke="#cbd5e1" stroke-width="14" stroke-linejoin="round"/>')
-    f.text(cx, cy - 66, 'Cultural', 52, 500, INK, maxw=2 * r - 160)
+    f.o.append(f'<polygon points="{pts_(outer)}" fill="none" stroke="#d9dbe3" stroke-width="12" stroke-linejoin="round"/>')
+    for (x1, y1), (x2, y2) in zip(outer, inner): f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#b3bfd9" stroke-width="12"/>')
+    f.o.append(f'<polygon points="{pts_(inner)}" fill="#fff" stroke="#d9dbe3" stroke-width="14" stroke-linejoin="round"/>')
+    f.text(cx, cy - 66, 'Cultural', 52, 700, BLUE, maxw=2 * r - 160)
     f.text(cx, cy + 12, 'CIDOC', 36, 400, INK); f.text(cx, cy + 58, 'CRM', 36, 400, INK)
-    f.text(cx, cy + 136, 'Heritage', 52, 500, INK, maxw=2 * r - 160)
+    f.text(cx, cy + 136, 'Heritage', 52, 700, BLUE, maxw=2 * r - 160)
     d = ap + 78
     def lab(deg, rot, lines):
         x, y = V(d, deg); n = len(lines)
         for i, t in enumerate(lines):
-            f.text(0, 0, t, 52, 500, INK, maxw=700)
+            f.text(0, 0, t, 52, 700, BLUE, maxw=700)
             f.o.pop()
             off = (i - (n - 1) / 2) * 64
-            f.o.append(f'<text transform="translate({x:.1f},{y:.1f}) rotate({rot}) translate(0,{off + 18:.1f})" font-family="Fira Sans" font-size="52" font-weight="500" fill="{INK}" text-anchor="middle">{esc(t)}</text>')
+            f.o.append(f'<text transform="translate({x:.1f},{y:.1f}) rotate({rot}) translate(0,{off + 18:.1f})" font-family="Fira Sans" font-size="52" font-weight="700" fill="{BLUE}" text-anchor="middle">{esc(t)}</text>')
     lab(90, 0, ['Agents']); lab(30, 60, ['Bibliography']); lab(330, -60, ['Space'])
     lab(270, 0, ['Application Domain', '(Biology)']); lab(210, 60, ['Time']); lab(150, -60, ['Provenance'])
     f.done()
