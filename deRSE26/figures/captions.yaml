@@ -102,13 +102,15 @@ fig9_arno_modules:
 fig2_ogham_ciic81:
   replaces: Fig. 2
   caption: >-
-    Ogham Stone CIIC 81 [Mac45, pp. 83-84] and its two spatial locations in Wikidata (item Q69385424) and in the
-    fuzzy-sl Wikibase. (1) Present location in the exhibition at University College Cork, with (A) a photograph of the
-    exhibition; (2) findspot at Garranes, with (B) a section of the map of the rath at Garranes. For each location the
-    coordinate statement of the stone is shown with its qualifiers. Wikidata records how the location was determined with
-    a few qualifiers; the fuzzy-sl Wikibase adds certainty level, method, source type, precision, location type and point
-    type to every coordinate. Grey: items; purple: vocabulary terms; white: literals; amber: properties; dashed: reference
-    of the statement; red frames: location and reliability of the location. The long certainty description of the
-    findspot is shortened. Licence: Florian Thiery, CC BY 4.0; (A) Florian Thiery, CC BY-NC-SA 4.0; (B) (c) O Riordain and
-    Ryan [OR41, Fig. 2; p. 80]; Wikidata statements: Wikidata Community, Public Domain; fuzzy-sl statements: Research
-    Squirrel Engineers Network, CC BY 4.0.
+    Ogham Stone CIIC 81 [Mac45, pp. 83-84] and its two spatial locations, modelled for the physical stone in Wikidata
+    (item Q130529871) and in the fuzzy-sl Wikibase (item Q74). (1) Present location in the exhibition at University
+    College Cork, with (A) a photograph of the exhibition; (2) findspot at Garranes, with (B) a section of the map of the
+    rath at Garranes. For each location the coordinate statement of the stone is shown with its qualifiers. Wikidata
+    records how a location was determined with a few qualifiers; the fuzzy-sl Wikibase adds certainty level, method,
+    source type, precision, location type and point type to every coordinate. The Wikidata concept item of the stone
+    (Q69385424) carries only the centroid of the Garranes townland and is not shown. Grey: items; purple: vocabulary
+    terms; white: literals; amber: properties; dashed: reference of the statement; red frames: location and reliability
+    of the location. The long certainty description of the findspot is shortened and typing errors of the source data are
+    corrected. Licence: Florian Thiery, CC BY 4.0; (A) Florian Thiery, CC BY-NC-SA 4.0; (B) (c) O Riordain and Ryan
+    [OR41, Fig. 2; p. 80]; Wikidata statements: Wikidata Community, CC0; fuzzy-sl statements: Research Squirrel Engineers
+    Network, CC BY 4.0.
