@@ -20,8 +20,8 @@ figures:
   notes:
   - "Reviewer C (Section 5, Figure 2): goal unclear, images should be separated and explained. New layout: one frame per location (present location, findspot); evidence on the left, Wikidata and fuzzy-sl statements as mini graphs"
   - "The statements are transcribed from the screenshots of the old figure (Wikidata Q69385424 and the Wikibase entry could not be read from here): please check every value; typo exhebition in the source corrected; the fuzzy-sl item ID of CIIC 81 is not known (shown as CIIC 81); the long certainty description of the findspot is shortened ([...])"
-  - "Panels of the old figure: B is now A (photo), D is now B (map), F is now C (OpenStreetMap); A, C, E became the graphs; the round letter marks of the old figure were removed from the cut-outs (data/ogham, made by prep_ogham.py from img/ogham-wikidata.jpg)"
-  - "To check: the text of 5.1 says that the stones inherit the townland centroid as P625, the figure shows two stone-specific coordinates for CIIC 81; what A and H in panel C denote (map features of panel B transferred to OpenStreetMap?)"
+  - "Panels of the old figure: B is now A (photo, under the Wikidata graph of frame 1), D is now B (section of the map, under the Wikidata graph of frame 2); A, C, E became the graphs; F (OpenStreetMap) is dropped; the round letter marks were removed from the cut-outs (data/ogham, made by prep_ogham.py from img/ogham-wikidata.jpg)"
+  - "To check: the text of 5.1 says that the stones inherit the townland centroid as P625, the figure shows two stone-specific coordinates for CIIC 81"
 - n: 3
   old: fuzzy-sl_Wikibase.jpg
   section: §5.2 fuzzy-sl

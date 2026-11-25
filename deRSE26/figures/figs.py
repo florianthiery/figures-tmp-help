@@ -884,23 +884,23 @@ def fig2():
     def stmt(x, y, w, vw, stone, prop, coord, rows):
         """stone --prop--> coordinate; qualifier rows hang off the coordinate: (chip, value, kind, highlighted, reference)"""
         f.box(x, y, 250, 54, INST, [stone], '#000', 2, 14, INK)
-        y1 = y + 54 + 70; line = lambda *a, **k: None
+        y1 = y + 54 + 48; line = lambda *a, **k: None
         f.arrow(x + 125, y + 54, x + 125, y1); f.chip(x + 125, (y + 54 + y1) / 2, prop)
         f.box(x, y1, 420, 54, '#000', [coord], '#000', 2, 14, '#fff')
-        bx, vx = x + 24, x + w - vw; yy = y1 + 54 + 40; ys = []
+        bx, vx = x + 24, x + w - vw; yy = y1 + 54 + 26; ys = []
         for chip, val, kind, hl, ref in rows:
-            vl = val if isinstance(val, list) else wrap(val, vw - 34); hb = 50 if len(vl) == 1 else 22 + 31 * len(vl); cy = yy + hb / 2; ys.append(cy)
+            vl = val if isinstance(val, list) else wrap(val, vw - 34); hb = 46 if len(vl) == 1 else 18 + 31 * len(vl); hb = max(hb, 68) if tw(chip, 24) + 28 > 340 else hb; cy = yy + hb / 2; ys.append(cy)
             fl, tc, dash = FILL[kind]
             da = ' stroke-dasharray="10 6"' if ref else ''
             f.o.append(f'<line x1="{bx}" y1="{cy:.1f}" x2="{vx}" y2="{cy:.1f}" stroke="#000" stroke-width="2.5"{da} marker-end="url(#a)"/>')
             if tw(chip, 24) + 28 > 340:                                   # long property label: two-line chip
                 l1, l2 = chip.split(' or ', 1); l2 = 'or ' + l2; cw = max(tw(l1, 24), tw(l2, 24)) + 28; cxm = (bx + vx) / 2
                 f.o.append(f'<rect x="{cxm - cw / 2:.1f}" y="{cy - 34:.1f}" width="{cw:.1f}" height="68" rx="26" fill="{AMB}" stroke="#000" stroke-width="1.5"/>')
-                f.text(cxm, cy - 6, l1, 24); f.text(cxm, cy + 25, l2, 24); hb = max(hb, 68)
+                f.text(cxm, cy - 6, l1, 24); f.text(cxm, cy + 25, l2, 24)
             else: f.chip((bx + vx) / 2, cy, chip)
             f.box(vx, cy - hb / 2, vw, hb, fl, vl, '#000', 2, 22 if kind == 'term' else 8, tc, dash=dash)
             if hl: f.o.append(f'<rect x="{vx - 8}" y="{cy - hb / 2 - 8:.1f}" width="{vw + 16}" height="{hb + 16}" rx="12" fill="none" stroke="{RED}" stroke-width="5"/>')
-            yy += max(hb + 22, 64)
+            yy += max(hb + 8, 54)
         f.o.append(f'<line x1="{bx}" y1="{y1 + 54}" x2="{bx}" y2="{ys[-1]:.1f}" stroke="#000" stroke-width="2.5"/>')
         return yy
     # source: Wikidata item Q69385424 and the fuzzy-sl Wikibase entry of CIIC 81, as shown in the submitted figure
@@ -916,30 +916,27 @@ def fig2():
            ('method used', 'Georeferencing', 'term', True, False), ('acting person', 'Florian Thiery', 'item', False, False), ('source type (generic)', 'Textual Description', 'term', False, False),
            ('source type (detail)', 'Paper', 'term', False, False), ('method description', 'found in old documents', 'lit', False, False), ('precision', '\u00b10.0001\u00b0', 'lit', True, False),
            ('location type', 'Findspot', 'term', True, False), ('point type', 'Location of a Place as a Concept', 'term', False, False)]
-    xe, we, xw, ww, xf, wf = 40, 280, 350, 600, 980, 680
+    xw, ww, xf, wf = 40, 640, 760, 900
     def heads(y):
-        for x, w, t in ((xe, we, 'Evidence'), (xw, ww, 'Wikidata'), (xf, wf, 'fuzzy-sl Wikibase')): f.text(x + w / 2, y, t, 28, 500, INK)
+        for x, w, t in ((xw, ww, 'Wikidata'), (xf, wf, 'fuzzy-sl Wikibase')): f.text(x + 300, y, t, 28, 500, INK)
     # ---- frame 1: present location
-    y0 = 10; title(44, y0 + 18, '1', 'Present location: exhibition, University College Cork'); heads(y0 + 112); yi = y0 + 135
-    hp = put(load('B'), xe, yi, we, 'A')
+    y0 = 10; title(44, y0 + 18, '1', 'Present location: exhibition, University College Cork'); heads(y0 + 90); yi = y0 + 106
+    kx = 1000                                              # key in the title line
+    f.o.append(f'<rect x="{kx}" y="{y0 + 20}" width="44" height="34" rx="8" fill="none" stroke="{RED}" stroke-width="5"/>')
+    f.text(kx + 58, y0 + 46, 'location and reliability', 24, 400, INK, 'start')
+    f.o.append(f'<line x1="{kx + 360}" y1="{y0 + 37}" x2="{kx + 410}" y2="{y0 + 37}" stroke="#000" stroke-width="2.5" stroke-dasharray="10 6" marker-end="url(#a)"/>')
+    f.text(kx + 424, y0 + 46, 'reference', 24, 400, INK, 'start')
     ya = stmt(xw, yi, ww, 230, 'Q69385424', 'coordinate location', "51\u00b053'37.1735\"N, 8\u00b029'32.7952\"W", WD1)
-    yb_ = stmt(xf, yi, wf, 340, 'CIIC 81', 'has coordinate', "51\u00b053'37.3\"N, 8\u00b029'32.6\"W", FS1)
-    kx, ky = xe, yi + hp + 40
-    f.o.append(f'<rect x="{kx}" y="{ky}" width="{we}" height="228" rx="12" fill="#fafaf8" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="10 6"/>')
-    f.text(kx + 20, ky + 40, 'Key', 24, 500, INK, 'start')
-    f.o.append(f'<rect x="{kx + 22}" y="{ky + 58}" width="60" height="38" rx="8" fill="none" stroke="{RED}" stroke-width="5"/>')
-    f.text(kx + 98, ky + 78, 'location and', 24, 400, INK, 'start'); f.text(kx + 98, ky + 104, 'reliability', 24, 400, INK, 'start')
-    f.o.append(f'<line x1="{kx + 22}" y1="{ky + 150}" x2="{kx + 82}" y2="{ky + 150}" stroke="#000" stroke-width="2.5" stroke-dasharray="10 6" marker-end="url(#a)"/>')
-    f.text(kx + 98, ky + 158, 'reference', 24, 400, INK, 'start')
-    yE = max(yi + hp + 40 + 228, ya, yb_) + 10; frame(y0, yE)
+    yb_ = stmt(xf, yi, wf, 380, 'CIIC 81', 'has coordinate', "51\u00b053'37.3\"N, 8\u00b029'32.6\"W", FS1)
+    hp = put(load('B'), xw, ya + 10, 400, 'A')
+    yE = max(ya + 10 + hp, yb_) + 10; frame(y0, yE)
     # ---- frame 2: findspot
-    y0 = yE + 20; title(44, y0 + 18, '2', 'Findspot: Garranes, Co. Cork'); heads(y0 + 112); yi = y0 + 135
-    h1 = put(load('D'), xe, yi, we, 'B')
-    Fm = load('F'); sf = Fm.width / 1440; Fm = Fm.crop((0, round(100 * sf), Fm.width, round(880 * sf)))
+    y0 = yE + 20; title(44, y0 + 18, '2', 'Findspot: Garranes, Co. Cork'); heads(y0 + 90); yi = y0 + 106
     ya = stmt(xw, yi, ww, 230, 'Q69385424', 'coordinate location', "51\u00b048'59.58\"N, 8\u00b045'57.13\"W", WD2)
-    yb_ = stmt(xf, yi, wf, 340, 'CIIC 81', 'has coordinate', "51\u00b048'59.58\"N, 8\u00b045'57.13\"W", FS2)
-    h2 = put(Fm, xw, ya + 10, ww, 'C')
-    yE = max(yi + h1, ya + 10 + h2, yb_) + 10; frame(y0, yE)
+    yb_ = stmt(xf, yi, wf, 380, 'CIIC 81', 'has coordinate', "51\u00b048'59.58\"N, 8\u00b045'57.13\"W", FS2)
+    Dm = load('D'); free = max(yb_ - ya - 10, 200); wD = 400; hD = round(free); Dm = Dm.crop((0, 230, Dm.width, 230 + min(Dm.height - 230, round(Dm.width * hD / wD))))
+    hp = put(Dm, xw, ya + 10, wD, 'B')
+    yE = max(ya + 10 + hp, yb_) + 10; frame(y0, yE)
     f.h = int(yE + 20)
     f.done()
 
