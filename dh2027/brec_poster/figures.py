@@ -217,9 +217,10 @@ def fig2():
 
 # ---------------------------------------------------------------- Fig. 3: Model 2
 def fig3():
-    W, H = 2400, 1180
+    W, H = 2400, 930
     svg = Svg(W, H)
-    P0, PY, PWD, PHT = 710, 110, 580, 708
+    P0, PY, PWD, PHT = 710, 110, 580, 510
+    CROP = 130   # pixels cut from the top of the scaled photograph
     LW = 600
     svg.text(55 + LW / 2, 34, "Statements about Model 2", 34, True, INK, "middle", maxw=LW + 40)
     svg.text(55 + LW / 2, 72, "measured, assumed, reconstructed", 21, False, MUTED, "middle", maxw=LW)
@@ -228,26 +229,29 @@ def fig3():
     TX, TW_ = 1500, 880
     svg.text(TX + TW_ / 2, 34, "Interpreted by Claude", 34, True, INK, "middle", maxw=TW_)
     svg.text(TX + TW_ / 2, 72, "result of the SPARQL query below", 21, False, MUTED, "middle", maxw=TW_)
-    photo(svg, HERE / "photos" / "model2.jpg", P0, PY, PWD, PHT)
+    svg.o.append(f'<clipPath id="pc"><rect x="{P0}" y="{PY}" width="{PWD}" height="{PHT}"/></clipPath><g clip-path="url(#pc)">')
+    image(svg, HERE / "photos" / "model2.jpg", P0, PY - CROP, PWD, 708)
+    svg.o.append('</g>')
+    svg.rect(P0, PY, PWD, PHT, "none", stroke="#9a9a94", sw=1, rx=0, check=False)
 
-    def pt(ox, oy):   # original photograph (810 x 1080) to the figure
-        return P0 + (ox - 12) * PWD / 787, PY + (oy - 120) * PWD / 787
+    def pt(ox, oy):   # original photograph (810 x 1080) to the figure, after the crop
+        return P0 + (ox - 12) * 580 / 787, PY + (oy - 120) * 580 / 787 - CROP
     callouts = [
         (ORANGE, "Reconstructed: temple", "Four courses, four hollow white pillars", pt(410, 500)),
         (AMBER, "Assumed: hidden bricks", "Inner bricks estimated, not read from the scan", pt(410, 700)),
         (AMBER, "Assumed: seven levels", "Photo and builder: seven; the scan: eight", pt(190, 740)),
-        (GREY, "Measured: scan distorted", "Compressed along one axis, factor about 0.72", pt(300, 900)),
-        (GREY, "Measured: capture", "115 photographs, Galaxy A71, KIRI Engine", (P0, PY + PHT - 50)),
+        (GREY, "Measured: scan distorted", "Compressed along one axis, factor about 0.72", pt(300, 830)),
+        (GREY, "Measured: capture", "115 photographs, Galaxy A71, KIRI Engine", (P0, PY + PHT - 8)),
     ]
     for i, (fill, head, line, target) in enumerate(callouts):
         y = 110 + i * 146
         svg.block(55, y, LW, 120, [line], fill, head=head, size=26, pad=16)
         svg.arrow([(55 + LW, y + 60), (target[0] - 2, target[1])], head=False, dot=True, sw=2.8)
 
-    rows = [("Mesoamerican (Maya) step pyramid with a temple on top", "0.70", "confirmed,|17 Nov 2026", "Q1456099|(broader)"),
+    rows = [("Mesoamerican (Maya) step pyramid with a temple on top", "0.70", "confirmed,|17 Nov 2026", "Q2270185"),
             ("El Castillo at Chichén Itzá (special case of the first)", "0.35", "not confirmed", "Q1128327"),
-            ("Free design without a specific model", "0.15", "open", "none"),
-            ("Angkor temple mountain with sanctuary", "0.10", "open", "Q788982"),
+            ("Free design without a specific model", "0.15", "open", "Q10334103"),
+            ("Angkor temple mountain with sanctuary", "0.10", "open", "Q43473"),
             ("Ziggurat with temple", "0.08", "open", "Q170153")]
     cx = [TX + 16, TX + 445, TX + 550, TX + 755]
     HH, RH = 64, 100
@@ -273,7 +277,7 @@ def fig3():
             svg.text(cx[3], cy - 11, ws[0], 21, False, INK, maxw=110)
             svg.text(cx[3], cy + 13, ws[1], 15, False, MUTED, maxw=110)
         else:
-            svg.text(cx[3], cy, w, 21, False, MUTED if w == "none" else INK, maxw=110)
+            svg.text(cx[3], cy, w, 21, False, INK, maxw=110)
     my = 110 + HH + 5 * RH + 20
     svg.block(TX, my, TW_, 842 - my, ["Model 1 is also a step pyramid; its four hypotheses on what it represents are all open. "
                                       "The best is a monument with a warrior statue on a column (0.55). Confidence is the AI's own estimate."],
@@ -281,9 +285,9 @@ def fig3():
     a, b = (P0 + PWD + 8, 470), (TX - 8, 470)
     svg.arrow([a, b], sw=3)
     svg.chip((a[0] + b[0]) / 2, 470, "interpreted", 18)
-    qy, qh = 900, 250
-    svg.rect(55, qy, 700, qh, "#fbfbf9", stroke="#9a9a94", name="query")
-    svg.text(75, qy + 24, "SPARQL query behind the table (prefixes omitted)", 19, True, MUTED, maxw=660)
+    qx, qy, qw, qh = P0 - 10, PY + PHT + 30, PWD + 20, 214
+    svg.rect(qx, qy, qw, qh, "#fbfbf9", stroke="#9a9a94", name="query")
+    svg.text(qx + 16, qy + 22, "SPARQL query behind the table (prefixes omitted)", 17, True, MUTED, maxw=qw - 30)
     code = [(0, "SELECT ?hypothesis ?confidence ?status ?term WHERE {"),
             (1, "?h brec:hypothesisAbout ex:lego_pyramid_2 ;"),
             (2, "brec:confidence ?confidence ; rdfs:label ?hypothesis ;"),
@@ -291,14 +295,15 @@ def fig3():
             (1, "OPTIONAL { ?h brec:verificationStatus ?status }"),
             (0, "} ORDER BY DESC(?confidence)")]
     for j, (ind, t) in enumerate(code):
-        svg.text(75 + ind * 28, qy + 64 + j * 29, t, 20, False, INK, maxw=660 - ind * 28)
-    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, 852, 19)
+        svg.text(qx + 16 + ind * 22, qy + 56 + j * 26, t, 18, False, INK, maxw=qw - 30 - ind * 22)
+    LY = 892
+    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, LY - 9, 19)
     lx = TX
-    svg.text(lx, 861, "Builder:", 19, True, INK, maxw=100)
+    svg.text(lx, LY, "Builder:", 19, True, INK, maxw=100)
     lx += 100
     for col, t in (("#16a34a", "confirmed"), ("#dc2626", "not confirmed"), (AMBER, "open")):
-        svg.o.append(f'<circle cx="{lx + 10}" cy="861" r="10" fill="{col}" stroke="#000" stroke-width="1.4"/>')
-        svg.text(lx + 28, 861, t, 19, False, INK, maxw=200)
+        svg.o.append(f'<circle cx="{lx + 10}" cy="{LY}" r="10" fill="{col}" stroke="#000" stroke-width="1.4"/>')
+        svg.text(lx + 28, LY, t, 19, False, INK, maxw=200)
         lx += 60 + tw(t, 19)
     save(svg, "fig3_model2")
 
