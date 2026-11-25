@@ -36,6 +36,7 @@ class Svg:
         self.o.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" font-family="Fira Sans">')
         self.o.append(f'<rect width="{w}" height="{h}" fill="#ffffff"/>')
         self.o.append('<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#111"/></marker>'
+                      '<marker id="g" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1L11 6L1 11Z" fill="#fff" stroke="#111" stroke-width="1.4"/></marker>'
                       '<marker id="d" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"><circle cx="5" cy="5" r="4" fill="#111"/></marker></defs>')
 
     def rect(self, x, y, w, h, fill=WHITE, stroke="#000", sw=1.2, rx=6, dash=None, check=True, name=""):
@@ -51,30 +52,32 @@ class Svg:
         self.o.append(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" dominant-baseline="central" font-size="{size}"{wt} fill="{fill}">{escape(t)}</text>')
 
     def block(self, x, y, w, h, lines, fill, head=None, size=13, pad=10):
-        """A statement box: optional bold head line, wrapped body lines; height is given, content must fit."""
+        """A statement box: optional bold head line, wrapped body lines; the text block is centred vertically, the content must fit."""
         self.rect(x, y, w, h, fill, name=(head or lines[0])[:30])
         col = ON[fill]
-        yy = y + pad + size * 0.55
-        if head:
-            for ln in wrap(head, size, w - 2 * pad, True):
-                self.text(x + pad, yy, ln, size, True, col, maxw=w - 2 * pad)
-                yy += size * 1.3
+        rows = []
+        for ln in (wrap(head, size, w - 2 * pad, True) if head else []):
+            rows.append((ln, size, True, size * 1.3))
         for ln in lines:
             for l2 in wrap(ln, size - 1, w - 2 * pad):
-                self.text(x + pad, yy, l2, size - 1, False, col, maxw=w - 2 * pad)
-                yy += (size - 1) * 1.3
-        if yy - (size - 1) * 0.65 > y + h:
+                rows.append((l2, size - 1, False, (size - 1) * 1.3))
+        total = sum(r[3] for r in rows)
+        if total > h - 8:
             raise ValueError(f"statement does not fit its box: {head or lines[0]}")
+        yy = y + (h - total) / 2
+        for t, sz, med, lh in rows:
+            self.text(x + pad, yy + lh / 2, t, sz, med, col, maxw=w - 2 * pad)
+            yy += lh
 
     def height_of(self, w, lines, head=None, size=13, pad=10):
         n = sum(len(wrap(l, size, w - 2 * pad, True)) for l in ([head] if head else []))
         m = sum(len(wrap(l, size - 1, w - 2 * pad)) for l in lines)
         return round(2 * pad + n * size * 1.3 + m * (size - 1) * 1.3 + 2)
 
-    def arrow(self, pts, head=True, dot=False, color="#111", sw=1.6, dash=None, ends=()):
+    def arrow(self, pts, head=True, dot=False, color="#111", sw=1.6, dash=None, ends=(), marker="a"):
         d = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
         ds = f' stroke-dasharray="{dash}"' if dash else ""
-        mk = (' marker-end="url(#a)"' if head else "") + (' marker-end="url(#d)"' if dot else "")
+        mk = (f' marker-end="url(#{marker})"' if head else "") + (' marker-end="url(#d)"' if dot else "")
         self.o.append(f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{sw}"{ds}{mk}/>')
         self.lines.append((pts, ends))
 
