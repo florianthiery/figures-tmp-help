@@ -9,15 +9,16 @@ fig4_ci_findspots:
     precision, location and point type, and the literature reference. Licence: Florian Thiery and Fiona Schenk,
     CC BY 4.0; base map: Natural Earth, public domain.
 
-z2_one_findspot_three_paradigms:
-  replaces: new figure (Sections 3 and 4)
+z2_one_stone_five_models:
+  replaces: new figure (end of Section 3 or Section 4; placement open)
   caption: >-
-    The same coordinate in three paradigms, shown for the Campanian Ignimbrite findspot Auel Maar AU3. (A) RDF with
-    GeoSPARQL: the site has a geometry resource whose geo:asWKT literal carries the point (the coordinate reference
-    system prefix of the published literal is omitted). (B) Labelled property graph: the point is a property of the
-    node. (C) Heterogeneous information network: the point is a node of its own, identified by its coordinates, so
-    that nearby findspots such as Auel Maar AU4 can be linked as spatially similar (illustrative). Red outline: where
-    the coordinate sits. Data: geo-lod graph and fuzzy-sl Wikibase, Florian Thiery and Fiona Schenk, CC BY 4.0.
+    One coordinate in five modelling styles, shown for the Ogham stone Coumeenole North (Macalister 1945, textual
+    description). (A) Wikidata: coordinate location with its qualifiers. (B) fuzzy-sl Wikibase: the coordinate
+    statement carries certainty level, method, precision and location type as qualifiers. (C) RDF with GeoSPARQL: the
+    point is a geo:asWKT literal of a geometry resource. (D) Labelled property graph: the point is a property of the
+    node. (E) Heterogeneous information network: the point is a node of its own, so that nearby geolocations can be
+    linked by distance classes. Red outline: where the coordinate sits. Data: Wikidata (CC0), fuzzy-sl Wikibase,
+    Florian Thiery, CC BY 4.0.
 
 z3_showcase_map:
   replaces: new figure (Section 5, overview)

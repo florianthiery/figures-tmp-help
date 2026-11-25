@@ -7,7 +7,7 @@ Use the PNG in LaTeX: the SVG names Fira Sans without embedding it. A text that 
 ## Run (Windows cmd, one line)
 
 ```
-cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow rdflib && python figs.py fig4 z2 z3
+cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow rdflib && python fetch_wd.py && python figs.py fig4 z2 z3
 ```
 
 ## Figures (numbers as in the submitted PDF)
@@ -29,5 +29,5 @@ Planned: Fig. 7, Fig. 6, Fig. 3, Fig. 10, and the additions Z2 (one findspot in 
 - The graph writes one literature reference as `Fitzsimmons et al.,, 2013` (double comma); the figure normalises it to `Fitzsimmons et al. 2013`.
 - The rings are drawn on an equirectangular map true at 44° N and are approximate; the star is the schematic position of the Phlegraean Fields (14.14° E, 40.83° N, wd:Q755123).
 
-| `z2_one_findspot_three_paradigms` | new (Sections 3 and 4) | Auel Maar AU3 as RDF/GeoSPARQL, LPG and HIN | `data/ci_findspots.ttl`, `data/wb/Q84.json` |
+| `z2_one_stone_five_models` | new (Section 3 or 4) | Ogham stone Coumeenole North as Wikidata, fuzzy-sl Wikibase, RDF/GeoSPARQL, LPG, HIN | `data/wb/Q131.json` etc., `data/wd/` (built by `fetch_wd.py`, needs internet) |
 | `z3_showcase_map` | new (Section 5) | map of the showcase datasets (fuzzy-sl Wikibase vs. bespoke RDF pipeline) | `data/showcase_points.csv` (built by `prep_points.py` from bb-5kbc-sites, geoscience-fairification-lod/SISAL and wb-fuzzysl-static), `data/ne_50m_land.geojson` |

@@ -165,8 +165,8 @@ def fig4():
     x = mx + 18 + tw(f'archaeological site ({na})', MIN_TYPE) + 46
     f.o.append(f'<circle cx="{x}" cy="{ly}" r="9" fill="#fff" stroke="#000" stroke-width="1.8"/>'); f.text(x + 18, ly + 8, f'no archaeological site ({len(S) - na})', MIN_TYPE, 400, INK, 'start')
     ly += 46
-    f.o.append(f'<circle cx="{mx}" cy="{ly}" r="14" fill="none" stroke="{RED}" stroke-width="4"/>'); f.text(mx + 26, ly + 8, 'item of panel B', MIN_TYPE, 400, INK, 'start')
-    x = mx + 26 + tw('item of panel B', MIN_TYPE) + 46
+    f.o.append(f'<circle cx="{mx}" cy="{ly}" r="14" fill="none" stroke="{RED}" stroke-width="4"/>'); f.text(mx + 26, ly + 8, 'item of', MIN_TYPE, 400, INK, 'start'); badge(f, mx + 26 + tw('item of ', MIN_TYPE) + 10, ly - 18, 'B', 34)
+    x = mx + 26 + tw('item of ', MIN_TYPE) + 10 + 34 + 46
     sy2 = ly; star2 = ' '.join(f'{x + (14 if i % 2 == 0 else 6) * math.sin(i * math.pi / 5):.1f},{sy2 - (14 if i % 2 == 0 else 6) * math.cos(i * math.pi / 5):.1f}' for i in range(10))
     f.o.append(f'<polygon points="{star2}" fill="{TERM}" stroke="#000" stroke-width="1.5"/>'); f.text(x + 22, ly + 8, 'source area of the eruption', MIN_TYPE, 400, INK, 'start')
     # --- panel B: the coordinate statement of Q70 with its qualifiers, as the Wikibase has it
@@ -201,12 +201,16 @@ def fig4():
     f.done()
     return S
 
+def badge(f, x, y, letter, size=36):
+    f.o.append(f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
+    f.text(x + size / 2, y + size * 0.72, letter, 26, 500, '#fff')
+
 # ---------------------------------------------------------------- Z3: where the showcases are
 PIPE, WBK = CLS, AMB
 def pts(setname):
     return [(float(r['lon']), float(r['lat']), r['label']) for r in csv.DictReader(open(os.path.join(HERE, 'data/showcase_points.csv'), encoding='utf8')) if r['set'] == setname]
 
-def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2):
+def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, grid=None):
     kx = mw / (lon1 - lon0); ky = kx / math.cos(math.radians(latc)); mh = (lat1 - lat0) * ky
     X = lambda lon: mx + (lon - lon0) * kx
     Y = lambda lat: my + (lat1 - lat) * ky
@@ -218,7 +222,22 @@ def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2):
         step = 1 if kx > 5 else 4
         d = ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(ring[::step])) + 'Z'
         f.o.append(f'<path d="{d}" fill="{LAND}" stroke="{COAST}" stroke-width="{stroke}"/>')
+    if grid:                                        # graticule inside, degree labels outside the frame
+        dlon, dlat = grid
+        for lo in range(math.ceil(lon0 / dlon) * dlon, int(lon1) + 1, dlon):
+            f.o.append(f'<line x1="{X(lo):.1f}" y1="{my}" x2="{X(lo):.1f}" y2="{my + mh:.1f}" stroke="#fff" stroke-width="1.6" stroke-dasharray="3 6" opacity="0.95"/>')
+        for la in range(math.ceil(lat0 / dlat) * dlat, int(lat1) + 1, dlat):
+            f.o.append(f'<line x1="{mx}" y1="{Y(la):.1f}" x2="{mx + mw}" y2="{Y(la):.1f}" stroke="#fff" stroke-width="1.6" stroke-dasharray="3 6" opacity="0.95"/>')
     f.o.append('</g>')
+    f.o.append(f'<rect x="{mx}" y="{my}" width="{mw}" height="{mh:.1f}" fill="none" stroke="#000" stroke-width="2"/>')
+    if grid:
+        fmt = lambda v, p, n: f'{abs(v)}°{p if v >= 0 else n}'
+        for lo in range(math.ceil(lon0 / dlon) * dlon, int(lon1) + 1, dlon):
+            f.o.append(f'<line x1="{X(lo):.1f}" y1="{my + mh:.1f}" x2="{X(lo):.1f}" y2="{my + mh + 8:.1f}" stroke="#000" stroke-width="2"/>')
+            if X(lo) + tw(fmt(lo, 'E', 'W'), MIN_TYPE) / 2 <= W - 4: f.text(X(lo), my + mh + 34, fmt(lo, 'E', 'W'), MIN_TYPE, 400, MUT)
+        for la in range(math.ceil(lat0 / dlat) * dlat, int(lat1) + 1, dlat):
+            f.o.append(f'<line x1="{mx - 8}" y1="{Y(la):.1f}" x2="{mx}" y2="{Y(la):.1f}" stroke="#000" stroke-width="2"/>')
+            f.text(mx - 12, Y(la) + 8, fmt(la, 'N', 'S'), MIN_TYPE, 400, MUT, 'end')
     return X, Y, mh
 
 def z3():
@@ -229,8 +248,8 @@ def z3():
     def panel_title(x, letter, text):
         f.o.append(f'<rect x="{x}" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
         f.text(x + 20, 46, letter, 28, 500, '#fff'); f.text(x + 56, 46, text, 28, 500, INK, 'start')
-    panel_title(20, 'A', 'Europe and the Mediterranean')
-    X, Y, mh = basemap(f, 20, 80, 1000, -13, 46, 30, 57, 44, 'za')
+    panel_title(90, 'A', 'Europe and the Mediterranean')
+    X, Y, mh = basemap(f, 90, 80, 930, -13, 46, 30, 57, 44, 'za', grid=(10, 5))
     for lon, lat, _ in bb: f.o.append(f'<circle cx="{X(lon):.1f}" cy="{Y(lat):.1f}" r="5" fill="{PIPE}" fill-opacity="0.55" stroke="none"/>')
     for lon, lat, _ in ci: f.o.append(f'<circle cx="{X(lon):.1f}" cy="{Y(lat):.1f}" r="8" fill="{PIPE}" stroke="#000" stroke-width="1.6"/>')
     for lon, lat, _ in wbk:
@@ -246,63 +265,91 @@ def z3():
     call(15.5, 52.4, 'BB-5KBC findspots', 20, -50)
     call(24.0, 43.2, 'CI findspots (74)', 60, -120)
     call(15.7, 39.2, 'Bruttium coin finds', 90, 100)
-    panel_title(1060, 'B', 'World: SISAL caves')
-    X2, Y2, mh2 = basemap(f, 1060, 80, 620, -170, 180, -58, 80, 0, 'zb', 0.8)
+    panel_title(1100, 'B', 'World: SISAL caves')
+    X2, Y2, mh2 = basemap(f, 1140, 80, 540, -170, 180, -58, 80, 0, 'zb', 0.8, grid=(60, 30))
     for lon, lat, _ in sl: f.o.append(f'<circle cx="{X2(lon):.1f}" cy="{Y2(lat):.1f}" r="4.5" fill="{PIPE}" fill-opacity="0.7" stroke="#000" stroke-width="0.8"/>')
     ex0, ex1, ey0, ey1 = X2(-13), X2(46), Y2(57), Y2(30)
     f.o.append(f'<rect x="{ex0:.1f}" y="{ey0:.1f}" width="{ex1 - ex0:.1f}" height="{ey1 - ey0:.1f}" fill="none" stroke="{RED}" stroke-width="3"/>')
-    f.text(1060 + 310, 80 + mh2 + 36, 'red frame = panel A', MIN_TYPE, 400, RED)
+    badge(f, ex0, ey0 - 44, 'A')                      # the red frame is panel A
+    f.text(1140 + 270, 80 + mh2 + 78, 'red frame: extent of the map in', MIN_TYPE, 400, RED, 'end'); badge(f, 1140 + 280, 80 + mh2 + 48, 'A')
     # legend, right column below panel B
-    lx, ly = 1070, 80 + mh2 + 100
+    lx, ly = 1150, 80 + mh2 + 130
     f.o.append(f'<circle cx="{lx}" cy="{ly}" r="9" fill="{WBK}" stroke="#000" stroke-width="1.8"/>'); f.text(lx + 24, ly + 8, f'fuzzy-sl Wikibase: {len(wbk)} coordinates', MIN_TYPE, 400, INK, 'start')
     ly += 50
     f.o.append(f'<circle cx="{lx}" cy="{ly}" r="9" fill="{PIPE}" stroke="#000" stroke-width="1.8"/>'); f.text(lx + 24, ly + 8, 'bespoke RDF pipeline:', MIN_TYPE, 400, INK, 'start')
     for t in (f'BB-5KBC findspots ({len(bb)}, small dots)', f'CI findspots ({len(ci)})', f'SISAL caves ({len(sl)})'):
         ly += 40; f.text(lx + 24, ly + 8, t, MIN_TYPE, 400, INK, 'start')
-    f.h = int(80 + mh + 24)
+    f.h = int(80 + mh + 52)
     f.done()
 
-# ---------------------------------------------------------------- Z2: one findspot, three paradigms
+# ---------------------------------------------------------------- Z2: one finding, five modelling styles
+def wd_data():
+    p = os.path.join(HERE, 'data/wd/Q126503090.json')
+    if not os.path.exists(p): return None, None
+    return json.load(open(p, encoding='utf8')), json.load(open(os.path.join(HERE, 'data/wd/labels.json'), encoding='utf8'))
+
 def z2():
-    g, S = load_ci()
-    au3 = [s_ for s_ in S if s_['label'] == 'Auel Maar AU3'][0]
-    m = re.search(r'POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)', au3['wkt']); lon, lat = m.group(1), m.group(2)
-    au4 = wb_entity('Q84'); assert au4['labels']['en']['value'] == 'Auel Maar AU4'
-    c4 = au4['claims']['P4'][0]['mainsnak']['datavalue']['value']
-    H = 750
-    f = Fig('z2_one_findspot_three_paradigms', H)
-    def panel_title(x, letter, text):
-        f.o.append(f'<rect x="{x}" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
-        f.text(x + 20, 46, letter, 28, 500, '#fff'); f.text(x + 56, 46, text, 28, 500, INK, 'start')
-    xs = (20, 590, 1160)
+    it = wb_entity('Q131'); assert it['labels']['en']['value'] == 'Ogham Stone Coumeenole North'
+    st = it['claims']['P4'][1]; v = st['mainsnak']['datavalue']['value']          # the statement from Macalister (1945)
+    lat, lon = round(v['latitude'], 4), round(v['longitude'], 4)
+    quals = [(wb_label(p), snak_text(st['qualifiers'][p][0])) for p in ('P5', 'P7', 'P23', 'P24')]
+    wd, wdl = wd_data()
+    H = 1230
+    f = Fig('z2_one_stone_five_models', H)
+    def panel_title(x, y, letter, text):
+        f.o.append(f'<rect x="{x}" y="{y}" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
+        f.text(x + 20, y + 30, letter, 28, 500, '#fff'); f.text(x + 56, y + 30, text, 28, 500, INK, 'start')
+    cols = (20, 590, 1160); rows = (16, 676)
     for x in (570, 1140): f.o.append(f'<line x1="{x - 5}" y1="20" x2="{x - 5}" y2="{H - 20}" stroke="#d4d4d0" stroke-width="2"/>')
-    panel_title(xs[0], 'A', 'RDF and GeoSPARQL'); panel_title(xs[1], 'B', 'Labelled property graph'); panel_title(xs[2], 'C', 'Heterogeneous information network')
-    # A: the coordinate is a literal of a geometry resource
-    x0, w = xs[0] + 90, 340; cx = x0 + w / 2
-    f.box(x0, 100, w, 96, INST, ['ci:cisite_201', 'Auel Maar AU3']); f.arrow(cx, 196, cx, 300); f.chip(cx, 248, 'geo:hasGeometry')
-    f.box(x0, 300, w, 70, INST, ['ci:cisite_201_geom']); f.arrow(cx, 370, cx, 480); f.chip(cx, 425, 'geo:asWKT')
-    f.box(x0, 480, w, 96, '#fff', [f'POINT({lon} {lat})', '^^geo:wktLiteral'], stroke=RED, sw=4)
-    # B: the coordinate is a property of the node
-    x0 = xs[1] + 60; w = 400; cx = x0 + w / 2
-    f.box(x0, 100, w, 96, INST, ['(:Findspot)', 'name: "Auel Maar AU3"'])
-    f.o.append(f'<line x1="{cx}" y1="196" x2="{cx}" y2="300" stroke="#000" stroke-width="2.5"/>')
-    f.box(x0, 300, w, 130, '#fff', ['location:', f'point({{longitude: {lon},', f'latitude: {lat}}})'], stroke=RED, sw=4)
-    f.text(cx, 480, 'property of the node, type Point', MIN_TYPE, 400, MUT)
-    # C: the coordinate is a node of its own
-    bw = 235
-    for i, (nm, nid, la, lo) in enumerate((('Auel Maar AU3', 'AU3', lat, lon), ('Auel Maar AU4', 'AU4', c4['latitude'], c4['longitude']))):
-        x0 = xs[2] + i * (bw + 50); cx = x0 + bw / 2
-        f.box(x0, 100, bw, 70, INST, ['(Findspot)', nm] if False else [nm])
-        f.arrow(cx, 170, cx, 320); f.chip(cx, 245, 'located at')
-        f.box(x0, 320, bw, 96, '#fff', ['Geolocation', f'{la}_{lo}'], stroke=RED, sw=4)
-        f.o.append(f'<line x1="{cx}" y1="416" x2="{cx}" y2="500" stroke="#000" stroke-width="2.5"/>')
-    c1, c2 = xs[2] + bw / 2, xs[2] + bw + 50 + bw / 2
-    f.o.append(f'<line x1="{c1}" y1="500" x2="{c2}" y2="500" stroke="#000" stroke-width="2.5"/>')
-    f.chip((c1 + c2) / 2, 500, 'spatially similar')
-    # what each paradigm offers for a distance question
-    for x, t in ((xs[0], ['distance question:', 'geof:distance()']), (xs[1], ['distance question:', 'point.distance()']), (xs[2], ['distance question:', 'distance classes in the meta path'])):
-        f.text(x + 260, 625, t[0], MIN_TYPE, 400, MUT); f.text(x + 260, 625 + 32, t[1], MIN_TYPE, 500, INK, maxw=520)
-    f.text(20, H - 14, 'red outline = where the coordinate sits', MIN_TYPE, 400, RED, 'start')
+    f.o.append(f'<line x1="20" y1="{rows[1] - 20}" x2="{W - 20}" y2="{rows[1] - 20}" stroke="#d4d4d0" stroke-width="2"/>')
+    # A: Wikidata (read from data/wd/, see fetch_wd.py)
+    x0, w = cols[0] + 50, 440; cx = x0 + w / 2; y = rows[0]
+    panel_title(cols[0], y, 'A', 'Wikidata')
+    if wd:
+        c = wd['claims']['P625'][0]; cv = c['mainsnak']['datavalue']['value']
+        lab = lambda i: wdl.get(i, i)
+        lines = [f"{round(cv['latitude'], 4)}, {round(cv['longitude'], 4)}"]
+        for qp, sn in c.get('qualifiers', {}).items():
+            vv = sn[0]['datavalue']['value']; lines.append(f"{lab(qp)}: " + (lab(vv['id']) if isinstance(vv, dict) and 'id' in vv else str(vv)))
+        f.box(x0, y + 90, w, 96, INST, [wd['labels']['en']['value'], 'Q126503090'])
+        f.arrow(cx, y + 186, cx, y + 290); f.chip(cx, y + 238, 'coordinate location')
+        f.box(x0, y + 290, w, 60 + 36 * len(lines), '#fff', lines, stroke=RED, sw=4)
+    else:
+        f.box(x0, y + 90, w, 200, '#fff', ['data/wd/ missing:', 'run fetch_wd.py'], stroke=RED, sw=4, dash=True)
+    # B: fuzzy-sl Wikibase
+    x0, w = cols[1] + 50, 440; cx = x0 + w / 2
+    panel_title(cols[1], y, 'B', 'fuzzy-sl Wikibase')
+    f.box(x0, y + 90, w, 96, INST, ['Ogham Stone', 'Coumeenole North (Q131)'])
+    f.arrow(cx, y + 186, cx, y + 290); f.chip(cx, y + 238, 'has coordinate')
+    f.box(x0, y + 290, w, 60 + 36 * 5, '#fff', [f'{lat}, {lon}'] + [f'{a}: {b}' for a, b in quals], stroke=RED, sw=4)
+    f.text(cx, y + 290 + 60 + 36 * 5 + 50, 'qualifiers on the statement', MIN_TYPE, 400, MUT)
+    # C: RDF / GeoSPARQL
+    x0, w = cols[2] + 50, 440; cx = x0 + w / 2
+    panel_title(cols[2], y, 'C', 'RDF and GeoSPARQL')
+    f.box(x0, y + 90, w, 96, INST, ['lod.ogham.link/data/Y50000178', 'Ogham Stone Coumeenole North'])
+    f.arrow(cx, y + 186, cx, y + 290); f.chip(cx, y + 238, 'geo:hasGeometry')
+    f.box(x0, y + 290, w, 70, INST, ['_:geometry']); f.arrow(cx, y + 360, cx, y + 470); f.chip(cx, y + 415, 'geo:asWKT')
+    f.box(x0, y + 470, w, 96, '#fff', [f'POINT({lon} {lat})', '^^geo:wktLiteral'], stroke=RED, sw=4)
+    # D: labelled property graph
+    y = rows[1]; x0, w = cols[0] + 50, 440; cx = x0 + w / 2
+    panel_title(cols[0], y, 'D', 'Labelled property graph')
+    f.box(x0, y + 90, w, 96, INST, ['(:OghamStone)', 'name: "Coumeenole North"'])
+    f.o.append(f'<line x1="{cx}" y1="{y + 186}" x2="{cx}" y2="{y + 290}" stroke="#000" stroke-width="2.5"/>')
+    f.box(x0, y + 290, w, 130, '#fff', ['location:', f'point({{longitude: {lon},', f'latitude: {lat}}})'], stroke=RED, sw=4)
+    f.text(cx, y + 470, 'property of the node, type Point', MIN_TYPE, 400, MUT)
+    # E: heterogeneous information network
+    x0, w = cols[1] + 50, 440; cx = x0 + w / 2
+    panel_title(cols[1], y, 'E', 'Heterogeneous information network')
+    f.box(x0, y + 90, w, 70, INST, ['OghamStone', 'Coumeenole North'] if False else ['Coumeenole North'])
+    f.arrow(cx, y + 160, cx, y + 290); f.chip(cx, y + 225, 'located at')
+    f.box(x0, y + 290, w, 96, '#fff', ['Geolocation', f'{lat}_{lon}'], stroke=RED, sw=4)
+    f.text(cx, y + 440, 'a node of its own; nearby geolocations', MIN_TYPE, 400, MUT); f.text(cx, y + 472, 'can be linked by distance classes', MIN_TYPE, 400, MUT)
+    # F: key
+    x0 = cols[2] + 30
+    f.o.append(f'<rect x="{x0}" y="{y + 20}" width="46" height="30" rx="8" fill="#fff" stroke="{RED}" stroke-width="4"/>'); f.text(x0 + 66, y + 44, 'where the coordinate sits', MIN_TYPE, 400, INK, 'start')
+    f.text(x0, y + 130, 'One coordinate: 52.1103 N, 10.4732 W', MIN_TYPE, 500, INK, 'start')
+    f.text(x0, y + 170, 'Macalister (1945), textual description', MIN_TYPE, 400, MUT, 'start')
+    f.text(x0, y + 220, 'Panels A to C are RDF-based,', MIN_TYPE, 400, MUT, 'start'); f.text(x0, y + 252, 'D and E are not.', MIN_TYPE, 400, MUT, 'start')
     f.done()
 
 if __name__ == '__main__':
