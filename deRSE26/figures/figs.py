@@ -79,11 +79,35 @@ def land():
            [p for f in d['features'] if f['geometry']['type'] == 'MultiPolygon' for p in f['geometry']['coordinates']]
 
 # ---------------------------------------------------------------- Fig. 4
+def wb_entity(i):
+    d = json.load(open(os.path.join(HERE, f'data/wb/{i}.json'), encoding='utf8'))
+    return list(d['entities'].values())[0] if 'entities' in d else d
+def wb_label(i): return wb_entity(i)['labels']['en']['value']
+def wrap(text, width, size=MIN_TYPE):
+    out, cur = [], ''
+    for w_ in text.split(' '):
+        t = (cur + ' ' + w_).strip()
+        if tw(t, size) <= width or not cur: cur = t
+        else: out.append(cur); cur = w_
+    return out + [cur]
+def snak_text(sn):
+    v = sn['datavalue']['value']
+    if isinstance(v, dict) and 'id' in v: return wb_label(v['id'])
+    if isinstance(v, dict) and 'latitude' in v: return f"{v['latitude']}, {v['longitude']}"
+    return str(v)
+
 def fig4():
     g, S = load_ci()
-    H = 930
+    H = 960
     f = Fig('fig4_ci_findspots', H)
-    # --- panel a: map
+    arch_iri = URIRef('http://w3id.org/geo-lod/CIArchaeologicalSite')
+    for s_ in S: s_['arch'] = (s_['iri'], URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), arch_iri) in g
+    # --- the item of panel B, read from the static copy of the fuzzy-sl Wikibase (Q70 = Auel Maar AU3)
+    it = wb_entity('Q70'); assert it['labels']['en']['value'] == 'Auel Maar AU3'
+    coord = it['claims']['P4'][0]; cv = coord['mainsnak']['datavalue']['value']
+    au3 = [s_ for s_ in S if s_['label'] == 'Auel Maar AU3'][0]
+    assert abs(au3['lon'] - cv['longitude']) < 1e-6 and abs(au3['lat'] - cv['latitude']) < 1e-6, 'graph and Wikibase disagree on AU3'
+    # --- panel A: map
     mx, my, mw = 20, 80, 780
     LON0, LON1, LAT0, LAT1, LATC = 4.0, 46.0, 31.0, 57.0, 44.0
     kx = mw / (LON1 - LON0); ky = kx / math.cos(math.radians(LATC)); mh = (LAT1 - LAT0) * ky
@@ -98,117 +122,77 @@ def fig4():
         for hole in poly[1:]:
             d += ' ' + ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(hole)) + 'Z'
         f.o.append(f'<path d="{d}" fill="{LAND}" stroke="{COAST}" stroke-width="1.2"/>')
-    # distance rings around the source area (Phlegraean Fields, wd:Q755123)
-    slon, slat = 14.14, 40.83
-    for km in (500, 1000, 1500, 2000):
+    slon, slat = 14.14, 40.83                       # Phlegraean Fields (wd:Q755123), schematic
+    for km in (500, 1000):
         rx = km / (111.2 * math.cos(math.radians(slat))) * kx; ry = km / 111.2 * ky
         f.o.append(f'<ellipse cx="{X(slon):.1f}" cy="{Y(slat):.1f}" rx="{rx:.1f}" ry="{ry:.1f}" fill="none" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="8 7"/>')
     f.o.append('</g>')
-    for km, ang in ((500, 235), (1000, 235)):
+    for km in (500, 1000):
         rx = km / (111.2 * math.cos(math.radians(slat))) * kx; ry = km / 111.2 * ky
-        tx, ty = X(slon) + rx * math.cos(math.radians(ang)), Y(slat) - ry * math.sin(math.radians(ang))
-        if mx + 60 < tx < mx + mw - 60 and my + 30 < ty < my + mh - 30:
-            f.o.append(f'<rect x="{tx - 44:.1f}" y="{ty - 18:.1f}" width="88" height="34" rx="6" fill="{SEA}" opacity="0.92"/>')
-            f.text(tx, ty + 8, f'{km} km', MIN_TYPE, 400, MUT)
-    # findspots by certainty level (fuzzy-sl vocabulary), drawn from the graph
-    style = {'high': dict(fill=CLS, stroke='#000', shape='c'), 'medium': dict(fill='#e8a46a', stroke='#000', shape='c'),
-             'low': dict(fill='#fff', stroke=CLS, shape='c'), 'dubious': dict(fill='#fff', stroke=CLS, shape='d'),
-             'representative': dict(fill=TERM, stroke='#000', shape='s')}
-    order = ['dubious', 'low', 'medium', 'high', 'representative']
-    for lv in order:
-        for s_ in S:
-            if s_['level'] != lv: continue
-            st, x, y = style[lv], X(s_['lon']), Y(s_['lat'])
-            if st['shape'] == 's':
-                f.o.append(f'<rect x="{x - 9:.1f}" y="{y - 9:.1f}" width="18" height="18" fill="{st["fill"]}" stroke="{st["stroke"]}" stroke-width="2"/>')
-            else:
-                f.o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="{st["fill"]}" stroke="{st["stroke"]}" stroke-width="{3 if lv in ("low", "dubious") else 1.6}"{" stroke-dasharray=\"4 3\"" if st["shape"] == "d" else ""}/>')
-    # source area: star
+        tx, ty = X(slon) + rx * math.cos(math.radians(235)), Y(slat) - ry * math.sin(math.radians(235))
+        f.o.append(f'<rect x="{tx - 44:.1f}" y="{ty - 18:.1f}" width="88" height="34" rx="6" fill="{SEA}" opacity="0.92"/>')
+        f.text(tx, ty + 8, f'{km} km', MIN_TYPE, 400, MUT)
+    for s_ in S:                                    # other findspots first, archaeological sites on top
+        if s_['arch']: continue
+        f.o.append(f'<circle cx="{X(s_["lon"]):.1f}" cy="{Y(s_["lat"]):.1f}" r="9" fill="#fff" stroke="#000" stroke-width="1.8"/>')
+    for s_ in S:
+        if not s_['arch']: continue
+        f.o.append(f'<circle cx="{X(s_["lon"]):.1f}" cy="{Y(s_["lat"]):.1f}" r="9" fill="{CLS}" stroke="#000" stroke-width="1.8"/>')
+    ax_, ay_ = X(au3['lon']), Y(au3['lat'])         # the item of panel B
+    f.o.append(f'<circle cx="{ax_:.1f}" cy="{ay_:.1f}" r="19" fill="none" stroke="{RED}" stroke-width="4"/>')
     sx, sy = X(slon), Y(slat)
     star = ' '.join(f'{sx + (21 if i % 2 == 0 else 9) * math.sin(i * math.pi / 5):.1f},{sy - (21 if i % 2 == 0 else 9) * math.cos(i * math.pi / 5):.1f}' for i in range(10))
     f.o.append(f'<polygon points="{star}" fill="{TERM}" stroke="#000" stroke-width="2"/>')
-    # callouts for the findspots that the text names
-    by = {s_['id']: s_ for s_ in S}
-    def call(ids, text, dx, dy, anchor='start'):
-        pts = [(X(by[i]['lon']), Y(by[i]['lat'])) for i in ids]
-        cx, cy = sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts)
-        tx, ty = cx + dx, cy + dy
-        f.o.append(f'<line x1="{cx:.1f}" y1="{cy:.1f}" x2="{tx:.1f}" y2="{ty - 8:.1f}" stroke="#000" stroke-width="1.6"/>')
-        w = tw(text, MIN_TYPE) + 16; x0 = tx if anchor == 'start' else tx - w
-        f.o.append(f'<rect x="{x0 - 8 if anchor == "start" else x0:.1f}" y="{ty - 26:.1f}" width="{w:.1f}" height="36" rx="6" fill="#fff" opacity="0.92"/>')
-        f.text(tx if anchor == 'start' else tx - 8, ty, text, MIN_TYPE, 400, INK, anchor)
-    call([44], 'Toplitsa Cave', -40, -100, 'start')
-    call([52], 'Urluia', 60, 60)
-    call([45], 'Franchthi Cave', 70, 50)
-    call([65], 'Haua Fteah', 45, 8)
-    call([60], 'Kostenki', -150, 60)
-    call([201, 202, 203], 'Auel and Dehner Maar', 40, -75)
+    by = {s_['label']: s_ for s_ in S}
+    def call(site, text, dx, dy, red=False):
+        cx, cy = X(site['lon']), Y(site['lat']); tx, ty = cx + dx, cy + dy
+        f.o.append(f'<line x1="{cx:.1f}" y1="{cy:.1f}" x2="{tx:.1f}" y2="{ty - 8:.1f}" stroke="{RED if red else "#000"}" stroke-width="2"/>')
+        w = tw(text, MIN_TYPE) + 16
+        f.o.append(f'<rect x="{tx - 8:.1f}" y="{ty - 26:.1f}" width="{w:.1f}" height="36" rx="6" fill="#fff" opacity="0.92"/>')
+        f.text(tx, ty, text, MIN_TYPE, 400, INK, 'start')
+    call(au3, 'Auel Maar AU3', 45, -60, True)
+    call(by['Toplitsa Cave (Bulgaria)'], 'Toplitsa Cave', -40, -100)
+    call(by['Franchthi Cave (Greece)'], 'Franchthi Cave', 70, 50)
     f.text(sx - 20, sy + 62, 'Phlegraean Fields', MIN_TYPE, 500, TERM, 'middle')
-    # panel titles: black square with a white letter, then a bold title (as in the figures of the other paper)
     def panel_title(x, letter, text):
         f.o.append(f'<rect x="{x}" y="16" width="40" height="40" rx="6" fill="#000" stroke="#000" stroke-width="1"/>')
-        f.text(x + 20, 46, letter, 28, 500, '#fff')
-        f.text(x + 56, 46, text, 28, 500, INK, 'start')
-    panel_title(20, 'a', 'The 74 findspots and the certainty of their coordinates')
-    panel_title(840, 'b', 'One coordinate statement and its qualifiers')
-    # legend under the map
-    ly = my + mh + 40
-    cnt = {lv: sum(1 for s_ in S if s_['level'] == lv) for lv in order}
-    items = [('high', 'high'), ('medium', 'medium'), ('low', 'low'), ('dubious', 'dubious'), ('representative', 'representative point')]
-    x = mx
-    for lv, name in items:
-        st = style[lv]; label = f'{name} ({cnt[lv]})'
-        if x + 18 + tw(label, MIN_TYPE) > mx + mw: x = mx; ly += 46
-        if st['shape'] == 's':
-            f.o.append(f'<rect x="{x - 9:.1f}" y="{ly - 9:.1f}" width="18" height="18" fill="{st["fill"]}" stroke="#000" stroke-width="2"/>')
-        else:
-            f.o.append(f'<circle cx="{x:.1f}" cy="{ly:.1f}" r="9" fill="{st["fill"]}" stroke="{st["stroke"]}" stroke-width="{3 if lv in ("low", "dubious") else 1.6}"{" stroke-dasharray=\"4 3\"" if st["shape"] == "d" else ""}/>')
-        f.text(x + 18, ly + 8, label, MIN_TYPE, 400, INK, 'start'); x += 18 + tw(label, MIN_TYPE) + 46
-    # --- panel b: one coordinate statement (Urluia), read from the graph
-    it = URIRef(CI + 'cisite_52'); geom = URIRef(CI + 'cisite_52_geom'); act = URIRef(CI + 'cisite_52_activity')
-    FSL = 'http://fuzzy-sl.squirrel.link/ontology/'
-    wkt = re.search(r'POINT\(([-\d.]+) ([-\d.]+)\)', str(g.value(geom, GEO.asWKT)))
-    lit = sorted({str(o) for o in g.objects(act, GL.hasLiteratureReference)})
-    def refs(l):  # "Fitzsimmons et al., 2014" -> author set with years
-        d = {}
-        for x_ in l:
-            m = re.match(r'(.+?),+ (\d{4})$', x_)
-            d.setdefault(m.group(1), []).append(m.group(2))
-        return d
-    rd = refs(lit)
-    ref_lines = [f'{a} {", ".join(sorted(set(y)))}' for a, y in rd.items()]
-    ref_lines = [l.replace('et al.', 'et al.') for l in ref_lines]
-    desc = str(g.value(act, URIRef(FSL + 'activityDesc')))
-    assert desc.startswith('set a representative point'), desc
-    acting = str(g.value(act, URIRef('http://www.w3.org/ns/prov#wasAssociatedWith'))).rstrip('/').split('/')[-1]
-    cdesc = str(g.value(geom, GL.hasCertaintyDescription))
-    quote_src = re.match(r'(.+?\(\d{4}\), p\.\s?\d+)', cdesc).group(1).replace('p.76', 'p. 76')
-    rows = [
-        ('certainty level', [local(g.value(geom, GL.hasCertaintyLevel))]),
-        ('certainty description', ['quotation from', quote_src.split(', p.')[0], 'p.' + quote_src.split(', p.')[1]]),
-        ('method', [local([o for o in g.objects(act, URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type')) if FSL in str(o)][0])]),
-        ('method description', ['set a representative point', 'based on scientific papers', 'using Google Maps']),
-        ('source type', [local(g.value(act, URIRef(FSL + 'hasSourceType')))]),
-        ('literature reference', ref_lines),
-        ('acting person', [f'ORCID {acting}']),
-    ]
-    bx0, bw = 1350, 350          # value boxes
-    cx0, cw = 840, 200           # coordinate box
-    top, bottom = 90, H - 30
-    heights = [max(70, 24 * 1.28 * len(v) + 30) for _, v in rows]
+        f.text(x + 20, 46, letter, 28, 500, '#fff'); f.text(x + 56, 46, text, 28, 500, INK, 'start')
+    na = sum(1 for s_ in S if s_['arch'])
+    panel_title(20, 'A', 'The 74 findspots: archaeology or not')
+    panel_title(840, 'B', 'One coordinate statement: Auel Maar AU3')
+    ly = my + mh + 40; x = mx
+    f.o.append(f'<circle cx="{x}" cy="{ly}" r="9" fill="{CLS}" stroke="#000" stroke-width="1.8"/>'); f.text(x + 18, ly + 8, f'archaeological site ({na})', MIN_TYPE, 400, INK, 'start')
+    x = mx + 18 + tw(f'archaeological site ({na})', MIN_TYPE) + 46
+    f.o.append(f'<circle cx="{x}" cy="{ly}" r="9" fill="#fff" stroke="#000" stroke-width="1.8"/>'); f.text(x + 18, ly + 8, f'no archaeological site ({len(S) - na})', MIN_TYPE, 400, INK, 'start')
+    ly += 46
+    f.o.append(f'<circle cx="{mx}" cy="{ly}" r="14" fill="none" stroke="{RED}" stroke-width="4"/>'); f.text(mx + 26, ly + 8, 'item of panel B', MIN_TYPE, 400, INK, 'start')
+    x = mx + 26 + tw('item of panel B', MIN_TYPE) + 46
+    sy2 = ly; star2 = ' '.join(f'{x + (14 if i % 2 == 0 else 6) * math.sin(i * math.pi / 5):.1f},{sy2 - (14 if i % 2 == 0 else 6) * math.cos(i * math.pi / 5):.1f}' for i in range(10))
+    f.o.append(f'<polygon points="{star2}" fill="{TERM}" stroke="#000" stroke-width="1.5"/>'); f.text(x + 22, ly + 8, 'source area of the eruption', MIN_TYPE, 400, INK, 'start')
+    # --- panel B: the coordinate statement of Q70 with its qualifiers, as the Wikibase has it
+    ql = coord['qualifiers-order'] if 'qualifiers-order' in coord else list(coord['qualifiers'].keys())
+    rows = []
+    for qp in ql:
+        sn = coord['qualifiers'][qp][0]
+        txt = snak_text(sn)
+        rows.append((wb_label(qp), wrap(txt, 350 - 28) if len(txt) > 22 else [txt]))
+    ref = coord['references'][0]['snaks']; rp = list(ref.keys())[0]
+    rows.append((wb_label(rp), ['doi.org/' + snak_text(ref[rp][0]).split('doi.org/')[1]]))
+    heights = [max(64, 24 * 1.28 * len(v) + 26) for _, v in rows]
+    top, bottom = 90, H - 24
     gap = (bottom - top - sum(heights)) / (len(rows) - 1)
     ys = []; y = top
     for h_ in heights: ys.append(y); y += h_ + gap
-    cy_mid = (top + bottom) / 2 + 40
-    # item box and coordinate box
-    lab_ = str(g.value(it, RDFS.label)); nm_, ct_ = re.match(r'(.+?) \((.+)\)', lab_).groups()
-    f.box(cx0, 100, cw, 96, INST, [nm_, f'({ct_})'], size=MIN_TYPE)
-    f.box(cx0, cy_mid - 60, cw, 120, INST, ['sf:Point', f'POINT({wkt.group(1)}', f'{wkt.group(2)})'], size=MIN_TYPE)
-    f.arrow(cx0 + cw / 2, 196, cx0 + cw / 2, cy_mid - 60)
-    f.chip(cx0 + cw / 2, (196 + cy_mid - 60) / 2, 'geo:hasGeometry')
-    bus = cx0 + cw + 24
     centres = [y_ + h_ / 2 for y_, h_ in zip(ys, heights)]
-    f.o.append(f'<line x1="{cx0 + cw}" y1="{cy_mid}" x2="{bus}" y2="{cy_mid}" stroke="#000" stroke-width="2.5"/>')
+    bx0, bw, cx0, cw = 1350, 350, 840, 200
+    cy_mid = (centres[0] + centres[-1]) / 2 + 20
+    nm = it['labels']['en']['value']; part = nm.rsplit(' ', 1)
+    f.box(cx0, 100, cw, 96, INST, [part[0], f'{part[1]} ({it["id"]})'], size=MIN_TYPE)
+    f.box(cx0, cy_mid - 70, cw, 140, INST, [wb_label('P4'), f'{cv["latitude"]}', f'{cv["longitude"]}'], size=MIN_TYPE)
+    f.arrow(cx0 + cw / 2, 196, cx0 + cw / 2, cy_mid - 70)
+    f.chip(cx0 + cw / 2, (196 + cy_mid - 70) / 2, 'has coordinate')
+    bus = cx0 + cw + 24
+    f.o.append(f'<line x1="{cx0 + cw}" y1="{cy_mid:.1f}" x2="{bus}" y2="{cy_mid:.1f}" stroke="#000" stroke-width="2.5"/>')
     f.o.append(f'<line x1="{bus}" y1="{centres[0]:.1f}" x2="{bus}" y2="{centres[-1]:.1f}" stroke="#000" stroke-width="2.5"/>')
     for (lab, vals), y_, h_, ty in zip(rows, ys, heights, centres):
         f.box(bx0, y_, bw, h_, '#fff', vals, size=MIN_TYPE)

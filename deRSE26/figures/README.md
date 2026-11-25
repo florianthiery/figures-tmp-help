@@ -14,7 +14,7 @@ cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow
 
 | Name | Replaces | Content | Data |
 |---|---|---|---|
-| `fig4_ci_findspots` | Fig. 4 (screenshot collage) | (a) the 74 CI findspots by certainty level with distance rings around the Phlegraean Fields; (b) one coordinate statement (Urluia) with its qualifiers | `data/ci_findspots.ttl`, `data/ne_50m_land.geojson` |
+| `fig4_ci_findspots` | Fig. 4 (screenshot collage) | (A) the 74 CI findspots, archaeological site or not, with distance rings around the Phlegraean Fields; (B) the coordinate statement of Auel Maar AU3 (Q70) with its qualifiers | `data/ci_findspots.ttl`, `data/wb/*.json` (static copy of n4o-rse/wb-fuzzysl-static, commit d22dc4e), `data/ne_50m_land.geojson` |
 
 Planned: Fig. 7, Fig. 6, Fig. 3, Fig. 10, and the additions Z2 (one findspot in RDF, LPG and HIN) and Z3 (map of the showcases). Captions: `captions.yaml`.
 
