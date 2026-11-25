@@ -730,6 +730,7 @@ def fig5():
     for p in ('representativeGeometry', 'certaintyLevel', 'hasLocationType'): assert used(F, FSL + p), p
     for p in ('activityDesc', 'methodUsed', 'hasSourceType', 'hasSourceTypeDetail', 'georeferencingBy', 'hasReference'): assert used(ACT, FSL + p), p
     CH = [('Gemeinde', 'inKreis', 'Kreis'), ('Kreis', 'inBundesland', 'Bundesland'), ('Bundesland', 'inLand', 'Land')]
+    assert any((s_, U(B + 'hasExternalIdentifier'), None) in g for s_ in g.subjects(RDFNS.type, U(B + 'Gemeinde')))
     for a, p, b in CH:
         assert (U(B + p), RDFS.domain, U(B + a)) in g and (U(B + p), RDFS.range, U(B + b)) in g, p
     assert (U(B + 'inGemeinde'), RDFS.domain, U(B + 'Fundstelle')) in g and (U(B + 'inGemeinde'), RDFS.range, U(B + 'Gemeinde')) in g
@@ -772,7 +773,7 @@ def fig5():
     y = ytop
     names = ['Gemeinde', 'Kreis', 'Bundesland', 'Land']
     for i, n in enumerate(names):
-        h = uml(cx1, y, w3, [n, f"{EN[n]} · crm:E53_Place"], None)
+        h = uml(cx1, y, w3, [n, f"{EN[n]} · crm:E53_Place"], ['hasExternalIdentifier : URI'] if n == 'Gemeinde' else None)
         if i < 3:
             y2 = y + h + 90; line(cx1, y + h, cx1, y2); f.chip(cx1, (y + h + y2) / 2, CH[i][1]); y = y2
     # geometry
@@ -791,8 +792,8 @@ def fig5():
     f.box(kx + 30, ky + 118, 150, 44, '#fff', ['name : type'], '#000', 2, 4, INK)
     f.text(kx + 200, ky + 148, 'attribute', 24, 400, INK, 'start')
     # ---- B
-    y0 = yA + 20; yB = y0 + 660; frame(y0, yB); title(44, y0 + 18, 'B', 'One findspot: Pyritz – Weinberg')
-    site = [s_ for s_ in F if str(g.value(s_, RDFS.label)) == 'Pyritz – Weinberg']; assert len(site) == 1
+    y0 = yA + 20; title(44, y0 + 18, 'B', 'One findspot: Seelow 20')
+    site = [s_ for s_ in F if str(g.value(s_, RDFS.label)) == 'Seelow 20']; assert len(site) == 1
     S = site[0]; sid = str(S).replace(D, '')
     L = lambda x: str(g.value(x, RDFS.label))
     geom = g.value(S, U(GEO + 'hasGeometry')); wkt = str(g.value(geom, U(GEO + 'asWKT')))
@@ -803,28 +804,26 @@ def fig5():
             ('fsl:certaintyLevel', L(g.value(S, U(FSL + 'certaintyLevel'))), 'term'), ('fsl:hasLocationType', L(g.value(S, U(FSL + 'hasLocationType'))), 'term'),
             ('inGemeinde', L(g.value(S, U(B + 'inGemeinde'))), 'inst'), ('wurdeGeoreferenziertDurch', L(act), 'inst')]
     # map of the 540 findspots
-    mx, my, mw = 100, y0 + 100, 520
+    mx, my, mw = 100, y0 + 100, 620
     X, Y, mh = basemap(f, mx, my, mw, 10, 22, 49.5, 55, 52.3, 'bb', 1.0, grid=(2, 1), labels=True, detail=(5, True))
     f.o.append('<g clip-path="url(#bb)">')
     for lo_, la_, _l in pts('bb5kbc'): f.o.append(f'<circle cx="{X(lo_):.1f}" cy="{Y(la_):.1f}" r="3.4" fill="{CLS}" fill-opacity="0.85" stroke="#fff" stroke-width="0.8"/>')
     f.o.append('</g>')
     f.o.append(f'<circle cx="{X(lon):.1f}" cy="{Y(lat):.1f}" r="17" fill="none" stroke="{RED}" stroke-width="4"/>')
-    f.text(mx, my + mh + 70, '540 findspots; red: the findspot of the example', MIN_TYPE, 400, MUT, 'start')
     # instance card
-    BX, ix = 920, 660
-    cyc = y0 + 330
-    f.box(ix, cyc - 50, 230, 100, INST, [L(S), sid])
-    n = len(rows); top = y0 + 130; pitch = 86
+    BX, ix = 1000, 780
+    n = len(rows); pitch = 84; top = my + (mh - (n - 1) * pitch) / 2; cyc = top + (n - 1) * pitch / 2
+    f.box(ix, cyc - 50, 190, 100, INST, [L(S), sid])
     ys = [top + i * pitch for i in range(n)]
-    line(ix + 230, cyc, BX, cyc, mk=False); line(BX, ys[0], BX, ys[-1], mk=False)
-    vx, vw = 1290, 380
+    line(ix + 190, cyc, BX, cyc, mk=False); line(BX, ys[0], BX, ys[-1], mk=False)
+    vx, vw = 1370, 300
     FILLS = {'lit': ('#fff', INK), 'term': (TERM, '#fff'), 'inst': (INST, INK)}
     for (p, v, k), yy in zip(rows, ys):
         line(BX, yy, vx, yy); f.chip((BX + vx) / 2, yy, p)
         fl, tc = FILLS[k]
         vl = wrap(v, vw - 34); hb = 50 if len(vl) == 1 else 20 + 31 * len(vl)
         f.box(vx, yy - hb / 2, vw, hb, fl, vl, '#000', 2, 22 if k == 'term' else 8, tc)
-    f.h = yB + 20
+    yB = int(my + mh + 75); frame(y0, yB); f.h = int(yB + 20)
     f.done()
 
 if __name__ == '__main__':
