@@ -253,7 +253,7 @@ def fig3():
             ("Free design without a specific model", "0.15", "open", "Q10334103"),
             ("Angkor temple mountain with sanctuary", "0.10", "open", "Q788982"),
             ("Ziggurat with temple", "0.08", "open", "Q170153")]
-    cx = [TX + 16, TX + 445, TX + 550, TX + 755]
+    cx = [TX + 16, TX + 500, TX + 622, TX + 690]
     HH, RH = 64, 100
 
     def mtext(x, cy, lines, size, med, fill=INK, anchor="start", maxw=None):
@@ -261,22 +261,22 @@ def fig3():
         for j, ln in enumerate(lines):
             svg.text(x, cy + (j - (len(lines) - 1) / 2) * lh, ln, size, med, fill, anchor, maxw=maxw)
     svg.rect(TX, 110, TW_, HH, PURPLE, name="thead")
-    for x, t in zip([cx[0], cx[1] - 28, cx[2] + 4, cx[3]], ["Hypothesis", "Confidence", "Status", "Wikidata"]):
-        svg.text(x, 110 + HH / 2, t, 22, True, "#fff", "start", maxw=250)
+    for x, t, an in ((cx[0], "Hypothesis", "start"), (cx[1], "Confidence", "middle"), (cx[2], "Status", "middle"), (cx[3], "Wikidata", "start")):
+        svg.text(x, 110 + HH / 2, t, 22, True, "#fff", an, maxw=250)
     for i, (h, c, st, w) in enumerate(rows):
         y = 110 + HH + i * RH
         cy = y + RH / 2
         svg.rect(TX, y, TW_, RH, WHITE, name=f"row{i}")
         mtext(cx[0], cy, wrap(h, 24, 420, i == 0), 24, i == 0, maxw=430)
-        mtext(cx[1] + 20, cy, [c], 28, True, maxw=90)
+        mtext(cx[1], cy, [c], 26, True, anchor="middle", maxw=90)
         light = "#16a34a" if st.startswith("confirmed") else ("#dc2626" if st.startswith("not confirmed") else AMBER)
-        svg.o.append(f'<circle cx="{cx[2] + 40}" cy="{cy}" r="15" fill="{light}" stroke="#000" stroke-width="1.6"/>')
+        svg.o.append(f'<circle cx="{cx[2]}" cy="{cy}" r="15" fill="{light}" stroke="#000" stroke-width="1.6"/>')
         ws = w.split("|")
         if len(ws) > 1:
             svg.text(cx[3], cy - 11, ws[0], 21, False, INK, maxw=110)
             svg.text(cx[3], cy + 13, ws[1], 15, False, MUTED, maxw=110)
         else:
-            svg.text(cx[3], cy, w, 21, False, INK, maxw=110)
+            svg.text(cx[3], cy, w, 26, False, INK, maxw=170)
     my = 110 + HH + 5 * RH + 20
     svg.block(TX, my, TW_, 842 - my, ["Model 1 is also a step pyramid; its four hypotheses on what it represents are all open. "
                                       "The best is a monument with a warrior statue on a column (0.55). Confidence is the AI's own estimate."],

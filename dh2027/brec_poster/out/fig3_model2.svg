@@ -33,37 +33,37 @@
 <path d="M655.0 754.0 L708.0 612.0" fill="none" stroke="#111" stroke-width="2.8" marker-end="url(#d)"/>
 <rect x="1500.0" y="110.0" width="880.0" height="64.0" rx="6" fill="#4c1d95" stroke="#000" stroke-width="1.2"/>
 <text x="1516.0" y="142.0" text-anchor="start" dominant-baseline="central" font-size="22" font-weight="500" fill="#fff">Hypothesis</text>
-<text x="1917.0" y="142.0" text-anchor="start" dominant-baseline="central" font-size="22" font-weight="500" fill="#fff">Confidence</text>
-<text x="2054.0" y="142.0" text-anchor="start" dominant-baseline="central" font-size="22" font-weight="500" fill="#fff">Status</text>
-<text x="2255.0" y="142.0" text-anchor="start" dominant-baseline="central" font-size="22" font-weight="500" fill="#fff">Wikidata</text>
+<text x="2000.0" y="142.0" text-anchor="middle" dominant-baseline="central" font-size="22" font-weight="500" fill="#fff">Confidence</text>
+<text x="2122.0" y="142.0" text-anchor="middle" dominant-baseline="central" font-size="22" font-weight="500" fill="#fff">Status</text>
+<text x="2190.0" y="142.0" text-anchor="start" dominant-baseline="central" font-size="22" font-weight="500" fill="#fff">Wikidata</text>
 <rect x="1500.0" y="174.0" width="880.0" height="100.0" rx="6" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
 <text x="1516.0" y="209.0" text-anchor="start" dominant-baseline="central" font-size="24" font-weight="500" fill="#1f1f1d">Mesoamerican (Maya) step pyramid</text>
 <text x="1516.0" y="239.0" text-anchor="start" dominant-baseline="central" font-size="24" font-weight="500" fill="#1f1f1d">with a temple on top</text>
-<text x="1965.0" y="224.0" text-anchor="start" dominant-baseline="central" font-size="28" font-weight="500" fill="#1f1f1d">0.70</text>
-<circle cx="2090" cy="224.0" r="15" fill="#16a34a" stroke="#000" stroke-width="1.6"/>
-<text x="2255.0" y="224.0" text-anchor="start" dominant-baseline="central" font-size="21" fill="#1f1f1d">Q2270185</text>
+<text x="2000.0" y="224.0" text-anchor="middle" dominant-baseline="central" font-size="26" font-weight="500" fill="#1f1f1d">0.70</text>
+<circle cx="2122" cy="224.0" r="15" fill="#16a34a" stroke="#000" stroke-width="1.6"/>
+<text x="2190.0" y="224.0" text-anchor="start" dominant-baseline="central" font-size="26" fill="#1f1f1d">Q2270185</text>
 <rect x="1500.0" y="274.0" width="880.0" height="100.0" rx="6" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
 <text x="1516.0" y="309.0" text-anchor="start" dominant-baseline="central" font-size="24" fill="#1f1f1d">El Castillo at Chichén Itzá (special</text>
 <text x="1516.0" y="339.0" text-anchor="start" dominant-baseline="central" font-size="24" fill="#1f1f1d">case of the first)</text>
-<text x="1965.0" y="324.0" text-anchor="start" dominant-baseline="central" font-size="28" font-weight="500" fill="#1f1f1d">0.35</text>
-<circle cx="2090" cy="324.0" r="15" fill="#dc2626" stroke="#000" stroke-width="1.6"/>
-<text x="2255.0" y="324.0" text-anchor="start" dominant-baseline="central" font-size="21" fill="#1f1f1d">Q1128327</text>
+<text x="2000.0" y="324.0" text-anchor="middle" dominant-baseline="central" font-size="26" font-weight="500" fill="#1f1f1d">0.35</text>
+<circle cx="2122" cy="324.0" r="15" fill="#dc2626" stroke="#000" stroke-width="1.6"/>
+<text x="2190.0" y="324.0" text-anchor="start" dominant-baseline="central" font-size="26" fill="#1f1f1d">Q1128327</text>
 <rect x="1500.0" y="374.0" width="880.0" height="100.0" rx="6" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
 <text x="1516.0" y="424.0" text-anchor="start" dominant-baseline="central" font-size="24" fill="#1f1f1d">Free design without a specific model</text>
-<text x="1965.0" y="424.0" text-anchor="start" dominant-baseline="central" font-size="28" font-weight="500" fill="#1f1f1d">0.15</text>
-<circle cx="2090" cy="424.0" r="15" fill="#fbbf24" stroke="#000" stroke-width="1.6"/>
-<text x="2255.0" y="424.0" text-anchor="start" dominant-baseline="central" font-size="21" fill="#1f1f1d">Q10334103</text>
+<text x="2000.0" y="424.0" text-anchor="middle" dominant-baseline="central" font-size="26" font-weight="500" fill="#1f1f1d">0.15</text>
+<circle cx="2122" cy="424.0" r="15" fill="#fbbf24" stroke="#000" stroke-width="1.6"/>
+<text x="2190.0" y="424.0" text-anchor="start" dominant-baseline="central" font-size="26" fill="#1f1f1d">Q10334103</text>
 <rect x="1500.0" y="474.0" width="880.0" height="100.0" rx="6" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
 <text x="1516.0" y="509.0" text-anchor="start" dominant-baseline="central" font-size="24" fill="#1f1f1d">Angkor temple mountain with</text>
 <text x="1516.0" y="539.0" text-anchor="start" dominant-baseline="central" font-size="24" fill="#1f1f1d">sanctuary</text>
-<text x="1965.0" y="524.0" text-anchor="start" dominant-baseline="central" font-size="28" font-weight="500" fill="#1f1f1d">0.10</text>
-<circle cx="2090" cy="524.0" r="15" fill="#fbbf24" stroke="#000" stroke-width="1.6"/>
-<text x="2255.0" y="524.0" text-anchor="start" dominant-baseline="central" font-size="21" fill="#1f1f1d">Q788982</text>
+<text x="2000.0" y="524.0" text-anchor="middle" dominant-baseline="central" font-size="26" font-weight="500" fill="#1f1f1d">0.10</text>
+<circle cx="2122" cy="524.0" r="15" fill="#fbbf24" stroke="#000" stroke-width="1.6"/>
+<text x="2190.0" y="524.0" text-anchor="start" dominant-baseline="central" font-size="26" fill="#1f1f1d">Q788982</text>
 <rect x="1500.0" y="574.0" width="880.0" height="100.0" rx="6" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
 <text x="1516.0" y="624.0" text-anchor="start" dominant-baseline="central" font-size="24" fill="#1f1f1d">Ziggurat with temple</text>
-<text x="1965.0" y="624.0" text-anchor="start" dominant-baseline="central" font-size="28" font-weight="500" fill="#1f1f1d">0.08</text>
-<circle cx="2090" cy="624.0" r="15" fill="#fbbf24" stroke="#000" stroke-width="1.6"/>
-<text x="2255.0" y="624.0" text-anchor="start" dominant-baseline="central" font-size="21" fill="#1f1f1d">Q170153</text>
+<text x="2000.0" y="624.0" text-anchor="middle" dominant-baseline="central" font-size="26" font-weight="500" fill="#1f1f1d">0.08</text>
+<circle cx="2122" cy="624.0" r="15" fill="#fbbf24" stroke="#000" stroke-width="1.6"/>
+<text x="2190.0" y="624.0" text-anchor="start" dominant-baseline="central" font-size="26" fill="#1f1f1d">Q170153</text>
 <rect x="1500.0" y="694.0" width="880.0" height="148.0" rx="6" fill="#e2e8f0" stroke="#000" stroke-width="1.2"/>
 <text x="1516.0" y="723.1" text-anchor="start" dominant-baseline="central" font-size="24" font-weight="500" fill="#1f1f1d">Model 1 and the limits</text>
 <text x="1516.0" y="753.7" text-anchor="start" dominant-baseline="central" font-size="23" fill="#1f1f1d">Model 1 is also a step pyramid; its four hypotheses on what it represents are all</text>
