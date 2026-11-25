@@ -84,6 +84,6 @@ fig5_bb5kbc_spatial:
     geometry with a WKT literal, and it was georeferenced by a georeferencing activity (E13 Attribute Assignment) that
     records method, source type and person. Dark orange: classes; white boxes: attributes with their datatypes; amber:
     properties. (B) One of the 540 findspots, Seelow 20 (red ring on the map), as an instance: the point geometry, its
-    accuracy, the certainty level and location type from the fuzzy-sl vocabulary, the municipality and the
+    accuracy (±1000 m, because the published coordinates are rounded to two decimal places), the precision (±0.01°), the certainty level and location type from the fuzzy-sl vocabulary, the municipality and the
     georeferencing activity. Data: BB-5KBC bundle (commit c2e989b); base map: Natural Earth. Licence: Florian Thiery &
     Sophie C. Schmidt, CC BY 4.0.

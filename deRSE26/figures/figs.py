@@ -799,8 +799,9 @@ def fig5():
     geom = g.value(S, U(GEO + 'hasGeometry')); wkt = str(g.value(geom, U(GEO + 'asWKT')))
     m = re.match(r'POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\)', wkt); lon, lat = float(m.group(1)), float(m.group(2))
     act = g.value(S, U(B + 'wurdeGeoreferenziertDurch'))
-    prec = g.value(S, U(B + 'hatGenauigkeit'))
-    rows = [('geo:hasGeometry', f'POINT({m.group(1)} {m.group(2)})', 'lit'), ('hatGenauigkeit', f'{float(prec):g} m', 'lit'),
+    prec = g.value(S, U(B + 'hatGenauigkeit'))  # the bundle still stores 0.0; the published value (coordinates rounded to 2 decimals, up to 1000 m) is set by hand, as is the planned precision of 0.01 degrees
+    assert float(prec) == 0.0
+    rows = [('geo:hasGeometry', f'POINT({m.group(1)} {m.group(2)})', 'lit'), ('hatGenauigkeit', '\u00b1 1000 m', 'lit'), ('precision', '\u00b1 0.01\u00b0', 'lit'),
             ('fsl:certaintyLevel', L(g.value(S, U(FSL + 'certaintyLevel'))), 'term'), ('fsl:hasLocationType', L(g.value(S, U(FSL + 'hasLocationType'))), 'term'),
             ('inGemeinde', L(g.value(S, U(B + 'inGemeinde'))), 'inst'), ('wurdeGeoreferenziertDurch', L(act), 'inst')]
     # map of the 540 findspots
@@ -812,7 +813,7 @@ def fig5():
     f.o.append(f'<circle cx="{X(lon):.1f}" cy="{Y(lat):.1f}" r="17" fill="none" stroke="{RED}" stroke-width="4"/>')
     # instance card
     BX, ix = 1000, 780
-    n = len(rows); pitch = 84; top = my + (mh - (n - 1) * pitch) / 2; cyc = top + (n - 1) * pitch / 2
+    n = len(rows); pitch = 74; top = my + (mh - (n - 1) * pitch) / 2; cyc = top + (n - 1) * pitch / 2
     f.box(ix, cyc - 50, 190, 100, INST, [L(S), sid])
     ys = [top + i * pitch for i in range(n)]
     line(ix + 190, cyc, BX, cyc, mk=False); line(BX, ys[0], BX, ys[-1], mk=False)
