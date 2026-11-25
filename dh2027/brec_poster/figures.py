@@ -176,14 +176,13 @@ def fig2():
     SW, GAP, M, BW, BH = 440, 50, 55, 380, 58
     W = M * 2 + 4 * SW + 3 * GAP
     ROW, PAIR = 218, 3
-    H = 130 + PAIR * ROW + 90
+    H = 130 + PAIR * ROW + 270
     svg = Svg(W, H)
     for c, (head, sub, fill, pairs) in enumerate(cols):
         x0 = M + c * (SW + GAP)
         svg.rect(x0, 20, SW, 72, fill, name="head" + head)
-        icon(svg, c, x0 + 16, 28, 56)
-        svg.text(x0 + SW / 2 + 36, 45, head, 24, True, ON[fill], "middle", maxw=SW - 100)
-        svg.text(x0 + SW / 2 + 36, 70, sub, 14, False, ON[fill], "middle", maxw=SW - 100)
+        svg.text(x0 + SW / 2, 45, head, 24, True, ON[fill], "middle", maxw=SW - 20)
+        svg.text(x0 + SW / 2, 70, sub, 14, False, ON[fill], "middle", maxw=SW - 20)
         for r, (gen, brec) in enumerate(pairs):
             xb = x0 + (SW - BW) / 2
             yg = 120 + r * ROW
@@ -196,6 +195,23 @@ def fig2():
             a, b = (xb + BW / 2, yb - 3), (xb + BW / 2, yg + BH + 3)
             svg.arrow([a, b], marker="g")
             svg.chip(a[0], (a[1] + b[1]) / 2, "subClassOf")
+    PY0, PH = 120 + PAIR * ROW + 10, 190
+    for c, (head, sub, fill, pairs) in enumerate(cols):
+        x0 = M + c * (SW + GAP)
+        xb = x0 + (SW - BW) / 2
+        svg.rect(xb, PY0, BW, PH, "#fbfbf9", stroke="#d8d6ce", check=False)
+        cap = ["Model 2: photograph, the input", "Model 2: reconstruction, the assumed model", "Model 2: one hypothesis, as stored", "One FDOx: the citable package"][c]
+        svg.text(x0 + SW / 2, PY0 + PH - 16, cap, 14, False, MUTED, "middle", maxw=BW - 10)
+        if c < 2:
+            p = HERE / "photos" / "model2.jpg" if c == 0 else HERE / "renders" / "model2_reconstruction.png"
+            image(svg, p, *fit(p, xb + 8, PY0 + 8, BW - 16, PH - 44))
+        elif c == 2:
+            svg.rect(xb + 30, PY0 + 22, BW - 60, 100, PURPLE, name="hypo")
+            for j, (t, sz, md) in enumerate([("Mesoamerican (Maya) step pyramid", 16, True), ("confidence 0.70 (AI estimate)", 14, False),
+                                               ("confirmed by the builder, 17 Nov 2026", 13, False)]):
+                svg.text(x0 + SW / 2, PY0 + 22 + 25 + j * 25, t, sz, md, "#fff", "middle", maxw=BW - 80)
+        else:
+            icon(svg, 3, x0 + SW / 2 - 55, PY0 + 12, 110)
     svg.text(M, H - 40, "Upper box of each pair: class of the CIDOC CRM family or of the Heritage Digital Twin ontology (HDT). Lower box: the BREC class "
              "that extends it. Arrow with a hollow head: the lower class is a subclass of the upper one.", 15, False, MUTED, maxw=W - 2 * M)
     save(svg, "fig2_layers")
