@@ -98,3 +98,18 @@ fig9_arno_modules:
   caption: >-
     The ontologies combined in the ArNO ontology, grouped by the concept domain they are used for (redrawn after the
     original). Licence: Mattis thor Straten et al., CC BY 4.0.
+
+fig2_ogham_ciic81:
+  replaces: Fig. 2
+  caption: >-
+    Ogham Stone CIIC 81 [Mac45, pp. 83-84] and its two spatial locations in Wikidata and in the fuzzy-sl Wikibase. (1)
+    Present location in the exhibition at University College Cork; (2) findspot at Garranes. Left: evidence, (A)
+    photograph of the exhibition, (B) map of the rath at Garranes, (C) the area of the findspot in OpenStreetMap with
+    the map features A and H. Middle and right: the coordinate statement of the stone with its qualifiers in Wikidata
+    (item Q69385424) and in the fuzzy-sl Wikibase. Wikidata records how the location was determined with a few
+    qualifiers; the fuzzy-sl Wikibase adds certainty level, method, source type, precision, location type and point
+    type to every coordinate. Grey: items; purple: vocabulary terms; white: literals; amber: properties; dashed: reference
+    of the statement; red frames: location, method and reliability of the location. The long certainty description
+    of the findspot is shortened. Licence: Florian Thiery, CC BY 4.0; (A) Florian Thiery, CC BY-NC-SA 4.0; (B) (c) O
+    Riordain and Ryan [OR41, Fig. 2; p. 80]; (C) OpenStreetMap Contributors, Open Database License; Wikidata statements:
+    Wikidata Community, Public Domain; fuzzy-sl statements: Research Squirrel Engineers Network, CC BY 4.0.

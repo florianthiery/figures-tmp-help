@@ -12,15 +12,16 @@ figures:
 - n: 2
   old: ogham-wikidata.jpg
   section: §5.1 Wikidata
-  status: keep
+  status: done
   title: Ogham stone in Wikidata and the fuzzy-sl Wikibase
-  new: null
+  new: fig2_ogham_ciic81
   caption_old: Ogham Stone CIIC 81 and its spatial locations in Wikidata and the fuzzy-sl Wikibase. Licence -- Florian Thiery, CC BY 4.0; (A) Wikidata Community,
-    Public Domain; (B) Florian Thiery, CC BY-NC-SA 4.0; (C/E) Research Squirrel Engineers Network, CC BY 4.0; (E) \copyright~\'O R\'{\i}ord\'ain and Ryan;
-    (F) OpenStreetMap Contributors, Open Database License.
+    Public Domain; (B) Florian Thiery, CC BY-NC-SA 4.0; (C/E) Research Squirrel Engineers Network, CC BY 4.0; (E) \copyright~\'O R\'{\i}ord\'ain and Ryan; (F) OpenStreetMap Contributors, Open Database License.
   notes:
-  - Screenshots; z2 (below) can complement it as a model comparison
-  - 'Reviewer C refers to "Section 5, Figure 2": probably this figure (assumption)'
+  - "Reviewer C (Section 5, Figure 2): goal unclear, images should be separated and explained. New layout: one frame per location (present location, findspot); evidence on the left, Wikidata and fuzzy-sl statements as mini graphs"
+  - "The statements are transcribed from the screenshots of the old figure (Wikidata Q69385424 and the Wikibase entry could not be read from here): please check every value; typo exhebition in the source corrected; the fuzzy-sl item ID of CIIC 81 is not known (shown as CIIC 81); the long certainty description of the findspot is shortened ([...])"
+  - "Panels of the old figure: B is now A (photo), D is now B (map), F is now C (OpenStreetMap); A, C, E became the graphs; the round letter marks of the old figure were removed from the cut-outs (data/ogham, made by prep_ogham.py from img/ogham-wikidata.jpg)"
+  - "To check: the text of 5.1 says that the stones inherit the townland centroid as P625, the figure shows two stone-specific coordinates for CIIC 81; what A and H in panel C denote (map features of panel B transferred to OpenStreetMap?)"
 - n: 3
   old: fuzzy-sl_Wikibase.jpg
   section: §5.2 fuzzy-sl

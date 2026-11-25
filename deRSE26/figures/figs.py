@@ -49,7 +49,7 @@ class Fig:
     def arrow(s, x1, y1, x2, y2, col='#000', w=2.5):
         s.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{col}" stroke-width="{w}" marker-end="url(#a)"/>')
     def done(s):
-        head = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{s.h}" viewBox="0 0 {W} {s.h}">' + ('' if getattr(s, 'transparent', False) else f'<rect width="{W}" height="{s.h}" fill="#ffffff"/>') + ''
+        head = (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{s.h}" viewBox="0 0 {W} {s.h}">' + ('' if getattr(s, 'transparent', False) else f'<rect width="{W}" height="{s.h}" fill="#ffffff"/>') + ''
                 '<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs>')
         svg = head + '\n'.join(s.o) + '</svg>'
         os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
@@ -862,12 +862,94 @@ def fig9():
         f.text(cx + (x - 362) * k, cy + (y - 343) * k + 15, t, 56, 700, '#1b2f55', maxw=330)
     f.done()
 
+def fig2():
+    """Fig. 2 re-arranged and redrawn: one frame per location of the Ogham stone CIIC 81 (present location in the museum, findspot at Garranes); per frame the
+    evidence (photo, historical map, OpenStreetMap) and the coordinate statement of the stone in Wikidata and in the fuzzy-sl Wikibase as mini graphs.
+    The statements are transcribed from the screenshots of the submitted figure (the Wikidata item and a Wikibase export of CIIC 81 are not in the repository)."""
+    import base64, io
+    from PIL import Image
+    D = os.path.join(HERE, 'data/ogham')
+    def load(n): return Image.open(os.path.join(D, n + '.png')).convert('RGB')
+    f = Fig('fig2_ogham_ciic81', 2000)
+    def frame(y0, y1): f.o.append(f'<rect x="20" y="{y0}" width="1660" height="{y1 - y0}" rx="16" fill="none" stroke="#d4d4d0" stroke-width="3"/>')
+    def title(x, y, tag, text):
+        f.o.append(f'<rect x="{x}" y="{y}" width="40" height="40" rx="6" fill="#000"/>'); f.text(x + 20, y + 30, tag, 28, 500, '#fff'); f.text(x + 56, y + 30, text, 28, 500, INK, 'start')
+    def put(im, x, y, w, letter):
+        h = round(im.height * w / im.width); b = io.BytesIO(); im.resize((w * 2, h * 2), Image.LANCZOS).save(b, 'PNG', optimize=True)
+        f.o.append(f'<image x="{x}" y="{y}" width="{w}" height="{h}" xlink:href="data:image/png;base64,{base64.b64encode(b.getvalue()).decode()}"/>')
+        f.o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="none" stroke="#b9b9b3" stroke-width="2"/>')
+        f.o.append(f'<rect x="{x + 8}" y="{y + 8}" width="44" height="44" rx="7" fill="#000" stroke="#fff" stroke-width="3"/>'); f.text(x + 30, y + 41, letter, 28, 500, '#fff')
+        return h
+    FILL = {'item': (INST, INK, False), 'term': (TERM, '#fff', False), 'lit': ('#fff', INK, False), 'url': ('#fff', INK, True)}
+    def stmt(x, y, w, vw, stone, prop, coord, rows):
+        """stone --prop--> coordinate; qualifier rows hang off the coordinate: (chip, value, kind, highlighted, reference)"""
+        f.box(x, y, 250, 54, INST, [stone], '#000', 2, 14, INK)
+        y1 = y + 54 + 70; line = lambda *a, **k: None
+        f.arrow(x + 125, y + 54, x + 125, y1); f.chip(x + 125, (y + 54 + y1) / 2, prop)
+        f.box(x, y1, 420, 54, '#000', [coord], '#000', 2, 14, '#fff')
+        bx, vx = x + 24, x + w - vw; yy = y1 + 54 + 40; ys = []
+        for chip, val, kind, hl, ref in rows:
+            vl = val if isinstance(val, list) else wrap(val, vw - 34); hb = 50 if len(vl) == 1 else 22 + 31 * len(vl); cy = yy + hb / 2; ys.append(cy)
+            fl, tc, dash = FILL[kind]
+            da = ' stroke-dasharray="10 6"' if ref else ''
+            f.o.append(f'<line x1="{bx}" y1="{cy:.1f}" x2="{vx}" y2="{cy:.1f}" stroke="#000" stroke-width="2.5"{da} marker-end="url(#a)"/>')
+            if tw(chip, 24) + 28 > 340:                                   # long property label: two-line chip
+                l1, l2 = chip.split(' or ', 1); l2 = 'or ' + l2; cw = max(tw(l1, 24), tw(l2, 24)) + 28; cxm = (bx + vx) / 2
+                f.o.append(f'<rect x="{cxm - cw / 2:.1f}" y="{cy - 34:.1f}" width="{cw:.1f}" height="68" rx="26" fill="{AMB}" stroke="#000" stroke-width="1.5"/>')
+                f.text(cxm, cy - 6, l1, 24); f.text(cxm, cy + 25, l2, 24); hb = max(hb, 68)
+            else: f.chip((bx + vx) / 2, cy, chip)
+            f.box(vx, cy - hb / 2, vw, hb, fl, vl, '#000', 2, 22 if kind == 'term' else 8, tc, dash=dash)
+            if hl: f.o.append(f'<rect x="{vx - 8}" y="{cy - hb / 2 - 8:.1f}" width="{vw + 16}" height="{hb + 16}" rx="12" fill="none" stroke="{RED}" stroke-width="5"/>')
+            yy += max(hb + 22, 64)
+        f.o.append(f'<line x1="{bx}" y1="{y1 + 54}" x2="{bx}" y2="{ys[-1]:.1f}" stroke="#000" stroke-width="2.5"/>')
+        return yy
+    # source: Wikidata item Q69385424 and the fuzzy-sl Wikibase entry of CIIC 81, as shown in the submitted figure
+    WD1 = [('location', 'ex situ', 'item', True, False), ('sourcing circumstances', 'on-site survey', 'item', False, False), ('determination method or standard', 'on-site survey', 'item', True, False),
+           ('subject has role', 'exhibition', 'item', False, False), ('stated in', 'OpenStreetMap', 'item', False, False), ('OpenStreetMap node ID', '11071361392', 'lit', False, True)]
+    WD2 = [('determination method or standard', 'georeferencing', 'item', True, False), ('object of statement has role', 'book entry (Ogham)', 'item', False, False),
+           ('subject has role', 'archaeological site', 'item', False, False), ('stated in', 'academic journal article', 'item', False, False), ('location', 'ancient location', 'item', True, False),
+           ('reference URL', ['https://', 'www.jstor.org/', 'stable/25505959'], 'url', False, True)]
+    FS1 = [('certainty level', 'High', 'term', True, False), ('certainty description', 'on-site survey at exhibition area', 'lit', False, False), ('method used', 'on-site survey', 'term', True, False),
+           ('acting person', 'Florian Thiery', 'item', False, False), ('source type (detail)', 'on-site survey (source type)', 'term', False, False), ('source type (generic)', 'on-site survey (source type)', 'term', False, False),
+           ('method description', 'on-site survey at UCC Cork', 'lit', False, False), ('precision', '\u00b10.0001\u00b0', 'lit', True, False), ('location type', 'Exhibition Site', 'term', True, False), ('point type', 'Exhibition', 'term', False, False)]
+    FS2 = [('certainty level', 'Low', 'term', True, False), ('certainty description', "Gippert/Web, Ogham 81: 'According to Brash, JRSAI 10, 1869, 260, the stone was found in [\u2026]", 'lit', False, False),
+           ('method used', 'Georeferencing', 'term', True, False), ('acting person', 'Florian Thiery', 'item', False, False), ('source type (generic)', 'Textual Description', 'term', False, False),
+           ('source type (detail)', 'Paper', 'term', False, False), ('method description', 'found in old documents', 'lit', False, False), ('precision', '\u00b10.0001\u00b0', 'lit', True, False),
+           ('location type', 'Findspot', 'term', True, False), ('point type', 'Location of a Place as a Concept', 'term', False, False)]
+    xe, we, xw, ww, xf, wf = 40, 280, 350, 600, 980, 680
+    def heads(y):
+        for x, w, t in ((xe, we, 'Evidence'), (xw, ww, 'Wikidata'), (xf, wf, 'fuzzy-sl Wikibase')): f.text(x + w / 2, y, t, 28, 500, INK)
+    # ---- frame 1: present location
+    y0 = 10; title(44, y0 + 18, '1', 'Present location: exhibition, University College Cork'); heads(y0 + 112); yi = y0 + 135
+    hp = put(load('B'), xe, yi, we, 'A')
+    ya = stmt(xw, yi, ww, 230, 'Q69385424', 'coordinate location', "51\u00b053'37.1735\"N, 8\u00b029'32.7952\"W", WD1)
+    yb_ = stmt(xf, yi, wf, 340, 'CIIC 81', 'has coordinate', "51\u00b053'37.3\"N, 8\u00b029'32.6\"W", FS1)
+    kx, ky = xe, yi + hp + 40
+    f.o.append(f'<rect x="{kx}" y="{ky}" width="{we}" height="228" rx="12" fill="#fafaf8" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="10 6"/>')
+    f.text(kx + 20, ky + 40, 'Key', 24, 500, INK, 'start')
+    f.o.append(f'<rect x="{kx + 22}" y="{ky + 58}" width="60" height="38" rx="8" fill="none" stroke="{RED}" stroke-width="5"/>')
+    f.text(kx + 98, ky + 78, 'location and', 24, 400, INK, 'start'); f.text(kx + 98, ky + 104, 'reliability', 24, 400, INK, 'start')
+    f.o.append(f'<line x1="{kx + 22}" y1="{ky + 150}" x2="{kx + 82}" y2="{ky + 150}" stroke="#000" stroke-width="2.5" stroke-dasharray="10 6" marker-end="url(#a)"/>')
+    f.text(kx + 98, ky + 158, 'reference', 24, 400, INK, 'start')
+    yE = max(yi + hp + 40 + 228, ya, yb_) + 10; frame(y0, yE)
+    # ---- frame 2: findspot
+    y0 = yE + 20; title(44, y0 + 18, '2', 'Findspot: Garranes, Co. Cork'); heads(y0 + 112); yi = y0 + 135
+    h1 = put(load('D'), xe, yi, we, 'B')
+    Fm = load('F'); sf = Fm.width / 1440; Fm = Fm.crop((0, round(100 * sf), Fm.width, round(880 * sf)))
+    ya = stmt(xw, yi, ww, 230, 'Q69385424', 'coordinate location', "51\u00b048'59.58\"N, 8\u00b045'57.13\"W", WD2)
+    yb_ = stmt(xf, yi, wf, 340, 'CIIC 81', 'has coordinate', "51\u00b048'59.58\"N, 8\u00b045'57.13\"W", FS2)
+    h2 = put(Fm, xw, ya + 10, ww, 'C')
+    yE = max(yi + h1, ya + 10 + h2, yb_) + 10; frame(y0, yE)
+    f.h = int(yE + 20)
+    f.done()
+
 if __name__ == '__main__':
     want = sys.argv[1:] or ['fig4']
     if 'fig4' in want: fig4()
     if 'fig3' in want: fig3()
     if 'fig5' in want: fig5()
     if 'fig9' in want: fig9()
+    if 'fig2' in want: fig2()
     if 'fig10' in want: fig10()
     if 'z3' in want: z3()
     if 'z2' in want: z2()
