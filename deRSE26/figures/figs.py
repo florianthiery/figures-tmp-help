@@ -186,6 +186,14 @@ def fig4():
     nm = it['labels']['en']['value']; part = nm.rsplit(' ', 1)
     f.box(cx0, 100, cw, 96, INST, [part[0], f'{part[1]} ({it["id"]})'], size=MIN_TYPE)
     f.box(cx0, cy_mid - 70, cw, 140, INST, [wb_label('P4'), f'{cv["latitude"]}', f'{cv["longitude"]}'], size=MIN_TYPE)
+    # minimap of the item (Central Europe), below the coordinate node
+    MX, MY, MW = cx0, cy_mid + 90, cw
+    mX, mY, mmh = basemap(f, MX, MY, MW, 3, 13, 47, 55, 51, 'mm4', 1.0, grid=(5, 4), labels=False)
+    for s_ in S:
+        if s_ is au3 or not (3 <= s_['lon'] <= 13 and 47 <= s_['lat'] <= 55): continue
+        f.o.append(f'<circle cx="{mX(s_["lon"]):.1f}" cy="{mY(s_["lat"]):.1f}" r="4.5" fill="{CLS if s_["arch"] else "#fff"}" stroke="#000" stroke-width="1"/>')
+    f.o.append(f'<circle cx="{mX(au3["lon"]):.1f}" cy="{mY(au3["lat"]):.1f}" r="15" fill="none" stroke="{RED}" stroke-width="4"/>')
+    f.o.append(f'<circle cx="{mX(au3["lon"]):.1f}" cy="{mY(au3["lat"]):.1f}" r="6" fill="{CLS if au3["arch"] else "#fff"}" stroke="#000" stroke-width="1.2"/>')
     f.arrow(cx0 + cw / 2, 196, cx0 + cw / 2, cy_mid - 70)
     f.chip(cx0 + cw / 2, (196 + cy_mid - 70) / 2, 'has coordinate')
     bus = cx0 + cw + 24
@@ -411,9 +419,54 @@ def fig7():
     f.o.append(f'<line x1="20" y1="{PH + 20}" x2="{W - 20}" y2="{PH + 20}" stroke="#d4d4d0" stroke-width="2"/>')
     f.done()
 
+# ---------------------------------------------------------------- Fig. 6: the place classes of the taxonomy
+def fig6():
+    onto = Graph()
+    base = '/home/claude/research-squirrel-engineers/geoscience-fairification-lod'
+    for p in ('ontology/geo_lod_core.ttl', 'ontology/crm_bridging.ttl', 'SISAL/rdf/sisal_ontology.ttl', 'EPICA/rdf/epica_ontology.ttl'):
+        onto.parse(os.path.join(os.environ.get('GEOLOD_DIR', base), p), format='turtle')
+    EX = {'geolod:': 'http://w3id.org/geo-lod/', 'crm:': 'http://www.cidoc-crm.org/cidoc-crm/', 'crmarchaeo:': 'http://www.cidoc-crm.org/extensions/crmarchaeo/', 'geo:': 'http://www.opengis.net/ont/geosparql#', 'fsl:': 'http://fuzzy-sl.squirrel.link/ontology/'}
+    def iri(q): return URIRef(next(v + q[len(k):] for k, v in EX.items() if q.startswith(k)))
+    RS = URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf')
+    f = Fig('fig6_place_taxonomy', 900)
+    nodes = {   # label: (x centre, y top, kind, lines)
+        'crm:E53_Place': (150, 30, 'x', None), 'geo:Feature': (470, 30, 'x', None), 'crm:E27_Site': (800, 30, 'x', None),
+        'geolod:SamplingLocation': (330, 250, 'c', None), 'geolod:CIFindspot': (1030, 250, 'c', None), 'fsl:Site': (1330, 250, 'x', None),
+        'geolod:DrillingSite': (125, 470, 'c', None), 'geolod:Borehole': (410, 470, 'c', None), 'geolod:Cave': (720, 470, 'c', None),
+        'geolod:CIArchaeologicalSite': (1030, 470, 'c', None),
+        'crmarchaeo:A2_Stratigraphic_Volume_Unit': (1480, 705, 'x', ['crmarchaeo:A2_', 'Stratigraphic_Volume_Unit']),
+        'geolod:ArchaeologicalCaveSite': (720, 720, 'c', None)}
+    edges = [('geolod:SamplingLocation', 'crm:E53_Place'), ('geolod:SamplingLocation', 'geo:Feature'), ('geolod:SamplingLocation', 'crm:E27_Site'),
+             ('geolod:CIFindspot', 'crm:E27_Site'), ('fsl:Site', 'crm:E27_Site'),
+             ('geolod:DrillingSite', 'geolod:SamplingLocation'), ('geolod:Borehole', 'geolod:SamplingLocation'), ('geolod:Cave', 'geolod:SamplingLocation'),
+             ('geolod:ArchaeologicalCaveSite', 'geolod:Cave'), ('geolod:ArchaeologicalCaveSite', 'crmarchaeo:A2_Stratigraphic_Volume_Unit'),
+             ('geolod:CIArchaeologicalSite', 'geolod:CIFindspot'), ('geolod:CIArchaeologicalSite', 'crmarchaeo:A2_Stratigraphic_Volume_Unit')]
+    for a, b in edges:
+        assert (iri(a), RS, iri(b)) in onto, (a, b)
+    geom = {}
+    for lab, (cx, y, kind, lines) in nodes.items():
+        ls = lines or [lab]; geom[lab] = (cx, y, max(tw(l, MIN_TYPE) for l in ls) + 44, 80 if len(ls) == 1 else 110)
+    def edge_pt(g_, tx, ty):                          # point where the line from the centre of g_ towards (tx, ty) leaves the box
+        cx, y, w, h = g_; cy = y + h / 2; dx, dy = tx - cx, ty - cy
+        k = min((w / 2) / abs(dx) if dx else 1e9, (h / 2) / abs(dy) if dy else 1e9)
+        return cx + dx * k, cy + dy * k
+    for a, b in edges:
+        ga, gb = geom[a], geom[b]
+        x1, y1 = edge_pt(ga, gb[0], gb[1] + gb[3] / 2); x2, y2 = edge_pt(gb, ga[0], ga[1] + ga[3] / 2)
+        t_ = 0.62 if a == 'geolod:Borehole' else 0.5
+        f.arrow(x1, y1, x2, y2); f.chip(x1 + (x2 - x1) * t_, y1 + (y2 - y1) * t_, 'subClassOf')
+    for lab, (cx, y, w, h) in geom.items():
+        k = nodes[lab][2]
+        f.box(cx - w / 2, y, w, h, CLS if k == 'c' else '#fff', nodes[lab][3] or [lab], tc='#fff' if k == 'c' else INK)
+    ly = 850
+    f.o.append(f'<rect x="20" y="{ly - 16}" width="44" height="32" rx="8" fill="{CLS}" stroke="#000" stroke-width="2"/>'); f.text(76, ly + 8, 'class of the geo-lod ontologies', MIN_TYPE, 400, INK, 'start')
+    f.o.append(f'<rect x="560" y="{ly - 16}" width="44" height="32" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>'); f.text(616, ly + 8, 'class of CIDOC CRM, CRMarchaeo, GeoSPARQL or fuzzy-sl', MIN_TYPE, 400, INK, 'start')
+    f.done()
+
 if __name__ == '__main__':
     want = sys.argv[1:] or ['fig4']
     if 'fig4' in want: fig4()
     if 'z3' in want: z3()
     if 'z2' in want: z2()
     if 'fig7' in want: fig7()
+    if 'fig6' in want: fig6()

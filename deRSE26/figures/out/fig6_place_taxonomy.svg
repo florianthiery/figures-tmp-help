@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="900" viewBox="0 0 1700 900"><rect width="1700" height="900" fill="#ffffff"/><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#000"/></marker></defs><line x1="297.3" y1="250.0" x2="182.7" y2="110.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="166.5" y="158.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="240.0" y="188.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="355.5" y1="250.0" x2="444.5" y2="110.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="326.5" y="158.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="400.0" y="188.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="415.5" y1="250.0" x2="714.5" y2="110.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="491.5" y="158.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="565.0" y="188.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="988.2" y1="250.0" x2="841.8" y2="110.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="841.5" y="158.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="915.0" y="188.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="1271.0" y1="265.5" x2="890.5" y2="107.6" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="1007.2" y="164.5" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1080.8" y="194.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="162.3" y1="470.0" x2="292.7" y2="330.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="154.0" y="378.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="227.5" y="408.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="395.5" y1="470.0" x2="344.5" y2="330.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="290.4" y="361.2" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="363.9" y="391.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="649.1" y1="470.0" x2="400.9" y2="330.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="451.5" y="378.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="525.0" y="408.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="720.0" y1="720.0" x2="720.0" y2="550.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="646.5" y="613.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="720.0" y="643.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="908.5" y1="760.0" x2="1309.5" y2="760.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="1035.5" y="738.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1109.0" y="768.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="1030.0" y1="470.0" x2="1030.0" y2="330.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="956.5" y="378.0" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1030.0" y="408.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<line x1="1102.0" y1="550.0" x2="1381.0" y2="705.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="1168.0" y="605.5" width="147.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+<text x="1241.5" y="635.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<rect x="51.0" y="30.0" width="198.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="150.0" y="78.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">crm:E53_Place</text>
+<rect x="384.5" y="30.0" width="171.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="470.0" y="78.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:Feature</text>
+<rect x="709.5" y="30.0" width="181.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="800.0" y="78.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">crm:E27_Site</text>
+<rect x="170.0" y="250.0" width="320.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="330.0" y="298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:SamplingLocation</text>
+<rect x="911.0" y="250.0" width="238.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1030.0" y="298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:CIFindspot</text>
+<rect x="1271.0" y="250.0" width="118.0" height="80.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1330.0" y="298.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">fsl:Site</text>
+<rect x="2.5" y="470.0" width="245.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="125.0" y="518.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:DrillingSite</text>
+<rect x="299.0" y="470.0" width="222.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="410.0" y="518.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:Borehole</text>
+<rect x="632.5" y="470.0" width="175.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="720.0" y="518.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:Cave</text>
+<rect x="857.0" y="470.0" width="346.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="1030.0" y="518.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:CIArchaeologicalSite</text>
+<rect x="1309.5" y="705.0" width="341.0" height="110.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1480.0" y="752.8" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">crmarchaeo:A2_</text>
+<text x="1480.0" y="783.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Stratigraphic_Volume_Unit</text>
+<rect x="531.5" y="720.0" width="377.0" height="80.0" rx="14" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="720.0" y="768.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">geolod:ArchaeologicalCaveSite</text>
+<rect x="20" y="834" width="44" height="32" rx="8" fill="#9a3412" stroke="#000" stroke-width="2"/>
+<text x="76.0" y="858.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">class of the geo-lod ontologies</text>
+<rect x="560" y="834" width="44" height="32" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="616.0" y="858.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">class of CIDOC CRM, CRMarchaeo, GeoSPARQL or fuzzy-sl</text></svg>

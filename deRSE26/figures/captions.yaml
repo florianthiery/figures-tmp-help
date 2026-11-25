@@ -38,3 +38,13 @@ fig7_ci_instances:
     certainty level, certainty description and literature reference, are aligned to Wikidata and OpenStreetMap via
     skos:closeMatch, and name the pipeline activity that generated them. The coordinate reference system prefix of
     the WKT literal is omitted. Colours: dark orange classes, purple vocabulary terms, grey instances, white literals. Minimaps: all 74 findspots (filled: archaeological site), the findspot of the panel ringed in red. Licence: Florian Thiery and Fiona Schenk, CC BY 4.0.
+
+fig6_place_taxonomy:
+  replaces: Fig. 6 (slice; the full pipeline scheme moves to the supplement or stays as it is)
+  caption: >-
+    The place classes of the geo-lod ontologies and their anchors in CIDOC CRM, CRMarchaeo, GeoSPARQL and fuzzy-sl.
+    Every arrow is an rdfs:subClassOf statement of the ontology files (geo_lod_core.ttl, crm_bridging.ttl,
+    sisal_ontology.ttl, epica_ontology.ttl). Sampling locations (drilling site, borehole, cave) and Campanian
+    Ignimbrite findspots both specialise crm:E27_Site; the archaeological variants (ArchaeologicalCaveSite,
+    CIArchaeologicalSite) additionally inherit from crmarchaeo:A2_Stratigraphic_Volume_Unit. Dark orange: classes of
+    the geo-lod ontologies; white: external classes. Licence: Florian Thiery and Fiona Schenk, CC BY 4.0.
