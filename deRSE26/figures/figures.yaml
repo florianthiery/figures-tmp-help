@@ -19,9 +19,9 @@ figures:
     Public Domain; (B) Florian Thiery, CC BY-NC-SA 4.0; (C/E) Research Squirrel Engineers Network, CC BY 4.0; (E) \copyright~\'O R\'{\i}ord\'ain and Ryan; (F) OpenStreetMap Contributors, Open Database License.
   notes:
   - "Reviewer C (Section 5, Figure 2): goal unclear, images should be separated and explained. New layout: one frame per location (present location, findspot); evidence on the left, Wikidata and fuzzy-sl statements as mini graphs"
-  - "The statements are transcribed from the screenshots of the old figure (Wikidata Q69385424 and the Wikibase entry could not be read from here): please check every value; typo exhebition in the source corrected; the fuzzy-sl item ID of CIIC 81 is not known (shown as CIIC 81); the long certainty description of the findspot is shortened ([...])"
+  - "All statements are read from data: Wikidata item Q130529871 (physical stone; data/wd, labels_ciic81.json, fetched by fetch_wd_ogham.py) and fuzzy-sl Wikibase item Q74 (data/wb/Q74.json). Typos in the Wikibase data corrected in the figure: servey, exhebition (also Q76 label Exhebition Place) - please fix in the Wikibase; the long certainty description of the findspot is shortened ([...])"
   - "Panels of the old figure: B is now A (photo, under the Wikidata graph of frame 1), D is now B (section of the map, under the Wikidata graph of frame 2); A, C, E became the graphs; F (OpenStreetMap) is dropped; the round letter marks were removed from the cut-outs (data/ogham, made by prep_ogham.py from img/ogham-wikidata.jpg)"
-  - "To check: the text of 5.1 says that the stones inherit the townland centroid as P625, the figure shows two stone-specific coordinates for CIIC 81"
+  - "To check: the text of 5.1 says that the stones inherit the townland centroid as P625, the figure shows two stone-specific coordinates for CIIC 81 (Wikidata: concept item Q69385424 has only the townland centroid 51.816389/-8.761667, the two coordinates are on the physical item Q130529871)"
 - n: 3
   old: fuzzy-sl_Wikibase.jpg
   section: §5.2 fuzzy-sl

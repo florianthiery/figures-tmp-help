@@ -865,7 +865,7 @@ def fig9():
 def fig2():
     """Fig. 2 re-arranged and redrawn: one frame per location of the Ogham stone CIIC 81 (present location in the museum, findspot at Garranes); per frame the
     evidence (photo, historical map, OpenStreetMap) and the coordinate statement of the stone in Wikidata and in the fuzzy-sl Wikibase as mini graphs.
-    The statements are transcribed from the screenshots of the submitted figure (the Wikidata item and a Wikibase export of CIIC 81 are not in the repository)."""
+    The statements are read from data/wd/Q130529871.json (+ labels_ciic81.json) and data/wb/Q74.json."""
     import base64, io
     from PIL import Image
     D = os.path.join(HERE, 'data/ogham')
@@ -903,19 +903,48 @@ def fig2():
             yy += max(hb + 8, 54)
         f.o.append(f'<line x1="{bx}" y1="{y1 + 54}" x2="{bx}" y2="{ys[-1]:.1f}" stroke="#000" stroke-width="2.5"/>')
         return yy
-    # source: Wikidata item Q69385424 and the fuzzy-sl Wikibase entry of CIIC 81, as shown in the submitted figure
-    WD1 = [('location', 'ex situ', 'item', True, False), ('sourcing circumstances', 'on-site survey', 'item', False, False), ('determination method or standard', 'on-site survey', 'item', True, False),
-           ('subject has role', 'exhibition', 'item', False, False), ('stated in', 'OpenStreetMap', 'item', False, False), ('OpenStreetMap node ID', '11071361392', 'lit', False, True)]
-    WD2 = [('determination method or standard', 'georeferencing', 'item', True, False), ('object of statement has role', 'book entry (Ogham)', 'item', False, False),
-           ('subject has role', 'archaeological site', 'item', False, False), ('stated in', 'academic journal article', 'item', False, False), ('location', 'ancient location', 'item', True, False),
-           ('reference URL', ['https://', 'www.jstor.org/', 'stable/25505959'], 'url', False, True)]
-    FS1 = [('certainty level', 'High', 'term', True, False), ('certainty description', 'on-site survey at exhibition area', 'lit', False, False), ('method used', 'on-site survey', 'term', True, False),
-           ('acting person', 'Florian Thiery', 'item', False, False), ('source type (detail)', 'on-site survey (source type)', 'term', False, False), ('source type (generic)', 'on-site survey (source type)', 'term', False, False),
-           ('method description', 'on-site survey at UCC Cork', 'lit', False, False), ('precision', '\u00b10.0001\u00b0', 'lit', True, False), ('location type', 'Exhibition Site', 'term', True, False), ('point type', 'Exhibition', 'term', False, False)]
-    FS2 = [('certainty level', 'Low', 'term', True, False), ('certainty description', "Gippert/Web, Ogham 81: 'According to Brash, JRSAI 10, 1869, 260, the stone was found in [\u2026]", 'lit', False, False),
-           ('method used', 'Georeferencing', 'term', True, False), ('acting person', 'Florian Thiery', 'item', False, False), ('source type (generic)', 'Textual Description', 'term', False, False),
-           ('source type (detail)', 'Paper', 'term', False, False), ('method description', 'found in old documents', 'lit', False, False), ('precision', '\u00b10.0001\u00b0', 'lit', True, False),
-           ('location type', 'Findspot', 'term', True, False), ('point type', 'Location of a Place as a Concept', 'term', False, False)]
+    # ---- data: Wikidata item Q130529871 (physical stone) and fuzzy-sl Wikibase item Q74; every row is read from the JSON copies
+    WDQ, FSQ = 'Q130529871', 'Q74'
+    WL = json.load(open(os.path.join(HERE, 'data/wd/labels_ciic81.json'), encoding='utf8'))
+    wd = json.load(open(os.path.join(HERE, f'data/wd/{WDQ}.json'), encoding='utf8')); fs = wb_entity(FSQ)
+    def dms(v, pos, neg):
+        a_ = abs(v); d_ = int(a_); m_ = int((a_ - d_) * 60); s_ = ((a_ - d_) * 60 - m_) * 60
+        return f"{d_}\u00b0{m_}'{s_:.2f}\"{pos if v >= 0 else neg}"
+    def coord_text(lat, lon): return dms(lat, 'N', 'S') + ', ' + dms(lon, 'E', 'W')
+    def fix(t):                                                   # visible correction of typos in the source data (reported to the data owner)
+        return t.replace('servey', 'survey').replace('exhebition', 'exhibition')
+    def urllines(u):
+        assert u.startswith('https://'); h, r = u[8:].split('/', 1); return ['https://', h + '/', r]
+    WD_HL, FS_HL = {'P276', 'P459'}, {'P5', 'P7', 'P23', 'P24'}
+    def wd_rows(c):
+        rows = []
+        for p, ss in c['qualifiers'].items():
+            for sn in ss:
+                v = sn['datavalue']['value']; assert v['id'] in WL
+                rows.append((WL[p], WL[v['id']], 'item', p in WD_HL, False))
+        for r in c['references']:
+            for p, ss in r['snaks'].items():
+                for sn in ss:
+                    v = sn['datavalue']['value']; assert isinstance(v, str)
+                    rows.append((WL[p], urllines(v) if v.startswith('http') else v, 'url' if v.startswith('http') else 'lit', False, True))
+        return rows
+    def fs_rows(c):
+        rows = []; assert not c.get('references')
+        for p, ss in c['qualifiers'].items():
+            lab = wb_label(p)
+            for sn in ss:
+                v = sn['datavalue']['value']
+                if isinstance(v, dict) and 'id' in v: rows.append((lab, wb_label(v['id']), 'item' if p == 'P14' else 'term', p in FS_HL, False))
+                else:
+                    t = fix(v).replace('`', "'")
+                    if len(t) > 120: k = t.index('the stone was found in') + len('the stone was found in'); t = t[:k] + ' [\u2026]'
+                    rows.append((lab, t, 'lit', p in FS_HL, False))
+        return rows
+    WDc = {(round(c['mainsnak']['datavalue']['value']['latitude'], 4)): c for c in wd['claims']['P625']}
+    FSc = {(round(c['mainsnak']['datavalue']['value']['latitude'], 4)): c for c in fs['claims']['P4']}
+    K1, K2 = 51.8937, round(51.81655, 4); assert set(WDc) == set(FSc) == {K1, K2}
+    def cv(c): v = c['mainsnak']['datavalue']['value']; return coord_text(v['latitude'], v['longitude'])
+    assert [round(c['mainsnak']['datavalue']['value']['longitude'], 6) for c in (WDc[K1], FSc[K1])] == [-8.492443] * 2
     xw, ww, xf, wf = 40, 640, 760, 900
     def heads(y):
         for x, w, t in ((xw, ww, 'Wikidata'), (xf, wf, 'fuzzy-sl Wikibase')): f.text(x + 300, y, t, 28, 500, INK)
@@ -926,14 +955,14 @@ def fig2():
     f.text(kx + 58, y0 + 46, 'location and reliability', 24, 400, INK, 'start')
     f.o.append(f'<line x1="{kx + 360}" y1="{y0 + 37}" x2="{kx + 410}" y2="{y0 + 37}" stroke="#000" stroke-width="2.5" stroke-dasharray="10 6" marker-end="url(#a)"/>')
     f.text(kx + 424, y0 + 46, 'reference', 24, 400, INK, 'start')
-    ya = stmt(xw, yi, ww, 230, 'Q69385424', 'coordinate location', "51\u00b053'37.1735\"N, 8\u00b029'32.7952\"W", WD1)
-    yb_ = stmt(xf, yi, wf, 380, 'CIIC 81', 'has coordinate', "51\u00b053'37.3\"N, 8\u00b029'32.6\"W", FS1)
+    ya = stmt(xw, yi, ww, 230, WDQ, WL['P625'], cv(WDc[K1]), wd_rows(WDc[K1]))
+    yb_ = stmt(xf, yi, wf, 380, FSQ, wb_label('P4'), cv(FSc[K1]), fs_rows(FSc[K1]))
     hp = put(load('B'), xw, ya + 10, 400, 'A')
     yE = max(ya + 10 + hp, yb_) + 10; frame(y0, yE)
     # ---- frame 2: findspot
     y0 = yE + 20; title(44, y0 + 18, '2', 'Findspot: Garranes, Co. Cork'); heads(y0 + 90); yi = y0 + 106
-    ya = stmt(xw, yi, ww, 230, 'Q69385424', 'coordinate location', "51\u00b048'59.58\"N, 8\u00b045'57.13\"W", WD2)
-    yb_ = stmt(xf, yi, wf, 380, 'CIIC 81', 'has coordinate', "51\u00b048'59.58\"N, 8\u00b045'57.13\"W", FS2)
+    ya = stmt(xw, yi, ww, 230, WDQ, WL['P625'], cv(WDc[K2]), wd_rows(WDc[K2]))
+    yb_ = stmt(xf, yi, wf, 380, FSQ, wb_label('P4'), cv(FSc[K2]), fs_rows(FSc[K2]))
     Dm = load('D'); free = max(yb_ - ya - 10, 200); wD = 400; hD = round(free); Dm = Dm.crop((0, 230, Dm.width, 230 + min(Dm.height - 230, round(Dm.width * hD / wD))))
     hp = put(Dm, xw, ya + 10, wD, 'B')
     yE = max(ya + 10 + hp, yb_) + 10; frame(y0, yE)

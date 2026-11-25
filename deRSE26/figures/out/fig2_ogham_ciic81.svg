@@ -8,12 +8,12 @@
 <line x1="1360" y1="47" x2="1410" y2="47" stroke="#000" stroke-width="2.5" stroke-dasharray="10 6" marker-end="url(#a)"/>
 <text x="1424.0" y="56.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">reference</text>
 <rect x="40.0" y="116.0" width="250.0" height="54.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
-<text x="165.0" y="151.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q69385424</text>
+<text x="165.0" y="151.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q130529871</text>
 <line x1="165.0" y1="170.0" x2="165.0" y2="218.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="44.5" y="172.0" width="241.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="165.0" y="202.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">coordinate location</text>
 <rect x="40.0" y="218.0" width="420.0" height="54.0" rx="14" fill="#000" stroke="#000" stroke-width="2"/>
-<text x="250.0" y="253.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">51°53'37.1735"N, 8°29'32.7952"W</text>
+<text x="250.0" y="253.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">51°53'37.17"N, 8°29'32.80"W</text>
 <line x1="64" y1="321.0" x2="450" y2="321.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="198.5" y="299.0" width="117.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="257.0" y="329.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">location</text>
@@ -49,12 +49,12 @@
 <text x="565.0" y="621.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">11071361392</text>
 <line x1="64" y1="272" x2="64" y2="613.0" stroke="#000" stroke-width="2.5"/>
 <rect x="760.0" y="116.0" width="250.0" height="54.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
-<text x="885.0" y="151.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<text x="885.0" y="151.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q74</text>
 <line x1="885.0" y1="170.0" x2="885.0" y2="218.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="790.0" y="172.0" width="190.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="885.0" y="202.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has coordinate</text>
 <rect x="760.0" y="218.0" width="420.0" height="54.0" rx="14" fill="#000" stroke="#000" stroke-width="2"/>
-<text x="970.0" y="253.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">51°53'37.3"N, 8°29'32.6"W</text>
+<text x="970.0" y="253.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">51°53'37.17"N, 8°29'32.80"W</text>
 <line x1="784" y1="321.0" x2="1280" y2="321.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="940.5" y="299.0" width="183.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1032.0" y="329.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
@@ -122,7 +122,7 @@
 <text x="340.0" y="998.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="middle">Wikidata</text>
 <text x="1060.0" y="998.0" font-family="Fira Sans" font-size="28" font-weight="500" fill="#1f1f1d" text-anchor="middle">fuzzy-sl Wikibase</text>
 <rect x="40.0" y="1014.0" width="250.0" height="54.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
-<text x="165.0" y="1049.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q69385424</text>
+<text x="165.0" y="1049.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q130529871</text>
 <line x1="165.0" y1="1068.0" x2="165.0" y2="1116.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="44.5" y="1070.0" width="241.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="165.0" y="1100.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">coordinate location</text>
@@ -168,7 +168,7 @@
 <text x="565.0" y="1684.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">stable/25505959</text>
 <line x1="64" y1="1170" x2="64" y2="1645.5" stroke="#000" stroke-width="2.5"/>
 <rect x="760.0" y="1014.0" width="250.0" height="54.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
-<text x="885.0" y="1049.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<text x="885.0" y="1049.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q74</text>
 <line x1="885.0" y1="1068.0" x2="885.0" y2="1116.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="790.0" y="1070.0" width="190.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="885.0" y="1100.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has coordinate</text>

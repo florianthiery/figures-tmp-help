@@ -16,7 +16,7 @@ cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow
 |---|---|---|---|
 | `fig4_ci_findspots` | Fig. 4 (screenshot collage) | (A) the 74 CI findspots, archaeological site or not, with distance rings around the Phlegraean Fields; (B) the coordinate statement of Auel Maar AU3 (Q70) with its qualifiers | `data/ci_findspots.ttl`, `data/wb/*.json` (static copy of n4o-rse/wb-fuzzysl-static, commit d22dc4e), `data/ne_50m_land.geojson` |
 
-| `fig2_ogham_ciic81` | Fig. 2 (Ogham stone CIIC 81) | per location (present location, findspot): evidence, Wikidata statement and fuzzy-sl statement as mini graphs | statements transcribed from the old figure; cut-outs in `data/ogham/` made by `prep_ogham.py` from `img/ogham-wikidata.jpg` |
+| `fig2_ogham_ciic81` | Fig. 2 (Ogham stone CIIC 81) | per location (present location, findspot): evidence, Wikidata statement and fuzzy-sl statement as mini graphs | statements read from `data/wd/Q130529871.json` and `data/wb/Q74.json` (`fetch_wd_ogham.py`); cut-outs in `data/ogham/` made by `prep_ogham.py` from `img/ogham-wikidata.jpg` |
 | `fig3_fuzzysl_datamodel` | Fig. 3 (old data-model picture) | Geolocation metadata (GLM) and coordinate metadata (CM) of a fuzzy-sl entity: properties, qualifiers, references, value classes | `data/wb/*.json` (properties P1 to P33, classes Q2 to Q125, witness item Q70) |
 
 | `fig5_bb5kbc_spatial` | Fig. 5 (bb5kbc ontology) | (A) spatial classes and properties of the BB-5KBC ontology; (B) one findspot on a map of the 540 findspots and as an instance | `data/bb5kbc-bundle.ttl` (Research-Squirrel-Engineers/bb-5kbc-public, commit c2e989b, 2026-09-15); base map Natural Earth |
