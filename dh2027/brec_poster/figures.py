@@ -52,7 +52,8 @@ def save(svg, name):
 
 # ---------------------------------------------------------------- Fig. 1: the chain
 def fig1():
-    W, H, SW, GAP, M = 2400, 800, 370, 110, 55
+    SW, GAP, M = 340, 170, 55
+    W, H = 2 * M + 5 * SW + 4 * GAP, 800
     svg = Svg(W, H)
     X0 = [M + i * (SW + GAP) for i in range(5)]
     XC = [x + SW / 2 for x in X0]
@@ -65,7 +66,7 @@ def fig1():
     DT, DB = 100, 500
     for x in X0:
         svg.rect(x, DT, SW, DB - DT, "#fbfbf9", stroke="#d8d6ce", check=False)
-    PW, PH = 172, 210
+    PW, PH = 160, 200
     for k, sub in enumerate(["Galaxy S26, 69 photos", "Galaxy A71, 115 photos"]):
         x = X0[0] + 12 + k * (PW + 4)
         photo(svg, HERE / "photos" / f"model{k + 1}.jpg", x, DT + 18, PW, PH)
@@ -176,7 +177,7 @@ def fig2():
     SW, GAP, M, BW, BH = 440, 50, 55, 380, 58
     W = M * 2 + 4 * SW + 3 * GAP
     ROW, PAIR = 218, 3
-    H = 130 + PAIR * ROW + 270
+    H = 130 + PAIR * ROW + 215
     svg = Svg(W, H)
     for c, (head, sub, fill, pairs) in enumerate(cols):
         x0 = M + c * (SW + GAP)
@@ -211,14 +212,12 @@ def fig2():
                 svg.text(x0 + SW / 2, PY0 + 22 + 25 + j * 25, t, sz, md, "#fff", "middle", maxw=BW - 80)
         else:
             icon(svg, 3, x0 + SW / 2 - 55, PY0 + 12, 110)
-    svg.text(M, H - 40, "Upper box of each pair: class of the CIDOC CRM family or of the Heritage Digital Twin ontology (HDT). Lower box: the BREC class "
-             "that extends it. Arrow with a hollow head: the lower class is a subclass of the upper one.", 15, False, MUTED, maxw=W - 2 * M)
     save(svg, "fig2_layers")
 
 
 # ---------------------------------------------------------------- Fig. 3: Model 2
 def fig3():
-    W, H = 2400, 940
+    W, H = 2400, 1160
     svg = Svg(W, H)
     P0, PY, PWD, PHT = 710, 110, 580, 708
     LW = 600
@@ -228,7 +227,7 @@ def fig3():
     svg.text(P0 + PWD / 2, 72, "Daria Stefan, Galaxy A71", 21, False, MUTED, "middle", maxw=PWD)
     TX, TW_ = 1500, 880
     svg.text(TX + TW_ / 2, 34, "Interpreted by Claude", 34, True, INK, "middle", maxw=TW_)
-    svg.text(TX + TW_ / 2, 72, "result of a SPARQL query over the FDOx RDF", 21, False, MUTED, "middle", maxw=TW_)
+    svg.text(TX + TW_ / 2, 72, "result of the SPARQL query below", 21, False, MUTED, "middle", maxw=TW_)
     photo(svg, HERE / "photos" / "model2.jpg", P0, PY, PWD, PHT)
 
     def pt(ox, oy):   # original photograph (810 x 1080) to the figure
@@ -275,7 +274,19 @@ def fig3():
     a, b = (P0 + PWD + 8, 470), (TX - 8, 470)
     svg.arrow([a, b], sw=3)
     svg.chip((a[0] + b[0]) / 2, 470, "interpreted", 18)
-    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, H - 44, 19)
+    qy, qh = 872, 250
+    svg.rect(TX, qy, TW_, qh, "#fbfbf9", stroke="#9a9a94", name="query")
+    svg.text(TX + 16, qy + 22, "SPARQL query behind the table (prefixes omitted)", 17, True, MUTED, maxw=TW_ - 32)
+    code = [(0, "SELECT ?hypothesis ?confidence ?status ?term WHERE {"),
+            (1, "?h brec:hypothesisAbout ex:lego_pyramid_2 ;"),
+            (2, "brec:confidence ?confidence ; rdfs:label ?hypothesis ;"),
+            (2, "brec:proposesReferent/brec:wikidataSearchTerm ?term ."),
+            (1, "OPTIONAL { ?h brec:verificationStatus ?status }"),
+            (0, "} ORDER BY DESC(?confidence)")]
+    for j, (ind, t) in enumerate(code):
+        svg.text(TX + 16 + ind * 24, qy + 56 + j * 26, t, 18, False, INK, maxw=TW_ - 40 - ind * 24)
+    svg.text(TX + 16, qy + qh - 20, "Wikidata column: a search for ?term, run separately; none yet means no match.", 15, False, MUTED, maxw=TW_ - 32)
+    svg.legend([(GREY, "measured"), (AMBER, "assumed"), (ORANGE, "reconstructed"), (PURPLE, "interpreted by AI")], 55, 885, 19)
     save(svg, "fig3_model2")
 
 
