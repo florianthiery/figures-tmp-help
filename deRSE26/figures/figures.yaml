@@ -103,8 +103,8 @@ figures:
     thor Straten et al., CC BY 4.0.
   notes:
   - Redrawn from data/ArNO.ttl (commit 5b1ad40) and poseidon2lod; the old picture mixed a Protege screenshot with a slide
-  - 'Differences to the old picture (to be checked with Mattis thor Straten): only the Discovery Site has a geometry in poseidon2lod (the old picture also gave the Site a WKT point); ArNO.ttl spells 'disovery' in the label of foundAtDiscoverySite (corrected in the figure)'
-  - 'Licence of the old picture: Mattis thor Straten et al., CC BY 4.0; the new figure is a redraw, say so in the caption'
+  - "Differences to the old picture (to be checked with Mattis thor Straten): only the Discovery Site has a geometry in poseidon2lod (the old picture also gave the Site a WKT point); ArNO.ttl spells disovery in the label of foundAtDiscoverySite (corrected in the figure)"
+  - "Licence of the old picture: Mattis thor Straten et al., CC BY 4.0; the new figure is a redraw, say so in the caption"
 unused:
 - old: moselkarte.jpg
   title: Map of the Moselle (not referenced in the LaTeX source)
