@@ -58,5 +58,20 @@ for fn in os.listdir(os.path.join(HERE, 'out')):
     if fn.endswith('.png'): shutil.copy2(os.path.join(HERE, 'out', fn), os.path.join(SITE, 'out', fn))
 open(os.path.join(SITE, 'index.html'), 'w', encoding='utf8').write(page)
 open(os.path.join(SITE, '..', '.nojekyll'), 'w').close()
-open(os.path.join(SITE, '..', 'index.html'), 'w', encoding='utf8').write('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=derse26_geographs/"><a href="derse26_geographs/">derse26_geographs</a>')
+n_new = sum(1 for g in F['figures'] if g.get('new')) + len(F['additions'])
+n_all = len(F['figures']) + len(F['additions'])
+start = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Figures: help pages</title>
+<style>
+@font-face{{font-family:"Fira Sans";src:url("derse26_geographs/fonts/FiraSans-400.ttf");font-weight:400}}@font-face{{font-family:"Fira Sans";src:url("derse26_geographs/fonts/FiraSans-500.ttf");font-weight:500}}
+:root{{--ink:#1f1f1d;--mut:#55544f;--bg:#f6f4ee;--card:#fff;--line:#d4d4d0;--acc:#9a3412}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 "Fira Sans",system-ui,sans-serif}}
+main{{max-width:900px;margin:0 auto;padding:48px 24px 60px}}h1{{font-weight:500;font-size:30px;margin:0 0 6px}}p.lead{{color:var(--mut);margin:0 0 28px}}
+a.card{{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;color:inherit;text-decoration:none}}a.card:hover{{border-color:var(--acc)}}
+a.card img{{width:100%;display:block;border-bottom:1px solid var(--line)}}.body{{padding:16px 20px 18px}}h2{{font-weight:500;font-size:22px;margin:0 0 4px}}.meta{{color:var(--mut);font-size:15px}}.go{{color:var(--acc);font-weight:500;margin-top:8px;display:inline-block}}
+</style></head><body><main>
+<h1>Figures: help pages</h1><p class="lead">Working pages for figures that are made and checked in the open.</p>
+<a class="card" href="derse26_geographs/"><img src="derse26_geographs/out/fig4_ci_findspots.png" alt="Fig. 4, Campanian Ignimbrite findspots"><div class="body"><h2>From Relations to Graphs: (Geo-)Spatial data in the Cultural Heritage Domain</h2>
+<div class="meta">deRSE26 / ECEASST, revision of November 2026. {n_new} of {n_all} figures redrawn or new, each next to the submitted version, with caption and notes.</div><span class="go">Open the gallery &rarr;</span></div></a>
+</main></body></html>'''
+open(os.path.join(SITE, '..', 'index.html'), 'w', encoding='utf8').write(start)
 print('wrote', os.path.join(SITE, 'index.html'), len(page) // 1024, 'KB')
