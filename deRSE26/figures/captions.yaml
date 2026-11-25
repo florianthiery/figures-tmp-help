@@ -6,7 +6,7 @@ fig4_ci_findspots:
     74 findspots, distinguished by whether they are typed as archaeological sites (12) or not (62); dashed rings mark
     500 km and 1000 km from the Phlegraean Fields, the source area of the eruption. (B) The coordinate statement of
     Auel Maar AU3 (Q70) with its qualifiers: certainty level and description, method, acting person, source type,
-    precision, location and point type, and the literature reference. Licence: Florian Thiery and Fiona Schenk,
+    precision, location and point type, and the literature reference. Purple: vocabulary terms; grey: items; white: literals. Licence: Florian Thiery and Fiona Schenk,
     CC BY 4.0; base map: Natural Earth, public domain.
 
 z2_one_stone_five_models:
@@ -37,4 +37,4 @@ fig7_ci_instances:
     selection of their types is shown), carry the geometry as an sf:Point with a geo:asWKT literal and the fuzzy-sl
     certainty level, certainty description and literature reference, are aligned to Wikidata and OpenStreetMap via
     skos:closeMatch, and name the pipeline activity that generated them. The coordinate reference system prefix of
-    the WKT literal is omitted. Licence: Florian Thiery and Fiona Schenk, CC BY 4.0.
+    the WKT literal is omitted. Colours: dark orange classes, purple vocabulary terms, grey instances, white literals. Minimaps: all 74 findspots (filled: archaeological site), the findspot of the panel ringed in red. Licence: Florian Thiery and Fiona Schenk, CC BY 4.0.

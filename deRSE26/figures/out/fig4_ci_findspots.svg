@@ -248,6 +248,12 @@
 <text x="170.0" y="827.5" font-family="Fira Sans" font-size="26" font-weight="500" fill="#fff" text-anchor="middle">B</text>
 <polygon points="233.0,807.0 236.5,816.2 246.3,816.7 238.7,822.9 241.2,832.3 233.0,827.0 224.8,832.3 227.3,822.9 219.7,816.7 229.5,816.2" fill="#4c1d95" stroke="#000" stroke-width="1.5"/>
 <text x="255.0" y="829.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">source area of the eruption</text>
+<rect x="20" y="867.0099973849498" width="44" height="32" rx="8" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="76.0" y="891.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">vocabulary term</text>
+<rect x="270" y="867.0099973849498" width="44" height="32" rx="8" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="326.0" y="891.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">item</text>
+<rect x="420" y="867.0099973849498" width="44" height="32" rx="8" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="476.0" y="891.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="start">literal</text>
 <rect x="840.0" y="100.0" width="200.0" height="96.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
 <text x="940.0" y="140.8" font-family="Fira Sans" font-size="24" font-weight="500" fill="#1f1f1d" text-anchor="middle">Auel Maar</text>
 <text x="940.0" y="171.5" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">AU3 (Q70)</text>
@@ -260,8 +266,8 @@
 <text x="940.0" y="345.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">has coordinate</text>
 <line x1="1040" y1="548.0" x2="1064" y2="548.0" stroke="#000" stroke-width="2.5"/>
 <line x1="1064" y1="122.0" x2="1064" y2="934.0" stroke="#000" stroke-width="2.5"/>
-<rect x="1350.0" y="90.0" width="350.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1525.0" y="130.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">High</text>
+<rect x="1350.0" y="90.0" width="350.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1525.0" y="130.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">High</text>
 <line x1="1064.0" y1="122.0" x2="1350.0" y2="122.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1115.5" y="100.0" width="183.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="130.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
@@ -271,12 +277,12 @@
 <line x1="1064.0" y1="212.6" x2="1350.0" y2="212.6" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1080.0" y="190.6" width="254.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="220.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty description</text>
-<rect x="1350.0" y="271.2" width="350.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1525.0" y="311.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Georeferencing</text>
+<rect x="1350.0" y="271.2" width="350.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1525.0" y="311.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Georeferencing</text>
 <line x1="1064.0" y1="303.2" x2="1350.0" y2="303.2" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1121.5" y="281.2" width="171.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="311.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">method used</text>
-<rect x="1350.0" y="350.0" width="350.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
+<rect x="1350.0" y="350.0" width="350.0" height="64.0" rx="14" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
 <text x="1525.0" y="390.2" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Fiona Schenk</text>
 <line x1="1064.0" y1="382.0" x2="1350.0" y2="382.0" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1119.0" y="360.0" width="176.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
@@ -286,13 +292,13 @@
 <line x1="1064.0" y1="460.9" x2="1350.0" y2="460.9" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1086.0" y="438.9" width="242.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="469.0" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">method description</text>
-<rect x="1350.0" y="507.7" width="350.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1525.0" y="547.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Paper</text>
+<rect x="1350.0" y="507.7" width="350.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1525.0" y="547.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Paper</text>
 <line x1="1064.0" y1="539.7" x2="1350.0" y2="539.7" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1087.5" y="517.7" width="239.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="547.9" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">source type (detail)</text>
-<rect x="1350.0" y="586.6" width="350.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1525.0" y="626.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Textual Description</text>
+<rect x="1350.0" y="586.6" width="350.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1525.0" y="626.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Textual Description</text>
 <line x1="1064.0" y1="618.6" x2="1350.0" y2="618.6" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1079.0" y="596.6" width="256.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="626.7" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">source type (generic)</text>
@@ -301,13 +307,13 @@
 <line x1="1064.0" y1="697.4" x2="1350.0" y2="697.4" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1143.0" y="675.4" width="128.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="705.6" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">precision</text>
-<rect x="1350.0" y="744.3" width="350.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1525.0" y="784.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Findspot</text>
+<rect x="1350.0" y="744.3" width="350.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1525.0" y="784.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Findspot</text>
 <line x1="1064.0" y1="776.3" x2="1350.0" y2="776.3" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1121.5" y="754.3" width="171.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="784.4" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">location type</text>
-<rect x="1350.0" y="823.1" width="350.0" height="64.0" rx="14" fill="#fff" stroke="#000" stroke-width="2"/>
-<text x="1525.0" y="863.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">Investigation Place</text>
+<rect x="1350.0" y="823.1" width="350.0" height="64.0" rx="14" fill="#4c1d95" stroke="#000" stroke-width="2"/>
+<text x="1525.0" y="863.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#fff" text-anchor="middle">Investigation Place</text>
 <line x1="1064.0" y1="855.1" x2="1350.0" y2="855.1" stroke="#000" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="1137.0" y="833.1" width="140.0" height="44" rx="22" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
 <text x="1207.0" y="863.3" font-family="Fira Sans" font-size="24" font-weight="400" fill="#1f1f1d" text-anchor="middle">point type</text>

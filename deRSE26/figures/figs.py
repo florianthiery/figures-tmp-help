@@ -160,16 +160,22 @@ def fig4():
     x = 20 + 38 + tw('item of ', MIN_TYPE) + 10 + 34 + 46
     sy2 = ly; star2 = ' '.join(f'{x + (14 if i % 2 == 0 else 6) * math.sin(i * math.pi / 5):.1f},{sy2 - (14 if i % 2 == 0 else 6) * math.cos(i * math.pi / 5):.1f}' for i in range(10))
     f.o.append(f'<polygon points="{star2}" fill="{TERM}" stroke="#000" stroke-width="1.5"/>'); f.text(x + 22, ly + 8, 'source area of the eruption', MIN_TYPE, 400, INK, 'start')
+    ky_ = ly + 62
+    for i, (fl, tcx, t) in enumerate(((TERM, '#fff', 'vocabulary term'), (INST, INK, 'item'), ('#fff', INK, 'literal'))):
+        bxx = 20 + i * 0 ; xx = 20 + [0, 250, 400][i]
+        f.o.append(f'<rect x="{xx}" y="{ky_ - 16}" width="44" height="32" rx="8" fill="{fl}" stroke="#000" stroke-width="2"/>'); f.text(xx + 56, ky_ + 8, t, MIN_TYPE, 400, INK, 'start')
     # --- panel B: the coordinate statement of Q70 with its qualifiers, as the Wikibase has it
     ql = coord['qualifiers-order'] if 'qualifiers-order' in coord else list(coord['qualifiers'].keys())
     rows = []
     for qp in ql:
         sn = coord['qualifiers'][qp][0]
         txt = snak_text(sn)
-        rows.append((wb_label(qp), wrap(txt, 350 - 28) if len(txt) > 22 else [txt]))
+        isitem = isinstance(sn['datavalue']['value'], dict) and 'id' in sn['datavalue']['value']
+        fill, tc = ((INST, INK) if qp == 'P14' else (TERM, '#fff')) if isitem else ('#fff', INK)   # agent grey, vocabulary term purple, literal white
+        rows.append((wb_label(qp), wrap(txt, 350 - 28) if len(txt) > 22 else [txt], fill, tc))
     ref = coord['references'][0]['snaks']; rp = list(ref.keys())[0]
-    rows.append((wb_label(rp), ['doi.org/' + snak_text(ref[rp][0]).split('doi.org/')[1]]))
-    heights = [max(64, 24 * 1.28 * len(v) + 26) for _, v in rows]
+    rows.append((wb_label(rp), ['doi.org/' + snak_text(ref[rp][0]).split('doi.org/')[1]], '#fff', INK))
+    heights = [max(64, 24 * 1.28 * len(r_[1]) + 26) for r_ in rows]
     top, bottom = 90, H - 24
     gap = (bottom - top - sum(heights)) / (len(rows) - 1)
     ys = []; y = top
@@ -185,8 +191,8 @@ def fig4():
     bus = cx0 + cw + 24
     f.o.append(f'<line x1="{cx0 + cw}" y1="{cy_mid:.1f}" x2="{bus}" y2="{cy_mid:.1f}" stroke="#000" stroke-width="2.5"/>')
     f.o.append(f'<line x1="{bus}" y1="{centres[0]:.1f}" x2="{bus}" y2="{centres[-1]:.1f}" stroke="#000" stroke-width="2.5"/>')
-    for (lab, vals), y_, h_, ty in zip(rows, ys, heights, centres):
-        f.box(bx0, y_, bw, h_, '#fff', vals, size=MIN_TYPE)
+    for (lab, vals, fl, tc_), y_, h_, ty in zip(rows, ys, heights, centres):
+        f.box(bx0, y_, bw, h_, fl, vals, tc=tc_, size=MIN_TYPE)
         f.arrow(bus, ty, bx0, ty)
         f.chip((bus + bx0) / 2, ty, lab)
     f.done()
@@ -201,7 +207,7 @@ PIPE, WBK = CLS, AMB
 def pts(setname):
     return [(float(r['lon']), float(r['lat']), r['label']) for r in csv.DictReader(open(os.path.join(HERE, 'data/showcase_points.csv'), encoding='utf8')) if r['set'] == setname]
 
-def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, grid=None):
+def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, grid=None, labels=True):
     kx = mw / (lon1 - lon0); ky = kx / math.cos(math.radians(latc)); mh = (lat1 - lat0) * ky
     X = lambda lon: mx + (lon - lon0) * kx
     Y = lambda lat: my + (lat1 - lat) * ky
@@ -221,7 +227,7 @@ def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, gr
             f.o.append(f'<line x1="{mx}" y1="{Y(la):.1f}" x2="{mx + mw}" y2="{Y(la):.1f}" stroke="#fff" stroke-width="1.6" stroke-dasharray="3 6" opacity="0.95"/>')
     f.o.append('</g>')
     f.o.append(f'<rect x="{mx}" y="{my}" width="{mw}" height="{mh:.1f}" fill="none" stroke="#000" stroke-width="2"/>')
-    if grid:
+    if grid and labels:
         fmt = lambda v, p, n: f'{abs(v)}°{p if v >= 0 else n}'
         for lo in range(math.ceil(lon0 / dlon) * dlon, int(lon1) + 1, dlon):
             f.o.append(f'<line x1="{X(lo):.1f}" y1="{my + mh:.1f}" x2="{X(lo):.1f}" y2="{my + mh + 8:.1f}" stroke="#000" stroke-width="2"/>')
@@ -357,6 +363,8 @@ def fig7():
     RDFT = URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
     KEEP = ('http://fuzzy-sl.squirrel.link/ontology/Site', 'http://w3id.org/geo-lod/CIArchaeologicalSite', 'http://w3id.org/geo-lod/CIFindspot',
             'http://www.cidoc-crm.org/extensions/crmarchaeo/A2_Stratigraphic_Volume_Unit')
+    arch_iri = URIRef('http://w3id.org/geo-lod/CIArchaeologicalSite')
+    for s_ in S: s_['arch'] = (s_['iri'], RDFT, arch_iri) in g
     PH = 800; H = 2 * PH + 40
     f = Fig('fig7_ci_instances', H)
     def panel(y0, letter, n):
@@ -378,10 +386,17 @@ def fig7():
         gap = (bottom - top - sum(hs)) / (len(rows) - 1)
         ys = []; y = top
         for h_ in hs: ys.append(y); y += h_ + gap
-        cs = [a + h_ / 2 for a, h_ in zip(ys, hs)]; mid = (cs[0] + cs[-1]) / 2
+        cs = [a + h_ / 2 for a, h_ in zip(ys, hs)]; mid = cs[2]
         sw_, sh_ = 300, 110
         f.box(20, mid - sh_ / 2, sw_, sh_, INST, [short(iri), site['label']], size=MIN_TYPE)
         f.o.append(f'<line x1="{20 + sw_}" y1="{mid:.1f}" x2="{bus}" y2="{mid:.1f}" stroke="#000" stroke-width="2.5"/>')
+        MX, MY, MW = 20, mid + 85, 300                  # minimap below the instance node
+        X, Y, mh = basemap(f, MX, MY, MW, 4, 46, 31, 57, 44, f'mm{n}', 1.0, grid=(10, 10), labels=False)
+        for o in S:
+            if o['id'] == n: continue
+            f.o.append(f'<circle cx="{X(o["lon"]):.1f}" cy="{Y(o["lat"]):.1f}" r="4.5" fill="{CLS if o["arch"] else "#fff"}" stroke="#000" stroke-width="1"/>')
+        f.o.append(f'<circle cx="{X(site["lon"]):.1f}" cy="{Y(site["lat"]):.1f}" r="15" fill="none" stroke="{RED}" stroke-width="4"/>')
+        f.o.append(f'<circle cx="{X(site["lon"]):.1f}" cy="{Y(site["lat"]):.1f}" r="6" fill="{CLS if site["arch"] else "#fff"}" stroke="#000" stroke-width="1.2"/>')
         f.o.append(f'<line x1="{bus}" y1="{cs[0]:.1f}" x2="{bus}" y2="{cs[-1]:.1f}" stroke="#000" stroke-width="2.5"/>')
         for (lab, kind, val, fill, tc), a, h_, c in zip(rows, ys, hs, cs):
             if kind == 'box':
