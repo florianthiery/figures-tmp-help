@@ -1,0 +1,967 @@
+set,id,label,lon,lat
+bb5kbc,444,Tüngeda,10.58,51.03
+bb5kbc,149,Goldbach,10.66,50.98
+bb5kbc,388,Schlotheim,10.66,51.24
+bb5kbc,179,Halberstadt 2,11.06,51.87
+bb5kbc,40,Bilzingsleben 9,11.06,51.29
+bb5kbc,360,Quedlinburg KGA 2,11.11,51.81
+bb5kbc,358,Quedlinburg 24,11.17,51.81
+bb5kbc,359,Quedlinburg KGA 1,11.18,51.81
+bb5kbc,138,Gatersleben 24,11.29,51.82
+bb5kbc,278,Mellingen,11.41,50.93
+bb5kbc,320,Oßmanstedt,11.42,51.02
+bb5kbc,279,Memleben 1,11.5,51.27
+bb5kbc,261,Löderburg,11.54,51.88
+bb5kbc,182,Helfta 65,11.56,51.5
+bb5kbc,201,Jersleben 2,11.56,52.24
+bb5kbc,25,Barleben 20,11.63,52.21
+bb5kbc,272,Magdeburg-Prester 4,11.68,52.11
+bb5kbc,35,Bernburg 5,11.71,51.79
+bb5kbc,311,Niedermöllern (OT von Möllern) 8,11.71,51.16
+bb5kbc,90,Calbe 6,11.77,51.89
+bb5kbc,456,Wahlitz 7,11.79,52.11
+bb5kbc,161,Gröbitz 10,11.92,51.13
+bb5kbc,245,Krosigk 1,11.93,51.61
+bb5kbc,233,Korbetha 4,11.97,51.4
+bb5kbc,384,Schelkau 3,12.01,51.1
+bb5kbc,281,Merzien 8,12.03,51.75
+bb5kbc,457,Wallendorf 14,12.07,51.36
+bb5kbc,158,Grana 2,12.11,51.05
+bb5kbc,505,Zörbig 8,12.11,51.63
+bb5kbc,438,Trebnitz,12.14,50.9
+bb5kbc,113,Eythra,12.3,51.24
+bb5kbc,422,Steckelsdorf 12,12.3,52.59
+bb5kbc,129,Friesack 4,12.54,52.75
+bb5kbc,129,Friesack 4,12.54,52.75
+bb5kbc,351,Prettin 6,12.9,51.67
+bb5kbc,375,Rohrbeck 14,13.03,51.97
+bb5kbc,205,Jüterbog 31,13.05,51.99
+bb5kbc,57,Bochow 2,13.07,51.96
+bb5kbc,57,Bochow 2,13.07,51.96
+bb5kbc,56,Bochow 16,13.08,51.96
+bb5kbc,59,Bochow 6/7,13.09,51.96
+bb5kbc,60,Bochow 7,13.09,51.97
+bb5kbc,55,Bochow 15,13.09,51.96
+bb5kbc,58,Bochow 6,13.09,51.96
+bb5kbc,58,Bochow 6,13.09,51.96
+bb5kbc,386,Schiaß 1,13.14,52.26
+bb5kbc,163,Groß Kienitz 7,13.46,52.33
+bb5kbc,407,Selchow 7,13.47,52.35
+bb5kbc,136,Gallun 4,13.56,52.25
+bb5kbc,504,Zöllmersdorf,13.66,51.85
+bb5kbc,207,Kaden 4,13.8,51.91
+bb5kbc,303,Neuendorf am See 6,13.88,52.1
+bb5kbc,303,Neuendorf am See 6,13.88,52.1
+bb5kbc,302,Neuendorf am See 13,13.88,52.1
+bb5kbc,190,Hohenbrück 3,13.91,52.1
+bb5kbc,190,Hohenbrück 3,13.91,52.1
+bb5kbc,267,Lübben Steinkirchen 6,13.93,51.91
+bb5kbc,267,Lübben Steinkirchen 6,13.93,51.91
+bb5kbc,275,Meichow 16,13.96,53.19
+bb5kbc,276,Meichow 8,13.97,53.18
+bb5kbc,210,Kerkow 1,13.97,53.05
+bb5kbc,18,Angermünde 41,14.01,53.0
+bb5kbc,186,Herzsprung 7,14.02,53.0
+bb5kbc,157,Gramzow 23,14.02,53.22
+bb5kbc,171,Grünow bei Schönermark 17/18 (17),14.08,53.12
+bb5kbc,121,Flemsdorf 6/1 (6),14.17,53.03
+bb5kbc,121,Flemsdorf 6/1 (6),14.17,53.03
+bb5kbc,33,Berkholz zu Berkholz-Meyenburg 5,14.19,53.06
+bb5kbc,34,Berkholz zu Berkholz-Meyenburg 8,14.19,53.06
+bb5kbc,218,Klein-Rietz,14.2,52.21
+bb5kbc,436,Trebatsch/Sabrodt 1,14.2,52.09
+bb5kbc,313,Nowe Objezierze 7,14.32,52.86
+bb5kbc,332,Platkow 13,14.33,52.61
+bb5kbc,406,Seelow 20,14.38,52.55
+bb5kbc,137,Gartz ?,14.39,53.21
+bb5kbc,301,Neuendorf 23,14.42,51.8
+bb5kbc,307,Niederjesar 3,14.46,52.44
+bb5kbc,61,Booßen 2,14.49,52.38
+bb5kbc,428,Szczecin-Gumieńce 17b,14.49,53.41
+bb5kbc,167,Grötsch 8,14.52,51.8
+bb5kbc,398,Schöpsdorf 37,14.53,51.38
+bb5kbc,445,Uhyst 13,14.53,51.37
+bb5kbc,446,Uhyst 19,14.53,51.37
+bb5kbc,181,Heinersbrück 42,14.54,51.81
+bb5kbc,181,Heinersbrück 42,14.54,51.81
+bb5kbc,180,Heinersbrück 31,14.54,51.81
+bb5kbc,172,Gubin,14.73,51.96
+bb5kbc,206,Kaaso/Kozów,14.74,51.86
+bb5kbc,95,Czarnowo 10,14.73,53.14
+bb5kbc,202,Jeziory Dolne,14.75,51.8
+bb5kbc,463,Wierzchno/Wirchenblatt,14.77,51.85
+bb5kbc,225,Koło,14.78,51.84
+bb5kbc,420,Stargard Gubiński,14.79,51.88
+bb5kbc,421,Starosiedle,14.82,51.86
+bb5kbc,356,Pyritz – Fechtner Scheune,14.85,53.13
+bb5kbc,357,Pyritz – Weinberg,14.9,53.15
+bb5kbc,488,Żalęcino,15.08,53.2
+bb5kbc,209,Karsko/Schöningsburg,15.12,53.15
+bb5kbc,273,Marienspring/Marzęcin,15.14,52.83
+bb5kbc,469,Wojciechowo,15.53,52.44
+bb5kbc,306,Niederguhren/Kije,15.54,52.1
+bb5kbc,152,Górecko,15.57,52.78
+bb5kbc,296,Mozów,15.57,52.08
+bb5kbc,154,Goszczanowiec/Guschterholländer,15.62,52.73
+bb5kbc,470,Wojnowo,15.79,52.1
+bb5kbc,89,Bytom Odrzański,15.82,51.73
+bb5kbc,489,Zameczno,15.93,51.67
+bb5kbc,508,Żukowice,15.98,51.67
+bb5kbc,36,Biechów,16.02,51.68
+bb5kbc,144,Głogów,16.09,51.66
+bb5kbc,146,Głogów-Żarków,16.11,51.65
+bb5kbc,145,Głogów-Nosocice/Noßwitz,16.13,51.65
+bb5kbc,399,Schrepau/Krzepów,16.14,51.65
+bb5kbc,3,Alt Jauer/Stary Jawór,16.16,51.08
+bb5kbc,468,Woischau/Wojszyn,16.19,51.66
+bb5kbc,352,Priedemost/Przedmoście,16.16,51.63
+bb5kbc,106,Dryżyna,16.28,51.71
+bb5kbc,280,Mertschütz/Mierczyce,16.31,51.09
+bb5kbc,423,Steinau an der Oder/Ścinawa,16.43,51.41
+bb5kbc,224,Köben/Chobienia (Runda),16.45,51.54
+bb5kbc,2,Alt Guhrau/Stara Góra,16.52,51.66
+bb5kbc,387,Schlabitz/Sławęcice,16.52,51.7
+bb5kbc,173,Guhrau/Góra,16.54,51.67
+bb5kbc,83,Bschanz/Pysząca,16.68,51.26
+bb5kbc,362,Racot 18,16.72,52.07
+bb5kbc,362,Racot 18,16.72,52.07
+bb5kbc,314,Olbersdorf/Olbrachcice Wielkie,16.78,50.61
+bb5kbc,250,Kuhnau/Kunów,16.8,50.9
+bb5kbc,147,Gnichwitz/Gniechowice,16.83,50.99
+bb5kbc,143,Gleinitz/Glinica,16.84,50.86
+bb5kbc,354,Puschkowa/Pustków Żurawski,16.86,50.96
+bb5kbc,203,Jordansmühl/Jordanów Śląski,16.87,50.86
+bb5kbc,96,Dankwitz/Dankowice,16.87,50.86
+bb5kbc,418,Stabelwitz/Stabłowice,16.89,51.15
+bb5kbc,391,Schmiedefeld/Kużniki,16.95,51.13
+bb5kbc,217,Klein Mochbern/Muchobór Mały,16.97,51.11
+bb5kbc,166,Groß Tschansch/Księże Wielkie,17.09,51.07
+bb5kbc,427,Stübendorf/Ścibórz,17.12,50.45
+bb5kbc,507,Zottwitz/Sobocisko,17.19,50.97
+bb5kbc,204,Jungwitz/Jankowice,17.2,51.0
+bb5kbc,98,Deutsch-Breile/Bryłówek,17.27,50.81
+bb5kbc,197,Iwno,17.43,53.04
+bb5kbc,46,Bladen/Włodzienin,17.84,50.12
+bb5kbc,393,Schönau/Szonów,17.84,50.3
+bb5kbc,330,Piotrowice,17.89,52.32
+bb5kbc,322,Ottitz/Ocice,18.17,50.08
+bb5kbc,86,Bukowiec,18.24,53.43
+bb5kbc,251,Kulmsee/Chełmża,18.61,53.19
+bb5kbc,26,Barłożno 15,18.63,53.77
+bb5kbc,37,Bielawki 5,18.65,53.91
+bb5kbc,37,Bielawki 5,18.65,53.91
+bb5kbc,499,Zelgno 12,18.7,53.2
+bb5kbc,235,Kościelna Wieś 1,18.72,52.67
+bb5kbc,67,Borucin XXXVI/03,18.72,52.6
+bb5kbc,66,Borucin XLIII/03,18.73,52.6
+bb5kbc,65,Borucin XL/03,18.73,52.6
+bb5kbc,64,Borucin T/06,18.74,52.59
+bb5kbc,471,Wola Skarbkowa L1/91,18.77,52.64
+bb5kbc,366,Redecz Krukowy 20,18.78,52.6
+bb5kbc,367,Redecz Krukowy XX/03,18.78,52.59
+bb5kbc,485,Zagajewice 1,18.78,52.63
+bb5kbc,486,Zagajewice A1/91,18.78,52.64
+bb5kbc,487,Zagajewice Z/06,18.79,52.64
+bb5kbc,319,Osłonki 49/91,18.79,52.61
+bb5kbc,258,Lekarzewice W/91,18.79,52.64
+bb5kbc,257,Lekarzewice 97/91,18.8,52.63
+bb5kbc,229,Konary R/91,18.8,52.63
+bb5kbc,318,Osłonki 2,18.8,52.62
+bb5kbc,226,Konary 1,18.81,52.63
+bb5kbc,316,Osłonki 1,18.81,52.62
+bb5kbc,227,Konary 1a,18.81,52.63
+bb5kbc,317,Osłonki 1a,18.81,52.62
+bb5kbc,284,Miechowice 4a,18.82,52.63
+bb5kbc,282,Miechowice 1,18.82,52.62
+bb5kbc,283,Miechowice 4,18.82,52.63
+bb5kbc,285,Miechowice B/98,18.82,52.62
+bb5kbc,249,Kuczyna 1,18.86,52.62
+bb5kbc,249,Kuczyna 1,18.86,52.62
+bb5kbc,473,Wolica Nowa 41/05,18.88,52.64
+bb5kbc,114,Falborz 1,18.88,52.61
+bb5kbc,472,Wolica Nowa (Polówka) 1,18.88,52.65
+bb5kbc,175,Gustorzyn 1,18.89,52.65
+bb5kbc,78,Brześć Kujawski 17,18.9,52.62
+bb5kbc,82,Brześć Kujawski 5a,18.91,52.61
+bb5kbc,81,Brześć Kujawski 5,18.92,52.61
+bb5kbc,81,Brześć Kujawski 5,18.92,52.61
+bb5kbc,77,Brześć Kujawski 10,18.92,52.61
+bb5kbc,80,Brześć Kujawski 4,18.92,52.61
+bb5kbc,79,Brześć Kujawski 3,18.92,52.61
+bb5kbc,178,Guźlin 3,18.92,52.59
+bb5kbc,177,Guźlin 2,18.92,52.6
+bb5kbc,176,Guźlin 1,18.93,52.6
+bb5kbc,328,Pikutkowo 6a,18.95,52.63
+bb5kbc,327,Pikutkowo 6,18.95,52.63
+bb5kbc,329,Pikutkowo 88 (motorway),18.97,52.62
+bb5kbc,412,Smólsk U/98,18.98,52.61
+bb5kbc,413,Smólsk Y/98,18.98,52.6
+bb5kbc,411,Smólsk 4,18.98,52.6
+bb5kbc,411,Smólsk 4,18.98,52.6
+bb5kbc,248,Kruszynek 6,19.0,52.57
+bb5kbc,377,Równina Dolna III,21.23,54.19
+bb5kbc,390,Schmergow,12.81,52.46
+bb5kbc,312,Nowe Obezierze 22,14.34,52.85
+bb5kbc,124,Frankfurt/Oder - Ebertus Str.,14.54,52.34
+bb5kbc,125,Frankfurt/Oder unbek.,14.53,52.34
+bb5kbc,123,Frankfurt/Oder - Danziger Str.,14.52,52.35
+bb5kbc,288,Mierzyn 4,14.44,53.42
+bb5kbc,287,Mierzyn 2a,14.47,53.43
+bb5kbc,290,Mierzyn 6,14.47,53.43
+bb5kbc,236,Kosin 6,15.06,53.09
+bb5kbc,379,Ryszewko 2/Klein-Rieschow,14.85,53.2
+bb5kbc,129,Friesack 4,12.54,52.75
+bb5kbc,436,Trebatsch/Sabrodt 1,14.2,52.09
+bb5kbc,377,Równina Dolna III,21.23,54.19
+bb5kbc,266,Łomy,14.8,52.06
+bb5kbc,260,Lietzow-Buddelin/Saiser 1,13.53,54.48
+bb5kbc,104,Drebkau 2,14.23,51.65
+bb5kbc,286,Międzyrzecz 11,15.56,52.45
+bb5kbc,346,Poznań - Dębiec 1,16.92,52.38
+bb5kbc,347,Poznań - Dębiec 2,16.92,52.37
+bb5kbc,405,Sędowo 1,17.98,52.74
+bb5kbc,14,Altfriesack 6,12.88,52.84
+bb5kbc,15,Altranft 6,14.09,52.77
+bb5kbc,20,Bad Freienwalde 8,14.06,52.78
+bb5kbc,28,Beeskow 5,14.3,52.17
+bb5kbc,47,Blankenburg 26,13.94,53.22
+bb5kbc,63,Bornim 8,13.01,52.42
+bb5kbc,76,Brüssow 67,14.11,53.42
+bb5kbc,107,Dyrotz 37,12.96,52.56
+bb5kbc,120,Flemsdorf 10,14.16,53.03
+bb5kbc,122,Frankfurt 108,14.52,52.33
+bb5kbc,129,Friesack 4,12.54,52.75
+bb5kbc,214,Kirchmöser 34,12.43,52.38
+bb5kbc,237,Kossenblatt 3,14.09,52.13
+bb5kbc,298,Nauen 21,12.88,52.62
+bb5kbc,309,Niederlandin 12/5 (13),14.14,53.08
+bb5kbc,340,Potsdam 3/13 (3),13.05,52.4
+bb5kbc,343,Potsdam 58,13.09,52.36
+bb5kbc,350,Prenzlau 23,13.87,53.3
+bb5kbc,371,Ribbeck 4,12.75,52.63
+bb5kbc,372,Ribbeck 9/21 (9),12.75,52.63
+bb5kbc,442,Treuenbrietzen 39,12.88,52.1
+bb5kbc,452,Wachow 17/4 (17),12.76,52.53
+bb5kbc,453,Wachow 5,12.76,52.54
+bb5kbc,454,Wachow 7,12.72,52.53
+bb5kbc,462,Wernsdorf 6,13.69,52.37
+bb5kbc,483,Wustermark 9,12.95,52.56
+bb5kbc,494,Zeestow 14/8 (14),12.96,52.57
+bb5kbc,495,Zeestow 8,12.96,52.58
+bb5kbc,495,Zeestow 8,12.96,52.58
+bb5kbc,38,Biesenbrow 4,13.99,53.11
+bb5kbc,48,Blankenburg 8,13.95,53.23
+bb5kbc,73,Bredow 2,12.91,52.6
+bb5kbc,75,Brüssow 21,14.15,53.4
+bb5kbc,101,Döberitz bei Premnitz 20,12.39,52.51
+bb5kbc,108,Dyrotz 43,12.97,52.55
+bb5kbc,111,Elsterwerda 10,13.56,51.44
+bb5kbc,118,Flatow 17,12.91,52.74
+bb5kbc,121,Flemsdorf 6/1 (6),14.17,53.03
+bb5kbc,148,Gohlitz 5,12.78,52.54
+bb5kbc,168,Grube 7,12.95,52.44
+bb5kbc,192,Hohenfinow 10,13.93,52.83
+bb5kbc,195,Hoppenrade 6,12.92,52.54
+bb5kbc,205,Jüterbog 31,13.05,51.99
+bb5kbc,211,Ketzin 14,12.86,52.47
+bb5kbc,295,Mötzow 11,12.6,52.45
+bb5kbc,299,Nauen 68,12.98,52.62
+bb5kbc,300,Neuendorf 14,12.49,52.4
+bb5kbc,305,Niebede 4,12.79,52.54
+bb5kbc,310,Niederlandin 8,14.15,53.06
+bb5kbc,341,Potsdam 3/15 (3),13.07,52.4
+bb5kbc,342,Potsdam 3/58 (16),13.07,52.4
+bb5kbc,375,Rohrbeck 14,13.03,51.97
+bb5kbc,383,Satzkorn 37,12.99,52.48
+bb5kbc,395,Schönfeld bei Prenzlau 11,13.96,53.43
+bb5kbc,482,Wustermark 44,12.96,52.56
+bb5kbc,109,Eichhorst - 8,13.65,52.91
+bb5kbc,70,Brandenburg-Altstadt - 7,12.57,52.43
+bb5kbc,72,Brandenburg-Neustadt - 87,12.54,52.4
+bb5kbc,69,Brandenburg-Altstadt - 41,12.56,52.42
+bb5kbc,71,Brandenburg-Neustadt - 56,12.56,52.41
+bb5kbc,155,Gräbendorf - 7,13.76,52.22
+bb5kbc,156,Gräbendorf - 8,13.71,52.24
+bb5kbc,292,Mittenwalde - 11,13.53,52.26
+bb5kbc,400,Schulzendorf - 4,13.59,52.37
+bb5kbc,491,Zaue - 6,14.19,52.04
+bb5kbc,490,Zaue - 13,14.19,52.05
+bb5kbc,368,Reichwalde - 1,13.72,51.95
+bb5kbc,293,Mittenwalde - 23,13.53,52.28
+bb5kbc,458,Waltersdorf bei Kö.Wusterhausen - 14,13.59,52.37
+bb5kbc,97,Deutsch Wusterhausen - 15,13.61,52.29
+bb5kbc,294,Mittenwalde - 58,13.55,52.27
+bb5kbc,188,Hohenbrück - 2,13.89,52.09
+bb5kbc,240,Krausnick - 5,13.85,52.03
+bb5kbc,164,Groß Köris - 15,13.63,52.17
+bb5kbc,435,Töpchin - 14,13.58,52.16
+bb5kbc,434,Teurow - 1,13.73,52.09
+bb5kbc,392,Schmielsdorf - 1,13.22,51.83
+bb5kbc,110,Elsterwerda - 28,13.54,51.47
+bb5kbc,84,Buchhain - 7,13.39,51.66
+bb5kbc,183,Hertefeld - 1,12.87,52.65
+bb5kbc,451,Vietznitz - 4,12.66,52.74
+bb5kbc,396,Schönwalde - 30,13.1,52.6
+bb5kbc,455,Wagenitz - 6,12.64,52.65
+bb5kbc,127,Friedrichsbruch - 3,12.39,52.8
+bb5kbc,364,Rathenow - 20,12.34,52.6
+bb5kbc,365,Rathenow-Neue Schleuse - 9,12.31,52.61
+bb5kbc,425,Strodehne - 1,12.23,52.74
+bb5kbc,397,Schönwalde - 9,13.13,52.61
+bb5kbc,85,Buckow - 4,12.27,52.59
+bb5kbc,459,Wansdorf - 7,13.07,52.63
+bb5kbc,426,Strodehne - 19,12.24,52.74
+bb5kbc,378,Rübehorst - 1,12.33,52.8
+bb5kbc,450,Vietznitz - 11,12.63,52.74
+bb5kbc,481,Wustermark - 2,12.95,52.54
+bb5kbc,194,Hoppenrade - 2,12.94,52.52
+bb5kbc,369,Rhinow - 32,12.36,52.77
+bb5kbc,297,Münchehofe - 3,14.12,52.56
+bb5kbc,126,Friedersdorf - 6,14.39,52.51
+bb5kbc,244,Krewelin - 2,13.41,52.95
+bb5kbc,21,Badingen - 4,13.25,53.02
+bb5kbc,497,Zehdenick - 3,13.32,52.95
+bb5kbc,414,Sommerfeld - 7,13.05,52.79
+bb5kbc,433,Teschendorf - 5,13.17,52.86
+bb5kbc,498,Zehdenick - 33,13.36,53.02
+bb5kbc,41,Birkenwerder - 14,13.25,52.69
+bb5kbc,42,Birkenwerder - 7,13.27,52.69
+bb5kbc,87,Burgwall - 1,13.31,53.05
+bb5kbc,22,Badingen - 7,13.25,53.01
+bb5kbc,142,Germendorf - 3,13.19,52.75
+bb5kbc,208,Kappe - 8,13.42,52.95
+bb5kbc,243,Krewelin - 13,13.38,52.94
+bb5kbc,315,Oranienburg - 42,13.25,52.75
+bb5kbc,256,Leipe - 1,14.04,51.86
+bb5kbc,268,Lübbenau - 5,13.97,51.87
+bb5kbc,373,Rieplos - 3,13.9,52.31
+bb5kbc,131,Fürstenwalde - 5,14.05,52.36
+bb5kbc,133,Fürstenwalde-Süd - 5,14.09,52.33
+bb5kbc,431,Tempelberg - 17,14.14,52.45
+bb5kbc,404,Schwerin - 11,13.86,52.19
+bb5kbc,477,Wusterhausen (Dosse) - 12,12.49,52.92
+bb5kbc,238,Kötzlin - 9,12.22,52.91
+bb5kbc,105,Dreetz - 14,12.43,52.78
+bb5kbc,253,Kyritz - 36,12.41,52.98
+bb5kbc,263,Lohm - 12,12.31,52.87
+bb5kbc,374,Roddahn - 8,12.29,52.83
+bb5kbc,478,Wusterhausen (Dosse) - 34,12.46,52.89
+bb5kbc,479,Wusterhausen (Dosse) - 16,12.48,52.91
+bb5kbc,4,Alt Ruppin - 10,12.82,53.02
+bb5kbc,184,Herzberg - 4,12.96,52.92
+bb5kbc,254,Langen - 1,12.8,52.83
+bb5kbc,269,Lüchfeld - 2,12.68,52.87
+bb5kbc,466,Wildberg - 3,12.63,52.87
+bb5kbc,465,Wildberg - 10,12.63,52.86
+bb5kbc,492,Zechliner Hütte - 2,12.86,53.17
+bb5kbc,13,Altfriesack - 2,12.89,52.84
+bb5kbc,476,Wulkow bei Alt Ruppin - 3,12.95,52.93
+bb5kbc,5,Alt Ruppin - 23,12.93,52.98
+bb5kbc,6,Alt Ruppin - 24,12.83,52.96
+bb5kbc,7,Alt Ruppin - 25,12.81,53.02
+bb5kbc,231,Königshorst - 4,12.73,52.72
+bb5kbc,480,Wusterhausen (Dosse) - 17,12.48,52.91
+bb5kbc,493,Zechliner Hütte - 7,12.85,53.17
+bb5kbc,262,Lohm - 10,12.3,52.84
+bb5kbc,230,Königshorst - 3,12.74,52.72
+bb5kbc,232,Königshorst - 5,12.75,52.71
+bb5kbc,335,Potsdam - 13,13.08,52.38
+bb5kbc,336,Potsdam - 21,13.09,52.38
+bb5kbc,62,Bornim - 9,12.98,52.45
+bb5kbc,337,Potsdam - 31,13.05,52.39
+bb5kbc,338,Potsdam - 57,13.07,52.42
+bb5kbc,112,Emstal - 4,12.78,52.31
+bb5kbc,191,Hohenferchesar - 8,12.49,52.51
+bb5kbc,10,Alt Töplitz - 2,12.92,52.42
+bb5kbc,12,Alt Töplitz - 7,12.91,52.44
+bb5kbc,11,Alt Töplitz - 21,12.93,52.42
+bb5kbc,30,Bergholz-Rehbrücke - 8,13.09,52.35
+bb5kbc,29,Bergholz-Rehbrücke - 17,13.07,52.35
+bb5kbc,140,Geltow - 1,12.96,52.36
+bb5kbc,141,Geltow - 9,12.98,52.37
+bb5kbc,239,Krampnitz - 3,13.05,52.46
+bb5kbc,333,Plötzin - 3,12.84,52.39
+bb5kbc,382,Satzkorn - 2,13.0,52.47
+bb5kbc,151,Gollwitz - 1,12.63,52.42
+bb5kbc,325,Philippsthal - 3,13.14,52.35
+bb5kbc,274,Marquardt - 14,12.96,52.46
+bb5kbc,117,Ferch - 11,12.93,52.33
+bb5kbc,440,Treuenbrietzen - 65,12.87,52.07
+bb5kbc,441,Treuenbrietzen - 66,12.88,52.12
+bb5kbc,467,Wildenbruch - 16,13.06,52.3
+bb5kbc,8,Alt Töplitz - 10,12.91,52.43
+bb5kbc,9,Alt Töplitz - 14,12.92,52.42
+bb5kbc,219,Kleinmachnow - 3,13.21,52.4
+bb5kbc,27,Beelitz - 13,12.97,52.23
+bb5kbc,304,Neuhausen - 1,11.85,53.23
+bb5kbc,331,Pirow - 4,11.89,53.21
+bb5kbc,355,Putlitz - 6,12.03,53.24
+bb5kbc,220,Kleinow - 3,11.97,53.05
+bb5kbc,380,Sadenbeck - 6,12.25,53.2
+bb5kbc,19,Babekuhl - 5,11.62,53.07
+bb5kbc,259,Lenzen - 33,11.5,53.1
+bb5kbc,408,Semlin - 15,11.75,53.14
+bb5kbc,323,Perleberg - 16,11.82,53.03
+bb5kbc,348,Premslin - 33,11.77,53.13
+bb5kbc,165,Groß Linde - 47,11.92,53.12
+bb5kbc,430,Tacken - 12,12.01,53.18
+bb5kbc,187,Hinzdorf - 2,11.83,52.97
+bb5kbc,215,Kleeste - 1,11.83,53.24
+bb5kbc,484,Wustrow - 4,11.56,53.07
+bb5kbc,361,Raakow - 2,14.23,51.64
+bb5kbc,53,Blankensee - 4,13.14,52.24
+bb5kbc,1,Ahrensdorf bei Ludwigsfelde - 10,13.2,52.31
+bb5kbc,49,Blankenfelde - 9,13.38,52.32
+bb5kbc,160,Gröben - 4,13.16,52.28
+bb5kbc,159,Gröben - 13,13.16,52.3
+bb5kbc,252,Kummersdorf - 1,13.34,52.16
+bb5kbc,277,Mellensee - 7,13.44,52.18
+bb5kbc,416,Sperenberg - 1,13.39,52.14
+bb5kbc,500,Zesch - 2,13.52,52.11
+bb5kbc,506,Zossen - 10,13.47,52.22
+bb5kbc,437,Trebbin - 14,13.22,52.22
+bb5kbc,50,Blankensee - 14,13.13,52.24
+bb5kbc,51,Blankensee - 15,13.14,52.23
+bb5kbc,52,Blankensee - 16,13.14,52.24
+bb5kbc,216,Klein Kienitz - 9,13.47,52.31
+bb5kbc,221,Kliestow - 20,13.2,52.19
+bb5kbc,17,Angermünde - 79,14.01,53.02
+bb5kbc,99,Dobberzin - 20,14.05,53.02
+bb5kbc,115,Felchow - 12,14.13,53.02
+bb5kbc,116,Felchow - 13,14.12,53.04
+bb5kbc,16,Angermünde - 24,13.97,53.03
+bb5kbc,139,Gellmersdorf - 8,14.06,52.96
+bb5kbc,32,Berkholz zu Berkholz-Meyenburg - 9,14.18,53.06
+bb5kbc,119,Flemsdorf - 19,14.17,53.04
+bb5kbc,153,Görlsdorf - 4,13.94,53.04
+bb5kbc,174,Günterberg - 13,13.98,53.11
+bb5kbc,193,Hohenlandin - 10,14.12,53.1
+bb5kbc,308,Niederlandin - 15,14.14,53.08
+bb5kbc,389,Schmargendorf - 3,13.98,52.98
+bb5kbc,394,Schönermark - 22,14.08,53.11
+bb5kbc,419,Staffelde - 4,14.44,53.27
+bb5kbc,460,Wartin - 11,14.14,53.24
+bb5kbc,134,Fürstenwerder - 14,13.6,53.4
+bb5kbc,150,Gollmitz - 6,13.71,53.29
+bb5kbc,385,Schenkenberg - 19,13.94,53.35
+bb5kbc,135,Fürstenwerder - 88,13.62,53.39
+bb5kbc,474,Wollschow - 35,14.24,53.39
+bb5kbc,402,Schwedt - 4,14.28,53.08
+bb5kbc,223,Knehden - 8,13.53,53.14
+bb5kbc,242,Kreuzkrug - 12,13.6,53.15
+bb5kbc,324,Petersdorf - 9,13.62,53.07
+bb5kbc,432,Templin - 89,13.54,53.09
+bb5kbc,403,Schwedt - 6,14.28,53.05
+bb5kbc,271,Lychen - 10,13.3,53.22
+bb5kbc,100,Dobberzin - 9,14.05,53.02
+bb5kbc,31,Berkholz zu Berkholz-Meyenburg - 13,14.22,53.05
+bb5kbc,501,Zichow - 1,14.04,53.19
+bb5kbc,185,Herzfelde - 32,13.63,53.19
+bb5kbc,91,Carmzow - 77,14.09,53.38
+bb5kbc,24,Bandelow - 18,13.88,53.41
+bb5kbc,169,Grünberg - 7,14.12,53.36
+bb5kbc,349,Prenzlau - 101,13.82,53.3
+bb5kbc,162,Groß Dölln - 5,13.53,52.99
+bb5kbc,94,Crussow - 7,14.08,53.0
+bb5kbc,503,Zollchow - 20,13.84,53.25
+bb5kbc,170,Grünow bei Prenzlau - 56,13.93,53.31
+bb5kbc,212,Kienberg 1,12.9,52.66
+bb5kbc,475,Woltersdorf 3,12.38,52.39
+bb5kbc,415,Speichrow 10,14.19,52.04
+bb5kbc,255,Leibsch 10,13.86,52.09
+bb5kbc,128,Friesack 13,12.6,52.75
+bb5kbc,130,Friesack 59,12.52,52.75
+bb5kbc,196,Inowroclaw - Mątwy 5/3,18.26,52.74
+bb5kbc,228,Konary 20,18.49,52.73
+bb5kbc,246,Krusza Zamkowa 3,18.23,52.74
+bb5kbc,234,Koscielec Kuj 16,18.16,52.77
+bb5kbc,363,Radziejów 12,18.54,52.61
+bb5kbc,43,Biskupin 10/I,17.72,52.79
+bb5kbc,74,Broniewice 1,18.08,52.73
+bb5kbc,200,Jankowo 4,18.08,52.79
+bb5kbc,200,Jankowo 4,18.08,52.79
+bb5kbc,241,Krążkowo 5,18.07,52.95
+bb5kbc,44,Biskupin 18/I,17.75,52.78
+bb5kbc,45,Biskupin 18/IV,17.75,52.78
+bb5kbc,376,Rojewo 6,18.27,52.91
+bb5kbc,417,Srebrenogóra,17.51,52.89
+bb5kbc,429,Szelwjewo 1,17.75,52.74
+bb5kbc,92,Chwałowo 1,17.9,52.7
+bb5kbc,496,Żegotki 2,18.22,52.68
+bb5kbc,334,Polanowice 3,18.28,52.64
+bb5kbc,68,Bożejewice 25,18.25,52.69
+bb5kbc,265,Łojewo 1A,18.31,52.74
+bb5kbc,264,Łojewo 1,18.31,52.74
+bb5kbc,264,Łojewo 1,18.3,52.74
+bb5kbc,247,Krusza Zamkowa 30,18.25,52.74
+bb5kbc,103,Dobre 6,18.56,52.68
+bb5kbc,102,Dobre 4,18.57,52.69
+bb5kbc,410,Sipiory,17.51,53.07
+bb5kbc,381,Sarnowo 1,18.76,52.47
+bb5kbc,464,Wietrzychowice 1,18.87,52.41
+bb5kbc,88,Byczyna,18.62,52.67
+bb5kbc,93,Ciechocinek - Wolica,18.79,52.89
+bb5kbc,23,Bakowo 3,18.49,52.76
+bb5kbc,326,Piaski 4,18.44,52.68
+bb5kbc,199,Jankowo 11,18.07,52.77
+bb5kbc,198,Janikowo 6,18.11,52.75
+bb5kbc,321,Ostrowo 3,18.1,52.77
+bb5kbc,443,Tuczno,18.14,52.86
+bb5kbc,502,Złotowo 6,18.03,52.87
+bb5kbc,270,Ludwinowo 7,19.01,52.57
+bb5kbc,270,Ludwinowo 7,19.01,52.57
+bb5kbc,445,Uhyst 13,14.53,51.37
+bb5kbc,447,Uhyst 20,14.53,51.38
+bb5kbc,290,Mierzyn 6,14.46,53.44
+bb5kbc,353,Przylep 5,14.46,53.41
+bb5kbc,461,Warzymice 2,14.46,53.38
+bb5kbc,449,Ustowo/Kamieniec,14.49,53.35
+bb5kbc,291,Mierzyn 9,14.44,53.43
+bb5kbc,289,Mierzyn 5 (36),14.46,53.42
+bb5kbc,424,Stobno 13,14.44,53.42
+bb5kbc,409,Siadło Dolne 7,14.49,53.38
+bb5kbc,448,Ustowo 24,14.52,53.39
+bb5kbc,289,Mierzyn 5 (36),14.46,53.42
+bb5kbc,303,Neuendorf am See 6,13.89,52.1
+bb5kbc,132,Fürstenwalde 41,13.94,52.39
+bb5kbc,370,Rhinow 30,12.35,52.76
+bb5kbc,189,Hohenbrück 2,13.89,52.09
+bb5kbc,302,Neuendorf am See 13,13.88,52.1
+bb5kbc,180,Heinersbrück 31,14.54,51.81
+bb5kbc,339,Potsdam 16,13.07,52.4
+bb5kbc,344,Potsdam 82,13.07,52.4
+bb5kbc,439,Trebus 1,14.05,52.41
+bb5kbc,213,Kietz 3b,12.32,52.76
+bb5kbc,54,Bochow  8,13.06,51.96
+bb5kbc,222,Klinkow 26,13.83,53.32
+bb5kbc,401,Schwaneberg 27,14.12,53.33
+bb5kbc,39,Bietikow 15,13.96,53.28
+bb5kbc,345,Potzlow 36,13.83,53.22
+bb5kbc,370,Rhinow 30,12.35,52.76
+bb5kbc,195,Hoppenrade 6,12.92,52.54
+sisal,1,SISAL cave 1,77.7764,30.7903
+sisal,2,SISAL cave 2,81.75,42.87
+sisal,3,SISAL cave 3,-55.45,-4.0667
+sisal,4,SISAL cave 4,0.78,45.43
+sisal,5,SISAL cave 5,107.1833,29.0333
+sisal,6,SISAL cave 6,119.17,32.5
+sisal,7,SISAL cave 7,29.1833,-24.0
+sisal,8,SISAL cave 8,-2.5168,54.2209
+sisal,9,SISAL cave 9,67.23,38.4
+sisal,10,SISAL cave 10,-56.583,-21.083
+sisal,11,SISAL cave 11,35.65,33.95
+sisal,12,SISAL cave 12,91.8817,25.2622
+sisal,13,SISAL cave 13,125.0,-17.03
+sisal,14,SISAL cave 14,-114.22,39.01
+sisal,15,SISAL cave 15,9.6667,47.2501
+sisal,16,SISAL cave 16,5.1884,50.1164
+sisal,17,SISAL cave 17,105.1167,33.5833
+sisal,18,SISAL cave 18,-37.6659,-5.5642
+sisal,19,SISAL cave 19,35.6069,33.9069
+sisal,20,SISAL cave 20,114.8503,4.0848
+sisal,21,SISAL cave 21,-4.93,58.14
+sisal,22,SISAL cave 22,40.3772,8.6036
+sisal,23,SISAL cave 23,-44.28,-14.37
+sisal,24,SISAL cave 24,-44.6281,-16.1503
+sisal,25,SISAL cave 25,-77.35,-5.92
+sisal,26,SISAL cave 26,15.0,67.0
+sisal,27,SISAL cave 27,-47.0,-16.0
+sisal,28,SISAL cave 28,77.8167,15.15
+sisal,29,SISAL cave 29,138.83,-32.16
+sisal,30,SISAL cave 30,25.68,-25.21
+sisal,31,SISAL cave 31,18.1167,46.1333
+sisal,32,SISAL cave 32,46.7344,-15.5784
+sisal,33,SISAL cave 33,40.3073,8.4241
+sisal,34,SISAL cave 34,-99.921,18.192
+sisal,35,SISAL cave 35,-56.7839,-15.2002
+sisal,36,SISAL cave 36,106.3,33.133
+sisal,37,SISAL cave 37,-86.3667,33.3722
+sisal,38,SISAL cave 38,-41.5733,-12.3819
+sisal,39,SISAL cave 39,108.0833,25.2833
+sisal,40,SISAL cave 40,-7.77,37.1
+sisal,41,SISAL cave 41,137.8,36.9917
+sisal,42,SISAL cave 42,-9.3275,30.708
+sisal,43,SISAL cave 43,74.4258,33.2219
+sisal,44,SISAL cave 44,22.3539,37.6233
+sisal,45,SISAL cave 45,115.65,39.68
+sisal,46,SISAL cave 46,14.68,66.06
+sisal,47,SISAL cave 47,14.1822,66.4381
+sisal,48,SISAL cave 48,-115.58,37.89
+sisal,49,SISAL cave 49,-120.42,38.07
+sisal,50,SISAL cave 50,-120.4655,38.0717
+sisal,51,SISAL cave 51,-98.34,29.69
+sisal,52,SISAL cave 52,-56.8,-15.2055
+sisal,53,SISAL cave 53,-2.5123,54.2143
+sisal,54,SISAL cave 54,77.8667,30.6
+sisal,55,SISAL cave 55,7.81,46.75
+sisal,56,SISAL cave 56,24.5144,40.6387
+sisal,57,SISAL cave 57,14.0,66.0
+sisal,58,SISAL cave 58,11.67,47.08
+sisal,59,SISAL cave 59,107.17,32.43
+sisal,60,SISAL cave 60,167.0167,-15.5333
+sisal,61,SISAL cave 61,82.0336,29.8381
+sisal,62,SISAL cave 62,-41.6038,-12.3495
+sisal,63,SISAL cave 63,-89.716,20.73
+sisal,64,SISAL cave 64,91.8667,25.25
+sisal,65,SISAL cave 65,114.86,4.15
+sisal,66,SISAL cave 66,-2.4419,54.1656
+sisal,67,SISAL cave 67,114.83,4.1
+sisal,68,SISAL cave 68,35.15,31.7833
+sisal,69,SISAL cave 69,117.5,40.5
+sisal,70,SISAL cave 70,-77.16,26.23
+sisal,71,SISAL cave 71,20.5,48.4667
+sisal,72,SISAL cave 72,22.6,45.0
+sisal,73,SISAL cave 73,0.5133,45.6678
+sisal,74,SISAL cave 74,22.2147,-33.3925
+sisal,75,SISAL cave 75,-98.6208,29.8852
+sisal,76,SISAL cave 76,21.65,44.4
+sisal,77,SISAL cave 77,4.26,44.23
+sisal,78,SISAL cave 78,-79.6164,9.1741
+sisal,79,SISAL cave 79,32.1056,36.534
+sisal,80,SISAL cave 80,107.9036,29.2289
+sisal,81,SISAL cave 81,4.5667,36.4333
+sisal,82,SISAL cave 82,171.47,-41.95
+sisal,83,SISAL cave 83,9.68,36.03
+sisal,84,SISAL cave 84,18.84,47.7
+sisal,85,SISAL cave 85,-89.108,16.883
+sisal,86,SISAL cave 86,15.5372,44.2568
+sisal,87,SISAL cave 87,-4.53,43.4
+sisal,88,SISAL cave 88,14.2,45.77
+sisal,89,SISAL cave 89,-5.3455,36.1261
+sisal,90,SISAL cave 90,18.15,46.11
+sisal,91,SISAL cave 91,22.5695,46.5537
+sisal,92,SISAL cave 92,72.5833,40.4833
+sisal,93,SISAL cave 93,114.925,4.2333
+sisal,94,SISAL cave 94,46.88,-15.53
+sisal,95,SISAL cave 95,-82.5186,27.8894
+sisal,96,SISAL cave 96,-2.37,51.38
+sisal,97,SISAL cave 97,9.6228,40.2467
+sisal,98,SISAL cave 98,-9.43,52.25
+sisal,99,SISAL cave 99,17.8833,-19.4
+sisal,100,SISAL cave 100,15.55,47.0833
+sisal,101,SISAL cave 101,10.55,46.95
+sisal,102,SISAL cave 102,14.16,64.89
+sisal,103,SISAL cave 103,-41.6043,-12.3344
+sisal,104,SISAL cave 104,120.43,-8.53
+sisal,105,SISAL cave 105,9.8667,47.4333
+sisal,106,SISAL cave 106,0.04,42.46
+sisal,107,SISAL cave 107,-89.0735,16.2086
+sisal,108,SISAL cave 108,3.55,43.71
+sisal,109,SISAL cave 109,-0.4492,40.7925
+sisal,110,SISAL cave 110,35.3952,32.066
+sisal,111,SISAL cave 111,-37.6432,-5.5782
+sisal,112,SISAL cave 112,109.47,30.75
+sisal,113,SISAL cave 113,-41.0184,-12.6182
+sisal,114,SISAL cave 114,40.3729,8.6036
+sisal,115,SISAL cave 115,10.1506,47.3781
+sisal,116,SISAL cave 116,114.8,4.03
+sisal,117,SISAL cave 117,7.6647,51.3675
+sisal,118,SISAL cave 118,114.8333,4.1
+sisal,119,SISAL cave 119,-3.59,43.32
+sisal,120,SISAL cave 120,-0.59,40.76
+sisal,121,SISAL cave 121,13.15,47.16
+sisal,122,SISAL cave 122,110.4167,30.45
+sisal,123,SISAL cave 123,8.083,46.6167
+sisal,124,SISAL cave 124,-115.5,35.97
+sisal,125,SISAL cave 125,9.3833,47.2333
+sisal,126,SISAL cave 126,77.6521,30.6419
+sisal,127,SISAL cave 127,103.36,24.2
+sisal,128,SISAL cave 128,-80.4,37.98
+sisal,129,SISAL cave 129,13.1603,38.1665
+sisal,130,SISAL cave 130,82.0,19.0
+sisal,131,SISAL cave 131,11.65,45.9667
+sisal,132,SISAL cave 132,11.67,47.08
+sisal,133,SISAL cave 133,10.21,44.08
+sisal,134,SISAL cave 134,-110.75,31.75
+sisal,135,SISAL cave 135,-4.246,33.95
+sisal,136,SISAL cave 136,-99.2,17.4
+sisal,137,SISAL cave 137,56.85,54.15
+sisal,138,SISAL cave 138,54.2,12.55
+sisal,139,SISAL cave 139,-123.4072,42.0981
+sisal,140,SISAL cave 140,110.4333,31.667
+sisal,141,SISAL cave 141,31.9333,41.4167
+sisal,142,SISAL cave 142,90.0667,30.9167
+sisal,143,SISAL cave 143,-7.09,42.61
+sisal,144,SISAL cave 144,-49.1569,-27.2247
+sisal,145,SISAL cave 145,10.2167,43.9833
+sisal,146,SISAL cave 146,114.48,4.02
+sisal,147,SISAL cave 147,-105.4433,33.5067
+sisal,148,SISAL cave 148,29.177,-24.1428
+sisal,149,SISAL cave 149,-127.07,50.55
+sisal,150,SISAL cave 150,172.633,-41.2833
+sisal,151,SISAL cave 151,172.2178,-42.3108
+sisal,152,SISAL cave 152,57.35,23.0833
+sisal,153,SISAL cave 153,81.8667,18.8667
+sisal,154,SISAL cave 154,109.1,33.5667
+sisal,155,SISAL cave 155,128.62,-15.3
+sisal,156,SISAL cave 156,21.7596,36.736
+sisal,157,SISAL cave 157,77.92,15.15
+sisal,158,SISAL cave 158,172.68,-41.23
+sisal,159,SISAL cave 159,54.3,17.1667
+sisal,160,SISAL cave 160,35.0226,31.7558
+sisal,161,SISAL cave 161,167.6979,-45.2953
+sisal,162,SISAL cave 162,167.74,-46.02
+sisal,163,SISAL cave 163,175.02,-38.25
+sisal,164,SISAL cave 164,175.0167,-38.2667
+sisal,165,SISAL cave 165,175.08,-36.27
+sisal,166,SISAL cave 166,177.52,-38.82
+sisal,167,SISAL cave 167,167.73,-46.0
+sisal,168,SISAL cave 168,171.4,-42.1
+sisal,169,SISAL cave 169,167.0476,-45.3735
+sisal,170,SISAL cave 170,54.0833,17.1667
+sisal,171,SISAL cave 171,-116.2915,36.4254
+sisal,172,SISAL cave 172,29.88,-24.1
+sisal,173,SISAL cave 173,-67.0,18.0
+sisal,174,SISAL cave 174,104.095,26.0167
+sisal,175,SISAL cave 175,109.83,28.8
+sisal,176,SISAL cave 176,110.3667,31.3333
+sisal,177,SISAL cave 177,-83.84,22.55
+sisal,178,SISAL cave 178,107.9,25.4833
+sisal,179,SISAL cave 179,22.8,45.1
+sisal,180,SISAL cave 180,144.6,-17.2
+sisal,181,SISAL cave 181,159.974,-9.489
+sisal,182,SISAL cave 182,82.0,19.0
+sisal,183,SISAL cave 183,-83.97,22.38
+sisal,184,SISAL cave 184,114.0,-22.1
+sisal,185,SISAL cave 185,7.7819,46.6847
+sisal,186,SISAL cave 186,110.633,-8.05
+sisal,187,SISAL cave 187,11.03,46.13
+sisal,188,SISAL cave 188,-87.57,20.16
+sisal,189,SISAL cave 189,-89.0925,16.6769
+sisal,190,SISAL cave 190,-91.975,43.4678
+sisal,191,SISAL cave 191,-92.05,38.15
+sisal,192,SISAL cave 192,-77.3,-5.93
+sisal,193,SISAL cave 193,12.9619,43.4008
+sisal,194,SISAL cave 194,-114.7833,40.0333
+sisal,195,SISAL cave 195,-59.6,13.2
+sisal,196,SISAL cave 196,39.4029,40.5443
+sisal,197,SISAL cave 197,9.52,47.26
+sisal,198,SISAL cave 198,109.5333,29.48
+sisal,199,SISAL cave 199,146.25,-41.58
+sisal,200,SISAL cave 200,-111.519,42.0875
+sisal,201,SISAL cave 201,115.08,-34.27
+sisal,202,SISAL cave 202,11.99,46.16
+sisal,203,SISAL cave 203,21.7469,44.7144
+sisal,204,SISAL cave 204,-89.0,16.5
+sisal,205,SISAL cave 205,-46.35,-13.81
+sisal,206,SISAL cave 206,-46.35,-13.81
+sisal,207,SISAL cave 207,-77.9,-5.7
+sisal,208,SISAL cave 208,100.76,-0.36
+sisal,209,SISAL cave 209,72.35,40.4
+sisal,210,SISAL cave 210,-122.183,37.0
+sisal,211,SISAL cave 211,110.92,25.25
+sisal,212,SISAL cave 212,35.19,32.58
+sisal,213,SISAL cave 213,24.5167,47.4333
+sisal,214,SISAL cave 214,113.9,-22.1
+sisal,215,SISAL cave 215,-4.2461,33.9558
+sisal,216,SISAL cave 216,106.1667,27.2
+sisal,217,SISAL cave 217,115.5,29.5
+sisal,218,SISAL cave 218,124.9167,41.3333
+sisal,219,SISAL cave 219,117.26,28.71
+sisal,220,SISAL cave 220,128.58,37.27
+sisal,221,SISAL cave 221,63.3703,-19.7572
+sisal,222,SISAL cave 222,63.3864,-19.7583
+sisal,223,SISAL cave 223,105.0,33.32
+sisal,224,SISAL cave 224,106.33,33.0
+sisal,225,SISAL cave 225,-65.7739,-18.1222
+sisal,226,SISAL cave 226,-77.5,-5.73
+sisal,227,SISAL cave 227,-133.319,56.162
+sisal,228,SISAL cave 228,-104.26,32.1
+sisal,229,SISAL cave 229,-88.85,17.1
+sisal,230,SISAL cave 230,-41.0216,-12.6227
+sisal,231,SISAL cave 231,-75.82,-11.24
+sisal,232,SISAL cave 232,-87.13,20.59
+sisal,233,SISAL cave 233,-107.7,33.0
+sisal,234,SISAL cave 234,-48.7267,-24.5308
+sisal,235,SISAL cave 235,-77.3081,-5.9406
+sisal,236,SISAL cave 236,-40.8605,-10.1602
+sisal,237,SISAL cave 237,-65.77,-18.12
+sisal,238,SISAL cave 238,74.5167,14.9833
+sisal,239,SISAL cave 239,84.733,42.433
+sisal,240,SISAL cave 240,92.75,12.0833
+sisal,241,SISAL cave 241,120.0,-5.0
+sisal,242,SISAL cave 242,109.9833,30.6833
+sisal,243,SISAL cave 243,81.9915,18.8445
+sisal,244,SISAL cave 244,113.7167,38.1667
+sisal,245,SISAL cave 245,77.99,14.52
+sisal,246,SISAL cave 246,118.9,10.2
+sisal,247,SISAL cave 247,45.2958,35.1469
+sisal,248,SISAL cave 248,103.1,28.333
+sisal,249,SISAL cave 249,107.167,28.183
+sisal,250,SISAL cave 250,105.43,33.82
+sisal,251,SISAL cave 251,113.7,38.25
+sisal,252,SISAL cave 252,43.7569,-24.051
+sisal,253,SISAL cave 253,54.3543,12.5866
+sisal,254,SISAL cave 254,22.0876,-34.2078
+sisal,255,SISAL cave 255,43.7533,-24.0477
+sisal,256,SISAL cave 256,22.6,46.828
+sisal,257,SISAL cave 257,39.5365,40.4498
+sisal,258,SISAL cave 258,7.0,49.0
+sisal,259,SISAL cave 259,-4.37,42.98
+sisal,260,SISAL cave 260,8.48,39.28
+sisal,261,SISAL cave 261,-4.3937,43.2962
+sisal,262,SISAL cave 262,11.0203,50.4244
+sisal,263,SISAL cave 263,25.9597,43.5937
+sisal,264,SISAL cave 264,15.0388,44.0049
+sisal,265,SISAL cave 265,2.9683,39.7937
+sisal,266,SISAL cave 266,-0.8215,37.6322
+sisal,267,SISAL cave 267,-9.2667,39.3
+sisal,268,SISAL cave 268,5.2,50.0
+sisal,269,SISAL cave 269,45.1645,35.8
+sisal,270,SISAL cave 270,52.0,35.84
+sisal,271,SISAL cave 271,148.49,-35.72
+sisal,272,SISAL cave 272,171.47,-41.93
+sisal,273,SISAL cave 273,-118.82,36.59
+sisal,274,SISAL cave 274,-85.33,10.17
+sisal,275,SISAL cave 275,-8.7833,39.5333
+sisal,276,SISAL cave 276,20.5167,48.4833
+sisal,277,SISAL cave 277,-75.79,-11.27
+sisal,278,SISAL cave 278,-105.2,32.0
+sisal,279,SISAL cave 279,22.0899,-34.2071
+sisal,280,SISAL cave 280,7.9,51.1
+sisal,281,SISAL cave 281,-84.77,10.55
+sisal,282,SISAL cave 282,31.2833,28.6167
+sisal,283,SISAL cave 283,171.47,-41.95
+sisal,284,SISAL cave 284,172.47,-40.63
+sisal,285,SISAL cave 285,177.52,-38.82
+sisal,286,SISAL cave 286,-3.6658,43.4306
+sisal,287,SISAL cave 287,172.48,-40.63
+sisal,288,SISAL cave 288,172.48,-40.7
+sisal,289,SISAL cave 289,13.8428,47.8228
+sisal,290,SISAL cave 290,12.0272,47.5429
+sisal,291,SISAL cave 291,22.1403,37.9605
+sisal,292,SISAL cave 292,102.65,20.75
+sisal,293,SISAL cave 293,-66.5,18.35
+sisal,294,SISAL cave 294,36.0364,34.2439
+sisal,295,SISAL cave 295,66.7632,39.4227
+sisal,296,SISAL cave 296,8.2,44.13
+sisal,297,SISAL cave 297,78.1,15.1
+sisal,298,SISAL cave 298,-5.13,43.45
+sisal,299,SISAL cave 299,148.66,-35.07
+sisal,300,SISAL cave 300,148.94,-32.617
+sisal,301,SISAL cave 301,22.09,-34.21
+sisal,302,SISAL cave 302,115.0,-34.1
+sisal,303,SISAL cave 303,-99.0,23.0
+sisal,304,SISAL cave 304,-5.1403,43.4436
+sisal,305,SISAL cave 305,-60.6431,-11.6822
+sisal,306,SISAL cave 306,22.34,-33.41
+sisal,307,SISAL cave 307,-21.7468,80.3777
+sisal,308,SISAL cave 308,37.66,9.49
+sisal,309,SISAL cave 309,115.05,-34.083
+sisal,310,SISAL cave 310,148.5,-35.7
+sisal,311,SISAL cave 311,107.1833,29.0167
+sisal,312,SISAL cave 312,8.2058,50.6875
+sisal,313,SISAL cave 313,22.39,-34.05
+sisal,314,SISAL cave 314,118.3333,36.6167
+sisal,315,SISAL cave 315,7.6547,51.3689
+sisal,316,SISAL cave 316,104.8167,22.95
+sisal,317,SISAL cave 317,107.1792,29.0167
+sisal,318,SISAL cave 318,113.9,27.8
+sisal,319,SISAL cave 319,48.16,35.85
+sisal,320,SISAL cave 320,98.73,8.33
+sisal,321,SISAL cave 321,45.38,35.09
+sisal,322,SISAL cave 322,85.656,51.729
+sisal,323,SISAL cave 323,-4.8067,43.41
+sisal,324,SISAL cave 324,-66.8,18.32
+sisal,325,SISAL cave 325,110.3167,31.5167
+sisal,326,SISAL cave 326,15.4754,45.3142
+sisal,327,SISAL cave 327,-47.49,-11.62
+sisal,328,SISAL cave 328,29.82,1.25
+sisal,329,SISAL cave 329,0.5127,40.9488
+sisal,330,SISAL cave 330,35.81,33.32
+sisal,331,SISAL cave 331,3.965,39.956
+sisal,332,SISAL cave 332,8.2667,46.7833
+sisal,333,SISAL cave 333,15.6783,45.8188
+sisal,334,SISAL cave 334,-0.2678,43.1878
+sisal,335,SISAL cave 335,33.47,35.27
+sisal,336,SISAL cave 336,57.42,35.23
+sisal,337,SISAL cave 337,3.3009,39.5046
+sisal,338,SISAL cave 338,17.16,40.9
+sisal,339,SISAL cave 339,118.4,35.7
+sisal,340,SISAL cave 340,-90.2807,15.4277
+sisal,341,SISAL cave 341,3.3059,39.5145
+sisal,342,SISAL cave 342,17.5,40.7
+sisal,343,SISAL cave 343,40.37,43.39
+sisal,344,SISAL cave 344,8.2667,46.7833
+sisal,345,SISAL cave 345,105.5,26.2
+sisal,346,SISAL cave 346,106.2881,29.6822
+sisal,347,SISAL cave 347,20.7,-25.37
+sisal,348,SISAL cave 348,72.35,40.39
+sisal,349,SISAL cave 349,-40.86,-10.16
+sisal,350,SISAL cave 350,-37.7,-5.6
+sisal,351,SISAL cave 351,-86.05,34.67
+sisal,352,SISAL cave 352,-9.49,30.77
+sisal,353,SISAL cave 353,105.0833,26.05
+sisal,354,SISAL cave 354,110.57,31.5167
+sisal,355,SISAL cave 355,107.783,29.783
+sisal,356,SISAL cave 356,115.69,-31.547
+sisal,357,SISAL cave 357,105.0833,32.5833
+sisal,358,SISAL cave 358,11.2829,49.7793
+sisal,359,SISAL cave 359,11.581,46.018
+sisal,360,SISAL cave 360,30.7117,37.2325
+sisal,361,SISAL cave 361,115.1,-34.3
+sisal,362,SISAL cave 362,-122.304,40.804
+sisal,363,SISAL cave 363,-87.54,20.18
+sisal,364,SISAL cave 364,0.24,42.52
+sisal,365,SISAL cave 365,13.8833,45.6167
+fuzzysl,Q101,London (Londinium),-0.09183888888888889,51.51278888888889
+fuzzysl,Q102,London (Londinium) / Shadwell,-0.05843,51.508987
+fuzzysl,Q103,London (Londinium) / Shadwell (Docks),-0.0595,51.5075
+fuzzysl,Q105,Colchester (Camulodunum),0.899999,51.883338
+fuzzysl,Q106,Chesterholm-Vindolanda,-2.359504,54.991588
+fuzzysl,Q107,Southwark,-0.0892,51.5
+fuzzysl,Q108,Southwark / London Bridge,-0.08773,51.507948
+fuzzysl,Q109,Southwark / Southwark Bridge,-0.094135,51.508796
+fuzzysl,Q111,Franchthi Cave,23.1311,37.4226
+fuzzysl,Q112,Golema Pesht Cave near Zdunje,21.1617,41.8117
+fuzzysl,Q114,Paglicci Cave,15.615,41.6541
+fuzzysl,Q115,Toplitsa Cave,24.0053,43.1907
+fuzzysl,Q116,Haua-Fteah Cave,22.0516,32.9002
+fuzzysl,Q117,Castelcivita Cave,15.2092,40.4956
+fuzzysl,Q118,Temnata Cave,23.3848,43.0892
+fuzzysl,Q119,Kozarnika Cave,22.7024,43.6519
+fuzzysl,Q120,Car Dyke (Samian Discovery Site),-0.2678,53.0125
+fuzzysl,Q121,Llanfair-ar-y-bryn (Samian Discovery Site),-3.793388888888889,52.001194444444444
+fuzzysl,Q122,Belgian Coast (Samian Discovery Site),2.857,51.2075
+fuzzysl,Q13,San Giorgio Ionico 1949,17.3787,40.4579
+fuzzysl,Q131,Ogham Stone Coumeenole North,-10.47318288888889,52.11025411111111
+fuzzysl,Q134,Dead Sea Deep Drilling Project 5017-1A,35.4752,31.4931
+fuzzysl,Q136,Pompeii Casa della Fontana Piccola,14.483645194444444,40.7514285
+fuzzysl,Q137,Pompeii Via dell’Abbondanza,14.488961261111111,40.75038655
+fuzzysl,Q138,Pompeii Casa della Caccia Antica,14.49,40.75
+fuzzysl,Q139,Fumane Cave,10.898888888888889,45.58555555555556
+fuzzysl,Q140,Ignaz Storek (Brünn),16.6247,49.1924
+fuzzysl,Q148,Ogham Stone Coolmagort I,-9.633728,52.0605
+fuzzysl,Q148,Ogham Stone Coolmagort I,-9.634811,52.060384
+fuzzysl,Q46,"Crotone, loc. Via Paternostro 1974",17.12661,39.08002
+fuzzysl,Q49,Bruttium,16.732178,39.248407
+fuzzysl,Q50,Calabria (Regione),16.423461,39.13006
+fuzzysl,Q51,Leucopetra (cape),15.6373254426,38.0199079744
+fuzzysl,Q52,Shepherd - Bruttium (Calabria) - 1911,16.478385,39.044786
+fuzzysl,Q53,Taranto (Italy),17.24707,40.46438
+fuzzysl,Q54,Paestum (Italy),15.00731,40.4223
+fuzzysl,Q55,Strongoli (Italy),17.05413,39.26576
+fuzzysl,Q56,Calabria (Italy),16.5,39
+fuzzysl,Q57,South Italy,15.93279,40.40542
+fuzzysl,Q58,Province of Brindisi (Italy),17.66667,40.58333
+fuzzysl,Q59,Curinga (Italy),16.31344,38.82811
+fuzzysl,Q60,"Taranto, Via Oberdan",17.24707,40.46438
+fuzzysl,Q61,"Paestum (anc. Poseidonia), Lucania",15.00731,40.4223
+fuzzysl,Q62,"Strongoli (anc. Petelia), 25 km. N of Croton, Bruttium",17.05413,39.26576
+fuzzysl,Q63,Calabria (anc. Bruttium),16.434446,39.155622
+fuzzysl,Q64,South Italy,15.730228,40.79177
+fuzzysl,Q66,"Curinga, 30 km. WSW of Catanzaro, Bruttium",16.31344,38.82811
+fuzzysl,Q67,Fiume Esaro 1967 (gennaio),17.1123,39.0855
+fuzzysl,Q68,Curinga 1916 (IGCH 1881 / Noe 285),16.31344,38.82811
+fuzzysl,Q69,"Ionian Shore, Bruttium",17.665745,40.599356
+fuzzysl,Q70,Auel Maar AU3,6.5951,50.2825
+fuzzysl,Q73,Urluia Quarry,27.9021,44.0947
+fuzzysl,Q74,Ogham Stone UCC Stone Corridor IV,-8.492443111111111,51.89365930555556
+fuzzysl,Q74,Ogham Stone UCC Stone Corridor IV,-8.765869444444444,51.81655
+fuzzysl,Q84,Auel Maar AU4,6.5949,50.2821
+fuzzysl,Q85,DE3 Dehner Maar,6.5066,50.2928
+fuzzysl,Q88,Campi Flegri,14.1402,40.8275
+fuzzysl,Q89,Crvena Stiljena Cave,18.4815,42.779
+fuzzysl,Q95,London (Londinium) / No. 1 Poultry,-0.090556,51.513363
+fuzzysl,Q96,Colchester (Camulodunum) / Culver Street,0.898514,51.888722
+fuzzysl,Q97,Chesterholm-Vindolanda / vicus,-2.3602,54.9912

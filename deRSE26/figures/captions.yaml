@@ -8,3 +8,22 @@ fig4_ci_findspots:
     Auel Maar AU3 (Q70) with its qualifiers: certainty level and description, method, acting person, source type,
     precision, location and point type, and the literature reference. Licence: Florian Thiery and Fiona Schenk,
     CC BY 4.0; base map: Natural Earth, public domain.
+
+z2_one_findspot_three_paradigms:
+  replaces: new figure (Sections 3 and 4)
+  caption: >-
+    The same coordinate in three paradigms, shown for the Campanian Ignimbrite findspot Auel Maar AU3. (A) RDF with
+    GeoSPARQL: the site has a geometry resource whose geo:asWKT literal carries the point (the coordinate reference
+    system prefix of the published literal is omitted). (B) Labelled property graph: the point is a property of the
+    node. (C) Heterogeneous information network: the point is a node of its own, identified by its coordinates, so
+    that nearby findspots such as Auel Maar AU4 can be linked as spatially similar (illustrative). Red outline: where
+    the coordinate sits. Data: geo-lod graph and fuzzy-sl Wikibase, Florian Thiery and Fiona Schenk, CC BY 4.0.
+
+z3_showcase_map:
+  replaces: new figure (Section 5, overview)
+  caption: >-
+    Where the spatial showcases are. (A) Europe and the Mediterranean: coordinate statements of the fuzzy-sl Wikibase
+    (61; Ogham stones, Roman Britain, Bruttium coin finds, Campanian Ignimbrite and others), the Campanian Ignimbrite
+    findspots of the geo-lod graph (74) and the BB-5KBC findspots (540). (B) The 365 SISAL caves of the geo-lod graph;
+    the red frame marks panel A. The property-graph and HIN showcases are not mapped because they have no point
+    dataset of their own. Base map: Natural Earth, public domain.
