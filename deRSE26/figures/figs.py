@@ -705,10 +705,133 @@ def fig10():
     edge(1210 + pw / 2, rows[1], 1560 - ww / 2, rows[1], lab(GS + 'asWKT'))
     f.done()
 
+# ---------------------------------------------------------------- Fig. 5: spatial model of BB-5KBC
+def fig5():
+    """Redraw of bb-5kbc-ontology.jpg with a spatial focus: (A) the classes and properties around the place of a findspot, (B) one findspot as an instance.
+    Everything is read from data/bb5kbc-bundle.ttl (Research-Squirrel-Engineers/bb-5kbc-public, rdf/bb5kbc-bundle.ttl): labels, CRM super classes,
+    the properties that the 540 findspots and their georeferencing activities really use, and the values of the example findspot."""
+    from rdflib import OWL, Literal
+    from rdflib.namespace import RDF as RDFNS
+    g = Graph(); g.parse(os.path.join(HERE, 'data/bb5kbc-bundle.ttl'), format='turtle')
+    B, D, FSL, CRM, GEO, SFN = ('http://w3id.org/bb5kbc/ont/', 'http://w3id.org/bb5kbc/', 'http://fuzzy-sl.squirrel.link/ontology/', 'http://www.cidoc-crm.org/cidoc-crm/',
+                                'http://www.opengis.net/ont/geosparql#', 'http://www.opengis.net/ont/sf#')
+    U = URIRef
+    def lab(iri, lang=None):
+        ls = [l for l in g.objects(U(iri), RDFS.label)]
+        pick = [l for l in ls if l.language == 'en'] or ls
+        return str(pick[0]).split(' / ')[0]
+    def types(x): return {str(t) for t in g.objects(x, RDFNS.type)}
+    # ---- what the data really use
+    F = [s_ for s_ in g.subjects(RDFNS.type, U(B + 'Fundstelle'))]; assert len(F) == 540
+    ACT = [s_ for s_ in g.subjects(RDFNS.type, U(B + 'GeoreferenzierungsAktivitaet'))]; assert len(ACT) == 540
+    def used(subjects, pred): return all((s_, U(pred), None) in g for s_ in subjects)
+    for p in ('inGemeinde', 'wurdeGeoreferenziertDurch'): assert used(F, B + p), p
+    for p in ('hasGeometry',): assert used(F, GEO + p)
+    for p in ('representativeGeometry', 'certaintyLevel', 'hasLocationType'): assert used(F, FSL + p), p
+    for p in ('activityDesc', 'methodUsed', 'hasSourceType', 'hasSourceTypeDetail', 'georeferencingBy', 'hasReference'): assert used(ACT, FSL + p), p
+    CH = [('Gemeinde', 'inKreis', 'Kreis'), ('Kreis', 'inBundesland', 'Bundesland'), ('Bundesland', 'inLand', 'Land')]
+    for a, p, b in CH:
+        assert (U(B + p), RDFS.domain, U(B + a)) in g and (U(B + p), RDFS.range, U(B + b)) in g, p
+    assert (U(B + 'inGemeinde'), RDFS.domain, U(B + 'Fundstelle')) in g and (U(B + 'inGemeinde'), RDFS.range, U(B + 'Gemeinde')) in g
+    for c in ('Gemeinde', 'Kreis', 'Bundesland', 'Land'): assert (U(B + c), RDFS.subClassOf, U(CRM + 'E53_Place')) in g
+    assert (U(B + 'Fundstelle'), RDFS.subClassOf, U(CRM + 'E27_Site')) in g and (U(SFN + 'Point'), RDFS.subClassOf, U(GEO + 'Geometry')) in g
+    assert (U(B + 'GeoreferenzierungsAktivitaet'), RDFS.subClassOf, U(CRM + 'E13_Attribute_Assignment')) in g
+    EN = {'Fundstelle': 'findspot', 'Gemeinde': 'municipality', 'Kreis': 'district', 'Bundesland': 'state', 'Land': 'country', 'GeoreferenzierungsAktivitaet': 'georeferencing activity'}
+    def dt(prop):                                        # range of a data property; if the ontology gives none, the datatype of the literals in the data
+        r = list(g.objects(U(prop), RDFS.range))
+        if r: return str(r[0]).split('#')[-1]
+        lit = next(o for o in g.objects(None, U(prop)) if isinstance(o, Literal))
+        return str(lit.datatype).split('#')[-1] if lit.datatype else 'string'
+    f = Fig('fig5_bb5kbc_spatial', 1900)
+    def frame(y0, y1): f.o.append(f'<rect x="20" y="{y0}" width="1660" height="{y1 - y0}" rx="16" fill="none" stroke="#d4d4d0" stroke-width="3"/>')
+    def title(x, y, tag, text):
+        f.o.append(f'<rect x="{x}" y="{y}" width="40" height="40" rx="6" fill="#000"/>'); f.text(x + 20, y + 30, tag, 28, 500, '#fff'); f.text(x + 56, y + 30, text, 28, 500, INK, 'start')
+    def line(x1, y1, x2, y2, mk=True):
+        f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#000" stroke-width="2.5"{" marker-end=" + chr(34) + "url(#a)" + chr(34) if mk else ""}/>')
+    def uml(cx, y, w, head, body):
+        hh = 28 + 31 * len(head); bh = 20 + 31 * len(body) if body else 0
+        f.o.append(f'<rect x="{cx - w / 2}" y="{y}" width="{w}" height="{hh}" rx="10" fill="{CLS}" stroke="#000" stroke-width="2"/>')
+        for i, t in enumerate(head): f.text(cx, y + 38 + 31 * i, t, MIN_TYPE, 500 if i == 0 else 400, '#fff', maxw=w - 20)
+        if body:
+            f.o.append(f'<rect x="{cx - w / 2}" y="{y + hh}" width="{w}" height="{bh}" fill="#fff" stroke="#000" stroke-width="2"/>')
+            for i, t in enumerate(body): f.text(cx - w / 2 + 16, y + hh + 34 + 31 * i, t, MIN_TYPE, 400, INK, 'start', maxw=w - 30)
+        return hh + bh
+    # ---- A
+    title(44, 28, 'A', 'Spatial classes of the BB-5KBC ontology')
+    fcx, w3 = 850, 460
+    cx1, cx2, cx3 = 270, 850, 1430
+    f_body = ['hatFID : ' + dt(B + 'hatFID'), 'hatFundstellenID : ' + dt(B + 'hatFundstellenID'), 'hatGenauigkeit : ' + dt(B + 'hatGenauigkeit'), 'hatKatalognummer : ' + dt(B + 'hatKatalognummer'),
+              'fsl:certaintyLevel : CertaintyType', 'fsl:hasLocationType : LocationType', 'fsl:representativeGeometry : Point']
+    fh = uml(fcx, 90, w3, ['Fundstelle', f"{EN['Fundstelle']} · crm:E27_Site"], f_body)
+    ybus, ytop = 90 + fh + 60, 90 + fh + 170
+    line(fcx, 90 + fh, fcx, ybus, mk=False); line(cx1, ybus, cx3, ybus, mk=False)
+    def drop(cx, label):
+        line(cx, ybus, cx, ytop); f.chip(cx, (ybus + ytop) / 2, label)
+    drop(cx1, 'inGemeinde'); drop(cx2, 'geo:hasGeometry'); drop(cx3, 'wurdeGeoreferenziertDurch')
+    # administrative chain
+    y = ytop
+    names = ['Gemeinde', 'Kreis', 'Bundesland', 'Land']
+    for i, n in enumerate(names):
+        h = uml(cx1, y, w3, [n, f"{EN[n]} · crm:E53_Place"], None)
+        if i < 3:
+            y2 = y + h + 90; line(cx1, y + h, cx1, y2); f.chip(cx1, (y + h + y2) / 2, CH[i][1]); y = y2
+    # geometry
+    gh = uml(cx2, ytop, w3, ['Point', 'sf:Point · geo:Geometry'], ['geo:asWKT : ' + dt(GEO + 'asWKT'), 'fsl:hasPointType : PointType'])
+    # georeferencing activity
+    a_body = ['fsl:activityDesc : ' + dt(FSL + 'activityDesc'), 'fsl:methodUsed : MethodType', 'fsl:hasSourceType : SourceType', 'fsl:hasSourceTypeDetail : SourceType',
+              'fsl:georeferencingBy : Person', 'fsl:hasReference : URI, string']
+    uml(cx3, ytop, w3, ['GeoreferenzierungsAktivitaet', EN['GeoreferenzierungsAktivitaet'], 'crm:E13_Attribute_Assignment'], a_body)
+    yA = y + h + 30
+    frame(10, yA)
+    kx, ky = 620, ytop + 260
+    f.o.append(f'<rect x="{kx}" y="{ky}" width="460" height="190" rx="12" fill="#fafaf8" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="10 6"/>')
+    f.text(kx + 20, ky + 38, 'Key', 24, 500, INK, 'start')
+    f.box(kx + 30, ky + 56, 150, 44, CLS, ['Class'], '#000', 2, 10, '#fff')
+    f.text(kx + 200, ky + 86, 'ontology class', 24, 400, INK, 'start')
+    f.box(kx + 30, ky + 118, 150, 44, '#fff', ['name : type'], '#000', 2, 4, INK)
+    f.text(kx + 200, ky + 148, 'attribute', 24, 400, INK, 'start')
+    # ---- B
+    y0 = yA + 20; yB = y0 + 660; frame(y0, yB); title(44, y0 + 18, 'B', 'One findspot: Pyritz – Weinberg')
+    site = [s_ for s_ in F if str(g.value(s_, RDFS.label)) == 'Pyritz – Weinberg']; assert len(site) == 1
+    S = site[0]; sid = str(S).replace(D, '')
+    L = lambda x: str(g.value(x, RDFS.label))
+    geom = g.value(S, U(GEO + 'hasGeometry')); wkt = str(g.value(geom, U(GEO + 'asWKT')))
+    m = re.match(r'POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\)', wkt); lon, lat = float(m.group(1)), float(m.group(2))
+    act = g.value(S, U(B + 'wurdeGeoreferenziertDurch'))
+    prec = g.value(S, U(B + 'hatGenauigkeit'))
+    rows = [('geo:hasGeometry', f'POINT({m.group(1)} {m.group(2)})', 'lit'), ('hatGenauigkeit', f'{float(prec):g} m', 'lit'),
+            ('fsl:certaintyLevel', L(g.value(S, U(FSL + 'certaintyLevel'))), 'term'), ('fsl:hasLocationType', L(g.value(S, U(FSL + 'hasLocationType'))), 'term'),
+            ('inGemeinde', L(g.value(S, U(B + 'inGemeinde'))), 'inst'), ('wurdeGeoreferenziertDurch', L(act), 'inst')]
+    # map of the 540 findspots
+    mx, my, mw = 100, y0 + 100, 520
+    X, Y, mh = basemap(f, mx, my, mw, 10, 22, 49.5, 55, 52.3, 'bb', 1.0, grid=(2, 1), labels=True, detail=(5, True))
+    f.o.append('<g clip-path="url(#bb)">')
+    for lo_, la_, _l in pts('bb5kbc'): f.o.append(f'<circle cx="{X(lo_):.1f}" cy="{Y(la_):.1f}" r="3.4" fill="{CLS}" fill-opacity="0.85" stroke="#fff" stroke-width="0.8"/>')
+    f.o.append('</g>')
+    f.o.append(f'<circle cx="{X(lon):.1f}" cy="{Y(lat):.1f}" r="17" fill="none" stroke="{RED}" stroke-width="4"/>')
+    f.text(mx, my + mh + 70, '540 findspots; red: the findspot of the example', MIN_TYPE, 400, MUT, 'start')
+    # instance card
+    BX, ix = 920, 660
+    cyc = y0 + 330
+    f.box(ix, cyc - 50, 230, 100, INST, [L(S), sid])
+    n = len(rows); top = y0 + 130; pitch = 86
+    ys = [top + i * pitch for i in range(n)]
+    line(ix + 230, cyc, BX, cyc, mk=False); line(BX, ys[0], BX, ys[-1], mk=False)
+    vx, vw = 1290, 380
+    FILLS = {'lit': ('#fff', INK), 'term': (TERM, '#fff'), 'inst': (INST, INK)}
+    for (p, v, k), yy in zip(rows, ys):
+        line(BX, yy, vx, yy); f.chip((BX + vx) / 2, yy, p)
+        fl, tc = FILLS[k]
+        vl = wrap(v, vw - 34); hb = 50 if len(vl) == 1 else 20 + 31 * len(vl)
+        f.box(vx, yy - hb / 2, vw, hb, fl, vl, '#000', 2, 22 if k == 'term' else 8, tc)
+    f.h = yB + 20
+    f.done()
+
 if __name__ == '__main__':
     want = sys.argv[1:] or ['fig4']
     if 'fig4' in want: fig4()
     if 'fig3' in want: fig3()
+    if 'fig5' in want: fig5()
     if 'fig10' in want: fig10()
     if 'z3' in want: z3()
     if 'z2' in want: z2()

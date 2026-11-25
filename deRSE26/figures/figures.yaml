@@ -46,12 +46,14 @@ figures:
 - n: 5
   old: bb-5kbc-ontology.jpg
   section: §5.3 BB-5KBC
-  status: keep
-  title: The bb5kbc ontology
-  new: null
+  status: done
+  title: The bb5kbc ontology (spatial part)
+  new: fig5_bb5kbc_spatial
   caption_old: The bb5kbc Ontology. Licence -- Florian Thiery & Sophie C. Schmidt, CC BY 4.0.
   notes:
-  - Check the triple counts against the repository
+  - "Redrawn from data/bb5kbc-bundle.ttl (bb-5kbc-public, commit c2e989b, 2026-09-15; 540 findspots); the old picture was a Mermaid class diagram"
+  - "Geo focus: only the spatial classes (Fundstelle, Gemeinde, Kreis, Bundesland, Land, Point, GeoreferenzierungsAktivitaet); the non-geo classes are omitted and could go into a supplement version"
+  - "The data model has changed since the old picture (geo:hasGeometry, fsl certainty and location type, georeferencing activity); every property is asserted against the bundle"
 - n: 6
   old: taxonomy.png
   section: §5.4 Pipeline
