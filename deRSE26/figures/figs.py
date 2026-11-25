@@ -830,7 +830,7 @@ def fig5():
 def fig9():
     """1:1 redraw of ARNO.png (thor Straten et al.): hexagon with the CIDOC CRM core and six surrounding concept domains. No content added or changed; only type and colours follow the common style."""
     import math
-    f = Fig('fig9_arno_modules', 1670); f.transparent = True   # as the original: the six outer sectors are transparent, only the centre is white
+    f = Fig('fig9_arno_modules', 1670)
     BLUE = '#2f5597'
     cx, cy, R, r = 850, 780, 770, 250
     ap = R * math.cos(math.radians(30))
@@ -838,7 +838,7 @@ def fig9():
     ang = [0, 60, 120, 180, 240, 300]
     outer = [V(R, a) for a in ang]; inner = [V(r, a) for a in ang]
     pts_ = lambda P: ' '.join(f'{x:.1f},{y:.1f}' for x, y in P)
-    f.o.append(f'<polygon points="{pts_(outer)}" fill="none" stroke="#d9dbe3" stroke-width="12" stroke-linejoin="round"/>')
+    f.o.append(f'<polygon points="{pts_(outer)}" fill="#fff" stroke="#d9dbe3" stroke-width="12" stroke-linejoin="round"/>')
     for (x1, y1), (x2, y2) in zip(outer, inner): f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#b3bfd9" stroke-width="12"/>')
     f.o.append(f'<polygon points="{pts_(inner)}" fill="#fff" stroke="#d9dbe3" stroke-width="14" stroke-linejoin="round"/>')
     f.text(cx, cy - 66, 'Cultural', 52, 700, BLUE, maxw=2 * r - 160)
@@ -854,6 +854,10 @@ def fig9():
             f.o.append(f'<text transform="translate({x:.1f},{y:.1f}) rotate({rot}) translate(0,{off + 18:.1f})" font-family="Fira Sans" font-size="52" font-weight="700" fill="{BLUE}" text-anchor="middle">{esc(t)}</text>')
     lab(90, 0, ['Agents']); lab(30, 60, ['Bibliography']); lab(330, -60, ['Space'])
     lab(270, 0, ['Application Domain', '(Biology)']); lab(210, 60, ['Time']); lab(150, -60, ['Provenance'])
+    k = 2.655                                           # positions of the ontology names measured in the original (580 px hexagon width)
+    for t, x, y in [('FOAF', 362, 165), ('CRMdig', 218, 226), ('PROV-O', 176, 296), ('dcterms', 493, 233), ('BIBO', 524, 286), ('OWL-TIME', 199, 392),
+                    ('EDTF', 228, 460), ('GeoSPARQL', 524, 396), ('Pleiades', 508, 471), ('UBERON', 361, 485), ('GSSO', 301, 555), ('PATO', 427, 555)]:
+        f.text(cx + (x - 362) * k, cy + (y - 343) * k + 15, t, 44, 400, INK)
     f.done()
 
 if __name__ == '__main__':

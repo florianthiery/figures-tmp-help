@@ -19,7 +19,7 @@ cd /d C:\git\wikibase-static-help\deRSE26\figures && pip install resvg_py pillow
 | `fig3_fuzzysl_datamodel` | Fig. 3 (old data-model picture) | Geolocation metadata (GLM) and coordinate metadata (CM) of a fuzzy-sl entity: properties, qualifiers, references, value classes | `data/wb/*.json` (properties P1 to P33, classes Q2 to Q125, witness item Q70) |
 
 | `fig5_bb5kbc_spatial` | Fig. 5 (bb5kbc ontology) | (A) spatial classes and properties of the BB-5KBC ontology; (B) one findspot on a map of the 540 findspots and as an instance | `data/bb5kbc-bundle.ttl` (Research-Squirrel-Engineers/bb-5kbc-public, commit c2e989b, 2026-09-15); base map Natural Earth |
-| `fig9_arno_modules` | Fig. 9 (ArNO modules) | hexagon with the CIDOC CRM core and six concept domains, redrawn 1:1, transparent PNG, Fira Sans Bold (fonts/FiraSans-700.ttf, subset) | `gallery/old/ARNO.jpg` (original by Mattis thor Straten et al., CC BY 4.0) |
+| `fig9_arno_modules` | Fig. 9 (ArNO modules) | hexagon with the CIDOC CRM core and six concept domains, redrawn 1:1 with the twelve ontology names, Fira Sans Bold (fonts/FiraSans-700.ttf, subset) | `gallery/old/ARNO.jpg` (original by Mattis thor Straten et al., CC BY 4.0) |
 | `fig10_arno_spatial` | Fig. 10 (ArNO class tree and HIN schema) | (A) spatial part of the ArNO class hierarchy; (B) spatial node types of the Poseidon network schema with properties | `data/ArNO.ttl` (archaeonatural-cloud/archaeonatural-ontology, commit 5b1ad40, 2025-08-28); structure of the Poseidon data after archaeonatural-cloud/poseidon2lod `py/Poseidon2LOD.py` |
 
 Planned: Fig. 7, Fig. 6, and the additions Z2 (one findspot in RDF, LPG and HIN) and Z3 (map of the showcases). Captions: `captions.yaml`.
