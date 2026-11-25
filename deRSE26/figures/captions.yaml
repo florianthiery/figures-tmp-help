@@ -92,3 +92,9 @@ fig1_fkge:
   replaces: Fig. 1
   caption: >-
     Scheme of the Federated Knowledge Graph Ecosystem. Licence: Florian Thiery & Andreas Noback, CC BY 4.0.
+
+fig9_arno_modules:
+  replaces: Fig. 9
+  caption: >-
+    The ontologies combined in the ArNO ontology, grouped by the concept domain they are used for (redrawn after the
+    original). Licence: Mattis thor Straten et al., CC BY 4.0.

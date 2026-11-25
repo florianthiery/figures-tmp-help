@@ -827,11 +827,40 @@ def fig5():
     yB = int(my + mh + 75); frame(y0, yB); f.h = int(yB + 20)
     f.done()
 
+def fig9():
+    """1:1 redraw of ARNO.png (thor Straten et al.): hexagon with the CIDOC CRM core and six surrounding concept domains. No content added or changed; only type and colours follow the common style."""
+    import math
+    f = Fig('fig9_arno_modules', 1670)
+    cx, cy, R, r = 850, 780, 770, 250
+    ap = R * math.cos(math.radians(30))
+    def V(rad, deg): return (cx + rad * math.cos(math.radians(deg)), cy - rad * math.sin(math.radians(deg)))
+    ang = [0, 60, 120, 180, 240, 300]
+    outer = [V(R, a) for a in ang]; inner = [V(r, a) for a in ang]
+    pts_ = lambda P: ' '.join(f'{x:.1f},{y:.1f}' for x, y in P)
+    f.o.append(f'<polygon points="{pts_(outer)}" fill="#fff" stroke="#cbd5e1" stroke-width="12" stroke-linejoin="round"/>')
+    for (x1, y1), (x2, y2) in zip(outer, inner): f.o.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#94a3b8" stroke-width="12"/>')
+    f.o.append(f'<polygon points="{pts_(inner)}" fill="#fff" stroke="#cbd5e1" stroke-width="14" stroke-linejoin="round"/>')
+    f.text(cx, cy - 66, 'Cultural', 52, 500, INK, maxw=2 * r - 160)
+    f.text(cx, cy + 12, 'CIDOC', 36, 400, INK); f.text(cx, cy + 58, 'CRM', 36, 400, INK)
+    f.text(cx, cy + 136, 'Heritage', 52, 500, INK, maxw=2 * r - 160)
+    d = ap + 78
+    def lab(deg, rot, lines):
+        x, y = V(d, deg); n = len(lines)
+        for i, t in enumerate(lines):
+            f.text(0, 0, t, 52, 500, INK, maxw=700)
+            f.o.pop()
+            off = (i - (n - 1) / 2) * 64
+            f.o.append(f'<text transform="translate({x:.1f},{y:.1f}) rotate({rot}) translate(0,{off + 18:.1f})" font-family="Fira Sans" font-size="52" font-weight="500" fill="{INK}" text-anchor="middle">{esc(t)}</text>')
+    lab(90, 0, ['Agents']); lab(30, 60, ['Bibliography']); lab(330, -60, ['Space'])
+    lab(270, 0, ['Application Domain', '(Biology)']); lab(210, 60, ['Time']); lab(150, -60, ['Provenance'])
+    f.done()
+
 if __name__ == '__main__':
     want = sys.argv[1:] or ['fig4']
     if 'fig4' in want: fig4()
     if 'fig3' in want: fig3()
     if 'fig5' in want: fig5()
+    if 'fig9' in want: fig9()
     if 'fig10' in want: fig10()
     if 'z3' in want: z3()
     if 'z2' in want: z2()
