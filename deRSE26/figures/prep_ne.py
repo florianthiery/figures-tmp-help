@@ -18,5 +18,5 @@ lakes = [{'p': [[r3(ring) for ring in poly] for poly in polys(f['geometry']) if 
 lakes = [l for l in lakes if l['p']]
 borders = [r3(l) for f in load('ne_10m_admin_0_boundary_lines_land') for l in lines(f['geometry']) if inb(l)]
 places = [{'n': f['properties']['name'], 'p': f['properties'].get('pop_max') or 0, 'x': round(f['geometry']['coordinates'][0], 3), 'y': round(f['geometry']['coordinates'][1], 3)} for f in load('ne_10m_populated_places_simple') if BB[0] <= f['geometry']['coordinates'][0] <= BB[2] and BB[1] <= f['geometry']['coordinates'][1] <= BB[3]]
-for n, o in (('places', places), ('rivers', rivers), ('lakes', lakes), ('borders', borders)): json.dump(o, open(os.path.join(D, f'ne_eu_{n}.json'), 'w'), separators=(',', ':'))
+for n, o in (('places', places), ('rivers', rivers), ('lakes', lakes), ('borders', borders)): json.dump(o, open(os.path.join(D, f'ne_eu_{n}.json'), 'w', encoding='utf8'), separators=(',', ':'))
 print(len(rivers), len(lakes), len(borders), len(places))

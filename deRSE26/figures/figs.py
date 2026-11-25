@@ -237,16 +237,16 @@ def basemap(f, mx, my, mw, lon0, lon1, lat0, lat1, latc, clip_id, stroke=1.2, gr
     if detail:                                      # lakes, rivers and country borders: (max min_zoom of the rivers, borders yes/no)
         zmax, bord = detail
         P = lambda c: ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(c))
-        for lk in json.load(open(os.path.join(HERE, 'data/ne_eu_lakes.json'))):
+        for lk in json.load(open(os.path.join(HERE, 'data/ne_eu_lakes.json'), encoding='utf8')):
             for poly in lk['p']: f.o.append(f'<path d="{P(poly[0])}Z" fill="{SEA}" stroke="{COAST}" stroke-width="{stroke}"/>')
-        for rv in json.load(open(os.path.join(HERE, 'data/ne_eu_rivers.json'))):
+        for rv in json.load(open(os.path.join(HERE, 'data/ne_eu_rivers.json'), encoding='utf8')):
             if rv['z'] <= zmax:
                 for l in rv['l']: f.o.append(f'<path d="{P(l)}" fill="none" stroke="#8fb4cf" stroke-width="{2.2 if zmax > 5 else 1.6}" stroke-linejoin="round"/>')
         if bord:
-            for l in json.load(open(os.path.join(HERE, 'data/ne_eu_borders.json'))): f.o.append(f'<path d="{P(l)}" fill="none" stroke="#8a877d" stroke-width="{1.6 if zmax > 5 else 1.2}" stroke-dasharray="7 5"/>')
+            for l in json.load(open(os.path.join(HERE, 'data/ne_eu_borders.json'), encoding='utf8')): f.o.append(f'<path d="{P(l)}" fill="none" stroke="#8a877d" stroke-width="{1.6 if zmax > 5 else 1.2}" stroke-dasharray="7 5"/>')
     if cities:                                      # {name: label anchor}; places come from Natural Earth plus EXTRA_PLACES
         wanted = cities[1]
-        for c in json.load(open(os.path.join(HERE, 'data/ne_eu_places.json'))) + [dict(n=k, x=v[0], y=v[1]) for k, v in EXTRA_PLACES.items()]:
+        for c in json.load(open(os.path.join(HERE, 'data/ne_eu_places.json'), encoding='utf8')) + [dict(n=k, x=v[0], y=v[1]) for k, v in EXTRA_PLACES.items()]:
             if c['n'] in wanted and lon0 <= c['x'] <= lon1 and lat0 <= c['y'] <= lat1:
                 f.o.append(f'<rect x="{X(c["x"]) - 5:.1f}" y="{Y(c["y"]) - 5:.1f}" width="10" height="10" fill="{MUT}" stroke="#fff" stroke-width="1.5"/>')
                 dx = -10 if wanted[c['n']] == 'end' else 10
