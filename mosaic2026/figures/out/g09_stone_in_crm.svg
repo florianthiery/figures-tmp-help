@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="930.0" y="82.0" width="540.0" height="96.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="143.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">E22 Human-Made Object</text>
+<rect x="210.0" y="82.0" width="420.0" height="96.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="420.0" y="143.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">E53 Place</text>
+<rect x="1750.0" y="82.0" width="460.0" height="96.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1980.0" y="143.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">E42 Identifier</text>
+<rect x="190.0" y="585.0" width="460.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="420.0" y="663.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">University College Cork</text>
+<rect x="1810.0" y="595.0" width="340.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1980.0" y="663.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="970.0" y="585.0" width="460.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="663.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">UCC Stone Corridor IV</text>
+<line x1="1200.0" y1="585.0" x2="1200.0" y2="178.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1141.5" y="352.5" width="117.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="395.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">type</text>
+<line x1="420.0" y1="585.0" x2="420.0" y2="178.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="361.5" y="352.5" width="117.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="420.0" y="395.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">type</text>
+<line x1="1980.0" y1="595.0" x2="1980.0" y2="178.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1921.5" y="357.5" width="117.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1980.0" y="400.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">type</text>
+<line x1="970.0" y1="650.0" x2="650.0" y2="650.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="680.5" y="621.0" width="259.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="810.0" y="663.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P53 location</text>
+<line x1="1430.0" y1="650.0" x2="1810.0" y2="650.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1478.0" y="621.0" width="284.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1620.0" y="663.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P48 identifier</text></svg>

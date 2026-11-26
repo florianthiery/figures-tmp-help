@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="50.0" y="82.0" width="440.0" height="96.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="143.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">ogham stone</text>
+<rect x="50.0" y="402.0" width="440.0" height="96.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<rect x="30.0" y="722.0" width="480.0" height="96.0" rx="18" fill="#1f1f1d" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="783.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">51.894°N 8.492°W</text>
+<rect x="1890.0" y="82.0" width="480.0" height="96.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="143.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">University College Cork</text>
+<rect x="1890.0" y="265.0" width="480.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="2130.0" y="318.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">OpenStreetMap</text>
+<text x="2130.0" y="368.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">node 11071361392</text>
+<rect x="1890.0" y="505.0" width="480.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="2130.0" y="558.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">lod.ogham.link</text>
+<text x="2130.0" y="608.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Y50000081</text>
+<rect x="1890.0" y="705.0" width="480.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="2130.0" y="758.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">FactGrid</text>
+<text x="2130.0" y="808.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q1000294</text>
+<rect x="1000.0" y="385.0" width="400.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<text x="1200.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q130529871</text>
+<line x1="1011.1" y1="385.0" x2="409.5" y2="178.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="590.8" y="252.5" width="239.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="710.3" y="295.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">instance of</text>
+<line x1="1000.0" y1="450.0" x2="490.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="536.5" y="421.0" width="417.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="745.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">location of discovery</text>
+<line x1="1011.1" y1="515.0" x2="409.5" y2="722.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="512.8" y="589.5" width="395.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="710.3" y="632.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">coordinate location</text>
+<line x1="1388.9" y1="385.0" x2="1990.5" y2="178.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1597.2" y="252.5" width="185.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1689.7" y="295.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">location</text>
+<line x1="1400.0" y1="424.2" x2="1890.0" y2="361.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1510.0" y="363.6" width="270.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1645.0" y="406.2" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">OSM node ID</text>
+<line x1="1400.0" y1="475.8" x2="1890.0" y2="539.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1516.0" y="478.4" width="258.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1645.0" y="521.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">exact match</text>
+<line x1="1388.9" y1="515.0" x2="1941.1" y2="705.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1500.0" y="581.0" width="330.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1665.0" y="623.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">FactGrid item ID</text></svg>

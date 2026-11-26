@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="330.0" y="80.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Subject</text>
+<text x="1150.0" y="80.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Predicate</text>
+<text x="1960.0" y="80.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Object</text>
+<rect x="110.0" y="205.0" width="440.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="273.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="1700.0" y="205.0" width="440.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1920.0" y="273.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">ogham stone</text>
+<line x1="550.0" y1="260.0" x2="1700.0" y2="260.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1005.5" y="231.0" width="239.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1125.0" y="273.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">instance of</text>
+<rect x="110.0" y="425.0" width="440.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="493.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="1700.0" y="425.0" width="220.0" height="110.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1810.0" y="493.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">4</text>
+<line x1="550.0" y1="480.0" x2="1700.0" y2="480.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="942.0" y="451.0" width="366.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1125.0" y="493.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">inventory number</text>
+<rect x="110.0" y="645.0" width="440.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="1540.0" y="645.0" width="840.0" height="110.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1960.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">“Ogham Stone UCC Stone Corridor IV”@en</text>
+<line x1="550.0" y1="700.0" x2="1540.0" y2="700.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="981.0" y="671.0" width="128.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1045.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">label</text></svg>

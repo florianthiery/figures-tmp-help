@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="325.0" y="110.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CIIC</text>
+<rect x="60.0" y="160.0" width="200" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="160.0" y="219.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">No.</text>
+<rect x="260.0" y="160.0" width="330" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="425.0" y="219.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Place</text>
+<rect x="60.0" y="252.0" width="200" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="160.0" y="311.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">81</text>
+<rect x="260.0" y="252.0" width="330" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="425.0" y="311.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<text x="1195.0" y="110.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CISP</text>
+<rect x="880.0" y="160.0" width="300" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1030.0" y="219.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Code</text>
+<rect x="1180.0" y="160.0" width="330" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1345.0" y="219.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Site</text>
+<rect x="880.0" y="252.0" width="300" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1030.0" y="311.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">GARES/1</text>
+<rect x="1180.0" y="252.0" width="330" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1345.0" y="311.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<text x="1930.0" y="110.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">SMR</text>
+<rect x="1560.0" y="160.0" width="400" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1760.0" y="219.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Record</text>
+<rect x="1960.0" y="160.0" width="340" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="219.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Location</text>
+<rect x="1560.0" y="252.0" width="400" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1760.0" y="311.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CO074-148----</text>
+<rect x="1960.0" y="252.0" width="340" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="311.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<line x1="1200.0" y1="665.0" x2="325.0" y2="344.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<line x1="1200.0" y1="665.0" x2="1195.0" y2="344.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<line x1="1200.0" y1="665.0" x2="1930.0" y2="344.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="1020.0" y="665.0" width="360.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="733.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">one stone</text></svg>

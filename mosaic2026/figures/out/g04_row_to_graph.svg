@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="40.0" y="405.0" width="240" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="160.0" y="464.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Stone</text>
+<rect x="280.0" y="405.0" width="300" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="430.0" y="464.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Class</text>
+<rect x="580.0" y="405.0" width="240" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="700.0" y="464.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Place</text>
+<rect x="40.0" y="497.0" width="240" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="160.0" y="556.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="280.0" y="497.0" width="300" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="430.0" y="556.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">ogham stone</text>
+<rect x="580.0" y="497.0" width="240" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="700.0" y="556.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<line x1="940.0" y1="450.0" x2="1060.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1810.0" y="150.0" width="440.0" height="100.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="2030.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">ogham stone</text>
+<rect x="1810.0" y="650.0" width="440.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2030.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<rect x="1120.0" y="395.0" width="260.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1250.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<line x1="1380.0" y1="408.3" x2="1874.0" y2="250.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1507.5" y="300.2" width="239.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1627.0" y="342.8" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">instance of</text>
+<line x1="1380.0" y1="491.7" x2="1874.0" y2="650.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1418.5" y="541.8" width="417.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1627.0" y="584.4" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">location of discovery</text></svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="160.0" y="395.0" width="260.0" height="110.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="290.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">?stone</text>
+<rect x="800.0" y="150.0" width="400.0" height="100.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1000.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">ogham stone</text>
+<rect x="830.0" y="650.0" width="340.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1000.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">?coord</text>
+<line x1="420.0" y1="404.2" x2="858.0" y2="250.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="519.5" y="298.1" width="239.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="639.0" y="340.7" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">instance of</text>
+<line x1="420.0" y1="495.8" x2="858.0" y2="650.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="441.5" y="543.9" width="395.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="639.0" y="586.5" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">coordinate location</text>
+<line x1="1280.0" y1="450.0" x2="1310.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1420.0" y="360.0" width="440" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1640.0" y="419.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">?stone</text>
+<rect x="1860.0" y="360.0" width="480" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="419.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">?coord</text>
+<rect x="1420.0" y="452.0" width="440" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1640.0" y="511.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">UCC Stone Corridor IV</text>
+<rect x="1860.0" y="452.0" width="480" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="511.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">51.894°N 8.492°W</text>
+<rect x="1420.0" y="544.0" width="440" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1640.0" y="603.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Coumeenole North</text>
+<rect x="1860.0" y="544.0" width="480" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="603.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">52.110°N 10.473°W</text>
+<rect x="1420.0" y="636.0" width="440" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1640.0" y="695.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">…</text>
+<rect x="1860.0" y="636.0" width="480" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="695.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">…</text></svg>

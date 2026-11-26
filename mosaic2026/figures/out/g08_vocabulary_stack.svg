@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="60.0" y="184.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="start">Domain model</text>
+<text x="60.0" y="464.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="start">Vocabularies</text>
+<text x="60.0" y="744.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="start">Languages</text>
+<rect x="690.0" y="110.0" width="1480.0" height="120.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1430.0" y="183.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">CIDOC CRM</text>
+<rect x="690.0" y="390.0" width="480.0" height="120.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="930.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">SKOS</text>
+<rect x="1190.0" y="390.0" width="480.0" height="120.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1430.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">PROV-O</text>
+<rect x="1690.0" y="390.0" width="480.0" height="120.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1930.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">GeoSPARQL</text>
+<rect x="690.0" y="670.0" width="480.0" height="120.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="930.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">RDF</text>
+<rect x="1190.0" y="670.0" width="480.0" height="120.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1430.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">RDFS</text>
+<rect x="1690.0" y="670.0" width="480.0" height="120.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1930.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">OWL</text></svg>
