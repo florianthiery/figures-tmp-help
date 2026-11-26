@@ -17,16 +17,62 @@ from build import Fig, chip, INST, CLS, TERM, OWL, MUTED
 OUT = Path(__file__).resolve().parent / 'out'
 LAYERS = [('#d9d2c3', '101', 'topsoil'), ('#cdbfa6', '102', 'plough soil'), ('#e6c9a8', '103', 'wall collapse'), ('#f0e0b8', '104', 'floor layer'), ('#b9b4aa', '107', 'natural')]
 
+import math
 def section(f, x, y, w, h, labels=True):
-    """Trench section: five contexts and a pit; returns the y of each band boundary."""
-    bh = h / 5
-    for i, (col, n, name) in enumerate(LAYERS):
-        f.rect(x, y + i * bh, w, bh, col, '#000000', 0, 1)
-        if labels: f.text(x + 14, y + i * bh + bh / 2, f'[{n}] {name}', 19, color='#1f1f1d', anchor='start')
-    px, py = x + w * 0.52, y + 3 * bh
-    f.raw(f'<path d="M{px - w * .22:.1f},{py:.1f} L{px - w * .13:.1f},{py + bh * 1.25:.1f} L{px + w * .13:.1f},{py + bh * 1.25:.1f} L{px + w * .22:.1f},{py:.1f} Z" fill="#8f7f66" stroke="#9454AC" stroke-width="3"/>')
-    if labels: f.text(px, py + bh * .65, '[105]', 19, True, '#ffffff'); f.text(px, py + bh * .65 + 22, 'pit fill', 17, color='#ffffff')
-    return bh
+    """Fictional trench section in the style of the WD1 core column: many contexts, dipping and lens-shaped. Returns key points."""
+    sin = math.sin; N = 60
+    X = lambda u: x + u * w; Y = lambda v: y + v * h
+    B1 = lambda u: .07 + .03 * u + .014 * sin(7 * u); B2 = lambda u: .16 + .06 * u + .02 * sin(5 * u + 1)
+    B3 = lambda u: B2(u) + .012 + .11 * u ** 1.5
+    F = lambda u: .47 + .10 * u + .012 * sin(9 * u); FB = lambda u: F(u) + .085 + .035 * sin(4 * u)
+    us = [k / N for k in range(N + 1)]
+    def band(top, bot, fill, u0=0, u1=1, sw=1):
+        uu = [u0 + (u1 - u0) * k / N for k in range(N + 1)]
+        pts = [(X(u), Y(top(u))) for u in uu] + [(X(u), Y(bot(u))) for u in reversed(uu)]
+        f.raw(f'<polygon points="{" ".join(f"{a:.1f},{b:.1f}" for a, b in pts)}" fill="{fill}" stroke="#000000" stroke-width="{sw}" stroke-linejoin="round"/>')
+    f.rect(x, y, w, h, '#b9b4aa', '#000000', 0, 1)                       # 107 natural
+    band(lambda u: 0, B1, '#d9d2c3'); band(B1, B2, '#cdbfa6'); band(B2, B3, '#d8c7ad')   # 101, 102, 116
+    band(B3, F, '#e6c9a8'); band(F, FB, '#f0e0b8')                        # 103, 104
+    for k in range(1, 5):   # bedding in the natural and tongues in the collapse (texture only)
+        for fn, off, col in ((FB, .075 * k, '#8f8b82'), (B3, .05 * k, '#c9a987')):
+            if fn is B3 and off > .22: continue
+            pts = [(X(u), Y(fn(u) + off + .02 * sin(3 * u + k))) for u in us if (fn is FB or Y(fn(u) + off) < Y(F(u)) - 6)]
+            if len(pts) > 2: f.raw(f'<polyline points="{" ".join(f"{a:.1f},{b:.1f}" for a, b in pts)}" fill="none" stroke="{col}" stroke-width="1.1" opacity=".8"/>')
+    u0, u1 = .05, .27
+    band(lambda u: F(u) - .045 * sin(math.pi * (u - u0) / (u1 - u0)), F, '#a9a39b', u0, u1)   # 110 ash lens
+    # flecks and stipple (texture only)
+    for (u, v) in ((.06, .04), (.2, .05), (.45, .03), (.7, .06), (.9, .05), (.12, .13), (.55, .12), (.85, .14), (.3, .20), (.7, .21), (.1, .70), (.25, .78), (.8, .84), (.9, .72)):
+        f.raw(f'<circle cx="{X(u):.1f}" cy="{Y(v):.1f}" r="2.2" fill="#6b6a63" opacity=".55"/>')
+    # wall [108]: stones on the floor
+    wx0, wx1 = .80, .93; wy0 = .31; wy1 = F(.865)
+    f.rect(X(wx0), Y(wy0), (wx1 - wx0) * w, Y(wy1) - Y(wy0), '#8a8a84', '#000000', 0, 1.6)
+    rows = 5; rh = (Y(wy1) - Y(wy0)) / rows
+    for r in range(1, rows): f.line(X(wx0), Y(wy0) + r * rh, X(wx1), Y(wy0) + r * rh, None, w=1, color='#4a4a46')
+    for r in range(rows):
+        off = (r % 2) * .045 * w + .02 * w
+        for k in range(2): f.line(X(wx0) + off + k * .06 * w, Y(wy0) + r * rh, X(wx0) + off + k * .06 * w, Y(wy0) + (r + 1) * rh, None, w=1, color='#4a4a46')
+    # pit: cut [106] with two fills [115] below and [105] above
+    FL, FR = F(.36), F(.64)
+    xl = lambda v: .36 + (.44 - .36) * (v - FL) / (.88 - FL); xr = lambda v: .64 - (.64 - .57) * (v - FR) / (.86 - FR)
+    vb = .70
+    curve = [(xl(vb) + (xr(vb) - xl(vb)) * k / 30, vb + .035 * sin(math.pi * k / 30)) for k in range(31)]
+    P = lambda pts: " ".join(f"{X(a):.1f},{Y(b):.1f}" for a, b in pts)
+    f.raw(f'<polygon points="{P([(.36, FL), (.64, FR)] + [curve[-1]] + curve[::-1][1:] )}" fill="#a89677" stroke="none"/>')
+    f.raw(f'<polygon points="{P(curve + [(.57, .86), (.44, .88)])}" fill="#6f6455" stroke="none"/>')
+    f.raw(f'<polygon points="{P([(.36, FL), (.64, FR), (.57, .86), (.44, .88)])}" fill="none" stroke="#9454AC" stroke-width="3.4" stroke-linejoin="round"/>')
+    # charcoal sample in the floor [104]
+    cu, cv = .80, F(.80) + .04
+    for dx, dy in ((0, 0), (.015, .012), (-.012, .018), (.02, -.006)):
+        f.raw(f'<circle cx="{X(cu + dx):.1f}" cy="{Y(cv + dy):.1f}" r="3" fill="#1f1f1d"/>')
+    if labels:
+        T = lambda u, v, t, c='#1f1f1d', sz=19, med=False, anc='start': f.text(X(u), Y(v), t, sz, med, c, anchor=anc)
+        T(.02, .04, '[101] topsoil'); T(.02, .13, '[102] plough soil'); T(.56, (B2(.56) + B3(.56)) / 2, '[116] levelling', sz=16); T(.02, .33, '[103] wall collapse')
+        T(.02, F(.02) + .04, '[104] floor'); T(.02, .86, '[107] natural')
+        T(.16, F(.16) - .02, '[110] ash', sz=16, anc='middle')
+        T(.865, wy0 + (wy1 - wy0) / 2 / h * h * 0 + .075, '[108]', '#ffffff', 17, True, 'middle'); T(.865, wy0 + .115, 'wall', '#ffffff', 16, False, 'middle')
+        T(.50, .62, '[105]', '#ffffff', 19, True, 'middle'); T(.50, .79, '[115]', '#ffffff', 19, True, 'middle')
+        T(.69, .80, '[106] cut', '#9454AC', 21, True)
+    return {'cut_pt': (X(xr(.66)), Y(.66)), 'date_pt': (X(cu), Y(cv)), 'sample_pt': (X(.84), Y(F(.84) + .085)), 'X': X, 'Y': Y}
 
 def a1():
     f = Fig('a1-context-linked-graph', 'Where the graph opens up: an excavation context as a node, linked to CRMarchaeo, its trench, DOIs, ORCID and its repository')
@@ -56,15 +102,16 @@ def a1():
 def a2():
     f = Fig('a2-measured-dated-interpreted-arch', 'One trench section, three kinds of statement: measured, dated, interpreted')
     x, y, w, h = 60, 90, 560, 760
-    bh = section(f, x, y, w, h)
+    k = section(f, x, y, w, h)
     f.text(x + w / 2, 50, 'Trench 1, section A', 24, True); f.text(x + w / 2, 72, 'fictional example', 18, color=MUTED)
     def badge(bx, by, n):
         f.raw(f'<circle cx="{bx:.1f}" cy="{by:.1f}" r="15" fill="#1f1f1d"/>'); f.text(bx, by + .5, n, 19, True, '#ffffff')
-    cx = x + w * 0.52
-    f.raw(f'<circle cx="{x + w * .86:.1f}" cy="{y + 3.5 * bh:.1f}" r="9" fill="#ffffff" stroke="#000000" stroke-width="2"/>')
-    badge(x + w + 30, y + 3 * bh, '1'); badge(x + w * .86 + 32, y + 3.5 * bh, '2'); badge(x + w * .86 + 32, y + 3.5 * bh + 56, '3')
-    f.line(x + w * .86, y + 3.5 * bh, x + w * .86 + 20, y + 3.5 * bh + 56, None, w=1.4)
-    f.rect(x + w * .86 - 6, y + 3.5 * bh + 40, 12, 12, '#1f1f1d')
+    (cx_, cy_), (dx_, dy_), (sx_, sy_) = k['cut_pt'], k['date_pt'], k['sample_pt']
+    f.raw(f'<circle cx="{dx_:.1f}" cy="{dy_:.1f}" r="9" fill="#ffffff" stroke="#000000" stroke-width="2"/>')
+    f.rect(sx_ - 6, sy_ - 6, 12, 12, '#1f1f1d')
+    f.line(dx_, dy_, sx_, sy_, None, w=1.2)
+    badge(cx_ + 62, cy_, '1'); f.line(cx_ + 47, cy_, cx_ + 6, cy_, None, w=1.2)
+    badge(dx_ - 34, dy_ + 28, '2'); badge(sx_ + 34, sy_ + 14, '3')
     cards = [(135, 'Interpreted', 'The pit was dug into the floor and filled later', 'ctx:context_106', 'pit cut', 'A3 Stratigraphic Interface', 'CRMarchaeo'),
              (405, 'Dated', 'Charcoal from the floor, 14C, 1610 to 1520 cal BC', 'ctx:date_104', 'floor layer [104]', 'E13 Attribute Assignment', 'CIDOC CRM'),
              (675, 'Measured', 'One 14C measurement on one sample', 'ctx:c14_CH17', 'charcoal CH-17', 'S4 Observation', 'CRMsci')]
@@ -80,34 +127,30 @@ def a2():
 
 def a3():
     f = Fig('a3-harris-matrix', 'The trench section on the left, the same contexts as a Harris matrix on the right')
-    x, y, w, h = 60, 110, 620, 760
+    x, y, w, h = 60, 110, 620, 800
     f.text(x + w / 2, 55, 'Trench section', 28, True); f.text(x + w / 2, 85, 'fictional example', 19, color=MUTED)
-    bh = section(f, x, y, w, h)
-    px, py = x + w * 0.52, y + 3 * bh
-    f.text(px + w * .27, py + bh * .55, '[106] cut', 21, True, '#9454AC', anchor='start')
-    wx, wy = x + w * .78, y + 2 * bh + 18
-    f.rect(wx, wy, w * .14, bh - 18, '#8a8a84', '#000000', 0, 1.4)
-    f.text(wx + w * .07, wy + (bh - 18) / 2 - 12, '[108]', 19, True, '#ffffff'); f.text(wx + w * .07, wy + (bh - 18) / 2 + 12, 'wall', 17, color='#ffffff')
-    bw, bhh, gap, y0 = 250, 62, 64, 110
-    L, C, R = 885, 1035, 1185
+    section(f, x, y, w, h)
+    bw, bhh, gap, y0 = 200, 50, 50, 110
+    L, C, R = 805, 1020, 1235
     f.text(C, 55, 'Harris matrix', 28, True); f.text(C, 85, 'later at the top, earlier below', 19, color=MUTED)
-    nodes = {'101': (C, 0, 'topsoil', '#d9d2c3'), '102': (C, 1, 'plough soil', '#cdbfa6'), '103': (C, 2, 'wall collapse', '#e6c9a8'),
-             '105': (L, 3, 'pit fill', '#8f7f66'), '108': (R, 3, 'wall', '#8a8a84'), '106': (L, 4, 'pit cut', '#ffffff'),
-             '104': (C, 5, 'floor layer', '#f0e0b8'), '107': (C, 6, 'natural', '#b9b4aa')}
+    nodes = {'101': (C, 0, 'topsoil', '#d9d2c3'), '102': (C, 1, 'plough soil', '#cdbfa6'), '116': (C, 2, 'levelling', '#d8c7ad'), '103': (C, 3, 'collapse', '#e6c9a8'),
+             '105': (L, 4, 'upper fill', '#a89677'), '108': (C, 4, 'wall', '#8a8a84'), '110': (R, 4, 'ash lens', '#a9a39b'),
+             '115': (L, 5, 'lower fill', '#6f6455'), '106': (L, 6, 'pit cut', '#ffffff'), '104': (C, 7, 'floor', '#f0e0b8'), '107': (C, 8, 'natural', '#b9b4aa')}
     top = lambda n: (nodes[n][0], y0 + nodes[n][1] * (bhh + gap)); bot = lambda n: (nodes[n][0], y0 + nodes[n][1] * (bhh + gap) + bhh)
     for n, (cx, r, nm, col) in nodes.items():
         yy = y0 + r * (bhh + gap)
         if n == '106': f.rect(cx - bw / 2, yy, bw, bhh, col, '#9454AC', 6, 3.2, dash=True)
         else: f.rect(cx - bw / 2, yy, bw, bhh, col, '#000000', 6, 1.2)
-        f.text(cx, yy + bhh / 2, f'[{n}] {nm}', 23, True, '#ffffff' if n in ('105', '108') else '#1f1f1d', maxw=bw - 16)
-    for a, b, t in (('101', '102', 'above'), ('102', '103', 'above'), ('103', '105', 'above'), ('103', '108', 'above'), ('105', '106', 'fills'), ('106', '104', 'cuts'), ('108', '104', 'above'), ('104', '107', 'above')):
+        f.text(cx, yy + bhh / 2, f'[{n}] {nm}', 20, True, '#ffffff' if n in ('115',) else '#1f1f1d', maxw=bw - 14)
+    for a, b, t in (('101', '102', 'above'), ('102', '116', 'above'), ('116', '103', 'above'), ('103', '105', 'above'), ('103', '108', 'above'), ('103', '110', 'above'),
+                    ('105', '115', 'above'), ('115', '106', 'fills'), ('106', '104', 'cuts'), ('108', '104', 'above'), ('110', '104', 'above'), ('104', '107', 'above')):
         (xa, ya), (xb, yb) = bot(a), top(b)
-        f.line(xa, ya, xb, yb - 2); chip(f, (xa + xb) / 2, (ya + yb) / 2, t, 18)
-    cx, cw = 1380, 340
-    f.rect(cx, 290, cw, 400, '#f6f6f3', 'none', 10)
-    for t, yy, med in (('How to read it', 332, True), ('Box = one context', 392, False), ('Arrow = one relation', 436, False), ('Later above, earlier below', 480, False),
-                       ('In CRMarchaeo', 556, True), ('Context = A2 Volume Unit', 604, False), ('Cut = A3 Interface', 648, False)):
-        f.text(cx + 24, yy, t, 24 if med else 22, med, '#1f1f1d' if med else MUTED, anchor='start', maxw=cw - 40)
+        f.line(xa, ya, xb, yb - 2); chip(f, (xa + xb) / 2, (ya + yb) / 2, t, 17)
+    cx, cw = 1400, 320
+    f.rect(cx, 300, cw, 400, '#f6f6f3', 'none', 10)
+    for t, yy, med in (('How to read it', 342, True), ('Box = one context', 402, False), ('Arrow = one relation', 446, False), ('Later above, earlier below', 490, False),
+                       ('In CRMarchaeo', 566, True), ('Context = A2 Volume Unit', 614, False), ('Cut = A3 Interface', 658, False)):
+        f.text(cx + 22, yy, t, 24 if med else 21, med, '#1f1f1d' if med else MUTED, anchor='start', maxw=cw - 36)
     f.save()
 
 def a4():
