@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="330.0" y="90.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Subject</text>
+<text x="1200.0" y="90.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Predicate</text>
+<text x="2070.0" y="90.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Object</text>
+<rect x="70.0" y="155.0" width="520.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="233.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="940.0" y="155.0" width="520.0" height="130.0" rx="18" fill="#fbbf24" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="233.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">was found at</text>
+<rect x="1810.0" y="155.0" width="520.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="233.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<text x="1200.0" y="440.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="middle">the same statement as a graph</text>
+<rect x="70.0" y="635.0" width="520.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="330.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="1810.0" y="635.0" width="520.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="2070.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<line x1="590.0" y1="700.0" x2="1810.0" y2="700.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="991.5" y="671.0" width="417.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">location of discovery</text>
+<line x1="330.0" y1="285.0" x2="330.0" y2="635.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<line x1="2070.0" y1="285.0" x2="2070.0" y2="635.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/></svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="70.0" y="245.0" width="520.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="330.0" y="308.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<text x="330.0" y="358.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">wd:Q130529871</text>
+<rect x="940.0" y="245.0" width="520.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="308.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">County Cork</text>
+<text x="1200.0" y="358.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">wd:Q162475</text>
+<rect x="1810.0" y="245.0" width="520.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="308.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Ireland</text>
+<text x="2070.0" y="358.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">wd:Q27</text>
+<line x1="590.0" y1="320.0" x2="940.0" y2="320.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="655.5" y="291.0" width="219.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="765.0" y="333.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">located in</text>
+<line x1="1460.0" y1="320.0" x2="1810.0" y2="320.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1546.5" y="291.0" width="177.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1635.0" y="333.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">country</text>
+<rect x="70.0" y="635.0" width="520.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="330.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">open the URI</text>
+<text x="330.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">get more triples</text>
+<line x1="330.0" y1="395.0" x2="330.0" y2="635.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="940.0" y="635.0" width="520.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1200.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">open the URI</text>
+<text x="1200.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">get more triples</text>
+<line x1="1200.0" y1="395.0" x2="1200.0" y2="635.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1810.0" y="635.0" width="520.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="2070.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">open the URI</text>
+<text x="2070.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">get more triples</text>
+<line x1="2070.0" y1="395.0" x2="2070.0" y2="635.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/></svg>

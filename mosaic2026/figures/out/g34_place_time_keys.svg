@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="1520.0" y="125.0" width="560.0" height="150.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="8"/>
+<text x="1800.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Place</text>
+<text x="1800.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">coordinate</text>
+<rect x="1520.0" y="625.0" width="560.0" height="150.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="8"/>
+<text x="1800.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Time</text>
+<text x="1800.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">age in ka BP</text>
+<rect x="100.0" y="105.0" width="700.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="158.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<text x="450.0" y="208.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Ogham stone</text>
+<rect x="100.0" y="385.0" width="700.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Chauvet cave</text>
+<text x="450.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">SISAL cave</text>
+<rect x="100.0" y="665.0" width="700.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="718.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Acerra Sink</text>
+<text x="450.0" y="768.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CI findspot</text>
+<line x1="800.0" y1="177.8" x2="1520.0" y2="193.8" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="800.0" y1="385.2" x2="1520.0" y2="251.9" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="615.6" y1="665.0" x2="1609.0" y2="275.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="800.0" y1="514.8" x2="1520.0" y2="648.1" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="800.0" y1="722.2" x2="1520.0" y2="706.2" stroke="#000" stroke-width="3" marker-end="url(#a)"/></svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="130.0" y="110.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="183.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="1630.0" y="110.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="183.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<line x1="770.0" y1="170.0" x2="1630.0" y2="170.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1070.0" y="141.0" width="260.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="183.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">has location</text>
+<rect x="130.0" y="360.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="433.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Chauvet cave</text>
+<rect x="1630.0" y="360.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="433.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Ardèche</text>
+<line x1="770.0" y1="420.0" x2="1630.0" y2="420.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1070.0" y="391.0" width="260.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="433.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">has location</text>
+<rect x="130.0" y="610.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="683.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">EPICA Dome C core</text>
+<rect x="1630.0" y="610.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="683.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Antarctica</text>
+<line x1="770.0" y1="670.0" x2="1630.0" y2="670.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1070.0" y="641.0" width="260.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="683.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">has location</text>
+<text x="1200.0" y="860.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#9454AC" text-anchor="middle">crm:P53_has_former_or_current_location</text></svg>

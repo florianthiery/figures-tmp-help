@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="220.0" y="375.0" width="560.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="500.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">lod.ogham.link</text>
+<text x="500.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Y50000081</text>
+<rect x="1600.0" y="75.0" width="700.0" height="150.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1950.0" y="138.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Wikidata Q130529871</text>
+<text x="1950.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">the same thing</text>
+<line x1="780.0" y1="392.1" x2="1600.0" y2="222.4" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1066.5" y="278.2" width="247.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1190.0" y="320.8" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">owl:sameAs</text>
+<rect x="1600.0" y="375.0" width="700.0" height="150.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1950.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">FactGrid Q1000294</text>
+<text x="1950.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">the same concept</text>
+<line x1="780.0" y1="450.0" x2="1600.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1022.5" y="421.0" width="335.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1190.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">skos:exactMatch</text>
+<rect x="1600.0" y="675.0" width="700.0" height="150.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1950.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">OpenStreetMap</text>
+<text x="1950.0" y="788.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">a related page</text>
+<line x1="780.0" y1="507.9" x2="1600.0" y2="677.6" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1062.0" y="563.8" width="256.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1190.0" y="606.4" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">rdfs:seeAlso</text></svg>

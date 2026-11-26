@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="80.0" y="125.0" width="640.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="400.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Carving</text>
+<text x="400.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E12 Production</text>
+<rect x="880.0" y="125.0" width="640.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Discovery at Garranes</text>
+<text x="1200.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E7 Activity</text>
+<rect x="1680.0" y="125.0" width="640.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2000.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Transfer to UCC</text>
+<text x="2000.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E10 Transfer of Custody</text>
+<line x1="720.0" y1="200.0" x2="880.0" y2="200.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="739.5" y="171.0" width="121.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="800.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">then</text>
+<line x1="1520.0" y1="200.0" x2="1680.0" y2="200.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1539.5" y="171.0" width="121.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1600.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">then</text>
+<rect x="920.0" y="660.0" width="560.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="718.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<text x="1200.0" y="768.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E22 Human-Made Object</text>
+<line x1="513.2" y1="275.0" x2="1094.3" y2="660.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="660.3" y="438.5" width="287.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="803.8" y="481.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">has produced</text>
+<line x1="1200.0" y1="275.0" x2="1200.0" y2="660.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1087.5" y="438.5" width="225.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="481.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">present at</text>
+<line x1="1886.8" y1="275.0" x2="1305.7" y2="660.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1482.7" y="438.5" width="227.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1596.2" y="481.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">custody of</text></svg>

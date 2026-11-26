@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="80.0" y="285.0" width="640.0" height="330.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="400.0" y="413.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Ogham graph</text>
+<text x="400.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">own owner</text>
+<text x="400.0" y="513.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">own model: CIDOC CRM</text>
+<rect x="1680.0" y="285.0" width="640.0" height="330.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2000.0" y="413.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">geo-lod graph</text>
+<text x="2000.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">own owner</text>
+<text x="2000.0" y="513.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">own model: SOSA, CRMsci</text>
+<rect x="920.0" y="350.0" width="560.0" height="200.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="8" stroke-dasharray="12 8"/>
+<text x="1200.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Crosswalk</text>
+<text x="1200.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">maps classes</text>
+<line x1="920.0" y1="450.0" x2="720.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="1480.0" y1="450.0" x2="1680.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/></svg>

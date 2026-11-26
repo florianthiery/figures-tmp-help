@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="50.0" y="135.0" width="460.0" height="130.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="280.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">geolod:IceCore</text>
+<rect x="970.0" y="135.0" width="460.0" height="130.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">crm:E22</text>
+<text x="1200.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">Human-Made Object</text>
+<rect x="1890.0" y="135.0" width="460.0" height="130.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="2120.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">crm:E53 Place</text>
+<rect x="50.0" y="635.0" width="460.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="280.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">EPICA Dome C core</text>
+<rect x="1890.0" y="635.0" width="460.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2120.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Chauvet cave</text>
+<line x1="510.0" y1="200.0" x2="970.0" y2="200.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="581.5" y="171.0" width="317.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="740.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">rdfs:subClassOf</text>
+<line x1="1430.0" y1="200.0" x2="1890.0" y2="200.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1530.5" y="171.0" width="259.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1660.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P53 location</text>
+<line x1="280.0" y1="635.0" x2="280.0" y2="265.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="189.5" y="421.0" width="181.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="280.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">rdf:type</text>
+<line x1="2120.0" y1="635.0" x2="2120.0" y2="265.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="2029.5" y="421.0" width="181.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="2120.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">rdf:type</text></svg>

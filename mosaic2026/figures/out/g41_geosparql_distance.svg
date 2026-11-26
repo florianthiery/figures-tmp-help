@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="160.0" y="215.0" width="640.0" height="170.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="480.0" y="288.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<text x="480.0" y="338.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">POINT(-8.49 51.89)</text>
+<rect x="1600.0" y="215.0" width="640.0" height="170.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1920.0" y="288.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Chauvet cave</text>
+<text x="1920.0" y="338.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">POINT(4.26 44.23)</text>
+<line x1="800.0" y1="300.0" x2="1600.0" y2="300.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1059.5" y="271.0" width="281.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="313.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">geof:distance</text>
+<rect x="750.0" y="615.0" width="900.0" height="170.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">returns</text>
+<text x="1200.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">about 1,270 km</text></svg>

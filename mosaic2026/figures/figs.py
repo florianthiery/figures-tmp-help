@@ -563,5 +563,301 @@ def g28():
     """G28: agenda of Part II (60 minutes)."""
     agenda('g28_agenda_part2', [('The bridge question', 4), ('Ogham and Linked Data', 13), ('geo-lod: ice, caves, tephra', 13), ('Building the bridge', 10), ('Live: Unicorn and OER', 15), ('Take-home', 5)], 2)
 
+def g30():
+    """G30: two communities, three shared keys (Part II, step 1)."""
+    f = Fig('g30_two_communities')
+    f.text(330, 70, 'Humanities ask', MIN_TYPE, 500, HL); f.text(2070, 70, 'Geosciences ask', MIN_TYPE, 500, HL); f.text(1200, 70, 'Both need', MIN_TYPE, 500, HL)
+    left = ['Where was it found?', 'When was it made?', 'Which object is it?']; right = ['Where was it sampled?', 'How old is it?', 'Which sample is it?']
+    keys = ['Place', 'Time', 'Identifier']
+    for i in range(3):
+        y = 230 + i * 240
+        l, r, k = (330, y, 600, 130), (2070, y, 600, 130), (1200, y, 440, 130)
+        f.box(*l, INST, [left[i]]); f.box(*r, INST, [right[i]]); f.box(*k, '#fff', [keys[i]], stroke=HL, sw=8)
+        f.edge(l, k, ''); f.edge(r, k, '')
+    f.done()
+
+def g31():
+    """G31: Ogham data from a database into the graph (Part II, step 2). Four stations of the pipeline."""
+    f = Fig('g31_ogham_pipeline')
+    st = [((250, 450, 400, 190), INST, ['CISP database', 'PostgreSQL'], False), ((850, 450, 400, 190), INST, ['RDF graph', 'CIDOC CRM'], False),
+          ((1450, 450, 400, 190), INST, ['lod.ogham.link', 'Linked Data'], False), ((2050, 450, 400, 190), '#fff', ['Wikidata', 'FactGrid'], True)]
+    for c, fill, lines, d in st: f.box(*c, fill, lines, dash=d)
+    for (a, _, _, _), (b, _, _, _), lab in zip(st, st[1:], ['export', 'publish', 'link']): f.edge(a, b, lab)
+    f.done()
+
+def g32():
+    """G32: geo-lod adds three geoscience datasets (Part II, step 3). Counts are read from data/geo; EPICA is the number of observations counted in the geo-lod graph."""
+    EPICA_N = 4904
+    sl, ci = geo('sisal'), geo('ci'); arch = sum(1 for p in sl if p[3])
+    f = Fig('g32_geolod_datasets')
+    hub = (1200, 150, 440, 120)
+    cols = [(400, ['EPICA Dome C', 'ice core', f'{EPICA_N:,} observations']), (1200, ['SISAL', 'speleothems', f'{len(sl)} caves, {arch} archaeological']), (2000, ['Campanian Ignimbrite', 'tephra', f'{len(ci)} findspots'])]
+    f.box(*hub, INST, ['geo-lod'], stroke=HL, sw=8)
+    for x, lines in cols:
+        n = (x, 600, 700, 260); f.box(*n, '#fff', lines); f.edge(hub, n, 'dataset')
+    f.done()
+
+def g33():
+    """G33: time needs its own reference system (Part II, step 3). Every age points to the chronology it is measured in."""
+    d = geo('epica_obs'); rows = geo('time')
+    f = Fig('g33_time_reference')
+    f.text(560, 50, 'Age', MIN_TYPE, 500, '#55544f'); f.text(1760, 50, 'Temporal reference system', MIN_TYPE, 500, '#55544f')
+    items = [(f"{float(d['age']):.1f} ka BP", d['chron_label'].split(',')[0])] + [(f"{r['begin']:.2f}\u2013{r['end']:.2f} ka BP", r['trs'].rsplit('/', 1)[-1]) for r in rows]
+    for i, (a, t) in enumerate(items):
+        y = 190 + i * 210
+        l, r = (560, y, 640, 120), (1760, y, 760, 120)
+        f.box(*l, INST, [a]); f.box(*r, TERM, [t], tc='#fff'); f.edge(l, r, 'measured in')
+    f.done()
+
+def g34():
+    """G34: place and time are the common keys (Part II, step 4). Stone, cave and findspot share the coordinate; cave and findspot also share the age."""
+    it = wd_item(STONE); cave = next(x for x in geo('sisal') if x[2] == 'Chauvet cave'); fs = geo('ci')[0]
+    f = Fig('g34_place_time_keys')
+    ents = [(450, 170, ['CIIC 81', 'Ogham stone']), (450, 450, [cave[2], 'SISAL cave']), (450, 730, [fs[2], 'CI findspot'])]
+    place, time_ = (1800, 200, 560, 150), (1800, 700, 560, 150)
+    f.box(*place, '#fff', ['Place', 'coordinate'], stroke=HL, sw=8); f.box(*time_, '#fff', ['Time', 'age in ka BP'], stroke=HL, sw=8)
+    boxes = [(x, y, 700, 130) for x, y, _ in ents]
+    for b, (_, _, lines) in zip(boxes, ents): f.box(*b, INST, lines)
+    for b in boxes: f.edge(b, place, '')
+    for b in boxes[1:]: f.edge(b, time_, '')
+    f.done()
+
+def g35():
+    """G35: a bridge does not merge the data (Part II, step 4). Two graphs keep their owner and model; the crosswalk sits between them."""
+    f = Fig('g35_bridge_not_merge')
+    L, M, R = (400, 450, 640, 330), (1200, 450, 560, 200), (2000, 450, 640, 330)
+    f.box(*L, INST, ['Ogham graph', 'own owner', 'own model: CIDOC CRM']); f.box(*R, INST, ['geo-lod graph', 'own owner', 'own model: SOSA, CRMsci'])
+    f.box(*M, '#fff', ['Crosswalk', 'maps classes'], stroke=HL, sw=8, dash=True)
+    f.edge(M, L, ''); f.edge(M, R, '')
+    f.done()
+
+def icon(f, kind, cx, cy, col=HL, z=1.6):
+    """Small line icons for slides (tag, globe, triple, chain); drawn as SVG, no font needed."""
+    k = f'stroke="{col}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"'
+    w, n = f'fill="#fff" {k}', f'fill="none" {k}'
+    if kind == 'tag':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><path d="M-62,-38 L14,-38 L66,0 L14,38 L-62,38 Z" {w}/><circle cx="-34" cy="0" r="9" fill="{col}"/></g>')
+    elif kind == 'globe':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><circle r="58" {w}/><ellipse rx="24" ry="58" {n}/><path d="M-58,0 H58 M-50,-30 H50 M-50,30 H50" {n}/></g>')
+    elif kind == 'triple':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><path d="M-48,32 L48,32 M-48,32 L0,-40 M48,32 L0,-40" {n}/>'
+                   f'<circle cx="-48" cy="32" r="17" {w}/><circle cx="48" cy="32" r="17" {w}/><circle cx="0" cy="-40" r="17" {w}/></g>')
+    elif kind == 'chain':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><rect x="-70" y="-24" width="82" height="48" rx="24" {n}/><rect x="-12" y="-24" width="82" height="48" rx="24" {n}/></g>')
+
+def g36():
+    """G36: the four rules of Linked Data (Part I, step 5), each with a symbol."""
+    f = Fig('g36_four_rules')
+    rules = [('tag', '1  Names', 'URIs name things'), ('globe', '2  HTTP', 'anyone can look up'), ('triple', '3  Standards', 'RDF and SPARQL'), ('chain', '4  Links', 'to other URIs')]
+    for i, (ic, a, b) in enumerate(rules):
+        cx = 330 + i * 580
+        f.o.append(f'<rect x="{cx - 260}" y="130" width="520" height="640" rx="18" fill="{INST}" stroke="{HL if i == 3 else "#000"}" stroke-width="{8 if i == 3 else 2.5}"/>')
+        icon(f, ic, cx, 310)
+        f.text(cx, 560, a, MIN_TYPE, 500, maxw=480); f.text(cx, 640, b, MIN_TYPE, 400, maxw=480)
+    f.done()
+
+def g37():
+    """G37: three link types (Part II, step 2). The stone in lod.ogham.link and what each predicate says about the other end."""
+    f = Fig('g37_link_types')
+    hub = (500, 450, 560, 150)
+    f.box(*hub, INST, ['lod.ogham.link', claim_str(wd_item(STONE), 'P2888')[0].rsplit('/', 1)[-1]], stroke=HL, sw=8)
+    for y, lab, lines in [(150, 'owl:sameAs', ['Wikidata ' + STONE, 'the same thing']), (450, 'skos:exactMatch', ['FactGrid ' + claim_str(wd_item(STONE), 'P8168')[0], 'the same concept']), (750, 'rdfs:seeAlso', ['OpenStreetMap', 'a related page'])]:
+        n = (1950, y, 700, 150); f.box(*n, '#fff', lines, dash=True); f.edge(hub, n, lab)
+    f.done()
+
+def g38():
+    """G38: one URI, two representations (Part II, step 2)."""
+    f = Fig('g38_dereferencing')
+    uri = (450, 450, 560, 170); web = (1950, 200, 600, 150); ttl = (1950, 700, 600, 150)
+    f.box(*uri, INST, ['URI', 'lod.ogham.link/' + claim_str(wd_item(STONE), 'P2888')[0].rsplit('/', 1)[-1]], stroke=HL, sw=8)
+    f.box(*web, '#fff', ['Web page', 'for people']); f.box(*ttl, '#fff', ['Triples', 'for machines'])
+    f.edge(uri, web, 'Accept: text/html'); f.edge(uri, ttl, 'Accept: text/turtle')
+    f.done()
+
+def g39():
+    """G39: the vocabulary stack of the bridge (Part II, step 4). One layer per question."""
+    f = Fig('g39_ontology_stack')
+    rows = [('What is it?', 'CIDOC CRM', 'E22 Human-Made Object'), ('How was it measured?', 'SOSA / CRMsci', 'sosa:Observation'), ('Where is it?', 'GeoSPARQL', 'WKT point'),
+            ('When is it?', 'OWL-Time', 'time:TRS reference system'), ('How sure are we?', 'SKOS', 'certainty levels'), ('Who said so?', 'PROV-O', 'agent and activity')]
+    for i, (q, v, ex) in enumerate(rows):
+        y = 100 + i * 140
+        f.box(520, y, 900, 110, INST, [q + '  ' + v] if False else [v + ': ' + q]); f.box(1750, y, 1000, 110, '#fff', [ex], stroke=HL, sw=5)
+        f.line(980, y, 1250, y, dash=False)
+    f.done()
+
+def g40():
+    """G40: a SHACL shape for findspots (Part II, step 4)."""
+    f = Fig('g40_shacl_shape')
+    shape = (480, 450, 640, 200); n = len(geo('ci'))
+    f.box(*shape, TERM, ['FindspotShape', f'checks {n} findspots'], tc='#fff')
+    for y, lines in [(150, ['coordinate', 'exactly one']), (450, ['certainty level', 'exactly one']), (750, ['age', 'at least one'])]:
+        c = (1900, y, 640, 150); f.box(*c, '#fff', lines); f.edge(shape, c, 'sh:property')
+    f.done()
+
+def g41():
+    """G41: a GeoSPARQL distance between the stone and a cave (Part II, step 4). The distance is computed from the two points."""
+    c = wd_item(STONE)['claims']['P625'][0]['mainsnak']['datavalue']['value']; cave = next(x for x in geo('sisal') if x[2] == 'Chauvet cave')
+    la1, lo1, la2, lo2 = map(math.radians, (c['latitude'], c['longitude'], cave[1], cave[0]))
+    d = 2 * 6371 * math.asin(math.sqrt(math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2))
+    pt = lambda lon, lat: f'POINT({lon:.2f} {lat:.2f})'
+    f = Fig('g41_geosparql_distance')
+    a = (480, 300, 640, 170); b = (1920, 300, 640, 170)
+    f.box(*a, INST, ['CIIC 81', pt(c['longitude'], c['latitude'])]); f.box(*b, INST, ['Chauvet cave', pt(cave[0], cave[1])])
+    f.edge(a, b, 'geof:distance')
+    f.box(1200, 700, 900, 170, '#fff', ['returns', f'about {round(d, -1):,.0f} km'], stroke=HL, sw=8)
+    f.done()
+
+def g42():
+    """G42: one federated query reaches three graphs (Part II, step 4)."""
+    f = Fig('g42_federated_query')
+    q = (1200, 450, 560, 170); f.box(*q, INST, ['One query', 'with SERVICE blocks'], stroke=HL, sw=8)
+    for x, y, t in [(420, 170, 'Wikidata'), (420, 730, 'N4O KG'), (2080, 450, 'geo-lod graph')]:
+        n = (x, y, 440 if x > 1000 else 560, 130); f.box(*n, '#fff', [t], dash=True); f.edge(q, n, 'SERVICE')
+    f.done()
+
+def g43():
+    """G43: a URI is a namespace plus a local name (Part I, step 5)."""
+    f = Fig('g43_uri_anatomy')
+    ns, ln = 'http://www.cidoc-crm.org/cidoc-crm/', 'E22_Human-Made_Object'
+    f.text(850, 120, 'namespace', MIN_TYPE, 500, '#55544f'); f.text(1700, 120, 'local name', MIN_TYPE, 500, '#55544f')
+    a = (850, 260, 1000, 130); b = (1700, 260, 700, 130)
+    f.box(*a, INST, [ns], stroke=HL, sw=6); f.box(*b, INST, [ln])
+    p = (850, 700, 400, 130); q = (1700, 700, 700, 130)
+    f.box(*p, '#fff', ['crm:'], stroke=HL, sw=6); f.box(*q, '#fff', [ln])
+    f.edge(a, p, 'prefix'); f.edge(b, q, '')
+    f.done()
+
+def g44():
+    """G44: a little RDFS (Part I, step 6). Classes, subclasses, types and a property between classes."""
+    f = Fig('g44_rdfs_mini')
+    ice, e22, e53 = (280, 200, 460, 130), (1200, 200, 460, 130), (2120, 200, 460, 130)
+    edc, cave = (280, 700, 460, 130), (2120, 700, 460, 130)
+    f.box(*ice, CLS, ['geolod:IceCore'], tc='#fff'); f.box(*e22, CLS, ['crm:E22', 'Human-Made Object'], tc='#fff'); f.box(*e53, CLS, ['crm:E53 Place'], tc='#fff')
+    f.box(*edc, INST, ['EPICA Dome C core']); f.box(*cave, INST, ['Chauvet cave'])
+    f.edge(ice, e22, 'rdfs:subClassOf'); f.edge(e22, e53, 'P53 location'); f.edge(edc, ice, 'rdf:type'); f.edge(cave, e53, 'rdf:type')
+    f.done()
+
+def g45():
+    """G45: a SKOS concept scheme (Part I, step 6). The certainty levels of the Campanian Ignimbrite findspots."""
+    from collections import Counter
+    cnt = Counter(p[4] for p in geo('ci')); order = ['high', 'medium', 'low', 'dubious', 'representative']
+    f = Fig('g45_skos_scheme')
+    sch = (1200, 150, 640, 130); f.box(*sch, TERM, ['Certainty levels', 'skos:ConceptScheme'], tc='#fff')
+    for i, k in enumerate(order):
+        n = (300 + i * 450, 700, 400, 150); f.box(*n, INST, [k.capitalize(), f'{cnt[k]} findspots']); f.edge(n, sch, '' if i != 2 else 'skos:inScheme')
+    f.done()
+
+def short(lab): return lab.replace(' (Ogham Site)', '')
+
+def g46():
+    """G46: a triple reads like a sentence (Part I, step 4). Sentence on top, the same statement as a graph below."""
+    it = wd_item(STONE); place = short(LAB[claim_ids(it, 'P189')[0]])
+    f = Fig('g46_triple_sentence')
+    for x, t in [(330, 'Subject'), (1200, 'Predicate'), (2070, 'Object')]: f.text(x, 90, t, MIN_TYPE, 500, fill='#55544f')
+    f.box(330, 220, 520, 130, INST, ['CIIC 81']); f.box(1200, 220, 520, 130, AMB, ['was found at']); f.box(2070, 220, 520, 130, INST, [place])
+    f.text(1200, 440, 'the same statement as a graph', MIN_TYPE, 400, fill='#55544f')
+    a, b = (330, 700, 520, 130), (2070, 700, 520, 130)
+    f.box(*a, INST, ['CIIC 81'], stroke=HL, sw=8); f.box(*b, INST, [place], stroke=HL, sw=8)
+    f.edge(a, b, 'location of discovery')
+    f.line(330, 285, 330, 635); f.line(2070, 285, 2070, 635)
+    f.done()
+
+def g47():
+    """G47: one predicate, many subjects (Part I, step 4). The edge has a URI and can be reused and queried."""
+    f = Fig('g47_edge_meaning')
+    rows = [(170, 'CIIC 81', short(LAB[claim_ids(wd_item(STONE), 'P189')[0]])), (420, 'Chauvet cave', 'Ardèche'), (670, 'EPICA Dome C core', 'Antarctica')]
+    for y, s_, o in rows:
+        a, b = (450, y, 640, 120), (1950, y, 640, 120)
+        f.box(*a, INST, [s_]); f.box(*b, INST, [o]); f.edge(a, b, 'has location')
+    f.text(1200, 860, 'crm:P53_has_former_or_current_location', MIN_TYPE, 500, fill=HL)
+    f.done()
+
+def g48():
+    """G48: classes and instances (Part I, step 4). The model sits above the line, the data below."""
+    it = wd_item(STONE); place = short(LAB[claim_ids(it, 'P189')[0]])
+    f = Fig('g48_class_instance')
+    f.line(40, 450, 2360, 450)
+    f.text(40, 130, 'Classes', MIN_TYPE, 500, fill='#55544f', anchor='start'); f.text(40, 180, 'kinds of things', MIN_TYPE, 400, fill='#55544f', anchor='start')
+    f.text(40, 630, 'Instances', MIN_TYPE, 500, fill='#55544f', anchor='start'); f.text(40, 680, 'the things themselves', MIN_TYPE, 400, fill='#55544f', anchor='start')
+    c1, c2 = (900, 160, 600, 130), (1900, 160, 600, 130); i1, i2 = (900, 740, 600, 130), (1900, 740, 600, 130)
+    f.box(*c1, CLS, ['E22 Human-Made Object'], tc='#fff'); f.box(*c2, CLS, ['E53 Place'], tc='#fff')
+    f.box(*i1, INST, ['CIIC 81']); f.box(*i2, INST, [place])
+    f.edge(c1, c2, 'P53 has location'); f.edge(i1, i2, 'P53 has location')
+    f.edge(i1, c1, 'rdf:type'); f.edge(i2, c2, 'rdf:type')
+    f.done()
+
+def g49():
+    """G49: CIDOC CRM puts an event in the centre (Part I, step 6). Unknown slots stay open and dashed."""
+    it = wd_item(STONE); place = short(LAB[claim_ids(it, 'P189')[0]])
+    f = Fig('g49_crm_event')
+    hub = (1200, 450, 440, 170); f.box(*hub, INST, ['Carving of CIIC 81', 'E12 Production'], stroke=HL, sw=8)
+    spec = [((300, 200), ['unknown carver', 'E39 Actor'], True, 'P14 carried out by'), ((300, 700), ['unknown date', 'E52 Time-Span'], True, 'P4 has time-span'),
+            ((2100, 200), ['CIIC 81', 'E22 Human-Made Object'], False, 'P108 has produced'), ((2100, 700), [place, 'E53 Place'], False, 'P7 took place at')]
+    for (x, y), lines, dash, lab in spec:
+        n = (x, y, 540, 150); f.box(*n, '#fff' if dash else INST, lines, dash=dash); f.edge(hub, n, lab)
+    f.done()
+
+def g50():
+    """G50: the life of one object as events (Part I, step 6)."""
+    it = wd_item(STONE); place = short(LAB[claim_ids(it, 'P189')[0]])
+    f = Fig('g50_crm_life')
+    ev = [(400, ['Carving', 'E12 Production']), (1200, ['Discovery at ' + place, 'E7 Activity']), (2000, ['Transfer to UCC', 'E10 Transfer of Custody'])]
+    boxes = [(x, 200, 640, 150) for x, _ in ev]
+    for b, (_, l) in zip(boxes, ev): f.box(*b, INST, l)
+    f.edge(boxes[0], boxes[1], 'then'); f.edge(boxes[1], boxes[2], 'then')
+    obj = (1200, 730, 560, 140); f.box(*obj, INST, ['CIIC 81', 'E22 Human-Made Object'], stroke=HL, sw=8)
+    for b, lab in zip(boxes, ['has produced', 'present at', 'custody of']): f.edge(b, obj, lab)
+    f.done()
+
+def g51():
+    """G51: a Wikidata item is a page of statements (Part I, step 5). Values read from the Wikidata JSON."""
+    it = wd_item(STONE); c = it['claims']['P625'][0]['mainsnak']['datavalue']['value']
+    f = Fig('g51_wikidata_item')
+    item = (400, 450, 600, 330); f.box(*item, INST, ['Item', STONE, stone_label(it)], stroke=HL, sw=8)
+    rows = [['Property', 'Value'], ['P31 instance of', LAB['Q2016147']], ['P189 location of discovery', short(LAB[claim_ids(it, 'P189')[0]])],
+            ['P625 coordinate location', dms(c['latitude'], 'N', 'S') + ' ' + dms(c['longitude'], 'E', 'W')], ['P2888 exact match', 'lod.ogham.link ' + claim_str(it, 'P2888')[0].rsplit('/', 1)[-1]]]
+    f.table(800, 220, [680, 820], rows, rowh=92)
+    f.done()
+
+def g52():
+    """G52: statement anatomy (Part I, step 5). One of the two coordinates of CIIC 81 with its qualifiers, reference and rank."""
+    it = wd_item(STONE); st = it['claims']['P625'][0]; v = st['mainsnak']['datavalue']['value']
+    assert st['rank'] == 'preferred'
+    q = {p: LAB[s[0]['datavalue']['value']['id']] for p, s in st['qualifiers'].items() if p in ('P459', 'P276', 'P248')}
+    ref = st['references'][0]['snaks']['P11693'][0]['datavalue']['value']
+    f = Fig('g52_statement_anatomy')
+    a, b = (350, 130, 500, 110), (1950, 130, 700, 110); f.box(*a, INST, ['CIIC 81']); f.box(*b, INST, [dms(v['latitude'], 'N', 'S') + ' ' + dms(v['longitude'], 'E', 'W')])
+    f.edge(a, b, 'P625 coordinate location')
+    f.text(650, 330, 'Qualifiers', MIN_TYPE, 500, fill='#55544f'); f.text(1760, 330, 'Reference', MIN_TYPE, 500, fill='#55544f')
+    for i, (lab, p) in enumerate([('determination method', 'P459'), ('location', 'P276'), ('stated in', 'P248')]):
+        f.box(650, 440 + i * 140, 1000, 110, '#fff', [f'{lab}: {q[p]}'], dash=True)
+    f.box(1760, 480, 720, 150, '#fff', ['OSM node ID', ref], dash=True)
+    f.text(1760, 650, 'Rank', MIN_TYPE, 500, fill='#55544f'); f.box(1760, 760, 720, 110, AMB, ['preferred'])
+    f.done()
+
+def g53():
+    """G53: a statement as RDF (Part I, step 5). wdt: is the shortcut, p: ps: pq: prov: reach the statement node."""
+    it = wd_item(STONE); st = it['claims']['P625'][0]; v = st['mainsnak']['datavalue']['value']
+    meth = LAB[st['qualifiers']['P459'][0]['datavalue']['value']['id']]; ref = st['references'][0]['snaks']['P11693'][0]['datavalue']['value']
+    f = Fig('g53_statement_rdf')
+    s_, n = (270, 450, 440, 120), (1010, 450, 400, 120)
+    val, qual, rf = (2030, 170, 640, 120), (2030, 450, 640, 120), (2030, 730, 640, 120)
+    f.box(*s_, INST, ['wd:' + STONE], stroke=HL, sw=8); f.box(*n, '#fff', ['statement node'], dash=True)
+    f.box(*val, INST, [f"Point({v['longitude']:.2f} {v['latitude']:.2f})"]); f.box(*qual, INST, [meth]); f.box(*rf, INST, ['OSM node ' + ref])
+    f.edge(s_, val, 'wdt:P625'); f.edge(s_, n, 'p:P625'); f.edge(n, val, 'ps:P625'); f.edge(n, qual, 'pq:P459'); f.edge(n, rf, 'prov:wasDerivedFrom')
+    f.done()
+
+def g54():
+    """G54: follow your nose (Part I, step 5). Each URI opened returns triples with the next URI in them."""
+    it = wd_item(STONE); cty = claim_ids(it, 'P131')[0]; ctr = claim_ids(it, 'P17')[0]
+    f = Fig('g54_follow_nose')
+    xs = [330, 1200, 2070]; names = [('CIIC 81', STONE), (LAB[cty], cty), (LAB[ctr], ctr)]
+    boxes = [(x, 320, 520, 150) for x in xs]
+    for b, (n_, q) in zip(boxes, names): f.box(*b, INST, [n_, 'wd:' + q], stroke=HL if q == STONE else '#000', sw=8 if q == STONE else 2.5)
+    f.edge(boxes[0], boxes[1], 'located in'); f.edge(boxes[1], boxes[2], 'country')
+    for b in boxes:
+        t = (b[0], 700, 520, 130); f.box(*t, '#fff', ['open the URI', 'get more triples'], dash=True); f.edge(b, t, '')
+    f.done()
+
 if __name__ == '__main__':
     for n in (sys.argv[1:] or ['g06']): globals()[n]()

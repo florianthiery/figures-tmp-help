@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="70.0" y="45.0" width="900.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="113.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIDOC CRM: What is it?</text>
+<rect x="1250.0" y="45.0" width="1000.0" height="110.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="5"/>
+<text x="1750.0" y="113.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E22 Human-Made Object</text>
+<line x1="980.0" y1="100.0" x2="1250.0" y2="100.0" stroke="#000" stroke-width="3"/>
+<rect x="70.0" y="185.0" width="900.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="253.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">SOSA / CRMsci: How was it measured?</text>
+<rect x="1250.0" y="185.0" width="1000.0" height="110.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="5"/>
+<text x="1750.0" y="253.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">sosa:Observation</text>
+<line x1="980.0" y1="240.0" x2="1250.0" y2="240.0" stroke="#000" stroke-width="3"/>
+<rect x="70.0" y="325.0" width="900.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="393.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">GeoSPARQL: Where is it?</text>
+<rect x="1250.0" y="325.0" width="1000.0" height="110.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="5"/>
+<text x="1750.0" y="393.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">WKT point</text>
+<line x1="980.0" y1="380.0" x2="1250.0" y2="380.0" stroke="#000" stroke-width="3"/>
+<rect x="70.0" y="465.0" width="900.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="533.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">OWL-Time: When is it?</text>
+<rect x="1250.0" y="465.0" width="1000.0" height="110.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="5"/>
+<text x="1750.0" y="533.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">time:TRS reference system</text>
+<line x1="980.0" y1="520.0" x2="1250.0" y2="520.0" stroke="#000" stroke-width="3"/>
+<rect x="70.0" y="605.0" width="900.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="673.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">SKOS: How sure are we?</text>
+<rect x="1250.0" y="605.0" width="1000.0" height="110.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="5"/>
+<text x="1750.0" y="673.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty levels</text>
+<line x1="980.0" y1="660.0" x2="1250.0" y2="660.0" stroke="#000" stroke-width="3"/>
+<rect x="70.0" y="745.0" width="900.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">PROV-O: Who said so?</text>
+<rect x="1250.0" y="745.0" width="1000.0" height="110.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="5"/>
+<text x="1750.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">agent and activity</text>
+<line x1="980.0" y1="800.0" x2="1250.0" y2="800.0" stroke="#000" stroke-width="3"/></svg>

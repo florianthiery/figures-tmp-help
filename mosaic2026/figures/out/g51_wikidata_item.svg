@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="100.0" y="285.0" width="600.0" height="330.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="400.0" y="413.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Item</text>
+<text x="400.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q130529871</text>
+<text x="400.0" y="513.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">UCC Stone Corridor IV</text>
+<rect x="800.0" y="220.0" width="680" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1140.0" y="279.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Property</text>
+<rect x="1480.0" y="220.0" width="820" height="92" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1890.0" y="279.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Value</text>
+<rect x="800.0" y="312.0" width="680" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1140.0" y="371.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P31 instance of</text>
+<rect x="1480.0" y="312.0" width="820" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1890.0" y="371.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">ogham stone</text>
+<rect x="800.0" y="404.0" width="680" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1140.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P189 location of discovery</text>
+<rect x="1480.0" y="404.0" width="820" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1890.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<rect x="800.0" y="496.0" width="680" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1140.0" y="555.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P625 coordinate location</text>
+<rect x="1480.0" y="496.0" width="820" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1890.0" y="555.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">51.894°N 8.492°W</text>
+<rect x="800.0" y="588.0" width="680" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1140.0" y="647.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P2888 exact match</text>
+<rect x="1480.0" y="588.0" width="820" height="92" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1890.0" y="647.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">lod.ogham.link Y50000081</text></svg>

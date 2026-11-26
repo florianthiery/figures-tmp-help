@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="170.0" y="365.0" width="560.0" height="170.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="450.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">URI</text>
+<text x="450.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">lod.ogham.link/Y50000081</text>
+<rect x="1650.0" y="125.0" width="600.0" height="150.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Web page</text>
+<text x="1950.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">for people</text>
+<rect x="1650.0" y="625.0" width="600.0" height="150.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Triples</text>
+<text x="1950.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">for machines</text>
+<line x1="730.0" y1="403.3" x2="1650.0" y2="250.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1012.0" y="297.7" width="356.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1190.0" y="340.3" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Accept: text/html</text>
+<line x1="730.0" y1="496.7" x2="1650.0" y2="650.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1002.5" y="544.3" width="375.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1190.0" y="586.9" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Accept: text/turtle</text></svg>

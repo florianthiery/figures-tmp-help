@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="880.0" y="85.0" width="640.0" height="130.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="138.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">Certainty levels</text>
+<text x="1200.0" y="188.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">skos:ConceptScheme</text>
+<rect x="100.0" y="625.0" width="400.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="300.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">High</text>
+<text x="300.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">14 findspots</text>
+<line x1="422.7" y1="625.0" x2="1093.6" y2="215.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="550.0" y="625.0" width="400.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="750.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Medium</text>
+<text x="750.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">47 findspots</text>
+<line x1="811.4" y1="625.0" x2="1146.8" y2="215.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1000.0" y="625.0" width="400.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Low</text>
+<text x="1200.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">6 findspots</text>
+<line x1="1200.0" y1="625.0" x2="1200.0" y2="215.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1048.0" y="391.0" width="304.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="433.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">skos:inScheme</text>
+<rect x="1450.0" y="625.0" width="400.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1650.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Dubious</text>
+<text x="1650.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">5 findspots</text>
+<line x1="1588.6" y1="625.0" x2="1253.2" y2="215.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1900.0" y="625.0" width="400.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Representative</text>
+<text x="2100.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">2 findspots</text>
+<line x1="1977.3" y1="625.0" x2="1306.4" y2="215.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/></svg>

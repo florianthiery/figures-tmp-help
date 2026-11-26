@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="330.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#9454AC" text-anchor="middle">Humanities ask</text>
+<text x="2070.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#9454AC" text-anchor="middle">Geosciences ask</text>
+<text x="1200.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#9454AC" text-anchor="middle">Both need</text>
+<rect x="30.0" y="165.0" width="600.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="243.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Where was it found?</text>
+<rect x="1770.0" y="165.0" width="600.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="243.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Where was it sampled?</text>
+<rect x="980.0" y="165.0" width="440.0" height="130.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="243.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Place</text>
+<line x1="630.0" y1="230.0" x2="980.0" y2="230.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="1770.0" y1="230.0" x2="1420.0" y2="230.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="30.0" y="405.0" width="600.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="483.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">When was it made?</text>
+<rect x="1770.0" y="405.0" width="600.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="483.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">How old is it?</text>
+<rect x="980.0" y="405.0" width="440.0" height="130.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="483.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Time</text>
+<line x1="630.0" y1="470.0" x2="980.0" y2="470.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="1770.0" y1="470.0" x2="1420.0" y2="470.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="30.0" y="645.0" width="600.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="723.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Which object is it?</text>
+<rect x="1770.0" y="645.0" width="600.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="723.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Which sample is it?</text>
+<rect x="980.0" y="645.0" width="440.0" height="130.0" rx="18" fill="#fff" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="723.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Identifier</text>
+<line x1="630.0" y1="710.0" x2="980.0" y2="710.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="1770.0" y1="710.0" x2="1420.0" y2="710.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/></svg>

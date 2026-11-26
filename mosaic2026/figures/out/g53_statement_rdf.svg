@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="50.0" y="390.0" width="440.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="270.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">wd:Q130529871</text>
+<rect x="810.0" y="390.0" width="400.0" height="120.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1010.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">statement node</text>
+<rect x="1710.0" y="110.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2030.0" y="183.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Point(-8.49 51.89)</text>
+<rect x="1710.0" y="390.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2030.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">on-site survey</text>
+<rect x="1710.0" y="670.0" width="640.0" height="120.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2030.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">OSM node 11071361392</text>
+<line x1="490.0" y1="415.0" x2="1710.0" y2="220.9" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1000.5" y="289.0" width="199.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1100.0" y="331.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">wdt:P625</text>
+<line x1="490.0" y1="450.0" x2="810.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="572.5" y="421.0" width="155.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="650.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">p:P625</text>
+<line x1="1210.0" y1="395.1" x2="1811.4" y2="230.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1424.2" y="283.5" width="173.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1510.7" y="326.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">ps:P625</text>
+<line x1="1210.0" y1="450.0" x2="1710.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1370.5" y="421.0" width="179.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1460.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">pq:P459</text>
+<line x1="1210.0" y1="504.9" x2="1811.4" y2="670.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1294.7" y="558.5" width="432.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1510.7" y="601.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">prov:wasDerivedFrom</text></svg>
