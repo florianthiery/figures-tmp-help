@@ -343,15 +343,15 @@ def star(f, cx, cy, r=24):
     f.o.append(f'<polygon points="{" ".join(pts)}" fill="{AMB}" stroke="#000" stroke-width="2" stroke-linejoin="round"/>')
 
 def g03():
-    """G03: the five stars of open data (Part I, step 5), each with a symbol."""
+    """G03: the five stars of open data (Part I, step 5), each with a symbol at the bottom of its box."""
     f = Fig('g03_five_stars')
     spec = [('globe', 'On the web', 'open licence'), ('table', 'Structured', 'Excel, not a scan'), ('file', 'Open format', 'CSV, not Excel'), ('tag', 'URIs', 'RDF and SPARQL'), ('chain', 'Linked', 'to other data')]
     for i, (ic, a, b) in enumerate(spec):
         cx = 260 + i * 470; h = 380 + i * 100; top = 860 - h
         f.o.append(f'<rect x="{cx - 225}" y="{top}" width="450" height="{h}" rx="18" fill="{INST}" stroke="{HL if i >= 3 else "#000"}" stroke-width="{8 if i >= 3 else 2.5}"/>')
         for j in range(i + 1): star(f, cx + (j - i / 2) * 56, top + 50)
-        icon(f, ic, cx, top + 150, z=1.0)
-        f.text(cx, top + 255, a, MIN_TYPE, 500, maxw=420); f.text(cx, top + 305, b, MIN_TYPE, 400, maxw=420)
+        f.text(cx, top + 135, a, MIN_TYPE, 500, maxw=420); f.text(cx, top + 185, b, MIN_TYPE, 400, maxw=420)
+        icon(f, ic, cx, 860 - 100, z=1.0)
     f.done()
 
 def g07():
