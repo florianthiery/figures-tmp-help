@@ -65,44 +65,44 @@ def a2():
     badge(x + w + 30, y + 3 * bh, '1'); badge(x + w * .86 + 32, y + 3.5 * bh, '2'); badge(x + w * .86 + 32, y + 3.5 * bh + 56, '3')
     f.line(x + w * .86, y + 3.5 * bh, x + w * .86 + 20, y + 3.5 * bh + 56, None, w=1.4)
     f.rect(x + w * .86 - 6, y + 3.5 * bh + 40, 12, 12, '#1f1f1d')
-    cards = [(135, 'Interpreted', 'The pit was dug into the floor and filled later', 'ctx:106_cut', 'at the top of the floor', ('ctx:PitCut', 'local class'), 'A3', 'Stratigraphic Interface', 'CRMarchaeo'),
-             (405, 'Dated', 'Charcoal from the floor, 14C, 1610 to 1520 cal BC', 'ctx:date_104', 'of context [104]', ('strat:AgeControlPoint', 'geo-lod class'), 'E13', 'Attribute Assignment', 'CIDOC CRM'),
-             (675, 'Measured', 'One 14C measurement on one sample', 'ctx:c14_CH17', 'charcoal CH-17', ('ctx:C14Measurement', 'local class'), 'S4', 'Observation', 'CRMsci')]
-    for yy, hd, sub, inst, isub, cl, code, nm, fam in cards:
+    cards = [(135, 'Interpreted', 'The pit was dug into the floor and filled later', 'ctx:context_106', 'pit cut', 'A3 Stratigraphic Interface', 'CRMarchaeo'),
+             (405, 'Dated', 'Charcoal from the floor, 14C, 1610 to 1520 cal BC', 'ctx:date_104', 'floor layer [104]', 'E13 Attribute Assignment', 'CIDOC CRM'),
+             (675, 'Measured', 'One 14C measurement on one sample', 'ctx:c14_CH17', 'charcoal CH-17', 'S4 Observation', 'CRMsci')]
+    for yy, hd, sub, inst, isub, cl, fam in cards:
         f.rect(820, yy - 30, 900, 230, '#f6f6f3', 'none', 10)
         f.text(845, yy + 6, hd, 28, True, anchor='start'); f.text(1000, yy + 7, sub, 20, color=MUTED, anchor='start', maxw=700)
-        f.box(845, yy + 55, 310, 105, inst, isub, INST, 21, 19)
-        f.box(1205, yy + 55, 265, 105, cl[0], cl[1], CLS, 21, 18)
-        f.box(1520, yy + 55, 180, 105, code, nm, CLS, 25, 15.5)
-        f.line(1155, yy + 107, 1203, yy + 107); chip(f, 1180, yy + 83, 'a', 15); f.line(1470, yy + 107, 1518, yy + 107, 't')
-        f.text(1610, yy + 178, fam, 18, color=MUTED)
+        f.box(845, yy + 55, 330, 105, inst, isub, INST, 22, 19)
+        f.box(1260, yy + 55, 440, 105, cl, fam, CLS, 25, 19)
+        f.line(1175, yy + 107, 1258, yy + 107); chip(f, 1217, yy + 83, 'a', 15)
     for n, (yy, *_) in zip('123', cards): badge(1704, yy + 6, n)
-    f.text(820, 965, 'Section schematic; all contexts, dates and the site are invented for the course', 19, color=MUTED, anchor='start')
+    f.legend(965, [(INST, 'Instance'), (CLS, 'Class')], x=820)
     f.save()
 
 def a3():
     f = Fig('a3-harris-matrix', 'The trench section on the left, the same contexts as a Harris matrix on the right')
-    # left: what you see in the trench
-    x, y, w, h = 60, 110, 700, 760
+    x, y, w, h = 60, 110, 620, 760
     f.text(x + w / 2, 55, 'Trench section', 28, True); f.text(x + w / 2, 85, 'fictional example', 19, color=MUTED)
     bh = section(f, x, y, w, h)
     px, py = x + w * 0.52, y + 3 * bh
     f.text(px + w * .27, py + bh * .55, '[106] cut', 21, True, '#9454AC', anchor='start')
-    # right: the same contexts as a graph, later at the top
-    mx, mw, bhh, gap, y0 = 1010, 320, 62, 64, 110
-    f.text(mx + mw / 2, 55, 'Harris matrix', 28, True); f.text(mx + mw / 2, 85, 'later at the top, earlier below', 19, color=MUTED)
-    seq = [('101', 'topsoil', '#d9d2c3'), ('102', 'plough soil', '#cdbfa6'), ('103', 'wall collapse', '#e6c9a8'),
-           ('105', 'pit fill', '#8f7f66'), ('106', 'pit cut', '#ffffff'), ('104', 'floor layer', '#f0e0b8'), ('107', 'natural', '#b9b4aa')]
-    rel = ['above', 'above', 'above', 'fills', 'cuts', 'above']
-    for k, (n, nm, col) in enumerate(seq):
-        yy = y0 + k * (bhh + gap)
-        if n == '106': f.rect(mx, yy, mw, bhh, col, '#9454AC', 6, 3.2, dash=True)
-        else: f.rect(mx, yy, mw, bhh, col, '#000000', 6, 1.2)
-        f.text(mx + mw / 2, yy + bhh / 2, f'[{n}] {nm}', 24, True, '#ffffff' if n == '105' else '#1f1f1d', maxw=mw - 16)
-        if k < len(rel):
-            ya, yb = yy + bhh, yy + bhh + gap
-            f.line(mx + mw / 2, ya, mx + mw / 2, yb - 2); chip(f, mx + mw / 2, (ya + yb) / 2, rel[k], 18)
-    # right: how to read it
+    wx, wy = x + w * .78, y + 2 * bh + 18
+    f.rect(wx, wy, w * .14, bh - 18, '#8a8a84', '#000000', 0, 1.4)
+    f.text(wx + w * .07, wy + (bh - 18) / 2 - 12, '[108]', 19, True, '#ffffff'); f.text(wx + w * .07, wy + (bh - 18) / 2 + 12, 'wall', 17, color='#ffffff')
+    bw, bhh, gap, y0 = 250, 62, 64, 110
+    L, C, R = 885, 1035, 1185
+    f.text(C, 55, 'Harris matrix', 28, True); f.text(C, 85, 'later at the top, earlier below', 19, color=MUTED)
+    nodes = {'101': (C, 0, 'topsoil', '#d9d2c3'), '102': (C, 1, 'plough soil', '#cdbfa6'), '103': (C, 2, 'wall collapse', '#e6c9a8'),
+             '105': (L, 3, 'pit fill', '#8f7f66'), '108': (R, 3, 'wall', '#8a8a84'), '106': (L, 4, 'pit cut', '#ffffff'),
+             '104': (C, 5, 'floor layer', '#f0e0b8'), '107': (C, 6, 'natural', '#b9b4aa')}
+    top = lambda n: (nodes[n][0], y0 + nodes[n][1] * (bhh + gap)); bot = lambda n: (nodes[n][0], y0 + nodes[n][1] * (bhh + gap) + bhh)
+    for n, (cx, r, nm, col) in nodes.items():
+        yy = y0 + r * (bhh + gap)
+        if n == '106': f.rect(cx - bw / 2, yy, bw, bhh, col, '#9454AC', 6, 3.2, dash=True)
+        else: f.rect(cx - bw / 2, yy, bw, bhh, col, '#000000', 6, 1.2)
+        f.text(cx, yy + bhh / 2, f'[{n}] {nm}', 23, True, '#ffffff' if n in ('105', '108') else '#1f1f1d', maxw=bw - 16)
+    for a, b, t in (('101', '102', 'above'), ('102', '103', 'above'), ('103', '105', 'above'), ('103', '108', 'above'), ('105', '106', 'fills'), ('106', '104', 'cuts'), ('108', '104', 'above'), ('104', '107', 'above')):
+        (xa, ya), (xb, yb) = bot(a), top(b)
+        f.line(xa, ya, xb, yb - 2); chip(f, (xa + xb) / 2, (ya + yb) / 2, t, 18)
     cx, cw = 1380, 340
     f.rect(cx, 290, cw, 400, '#f6f6f3', 'none', 10)
     for t, yy, med in (('How to read it', 332, True), ('Box = one context', 392, False), ('Arrow = one relation', 436, False), ('Later above, earlier below', 480, False),
@@ -110,9 +110,31 @@ def a3():
         f.text(cx + 24, yy, t, 24 if med else 22, med, '#1f1f1d' if med else MUTED, anchor='start', maxw=cw - 40)
     f.save()
 
+def a4():
+    f = Fig('a4-same-pattern', 'Core, cave and trench: the same CIDOC CRM pattern, once through the geo-lod extension and once through CRMarchaeo')
+    f.text(400, 52, 'geo-lod extension', 28, True); f.text(400, 84, 'drill core, cave, ice core', 19, color=MUTED)
+    f.text(1150, 52, 'CIDOC CRM family', 28, True); f.text(1150, 84, 'the shared pattern', 19, color=MUTED)
+    f.text(1585, 52, 'Excavation', 28, True); f.text(1585, 84, 'CRMarchaeo directly, fictional', 19, color=MUTED)
+    rows = [('wd1:unit_HBT', '86.13–86.43 m, tephra layer', 'strat:StratigraphicUnit', 'subclass of A2', 'A2', 'Stratigraphic Volume Unit', 'CRMarchaeo', 'ctx:context_104', 'floor layer'),
+            ('sisal:hiatus_0420893', 'at 19.325 mm', 'geolod:GrowthHiatus', 'geo-lod class', 'A3', 'Stratigraphic Interface', 'CRMarchaeo', 'ctx:context_106', 'pit cut'),
+            ('sisal:datingpoint_012773', 'U/Th at 21.05 mm', 'strat:AgeControlPoint', 'geo-lod class', 'E13', 'Attribute Assignment', 'CIDOC CRM', 'ctx:date_104', 'floor layer, 14C'),
+            ('sisal:obs_d18o_0420984', '−4.78 ‰ at 97.95 mm', 'SpeleothemObservation', 'geo-lod class', 'S4', 'Observation', 'CRMsci', 'ctx:c14_CH17', 'charcoal CH-17')]
+    for k, (li, ls, gc, gs, code, nm, fam, ri, rs) in enumerate(rows):
+        cy = 220 + k * 205; y = cy - 58
+        f.box(20, y, 340, 120, li, ls, INST, 20, 19)
+        f.box(490, y, 300, 120, gc, gs, CLS, 20, 18)
+        f.box(1000, y, 300, 120, code, nm, CLS, 28, 19)
+        f.box(1450, y, 270, 120, ri, rs, INST, 21, 19)
+        f.text(1150, y + 134, fam, 18, color=MUTED)
+        f.line(360, cy, 488, cy); chip(f, 424, cy - 26, 'a', 16)
+        f.line(790, cy, 998, cy); chip(f, 894, cy - 26, 'rdfs:subClassOf', 17)
+        f.line(1450, cy, 1302, cy); chip(f, 1376, cy - 26, 'a', 16)
+    f.legend(975, [(INST, 'Instance'), (CLS, 'Class')], x=20)
+    f.save()
+
 if __name__ == '__main__':
     OUT.mkdir(exist_ok=True)
-    for fn in (a1, a2, a3):
+    for fn in (a1, a2, a3, a4):
         orig = Fig.save
         def save(s, orig=orig):
             s.outdir = OUT; orig(s)
