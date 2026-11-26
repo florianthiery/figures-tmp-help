@@ -902,14 +902,14 @@ WARM, COLD, SAND = '#fde7c4', '#cfe0f1', '#f3e3c8'
 
 def n3(v): return f'{v:,}'
 
-def g57():
-    """G57: a cave is a hub; its speleothems point to it (SISAL v3 in the geo-lod graph, Sanbao cave, site 140)."""
+def g64():
+    """G64: a cave is a hub; its speleothems point to it (SISAL v3 in the geo-lod graph, Sanbao cave, site 140)."""
     s = SAN['site']; ents = SAN['entities']
     cur = [e for e in ents if e[2] == 'current']
     top = sorted(cur, key=lambda e: -e[3])
     pick = [top[0], top[1] if top[1][1] != 'SB-43' else top[2]]
     pick.append(next(e for e in ents if e[1] == SAN['column']['name']))
-    f = Fig('g57_cave_hub')
+    f = Fig('g64_cave_hub')
     hub = (1200, 450, 440, 190); f.box(*hub, INST, [s['site_name'], 'geolod:Cave · E27 Site'], stroke=HL, sw=8)
     ys = [135, 345, 555]
     for y, e in zip(ys, pick):
@@ -923,12 +923,12 @@ def g57():
         b = (2130, y, 500, 140); f.box(*b, INST, l); f.edge(hub, b, lab)
     f.done()
 
-def g58():
-    """G58: one speleothem is a column in time: depth from the top, dating points, one growth hiatus (SB-43, Sanbao cave)."""
+def g65():
+    """G65: one speleothem is a column in time: depth from the top, dating points, one growth hiatus (SB-43, Sanbao cave)."""
     c = SAN['column']; dmax = c['depth_max']
     x0, x1, y0, y1 = 290, 470, 70, 830
     sy = lambda d: y0 + (y1 - y0) * d / dmax
-    f = Fig('g58_speleothem_column')
+    f = Fig('g65_speleothem_column')
     f.o.append(f'<path d="M{x0},{y1} V{y0 + 50} Q{(x0 + x1) / 2},{y0 - 20} {x1},{y0 + 50} V{y1} Z" fill="{SAND}" stroke="#000" stroke-width="3"/>')
     pts = [(d, a) for d, a, t in c['dating'] if a is not None]
     for d, a in pts: f.o.append(f'<circle cx="{(x0 + x1) / 2}" cy="{sy(d):.1f}" r="11" fill="#fff" stroke="{HL}" stroke-width="4"/>')
@@ -946,13 +946,13 @@ def g58():
         f.box(*ib, INST, inst); f.box(*cb, CLS, cls, tc='#fff'); f.edge(ib, cb, 'a')
     f.done()
 
-def g59():
-    """G59: one boundary, five depths: the beginning of MIS 5 in the EPICA Dome C core, read in five records (Part II)."""
+def g66():
+    """G66: one boundary, five depths: the beginning of MIS 5 in the EPICA Dome C core, read in five records (Part II)."""
     rows = json.load(open(os.path.join(HERE, 'data/geo/epica_mis5.json'), encoding='utf8'))
     lo, hi = rows[0][0], rows[-1][0]
     top, bot = 150, 860
     sy = lambda d: 290 + (d - lo) * (510 / (hi - lo))
-    f = Fig('g59_core_boundary')
+    f = Fig('g66_core_boundary')
     lw, gap, x = 300, 40, 150
     for d, rec, chron in rows:
         y = sy(d)
@@ -1025,6 +1025,94 @@ def g63():
     f.edge(ctx, smp, 'AP21 contains'); f.edge(obs, smp, 'O8 observed'); f.edge(asg, ctx, 'P140 assigned to')
     f.edge(asg, ts, 'P141 assigned'); f.edge(asg, obs, 'wasDerivedFrom')
     f.done()
+
+
+# ---- hub graphics: one node and what the graph links it to (after figure 16 of GeoScience-FAIRification-LOD) ---------------------------
+def glyph_stalagmite(f, cx, top, h=330, w=190):
+    y1 = top + h; x0, x1 = cx - w / 2, cx + w / 2
+    d = f'M{x0:.0f},{y1} C{x0 + 20:.0f},{y1 - 170} {cx - 40:.0f},{top + 80} {cx - 26:.0f},{top + 30} C{cx - 14:.0f},{top - 4} {cx + 14:.0f},{top - 4} {cx + 26:.0f},{top + 30} C{cx + 40:.0f},{top + 80} {x1 - 20:.0f},{y1 - 170} {x1:.0f},{y1} Z'
+    f.o.append(f'<clipPath id="stc"><path d="{d}"/></clipPath><g clip-path="url(#stc)"><rect x="{x0}" y="{top - 10}" width="{w}" height="{h + 20}" fill="{SAND}"/>')
+    for k in range(1, 9):
+        y = top + k * h / 9
+        f.o.append(f'<path d="M{x0 - 10:.0f},{y + 14:.0f} Q{cx:.0f},{y - 14:.0f} {x1 + 10:.0f},{y + 14:.0f}" fill="none" stroke="#6b6a63" stroke-width="2"/>')
+    f.o.append(f'</g><path d="{d}" fill="none" stroke="#000" stroke-width="3"/>')
+
+def glyph_core(f, cx, top, h=330, w=130, bands=None):
+    bands = bands or [(0.0, 0.2, WARM), (0.2, 0.4, COLD), (0.4, 0.62, WARM), (0.62, 0.8, COLD), (0.8, 1.0, WARM)]
+    x0 = cx - w / 2
+    for a, b, col in bands:
+        f.o.append(f'<rect x="{x0:.0f}" y="{top + a * h:.0f}" width="{w}" height="{(b - a) * h:.0f}" fill="{col}" stroke="#000" stroke-width="2.5"/>')
+    f.o.append(f'<rect x="{x0:.0f}" y="{top}" width="{w}" height="{h}" rx="14" fill="none" stroke="#000" stroke-width="3"/>')
+
+def glyph_layers(f, cx, top, h=330, w=300):
+    x0 = cx - w / 2; cols = ['#d9d2c3', '#cdbfa6', '#e6c9a8', '#f0e0b8', '#b9b4aa']
+    for i, col in enumerate(cols):
+        f.o.append(f'<rect x="{x0:.0f}" y="{top + i * h / 5:.0f}" width="{w}" height="{h / 5:.0f}" fill="{col}" stroke="#000" stroke-width="2.5"/>')
+    f.o.append(f'<rect x="{x0 + w * 0.30:.0f}" y="{top + 2 * h / 5:.0f}" width="{w * 0.4:.0f}" height="{h * 0.5:.0f}" fill="#8f7f66" stroke="{HL}" stroke-width="6"/>')
+
+def hub(name, glyph, l1, l2, left, right):
+    """Hub graphic: glyph and two lines of text in the middle, spokes left and right. Spoke = (lines, fill, tc, dash, label, incoming)."""
+    f = Fig(name)
+    hb = (1200, 450, 260, 640)
+    glyph(f, 1200, 130)
+    f.text(1200, 600, l1, MIN_TYPE, 700, maxw=360); f.text(1200, 648, l2, MIN_TYPE, 400, maxw=360)
+    def spokes(items, x, ys):
+        for (lines, fill, tc, dash, lab, inc), y in zip(items, ys):
+            b = (x, y, 500, 150); f.box(*b, fill, lines, tc=tc, dash=dash)
+            f.edge(*((b, hb) if inc else (hb, b)), lab)
+    spokes(left, 270, [140, 450, 760] if len(left) == 3 else [110, 330, 570, 790])
+    spokes(right, 2130, [140, 450, 760] if len(right) == 3 else [110, 330, 570, 790])
+    f.done()
+
+def g57():
+    """G57: a speleothem as a node, linked to the CRM family, its cave, its geometry, a DOI, ORCID, the repository and PeriodO (after fig. 16)."""
+    s = SAN['site']; lon, lat = float(s['longitude']), float(s['latitude'])
+    left = [(['CIDOC CRM family', 'E18 Physical Thing'], CLS, '#fff', False, 'rdf:type', False),
+            ([s['site_name'], 'geolod:Cave'], INST, INK, False, 'extractedFrom', False),
+            ([f'POINT({lon:.3f} {lat:.3f})', 'GeoSPARQL geometry'], INST, INK, False, 'geo:hasGeometry', False)]
+    right = [(['SISAL v3 dataset', 'DOI'], TERM, '#fff', False, 'owl:sameAs', False),
+             (['ORCID', 'creators of the data'], TERM, '#fff', False, 'dct:creator', False),
+             (['Repository', 'code and data'], '#fff', INK, False, 'prov:wasDerivedFrom', False),
+             (['PeriodO', 'period of the age'], TERM, '#fff', True, 'references period', False)]
+    hub('g57_speleothem_hub', glyph_stalagmite, SAN['column']['name'], 'one node, one URI', left, right)
+
+def g58():
+    """G58: the WD1 core as a node: its units and tephra layers point to it (Table 1 of Schenk et al. 2026, CC BY 4.0)."""
+    import csv
+    rows = list(csv.reader(open(os.path.join(HERE, 'data/wd1/Table1.csv'), encoding='utf8')))[1:]
+    n, nt = len(rows), sum('tephra' in r[1].lower() for r in rows)
+    hbt = next(r[0] for r in rows if '(HBT)' in r[1]).replace('–', ' to ') + ' m'
+    last = rows[-1][0].split('–')[1]
+    left = [(['CRMsci', 'S13 Sample'], CLS, '#fff', False, 'rdf:type', False),
+            ([f'{n} units', 'strat:StratigraphicUnit'], INST, INK, False, 'partOfCore', True),
+            ([f'{nt} tephra layers', 'strat:TephraLayer'], INST, INK, False, 'partOfCore', True)]
+    right = [([hbt, 'unit HBT, marker tephra'], INST, INK, False, 'partOfCore', True),
+             (['Schenk et al. 2026', 'Table 1, log of the core'], TERM, '#fff', False, 'prov:wasDerivedFrom', False),
+             (['Fiona Schenk', 'creator of the tables'], TERM, '#fff', False, 'dct:creator', False)]
+    hub('g58_wd1_hub', lambda f, cx, top: glyph_core(f, cx, top, bands=[(0, .12, '#e3c9c4'), (.12, .5, '#f3ecc4'), (.5, .62, '#8a8a8a'), (.62, .9, '#e6d2ae'), (.9, 1, '#b5522c')]),
+        'WD1', f'drill core, {last} m', left, right)
+
+def g59():
+    """G59: the EPICA Dome C core as a node: the site, the campaign and the observations point to it."""
+    o = geo('epica_obs')
+    left = [(['CIDOC CRM family', 'E22 Human-Made Object'], CLS, '#fff', False, 'rdf:type', False),
+            (['Dome C', 'geolod:DrillingSite'], INST, INK, False, 'extractedFrom', False),
+            (['1996 to 2004', 'geolod:DrillingCampaign'], INST, INK, False, 'removedSample', True)]
+    right = [([f"{plain(o['prop'])} at {float(o['depth']):g} m", f"{float(o['value']):g} {o['unit'].lower()}, {o['chron']}"], INST, INK, False, 'hasFeatureOfInterest', True),
+            (['PANGAEA dataset', 'DOI'], TERM, '#fff', False, 'prov:wasDerivedFrom', False),
+            (['mis:MIS_5', 'begins at 1782.26 m'], TERM, '#fff', False, 'P140 assigned to', True)]
+    hub('g59_epica_hub', glyph_core, 'EPICA Dome C', 'ice core, EDC', left, right)
+
+def g67():
+    """G67: a fictional context as a node (the same hub, now in an excavation; CRMarchaeo)."""
+    left = [(['CRMarchaeo', 'A2 Volume Unit'], CLS, '#fff', False, 'rdf:type', False),
+            (['Trench 1', 'E27 Site'], INST, INK, False, 'P89 falls within', False),
+            (['POINT(...)', 'GeoSPARQL geometry'], INST, INK, False, 'geo:hasGeometry', False)]
+    right = [(['Radiocarbon date', 'E13 Attribute Assignment'], INST, INK, False, 'P140 assigned to', True),
+             (['ORCID', 'excavation director'], TERM, '#fff', False, 'dct:creator', False),
+             (['Excavation record', 'dataset DOI'], '#fff', INK, False, 'prov:wasDerivedFrom', False),
+             (['PeriodO', 'period of the context'], TERM, '#fff', True, 'references period', False)]
+    hub('g67_context_hub', glyph_layers, '[104] floor layer', 'one node, one URI', left, right)
 
 if __name__ == '__main__':
     for n in (sys.argv[1:] or ['g06']): globals()[n]()

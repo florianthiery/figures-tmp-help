@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><clipPath id="stc"><path d="M1105,460 C1125,290 1160,210 1174,160 C1186,126 1214,126 1226,160 C1240,210 1275,290 1295,460 Z"/></clipPath><g clip-path="url(#stc)"><rect x="1105.0" y="120" width="190" height="350" fill="#f3e3c8"/>
+<path d="M1095,181 Q1200,153 1305,181" fill="none" stroke="#6b6a63" stroke-width="2"/>
+<path d="M1095,217 Q1200,189 1305,217" fill="none" stroke="#6b6a63" stroke-width="2"/>
+<path d="M1095,254 Q1200,226 1305,254" fill="none" stroke="#6b6a63" stroke-width="2"/>
+<path d="M1095,291 Q1200,263 1305,291" fill="none" stroke="#6b6a63" stroke-width="2"/>
+<path d="M1095,327 Q1200,299 1305,327" fill="none" stroke="#6b6a63" stroke-width="2"/>
+<path d="M1095,364 Q1200,336 1305,364" fill="none" stroke="#6b6a63" stroke-width="2"/>
+<path d="M1095,401 Q1200,373 1305,401" fill="none" stroke="#6b6a63" stroke-width="2"/>
+<path d="M1095,437 Q1200,409 1305,437" fill="none" stroke="#6b6a63" stroke-width="2"/>
+</g><path d="M1105,460 C1125,290 1160,210 1174,160 C1186,126 1214,126 1226,160 C1240,210 1275,290 1295,460 Z" fill="none" stroke="#000" stroke-width="3"/>
+<text x="1200.0" y="600.0" font-family="Fira Sans" font-size="40" font-weight="700" fill="#1f1f1d" text-anchor="middle">SB-43</text>
+<text x="1200.0" y="648.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">one node, one URI</text>
+<rect x="20.0" y="65.0" width="500.0" height="150.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="128.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">CIDOC CRM family</text>
+<text x="270.0" y="178.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">E18 Physical Thing</text>
+<line x1="1070.0" y1="406.7" x2="495.0" y2="215.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="692.0" y="281.8" width="181.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="782.5" y="324.4" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">rdf:type</text>
+<rect x="20.0" y="375.0" width="500.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Sanbao cave</text>
+<text x="270.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:Cave</text>
+<line x1="1070.0" y1="450.0" x2="520.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="643.5" y="421.0" width="303.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="795.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">extractedFrom</text>
+<rect x="20.0" y="685.0" width="500.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="748.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">POINT(110.433 31.667)</text>
+<text x="270.0" y="798.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">GeoSPARQL geometry</text>
+<line x1="1070.0" y1="493.3" x2="495.0" y2="685.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="606.0" y="560.2" width="353.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="782.5" y="602.8" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:hasGeometry</text>
+<rect x="1880.0" y="35.0" width="500.0" height="150.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="98.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">SISAL v3 dataset</text>
+<text x="2130.0" y="148.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">DOI</text>
+<line x1="1330.0" y1="402.5" x2="1924.9" y2="185.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1503.9" y="264.7" width="247.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1627.4" y="307.3" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">owl:sameAs</text>
+<rect x="1880.0" y="255.0" width="500.0" height="150.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="318.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">ORCID</text>
+<text x="2130.0" y="368.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">creators of the data</text>
+<line x1="1330.0" y1="433.2" x2="1880.0" y2="362.3" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1486.5" y="368.7" width="237.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1605.0" y="411.3" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">dct:creator</text>
+<rect x="1880.0" y="495.0" width="500.0" height="150.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="558.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Repository</text>
+<text x="2130.0" y="608.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">code and data</text>
+<line x1="1330.0" y1="466.8" x2="1880.0" y2="537.7" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1389.0" y="473.3" width="432.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1605.0" y="515.9" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">prov:wasDerivedFrom</text>
+<rect x="1880.0" y="715.0" width="500.0" height="150.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="2130.0" y="778.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">PeriodO</text>
+<text x="2130.0" y="828.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">period of the age</text>
+<line x1="1330.0" y1="497.5" x2="1924.9" y2="715.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1446.4" y="577.3" width="362.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1627.4" y="619.9" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">references period</text></svg>
