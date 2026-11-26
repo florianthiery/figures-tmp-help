@@ -7,7 +7,7 @@ Differences for slides: canvas 2400 x 900 px, type 40 px and more, transparent b
 ## Run (Windows cmd, one line)
 
 ```
-cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow && python figs.py g05 g04 g02 g06 g09 g08 g12
+cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow && python figs.py g05 g04 g02 g06 g09 g08 g12 g15 g17 g18 g20 g19 g22
 ```
 
 ## Figures (numbers as in the plan, tab "Grafikplan")
@@ -21,5 +21,14 @@ cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow 
 | `g09_stone_in_crm` | stone, place and identifier with E22, E53, E42, P53, P48 | Part I, step 6 |
 | `g08_vocabulary_stack` | languages, vocabularies, domain model | Part I, step 6 |
 | `g12_sparql_pattern` | graph pattern and result table | Part I, step 8 |
+
+| `g15_one_stone_six_ids` | the stone and the six repositories that hold it | Part II, step 2 |
+| `g17_sample_measurement_model` | one EPICA Dome C methane observation: sample, measurement, chronology | Part II, step 3 |
+| `g18_ci_competing_ages` | three competing ages of the Campanian Ignimbrite eruption, each with its time reference system | Part II, steps 3 and 4 |
+| `g20_four_pillars` | identifiers, coordinates, vocabularies, crosswalks | Part II, step 4 |
+| `g19_map_sisal_ci` | SISAL caves and CI findspots on one map | Part II, step 4 |
+| `g22_demo_flow` | demo A (SPARQLing Unicorn, QGIS) and demo B (OER notebook) | Part II, step 5 |
+
+Part II data in `data/geo` is built from the geo-lod repository with `python prep_geo.py <geoscience-fairification-lod dir> <ne_50m_land.geojson>` (needs rdflib). Natural Earth: public domain.
 
 Licence of the drawings: CC BY 4.0, Florian Thiery. Wikidata statements: CC0.

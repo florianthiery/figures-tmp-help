@@ -8,7 +8,7 @@ Run (Windows cmd, one line):
   cd /d C:\\git\\figures-tmp-help\\mosaic2026\\figures && pip install resvg_py pillow && python figs.py g06
 Output: out/<name>.svg and out/<name>.png
 """
-import json, math, os, sys
+import json, math, os, re, sys
 import resvg_py
 from PIL import ImageFont
 
@@ -205,6 +205,126 @@ def g12():
     f.edge(S, c, 'instance of'); f.edge(S, xy, 'coordinate location')
     f.edge((1250, 450, 60, 10), (1340, 450, 60, 10), None)
     f.table(1420, 360, [440, 480], [['?stone', '?coord']] + rows + [['\u2026', '\u2026']], rowh=92)
+    f.done()
+
+
+# ---------------------------------------------------------------- Part II
+def geo(n): return json.load(open(os.path.join(HERE, f'data/geo/{n}.json'), encoding='utf8'))
+def plain(s): return s.replace('₄', '4')            # Fira Sans subset has no subscript four
+
+def g15():
+    """G15: one stone, six identifiers (Part II, step 2). Hub with the repositories that hold the same stone."""
+    it = wd_item(STONE)
+    fdo = claim_str(it, 'P14097')[0].rsplit('-', 1)[0]      # the trailing hash is left out
+    hub = (1200, 450, 420, 130)
+    spec = [((450, 120), 'Wikidata item', ['Wikidata', STONE]), ((1200, 120), 'OSM node ID', ['OpenStreetMap', 'node ' + claim_str(it, 'P11693')[0]]),
+            ((1950, 120), 'FactGrid item ID', ['FactGrid', claim_str(it, 'P8168')[0]]), ((450, 780), 'exact match', ['lod.ogham.link', claim_str(it, 'P2888')[0].rsplit('/', 1)[-1]]),
+            ((1200, 780), 'SMR ID', ['SMR', claim_str(it, 'P4057')[0]]), ((1950, 780), 'FDO ID', ['FDOx', fdo])]
+    f = Fig('g15_one_stone_six_ids')
+    for (x, y), lab, lines in spec:
+        n = (x, y, 640, 130); f.box(*n, '#fff', lines, dash=True); f.edge(hub, n, lab)
+    f.box(*hub, INST, ['CIIC 81'], stroke=HL, sw=8)
+    f.done()
+
+def g17():
+    """G17: sample, measurement, model (Part II, step 3). One EPICA Dome C methane observation, read from the geo-lod graph."""
+    d = geo('epica_obs'); facts = geo('facts')
+    assert ['http://w3id.org/geo-lod/IceCore', 'http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object'] in facts
+    num = lambda s, k=2: (f'{float(s):.{k}f}'.rstrip('0') + '0').replace('.0', '.0') if '.' in f'{float(s):.{k}f}' and float(s) == int(float(s)) and k == 1 else f'{float(s):.{k}f}'.rstrip('0').rstrip('.')
+    f = Fig('g17_sample_measurement_model')
+    for x, t in [(300, 'Sample'), (1200, 'Measurement'), (2100, 'Model')]: f.text(x, 70, t, MIN_TYPE, 500, fill='#55544f')
+    o = (1200, 450, 460, 130)
+    core = (300, 250, 560, 130); prop = (300, 650, 560, 110)
+    chron = (2100, 250, 560, 130); age = (2100, 650, 560, 110)
+    val = (900, 800, 480, 100); dep = (1500, 800, 480, 100)
+    f.box(*core, INST, [plain(d['core']), 'IceCore'])
+    f.box(*prop, INST, [plain(d['prop'])])
+    f.box(*chron, TERM, [d['chron_label'].split(',')[0], 'temporal reference system'], tc='#fff')
+    f.box(*age, '#fff', [num(d['age'], 1) + ' ka BP'])
+    f.box(*val, '#fff', [num(d['value']) + ' ' + d['unit'].lower()])
+    f.box(*dep, '#fff', [num(d['depth']) + ' m'])
+    f.box(*o, INST, ['Observation ' + d['obs'].rsplit('_', 1)[-1], 'IceCoreObservation'], stroke=HL, sw=8)
+    for t, lab in [(core, 'feature of interest'), (prop, 'observed property'), (chron, 'age chronology'), (age, 'age'), (val, 'measured value'), (dep, 'at depth')]: f.edge(o, t, lab)
+    f.done()
+
+def g18():
+    """G18: time and strata (Part II, step 3 and 4). Three competing ages of the Campanian Ignimbrite eruption on one axis, each with its own time reference system."""
+    rows = geo('time')
+    f = Fig('g18_ci_competing_ages')
+    x0, x1, k0, k1 = 760, 2300, 40.15, 39.10
+    X = lambda v: x0 + (k0 - v) / (k0 - k1) * (x1 - x0)
+    ys = [150, 360, 570]
+    for t in (40.1, 39.9, 39.7, 39.5, 39.3, 39.1):
+        f.o.append(f'<line x1="{X(t):.1f}" y1="60" x2="{X(t):.1f}" y2="760" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="6 8"/>')
+        f.text(X(t), 815, f'{t:.1f}', MIN_TYPE, 400, '#55544f')
+    f.line(x0, 760, x1, 760, dash=False)
+    f.text(x1, 868, 'ka BP', MIN_TYPE, 500, '#55544f', 'end')
+    for r, y in zip(rows, ys):
+        who = re.search(r', ([^,]*)\((\d{4})\)$', r['label'])
+        name = f'{who.group(1).strip()} ({who.group(2)})'
+        f.text(60, y - 4, name, MIN_TYPE, 500, anchor='start', maxw=660)
+        f.text(60, y + 46, r['trs'].rsplit('/', 1)[-1], MIN_TYPE, 400, '#55544f', 'start', maxw=660)
+        a, b = X(r['begin']), X(r['end'])
+        f.o.append(f'<rect x="{a:.1f}" y="{y - 45}" width="{b - a:.1f}" height="90" rx="18" fill="{INST}" stroke="{HL if r["adopted"] else "#000"}" stroke-width="{8 if r["adopted"] else 2.5}"/>')
+        f.text(a, y + 92, f'{r["begin"]:.2f}', MIN_TYPE, 400, anchor='start'); f.text(b, y + 92, f'{r["end"]:.2f}', MIN_TYPE, 400, anchor='end')
+        if r['adopted']: f.text(b + 30, y + 14, 'adopted', MIN_TYPE, 500, HL, 'start')
+    f.done()
+
+def g20():
+    """G20: the four pillars of the bridge (Part II, step 4): identifiers, coordinates, vocabularies, crosswalks. Examples come from the stone, the SISAL cave Chauvet and the geo-lod ontologies."""
+    it = wd_item(STONE); c = it['claims']['P625'][0]['mainsnak']['datavalue']['value']
+    cave = next(x for x in geo('sisal') if x[2] == 'Chauvet cave'); facts = geo('facts')
+    assert ['http://w3id.org/geo-lod/IceCore', 'http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object'] in facts
+    pt = lambda lon, lat: f'POINT({lon:.2f} {lat:.2f})'
+    pillars = [('Identifiers', [[STONE, 'CIIC 81'], ['Q191483', 'Chauvet cave']]),
+               ('Coordinates', [[pt(c['longitude'], c['latitude']), 'CIIC 81'], [pt(cave[0], cave[1]), 'Chauvet cave']]),
+               ('Vocabularies', [['CIDOC CRM', 'stones, places, events'], ['SOSA / SSN', 'samples, observations']]),
+               ('Crosswalks', [['sosa:Observation', 'subClassOf crmsci:S4'], ['geolod:IceCore', 'subClassOf crm:E22']])]
+    f = Fig('g20_four_pillars')
+    f.o.append(f'<rect x="60" y="50" width="2280" height="110" rx="18" fill="{HL}" stroke="#000" stroke-width="2.5"/>')
+    f.text(110, 118, 'Humanities', MIN_TYPE, 500, '#fff', 'start'); f.text(1200, 118, 'one knowledge graph', MIN_TYPE, 500, '#fff'); f.text(2290, 118, 'Geosciences', MIN_TYPE, 500, '#fff', 'end')
+    for i, (title, items) in enumerate(pillars):
+        cx = 330 + i * 580
+        f.o.append(f'<rect x="{cx - 270}" y="160" width="540" height="700" fill="{INST}" stroke="#000" stroke-width="2.5"/>')
+        f.text(cx, 245, f'{i + 1}  {title}', MIN_TYPE, 500)
+        for j, lines in enumerate(items): f.box(cx, 450 + j * 220, 480, 150, '#fff', lines)
+    f.done()
+
+def g19():
+    """G19: the SISAL caves and the Campanian Ignimbrite findspots on one map (Part II, step 4). Points only; archaeological sites carry an amethyst ring."""
+    sl, ci, land_ = geo('sisal'), geo('ci'), geo('land')
+    lon0, lon1, lat0, lat1, latc = -14, 48, 29, 55, 42
+    mh = 860; kx = mh * math.cos(math.radians(latc)) / (lat1 - lat0); mw = (lon1 - lon0) * kx; ky = kx / math.cos(math.radians(latc))
+    mx, my = 20, 20
+    X = lambda lon: mx + (lon - lon0) * kx
+    Y = lambda lat: my + (lat1 - lat) * ky
+    inside = lambda p: lon0 <= p[0] <= lon1 and lat0 <= p[1] <= lat1
+    f = Fig('g19_map_sisal_ci')
+    f.o.append(f'<clipPath id="m"><rect x="{mx}" y="{my}" width="{mw:.1f}" height="{mh}"/></clipPath><rect x="{mx}" y="{my}" width="{mw:.1f}" height="{mh}" fill="#dce9f1"/><g clip-path="url(#m)">')
+    for ring in land_: f.o.append('<path d="' + ' '.join(('M' if i == 0 else 'L') + f'{X(p[0]):.1f},{Y(p[1]):.1f}' for i, p in enumerate(ring)) + 'Z" fill="#f3f0e7" stroke="#b3b0a4" stroke-width="1.2"/>')
+    S = [p for p in sl if inside(p)]
+    for p in S:
+        if p[3]: f.o.append(f'<circle cx="{X(p[0]):.1f}" cy="{Y(p[1]):.1f}" r="16" fill="none" stroke="{HL}" stroke-width="5"/>')
+    for p in ci:
+        if p[3]: f.o.append(f'<circle cx="{X(p[0]):.1f}" cy="{Y(p[1]):.1f}" r="20" fill="none" stroke="{HL}" stroke-width="5"/>')
+    for p in S: f.o.append(f'<circle cx="{X(p[0]):.1f}" cy="{Y(p[1]):.1f}" r="8" fill="{CLS}" stroke="#fff" stroke-width="1.8"/>')
+    for p in ci: f.o.append(f'<circle cx="{X(p[0]):.1f}" cy="{Y(p[1]):.1f}" r="11" fill="{TERM}" stroke="#fff" stroke-width="2.2"/>')
+    f.o.append(f'</g><rect x="{mx}" y="{my}" width="{mw:.1f}" height="{mh}" fill="none" stroke="#000" stroke-width="2.5"/>')
+    lx, ly = mx + mw + 70, 300
+    f.o.append(f'<circle cx="{lx}" cy="{ly}" r="11" fill="{CLS}" stroke="#000" stroke-width="2"/>'); f.text(lx + 36, ly + 14, f'SISAL caves ({len(S)})', MIN_TYPE, 400, anchor='start')
+    f.o.append(f'<circle cx="{lx}" cy="{ly + 90}" r="13" fill="{TERM}" stroke="#000" stroke-width="2"/>'); f.text(lx + 36, ly + 104, f'CI findspots ({len(ci)})', MIN_TYPE, 400, anchor='start')
+    f.o.append(f'<circle cx="{lx}" cy="{ly + 180}" r="18" fill="none" stroke="{HL}" stroke-width="5"/>'); f.text(lx + 36, ly + 194, 'archaeological site', MIN_TYPE, 400, anchor='start')
+    f.done()
+
+def g22():
+    """G22: the live demos (Part II, step 5). A: Wikidata or N4O KG, SPARQLing Unicorn, QGIS map. B: OER notebook running in the browser."""
+    f = Fig('g22_demo_flow')
+    f.text(60, 80, 'Demo A', MIN_TYPE, 500, '#55544f', 'start'); f.text(60, 530, 'Demo B', MIN_TYPE, 500, '#55544f', 'start')
+    a = [(330, 280, 520, 130), (1200, 280, 520, 130), (2070, 280, 520, 130)]
+    b = [(330, 730, 520, 130), (1200, 730, 520, 130), (2070, 730, 520, 130)]
+    f.box(*a[0], '#fff', ['Wikidata', 'N4O KG'], dash=True); f.box(*a[1], INST, ['SPARQLing Unicorn', 'QGIS plugin'], stroke=HL, sw=8); f.box(*a[2], '#fff', ['Map in QGIS'])
+    f.box(*b[0], INST, ['OER notebook', 'Quarto-live']); f.box(*b[1], '#fff', ['Python in the browser', 'Pyodide']); f.box(*b[2], '#fff', ['Table and map'])
+    f.edge(a[0], a[1], 'SPARQL'); f.edge(a[1], a[2], 'layer'); f.edge(b[0], b[1], 'runs in'); f.edge(b[1], b[2], 'result')
     f.done()
 
 if __name__ == '__main__':

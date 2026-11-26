@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="60.0" y="80.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="start">Demo A</text>
+<text x="60.0" y="530.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="start">Demo B</text>
+<rect x="70.0" y="215.0" width="520.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="330.0" y="268.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Wikidata</text>
+<text x="330.0" y="318.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">N4O KG</text>
+<rect x="940.0" y="215.0" width="520.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="268.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">SPARQLing Unicorn</text>
+<text x="1200.0" y="318.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">QGIS plugin</text>
+<rect x="1810.0" y="215.0" width="520.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="293.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Map in QGIS</text>
+<rect x="70.0" y="665.0" width="520.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="718.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">OER notebook</text>
+<text x="330.0" y="768.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Quarto-live</text>
+<rect x="940.0" y="665.0" width="520.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="718.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Python in the browser</text>
+<text x="1200.0" y="768.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Pyodide</text>
+<rect x="1810.0" y="665.0" width="520.0" height="130.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Table and map</text>
+<line x1="590.0" y1="280.0" x2="940.0" y2="280.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="677.5" y="251.0" width="175.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="765.0" y="293.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">SPARQL</text>
+<line x1="1460.0" y1="280.0" x2="1810.0" y2="280.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1571.0" y="251.0" width="128.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1635.0" y="293.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">layer</text>
+<line x1="590.0" y1="730.0" x2="940.0" y2="730.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="683.0" y="701.0" width="164.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="765.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">runs in</text>
+<line x1="1460.0" y1="730.0" x2="1810.0" y2="730.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1563.5" y="701.0" width="143.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1635.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">result</text></svg>

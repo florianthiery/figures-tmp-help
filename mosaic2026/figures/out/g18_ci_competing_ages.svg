@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><line x1="833.3" y1="60" x2="833.3" y2="760" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="6 8"/>
+<text x="833.3" y="815.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="middle">40.1</text>
+<line x1="1126.7" y1="60" x2="1126.7" y2="760" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="6 8"/>
+<text x="1126.7" y="815.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="middle">39.9</text>
+<line x1="1420.0" y1="60" x2="1420.0" y2="760" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="6 8"/>
+<text x="1420.0" y="815.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="middle">39.7</text>
+<line x1="1713.3" y1="60" x2="1713.3" y2="760" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="6 8"/>
+<text x="1713.3" y="815.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="middle">39.5</text>
+<line x1="2006.7" y1="60" x2="2006.7" y2="760" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="6 8"/>
+<text x="2006.7" y="815.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="middle">39.3</text>
+<line x1="2300.0" y1="60" x2="2300.0" y2="760" stroke="#d4d4d0" stroke-width="2" stroke-dasharray="6 8"/>
+<text x="2300.0" y="815.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="middle">39.1</text>
+<line x1="760.0" y1="760.0" x2="2300.0" y2="760.0" stroke="#000" stroke-width="3"/>
+<text x="2300.0" y="868.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="end">ka BP</text>
+<text x="60.0" y="146.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">Schenk et al. (2024)</text>
+<text x="60.0" y="196.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="start">ELSA-20</text>
+<rect x="921.3" y="105" width="440.0" height="90" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="921.3" y="242.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">40.04</text>
+<text x="1361.3" y="242.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="end">39.74</text>
+<text x="60.0" y="356.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">Giaccio et al. (2017)</text>
+<text x="60.0" y="406.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="start">ArAr-Giaccio2017</text>
+<rect x="994.7" y="315" width="410.7" height="90" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="994.7" y="452.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">39.99</text>
+<text x="1405.3" y="452.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="end">39.71</text>
+<text x="1435.3" y="374.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#9454AC" text-anchor="start">adopted</text>
+<text x="60.0" y="566.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">De Vivo et al. (2001)</text>
+<text x="60.0" y="616.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="start">ArAr-DeVivo2001</text>
+<rect x="1874.7" y="525" width="322.7" height="90" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1874.7" y="662.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">39.39</text>
+<text x="2197.3" y="662.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="end">39.17</text></svg>

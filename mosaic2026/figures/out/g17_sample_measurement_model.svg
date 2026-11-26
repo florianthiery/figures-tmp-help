@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="300.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Sample</text>
+<text x="1200.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Measurement</text>
+<text x="2100.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Model</text>
+<rect x="20.0" y="185.0" width="560.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="300.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">EPICA Dome C ice core (EDC)</text>
+<text x="300.0" y="288.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">IceCore</text>
+<rect x="20.0" y="595.0" width="560.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="300.0" y="663.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Methane (CH4)</text>
+<rect x="1820.0" y="185.0" width="560.0" height="130.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="238.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">EDC2 gas age</text>
+<text x="2100.0" y="288.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">temporal reference system</text>
+<rect x="1820.0" y="595.0" width="560.0" height="110.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="663.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">0.0 ka BP</text>
+<rect x="660.0" y="750.0" width="480.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="900.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">907 ppb</text>
+<rect x="1260.0" y="750.0" width="480.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1500.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">99.34 m</text>
+<rect x="970.0" y="385.0" width="460.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Observation 0001</text>
+<text x="1200.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">IceCoreObservation</text>
+<line x1="970.0" y1="398.9" x2="580.0" y2="312.2" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="588.5" y="326.6" width="373.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="775.0" y="369.2" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">feature of interest</text>
+<line x1="970.0" y1="501.1" x2="547.5" y2="595.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="570.8" y="519.1" width="376.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="758.8" y="561.7" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">observed property</text>
+<line x1="1430.0" y1="398.9" x2="1820.0" y2="312.2" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1466.5" y="326.6" width="317.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1625.0" y="369.2" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">age chronology</text>
+<line x1="1430.0" y1="501.1" x2="1852.5" y2="595.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1590.8" y="519.1" width="101.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1641.2" y="561.7" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">age</text>
+<line x1="1144.3" y1="515.0" x2="942.9" y2="750.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="879.1" y="603.5" width="329.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1043.6" y="646.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">measured value</text>
+<line x1="1255.7" y1="515.0" x2="1457.1" y2="750.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1259.9" y="603.5" width="193.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1356.4" y="646.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">at depth</text></svg>
