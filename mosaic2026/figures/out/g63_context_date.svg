@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="110.0" y="145.0" width="440.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="208.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[104] floor layer</text>
+<text x="330.0" y="258.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2 Volume Unit</text>
+<rect x="110.0" y="605.0" width="440.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="668.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">charcoal CH-17</text>
+<text x="330.0" y="718.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E18 Physical Thing</text>
+<rect x="970.0" y="605.0" width="520.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1230.0" y="668.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">14C measurement</text>
+<text x="1230.0" y="718.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">S4 Observation</text>
+<rect x="970.0" y="145.0" width="520.0" height="150.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1230.0" y="208.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">date of [104]</text>
+<text x="1230.0" y="258.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">E13 Attribute Assignment</text>
+<rect x="1860.0" y="145.0" width="480.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="208.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">1610 to 1520 cal BC</text>
+<text x="2100.0" y="258.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E52 Time-Span</text>
+<line x1="330.0" y1="295.0" x2="330.0" y2="605.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="187.0" y="421.0" width="286.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="330.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">AP21 contains</text>
+<line x1="970.0" y1="680.0" x2="550.0" y2="680.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="627.0" y="651.0" width="266.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="760.0" y="693.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">O8 observed</text>
+<line x1="970.0" y1="220.0" x2="550.0" y2="220.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="590.5" y="191.0" width="339.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="760.0" y="233.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P140 assigned to</text>
+<line x1="1490.0" y1="220.0" x2="1860.0" y2="220.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1532.5" y="191.0" width="285.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1675.0" y="233.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">P141 assigned</text>
+<line x1="1230.0" y1="295.0" x2="1230.0" y2="605.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1060.5" y="421.0" width="339.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1230.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">wasDerivedFrom</text></svg>

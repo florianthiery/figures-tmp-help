@@ -895,5 +895,136 @@ def g56():
     f.box(1200, 740, 1900, 150, '#fff', [f'{n} of {len(ci)} Campanian Ignimbrite findspots lie within 100 km of a SISAL cave'], stroke=HL, sw=8)
     f.done()
 
+
+# ---- Part II: archives of the geosciences and a fictional trench (g57-g63) ----------------------------------------------------------
+SAN = json.load(open(os.path.join(HERE, 'data/geo/sanbao.json'), encoding='utf8'))
+WARM, COLD, SAND = '#fde7c4', '#cfe0f1', '#f3e3c8'
+
+def n3(v): return f'{v:,}'
+
+def g57():
+    """G57: a cave is a hub; its speleothems point to it (SISAL v3 in the geo-lod graph, Sanbao cave, site 140)."""
+    s = SAN['site']; ents = SAN['entities']
+    cur = [e for e in ents if e[2] == 'current']
+    top = sorted(cur, key=lambda e: -e[3])
+    pick = [top[0], top[1] if top[1][1] != 'SB-43' else top[2]]
+    pick.append(next(e for e in ents if e[1] == SAN['column']['name']))
+    f = Fig('g57_cave_hub')
+    hub = (1200, 450, 440, 190); f.box(*hub, INST, [s['site_name'], 'geolod:Cave · E27 Site'], stroke=HL, sw=8)
+    ys = [135, 345, 555]
+    for y, e in zip(ys, pick):
+        b = (280, y, 480, 140); f.box(*b, INST, [e[1], f'{n3(e[3])} samples']); f.edge(b, hub, 'extractedFrom')
+    rest = len(ents) - len(pick)
+    b = (280, 765, 480, 140); f.box(*b, '#fff', [f'+ {rest} more', 'speleothems'], dash=True); f.edge(b, hub, 'extractedFrom')
+    lon, lat = float(s['longitude']), float(s['latitude'])
+    spec = [(180, [f'{lon:.3f} E, {lat:.3f} N', 'a WKT point'], 'geo:hasGeometry'), (450, ['10,061 samples', 'with a d18O value'], 'countD18OSamples'),
+            (720, [f"{s['elevation'][:-2]} m a.s.l.", 'elevation of the cave'], 'elevation_m')]
+    for y, l, lab in spec:
+        b = (2130, y, 500, 140); f.box(*b, INST, l); f.edge(hub, b, lab)
+    f.done()
+
+def g58():
+    """G58: one speleothem is a column in time: depth from the top, dating points, one growth hiatus (SB-43, Sanbao cave)."""
+    c = SAN['column']; dmax = c['depth_max']
+    x0, x1, y0, y1 = 290, 470, 70, 830
+    sy = lambda d: y0 + (y1 - y0) * d / dmax
+    f = Fig('g58_speleothem_column')
+    f.o.append(f'<path d="M{x0},{y1} V{y0 + 50} Q{(x0 + x1) / 2},{y0 - 20} {x1},{y0 + 50} V{y1} Z" fill="{SAND}" stroke="#000" stroke-width="3"/>')
+    pts = [(d, a) for d, a, t in c['dating'] if a is not None]
+    for d, a in pts: f.o.append(f'<circle cx="{(x0 + x1) / 2}" cy="{sy(d):.1f}" r="11" fill="#fff" stroke="{HL}" stroke-width="4"/>')
+    hd = c['hiatus'][0][1]
+    f.o.append(f'<line x1="{x0 - 30}" y1="{sy(hd):.1f}" x2="{x1 + 30}" y2="{sy(hd):.1f}" stroke="{HL}" stroke-width="10"/>')
+    for d, lab in ((0, '0 mm'), (hd, f'{hd:g} mm'), (dmax, f'{dmax:g} mm')): f.text(x0 - 40, sy(d) + 14, lab, anchor='end')
+    first, last = pts[0], pts[-1]
+    rows = [(first, ['%g mm · %s yr BP' % (first[0], n3(round(first[1]))), f'dating point 1 of {len(pts)}'], ['strat:AgeControlPoint', 'E13 Attribute Assignment']),
+            ((hd, None), [f'{hd:g} mm', 'growth stops here'], ['geolod:GrowthHiatus', 'A3 Stratigraphic Interface']),
+            (last, ['%g mm · %s yr BP' % (last[0], n3(round(last[1]))), f'dating point {len(pts)} of {len(pts)}'], ['strat:AgeControlPoint', 'E13 Attribute Assignment'])]
+    for (d, _), inst, cls in rows:
+        y = 165 if d == first[0] else (450 if d == hd else 735)
+        ib, cb = (1190, y, 800, 140), (2020, y, 660, 140)
+        f.line(x1 + 40 if d == hd else (x0 + x1) / 2 + 14, sy(d), ib[0] - ib[2] / 2, y, dash=True)
+        f.box(*ib, INST, inst); f.box(*cb, CLS, cls, tc='#fff'); f.edge(ib, cb, 'a')
+    f.done()
+
+def g59():
+    """G59: one boundary, five depths: the beginning of MIS 5 in the EPICA Dome C core, read in five records (Part II)."""
+    rows = json.load(open(os.path.join(HERE, 'data/geo/epica_mis5.json'), encoding='utf8'))
+    lo, hi = rows[0][0], rows[-1][0]
+    top, bot = 150, 860
+    sy = lambda d: 290 + (d - lo) * (510 / (hi - lo))
+    f = Fig('g59_core_boundary')
+    lw, gap, x = 300, 40, 150
+    for d, rec, chron in rows:
+        y = sy(d)
+        f.o.append(f'<rect x="{x}" y="{top}" width="{lw}" height="{y - top:.1f}" fill="{WARM}" stroke="#000" stroke-width="2.5"/>')
+        f.o.append(f'<rect x="{x}" y="{y:.1f}" width="{lw}" height="{bot - y:.1f}" fill="{COLD}" stroke="#000" stroke-width="2.5"/>')
+        f.o.append(f'<line x1="{x}" y1="{y:.1f}" x2="{x + lw}" y2="{y:.1f}" stroke="{HL}" stroke-width="10"/>')
+        f.text(x + lw / 2, top - 62, rec, MIN_TYPE, 500); f.text(x + lw / 2, top - 18, chron.replace('AICC2023', 'AICC'), MIN_TYPE)
+        f.text(x + lw / 2, y - 16, f'{d:.2f} m', MIN_TYPE, 500)
+        x += lw + gap
+    mis = (2150, 330, 440, 170); f.box(*mis, TERM, ['mis:MIS_5', 'begins 132.2 ka BP'], tc='#fff')
+    sp = (2150, 650, 440, 170); f.box(*sp, INST, [f'{hi - lo:.2f} m', 'between the records'])
+    f.edge(mis, sp, 'spread')
+    f.done()
+
+def g60():
+    """G60: the same stratigraphy model reads a speleothem, an ice core and a trench (CRMarchaeo; geo-lod strat: module)."""
+    f = Fig('g60_strat_crosswalk')
+    rows = [('In the geosciences', 'CRMarchaeo', 'In an excavation'),
+            ('Growth layer, core section', 'A2 Volume Unit', 'Context, e.g. a floor layer'),
+            ('Hiatus, MIS boundary', 'A3 Interface', 'Cut or surface of a layer'),
+            ('Deposition of a layer', 'A4 Genesis', 'Dumping of a fill'),
+            ('Above, below, overlies', 'AP11 / AP13', 'Above, below, cuts, fills'),
+            ('Dating point (U/Th)', 'E13 Assignment', 'Radiocarbon date')]
+    f.table(30, 75, [880, 600, 850], rows, rowh=125)
+    f.done()
+
+def g61():
+    """G61: a fictional trench section: contexts as stacked layers, one pit cut (Part II, archaeology)."""
+    f = Fig('g61_trench_section')
+    x0, x1 = 250, 1550
+    bands = [(90, 220, '#d9d2c3', '[101] topsoil'), (220, 360, '#cdbfa6', '[102] plough soil'), (360, 500, '#e6c9a8', '[103] wall collapse'),
+             (500, 640, '#f0e0b8', '[104] floor layer'), (640, 840, '#b9b4aa', '[107] natural')]
+    for ya, yb, col, lab in bands:
+        f.o.append(f'<rect x="{x0}" y="{ya}" width="{x1 - x0}" height="{yb - ya}" fill="{col}" stroke="#000" stroke-width="2.5"/>')
+    for ya, yb, col, lab in bands:
+        if '[104]' in lab or '[107]' in lab: f.text(x0 + 120, (ya + yb) / 2 + 14, lab, anchor='start')
+        else: f.text(x0 + 120, (ya + yb) / 2 + 14, lab, anchor='start')
+    pit = 'M840,500 L1000,640 L1060,780 L1320,780 L1380,640 L1540,500 Z'
+    f.o.append(f'<path d="{pit}" fill="#8f7f66" stroke="{HL}" stroke-width="8" stroke-linejoin="round"/>')
+    f.text(1190, 650, '[105]', fill='#fff', w=500); f.text(1190, 700, 'pit fill', fill='#fff')
+    # the cut is the line itself: a tag outside the section
+    cut = (2060, 470, 560, 150); f.box(*cut, CLS, ['[106] pit cut', 'A3 Interface'], tc='#fff')
+    fill = (2060, 700, 560, 150); f.box(*fill, INST, ['[105] pit fill', 'A2 Volume Unit'])
+    f.line(1460, 570, cut[0] - cut[2] / 2, cut[1], dash=True)
+    f.line(1330, 730, fill[0] - fill[2] / 2, fill[1], dash=True)
+    f.done()
+
+def g62():
+    """G62: the contexts of the section as a graph: AP11 physical relations, AP12 confines (CRMarchaeo)."""
+    f = Fig('g62_context_graph')
+    names = ['[101] topsoil', '[102] plough soil', '[103] collapse', '[104] floor', '[107] natural']
+    bx = [(190 + i * 505, 160, 340, 150) for i in range(5)]
+    for b, n in zip(bx, names): f.box(*b, INST, [n, 'A2'])
+    for a, b in zip(bx, bx[1:]): f.edge(a, b, 'above')
+    cut = (1200, 700, 340, 150); fill = (190 + 505 * 2 + 0, 700, 340, 150)
+    cut = (1705, 700, 340, 150); fill = (1000, 700, 340, 150)
+    f.box(*cut, CLS, ['[106] pit cut', 'A3'], tc='#fff'); f.box(*fill, INST, ['[105] pit fill', 'A2'])
+    f.edge(cut, fill, 'AP12 confines'); f.edge(cut, bx[3], 'cuts')
+    f.edge(bx[2], fill, 'above')
+    f.done()
+
+def g63():
+    """G63: a date is an assignment to a context, the same pattern as an age control point in a speleothem."""
+    f = Fig('g63_context_date')
+    ctx = (330, 220, 440, 150); f.box(*ctx, INST, ['[104] floor layer', 'A2 Volume Unit'])
+    smp = (330, 680, 440, 150); f.box(*smp, INST, ['charcoal CH-17', 'E18 Physical Thing'])
+    obs = (1230, 680, 520, 150); f.box(*obs, INST, ['14C measurement', 'S4 Observation'])
+    asg = (1230, 220, 520, 150); f.box(*asg, CLS, ['date of [104]', 'E13 Attribute Assignment'], tc='#fff')
+    ts = (2100, 220, 480, 150); f.box(*ts, INST, ['1610 to 1520 cal BC', 'E52 Time-Span'])
+    f.edge(ctx, smp, 'AP21 contains'); f.edge(obs, smp, 'O8 observed'); f.edge(asg, ctx, 'P140 assigned to')
+    f.edge(asg, ts, 'P141 assigned'); f.edge(asg, obs, 'wasDerivedFrom')
+    f.done()
+
 if __name__ == '__main__':
     for n in (sys.argv[1:] or ['g06']): globals()[n]()

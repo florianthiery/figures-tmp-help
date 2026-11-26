@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="250" y="90" width="1300" height="130" fill="#d9d2c3" stroke="#000" stroke-width="2.5"/>
+<rect x="250" y="220" width="1300" height="140" fill="#cdbfa6" stroke="#000" stroke-width="2.5"/>
+<rect x="250" y="360" width="1300" height="140" fill="#e6c9a8" stroke="#000" stroke-width="2.5"/>
+<rect x="250" y="500" width="1300" height="140" fill="#f0e0b8" stroke="#000" stroke-width="2.5"/>
+<rect x="250" y="640" width="1300" height="200" fill="#b9b4aa" stroke="#000" stroke-width="2.5"/>
+<text x="370.0" y="169.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">[101] topsoil</text>
+<text x="370.0" y="304.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">[102] plough soil</text>
+<text x="370.0" y="444.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">[103] wall collapse</text>
+<text x="370.0" y="584.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">[104] floor layer</text>
+<text x="370.0" y="754.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">[107] natural</text>
+<path d="M840,500 L1000,640 L1060,780 L1320,780 L1380,640 L1540,500 Z" fill="#8f7f66" stroke="#9454AC" stroke-width="8" stroke-linejoin="round"/>
+<text x="1190.0" y="650.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">[105]</text>
+<text x="1190.0" y="700.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">pit fill</text>
+<rect x="1780.0" y="395.0" width="560.0" height="150.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="2060.0" y="458.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">[106] pit cut</text>
+<text x="2060.0" y="508.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">A3 Interface</text>
+<rect x="1780.0" y="625.0" width="560.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2060.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[105] pit fill</text>
+<text x="2060.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2 Volume Unit</text>
+<line x1="1460.0" y1="570.0" x2="1780.0" y2="470.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<line x1="1330.0" y1="730.0" x2="1780.0" y2="700.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/></svg>

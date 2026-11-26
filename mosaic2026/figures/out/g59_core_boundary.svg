@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="150" y="150" width="300" height="140.0" fill="#fde7c4" stroke="#000" stroke-width="2.5"/>
+<rect x="150" y="290.0" width="300" height="570.0" fill="#cfe0f1" stroke="#000" stroke-width="2.5"/>
+<line x1="150" y1="290.0" x2="450" y2="290.0" stroke="#9454AC" stroke-width="10"/>
+<text x="300.0" y="88.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">dO2N2</text>
+<text x="300.0" y="132.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">AICC-ice</text>
+<text x="300.0" y="274.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">1733.94 m</text>
+<rect x="490" y="150" width="300" height="202.6" fill="#fde7c4" stroke="#000" stroke-width="2.5"/>
+<rect x="490" y="352.6" width="300" height="507.4" fill="#cfe0f1" stroke="#000" stroke-width="2.5"/>
+<line x1="490" y1="352.6" x2="790" y2="352.6" stroke="#9454AC" stroke-width="10"/>
+<text x="640.0" y="88.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">dust</text>
+<text x="640.0" y="132.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">EDC3-ice</text>
+<text x="640.0" y="336.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">1739.87 m</text>
+<rect x="830" y="150" width="300" height="368.9" fill="#fde7c4" stroke="#000" stroke-width="2.5"/>
+<rect x="830" y="518.9" width="300" height="341.1" fill="#cfe0f1" stroke="#000" stroke-width="2.5"/>
+<line x1="830" y1="518.9" x2="1130" y2="518.9" stroke="#9454AC" stroke-width="10"/>
+<text x="980.0" y="88.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">dD</text>
+<text x="980.0" y="132.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">EDC2-ice</text>
+<text x="980.0" y="502.9" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">1755.63 m</text>
+<rect x="1170" y="150" width="300" height="411.3" fill="#fde7c4" stroke="#000" stroke-width="2.5"/>
+<rect x="1170" y="561.3" width="300" height="298.7" fill="#cfe0f1" stroke="#000" stroke-width="2.5"/>
+<line x1="1170" y1="561.3" x2="1470" y2="561.3" stroke="#9454AC" stroke-width="10"/>
+<text x="1320.0" y="88.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">d18O</text>
+<text x="1320.0" y="132.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">AICC-gas</text>
+<text x="1320.0" y="545.3" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">1759.64 m</text>
+<rect x="1510" y="150" width="300" height="650.0" fill="#fde7c4" stroke="#000" stroke-width="2.5"/>
+<rect x="1510" y="800.0" width="300" height="60.0" fill="#cfe0f1" stroke="#000" stroke-width="2.5"/>
+<line x1="1510" y1="800.0" x2="1810" y2="800.0" stroke="#9454AC" stroke-width="10"/>
+<text x="1660.0" y="88.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CH4</text>
+<text x="1660.0" y="132.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">EDC2-gas</text>
+<text x="1660.0" y="784.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">1782.26 m</text>
+<rect x="1930.0" y="245.0" width="440.0" height="170.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="2150.0" y="318.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">mis:MIS_5</text>
+<text x="2150.0" y="368.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">begins 132.2 ka BP</text>
+<rect x="1930.0" y="565.0" width="440.0" height="170.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2150.0" y="638.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">48.32 m</text>
+<text x="2150.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">between the records</text>
+<line x1="2150.0" y1="415.0" x2="2150.0" y2="565.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="2069.0" y="461.0" width="162.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="2150.0" y="503.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">spread</text></svg>

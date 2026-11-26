@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><path d="M290,830 V120 Q380.0,50 470,120 V830 Z" fill="#f3e3c8" stroke="#000" stroke-width="3"/>
+<circle cx="380.0" cy="77.8" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="91.8" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="113.5" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="167.9" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="200.6" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="225.4" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="256.5" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="293.8" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="334.2" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="370.0" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="402.6" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="411.9" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="458.5" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="505.2" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="536.3" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="575.1" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="614.0" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="652.8" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="699.4" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="729.0" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="769.4" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="786.5" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="803.6" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<circle cx="380.0" cy="823.8" r="11" fill="#fff" stroke="#9454AC" stroke-width="4"/>
+<line x1="260" y1="411.1" x2="500" y2="411.1" stroke="#9454AC" stroke-width="10"/>
+<text x="250.0" y="84.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="end">0 mm</text>
+<text x="250.0" y="425.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="end">219.5 mm</text>
+<text x="250.0" y="844.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="end">489 mm</text>
+<line x1="394.0" y1="77.8" x2="790.0" y2="165.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="790.0" y="95.0" width="800.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1190.0" y="153.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">5 mm · 232 yr BP</text>
+<text x="1190.0" y="203.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">dating point 1 of 24</text>
+<rect x="1690.0" y="95.0" width="660.0" height="140.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="2020.0" y="153.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">strat:AgeControlPoint</text>
+<text x="2020.0" y="203.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">E13 Attribute Assignment</text>
+<line x1="1590.0" y1="165.0" x2="1690.0" y2="165.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1611.0" y="136.0" width="58.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1640.0" y="178.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">a</text>
+<line x1="510.0" y1="411.1" x2="790.0" y2="450.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="790.0" y="380.0" width="800.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1190.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">219.5 mm</text>
+<text x="1190.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">growth stops here</text>
+<rect x="1690.0" y="380.0" width="660.0" height="140.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="2020.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">geolod:GrowthHiatus</text>
+<text x="2020.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">A3 Stratigraphic Interface</text>
+<line x1="1590.0" y1="450.0" x2="1690.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1611.0" y="421.0" width="58.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1640.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">a</text>
+<line x1="394.0" y1="823.8" x2="790.0" y2="735.0" stroke="#000" stroke-width="3" stroke-dasharray="12 8"/>
+<rect x="790.0" y="665.0" width="800.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1190.0" y="723.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">485 mm · 12,820 yr BP</text>
+<text x="1190.0" y="773.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">dating point 24 of 24</text>
+<rect x="1690.0" y="665.0" width="660.0" height="140.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="2020.0" y="723.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">strat:AgeControlPoint</text>
+<text x="2020.0" y="773.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">E13 Attribute Assignment</text>
+<line x1="1590.0" y1="735.0" x2="1690.0" y2="735.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1611.0" y="706.0" width="58.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1640.0" y="748.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">a</text></svg>

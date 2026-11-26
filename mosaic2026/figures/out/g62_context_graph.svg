@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="20.0" y="85.0" width="340.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="190.0" y="148.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[101] topsoil</text>
+<text x="190.0" y="198.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2</text>
+<rect x="525.0" y="85.0" width="340.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="695.0" y="148.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[102] plough soil</text>
+<text x="695.0" y="198.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2</text>
+<rect x="1030.0" y="85.0" width="340.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="148.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[103] collapse</text>
+<text x="1200.0" y="198.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2</text>
+<rect x="1535.0" y="85.0" width="340.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1705.0" y="148.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[104] floor</text>
+<text x="1705.0" y="198.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2</text>
+<rect x="2040.0" y="85.0" width="340.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2210.0" y="148.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[107] natural</text>
+<text x="2210.0" y="198.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2</text>
+<line x1="360.0" y1="160.0" x2="525.0" y2="160.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="369.0" y="131.0" width="147.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="442.5" y="173.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">above</text>
+<line x1="865.0" y1="160.0" x2="1030.0" y2="160.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="874.0" y="131.0" width="147.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="947.5" y="173.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">above</text>
+<line x1="1370.0" y1="160.0" x2="1535.0" y2="160.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1379.0" y="131.0" width="147.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1452.5" y="173.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">above</text>
+<line x1="1875.0" y1="160.0" x2="2040.0" y2="160.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1884.0" y="131.0" width="147.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1957.5" y="173.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">above</text>
+<rect x="1535.0" y="625.0" width="340.0" height="150.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1705.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#fff" text-anchor="middle">[106] pit cut</text>
+<text x="1705.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">A3</text>
+<rect x="830.0" y="625.0" width="340.0" height="150.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1000.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">[105] pit fill</text>
+<text x="1000.0" y="738.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2</text>
+<line x1="1535.0" y1="700.0" x2="1170.0" y2="700.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1210.0" y="671.0" width="285.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1352.5" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">AP12 confines</text>
+<line x1="1705.0" y1="625.0" x2="1705.0" y2="235.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1649.0" y="401.0" width="112.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1705.0" y="443.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">cuts</text>
+<line x1="1172.2" y1="235.0" x2="1027.8" y2="625.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1026.5" y="401.0" width="147.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1100.0" y="443.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">above</text></svg>

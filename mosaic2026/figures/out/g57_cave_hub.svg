@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="980.0" y="355.0" width="440.0" height="190.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Sanbao cave</text>
+<text x="1200.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">geolod:Cave · E27 Site</text>
+<rect x="40.0" y="65.0" width="480.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="280.0" y="123.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">SB-14</text>
+<text x="280.0" y="173.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">2,484 samples</text>
+<line x1="484.4" y1="205.0" x2="980.0" y2="374.7" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="580.7" y="260.8" width="303.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="732.2" y="303.4" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">extractedFrom</text>
+<rect x="40.0" y="275.0" width="480.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="280.0" y="333.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">SB61</text>
+<text x="280.0" y="383.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">1,369 samples</text>
+<line x1="520.0" y1="372.4" x2="980.0" y2="424.9" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="598.5" y="369.6" width="303.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="750.0" y="412.2" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">extractedFrom</text>
+<rect x="40.0" y="485.0" width="480.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="280.0" y="543.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">SB-43</text>
+<text x="280.0" y="593.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">489 samples</text>
+<line x1="520.0" y1="527.6" x2="980.0" y2="475.1" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="598.5" y="472.4" width="303.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="750.0" y="515.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">extractedFrom</text>
+<rect x="40.0" y="695.0" width="480.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="280.0" y="753.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">+ 21 more</text>
+<text x="280.0" y="803.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">speleothems</text>
+<line x1="484.4" y1="695.0" x2="980.0" y2="525.3" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="580.7" y="581.2" width="303.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="732.2" y="623.8" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">extractedFrom</text>
+<rect x="1880.0" y="110.0" width="500.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="168.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">110.433 E, 31.667 N</text>
+<text x="2130.0" y="218.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">a WKT point</text>
+<line x1="1420.0" y1="386.1" x2="1888.9" y2="250.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1477.9" y="289.1" width="353.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1654.4" y="331.7" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">geo:hasGeometry</text>
+<rect x="1880.0" y="380.0" width="500.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">10,061 samples</text>
+<text x="2130.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">with a d18O value</text>
+<line x1="1420.0" y1="450.0" x2="1880.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1456.0" y="421.0" width="388.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1650.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">countD18OSamples</text>
+<rect x="1880.0" y="650.0" width="500.0" height="140.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="708.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">1900 m a.s.l.</text>
+<text x="2130.0" y="758.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">elevation of the cave</text>
+<line x1="1420.0" y1="513.9" x2="1888.9" y2="650.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1523.4" y="552.9" width="262.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1654.4" y="595.5" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">elevation_m</text></svg>

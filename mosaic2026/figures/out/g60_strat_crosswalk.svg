@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="30.0" y="75.0" width="880" height="125" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="470.0" y="151.1" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">In the geosciences</text>
+<rect x="910.0" y="75.0" width="600" height="125" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1210.0" y="151.1" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CRMarchaeo</text>
+<rect x="1510.0" y="75.0" width="850" height="125" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1935.0" y="151.1" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">In an excavation</text>
+<rect x="30.0" y="200.0" width="880" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="470.0" y="276.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Growth layer, core section</text>
+<rect x="910.0" y="200.0" width="600" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1210.0" y="276.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A2 Volume Unit</text>
+<rect x="1510.0" y="200.0" width="850" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1935.0" y="276.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Context, e.g. a floor layer</text>
+<rect x="30.0" y="325.0" width="880" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="470.0" y="401.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Hiatus, MIS boundary</text>
+<rect x="910.0" y="325.0" width="600" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1210.0" y="401.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A3 Interface</text>
+<rect x="1510.0" y="325.0" width="850" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1935.0" y="401.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Cut or surface of a layer</text>
+<rect x="30.0" y="450.0" width="880" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="470.0" y="526.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Deposition of a layer</text>
+<rect x="910.0" y="450.0" width="600" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1210.0" y="526.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">A4 Genesis</text>
+<rect x="1510.0" y="450.0" width="850" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1935.0" y="526.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Dumping of a fill</text>
+<rect x="30.0" y="575.0" width="880" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="470.0" y="651.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Above, below, overlies</text>
+<rect x="910.0" y="575.0" width="600" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1210.0" y="651.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">AP11 / AP13</text>
+<rect x="1510.0" y="575.0" width="850" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1935.0" y="651.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Above, below, cuts, fills</text>
+<rect x="30.0" y="700.0" width="880" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="470.0" y="776.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Dating point (U/Th)</text>
+<rect x="910.0" y="700.0" width="600" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1210.0" y="776.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">E13 Assignment</text>
+<rect x="1510.0" y="700.0" width="850" height="125" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1935.0" y="776.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Radiocarbon date</text></svg>
