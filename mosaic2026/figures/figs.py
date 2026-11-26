@@ -343,14 +343,15 @@ def star(f, cx, cy, r=24):
     f.o.append(f'<polygon points="{" ".join(pts)}" fill="{AMB}" stroke="#000" stroke-width="2" stroke-linejoin="round"/>')
 
 def g03():
-    """G03: the five stars of open data (Part I, step 5)."""
+    """G03: the five stars of open data (Part I, step 5), each with a symbol."""
     f = Fig('g03_five_stars')
-    spec = [('On the web', 'open licence'), ('Structured', 'Excel, not a scan'), ('Open format', 'CSV, not Excel'), ('URIs', 'RDF and SPARQL'), ('Linked', 'to other data')]
-    for i, (a, b) in enumerate(spec):
-        cx = 260 + i * 470; h = 240 + i * 120; top = 860 - h
+    spec = [('globe', 'On the web', 'open licence'), ('table', 'Structured', 'Excel, not a scan'), ('file', 'Open format', 'CSV, not Excel'), ('tag', 'URIs', 'RDF and SPARQL'), ('chain', 'Linked', 'to other data')]
+    for i, (ic, a, b) in enumerate(spec):
+        cx = 260 + i * 470; h = 380 + i * 100; top = 860 - h
         f.o.append(f'<rect x="{cx - 225}" y="{top}" width="450" height="{h}" rx="18" fill="{INST}" stroke="{HL if i >= 3 else "#000"}" stroke-width="{8 if i >= 3 else 2.5}"/>')
-        for j in range(i + 1): star(f, cx + (j - i / 2) * 56, top + 55)
-        f.text(cx, top + 135, a, MIN_TYPE, 500, maxw=420); f.text(cx, top + 185, b, MIN_TYPE, 400, maxw=420)
+        for j in range(i + 1): star(f, cx + (j - i / 2) * 56, top + 50)
+        icon(f, ic, cx, top + 150, z=1.0)
+        f.text(cx, top + 255, a, MIN_TYPE, 500, maxw=420); f.text(cx, top + 305, b, MIN_TYPE, 400, maxw=420)
     f.done()
 
 def g07():
@@ -642,6 +643,16 @@ def icon(f, kind, cx, cy, col=HL, z=1.6):
     elif kind == 'triple':
         f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><path d="M-48,32 L48,32 M-48,32 L0,-40 M48,32 L0,-40" {n}/>'
                    f'<circle cx="-48" cy="32" r="17" {w}/><circle cx="48" cy="32" r="17" {w}/><circle cx="0" cy="-40" r="17" {w}/></g>')
+    elif kind == 'table':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><path d="M-55,-40 H55 V40 H-55 Z" {w}/><path d="M-55,-13 H55 M-55,13 H55 M-18,-40 V40" {n}/></g>')
+    elif kind == 'file':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><path d="M-38,-52 H14 L40,-26 V52 H-38 Z" {w}/><path d="M14,-52 V-26 H40 M-20,2 H22 M-20,24 H22" {n}/></g>')
+    elif kind == 'within':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><circle r="58" {w}/><circle r="18" fill="{col}"/></g>')
+    elif kind == 'overlap':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><circle cx="-24" r="40" {n}/><circle cx="24" r="40" {n}/></g>')
+    elif kind == 'dist':
+        f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><path d="M-48,0 H48" {n} stroke-dasharray="10 12"/><circle cx="-56" r="14" fill="{col}"/><circle cx="56" r="14" fill="{col}"/></g>')
     elif kind == 'chain':
         f.o.append(f'<g transform="translate({cx},{cy}) scale({z})"><rect x="-70" y="-24" width="82" height="48" rx="24" {n}/><rect x="-12" y="-24" width="82" height="48" rx="24" {n}/></g>')
 
@@ -857,6 +868,31 @@ def g54():
     f.edge(boxes[0], boxes[1], 'located in'); f.edge(boxes[1], boxes[2], 'country')
     for b in boxes:
         t = (b[0], 700, 520, 130); f.box(*t, '#fff', ['open the URI', 'get more triples'], dash=True); f.edge(b, t, '')
+    f.done()
+
+def g55():
+    """G55: GeoSPARQL feature and geometry (Part II, step 4). A feature has a geometry, the geometry has a WKT literal."""
+    c = wd_item(STONE)['claims']['P625'][0]['mainsnak']['datavalue']['value']
+    f = Fig('g55_geosparql_feature')
+    a, g, w = (300, 450, 440, 150), (1200, 450, 440, 150), (2120, 450, 500, 150)
+    f.box(*a, INST, ['CIIC 81', 'geo:Feature'], stroke=HL, sw=8); f.box(*g, CLS, ['geo:Geometry'], tc='#fff')
+    f.box(*w, '#fff', [f"POINT({c['longitude']:.2f} {c['latitude']:.2f})", 'geo:wktLiteral'])
+    f.edge(a, g, 'geo:hasGeometry'); f.edge(g, w, 'geo:asWKT')
+    f.done()
+
+def g56():
+    """G56: GeoSPARQL spatial functions (Part II, step 4), with one count computed from the geo-lod data."""
+    ci, sl = geo('ci'), geo('sisal')
+    def hv(a, b):
+        la1, lo1, la2, lo2 = map(math.radians, (a[1], a[0], b[1], b[0]))
+        return 2 * 6371 * math.asin(math.sqrt(math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2))
+    n = sum(1 for p in ci if any(hv(p, q) <= 100 for q in sl))
+    f = Fig('g56_geosparql_functions')
+    for i, (ic, fn, what) in enumerate([('within', 'geof:sfWithin', 'inside a region'), ('overlap', 'geof:sfIntersects', 'overlaps a region'), ('dist', 'geof:distance', 'how far apart')]):
+        cx = 400 + i * 800
+        f.o.append(f'<rect x="{cx - 340}" y="60" width="680" height="480" rx="18" fill="{INST}" stroke="#000" stroke-width="2.5"/>')
+        icon(f, ic, cx, 220, z=1.4); f.text(cx, 395, fn, MIN_TYPE, 500, maxw=640); f.text(cx, 465, what, MIN_TYPE, 400, maxw=640)
+    f.box(1200, 740, 1900, 150, '#fff', [f'{n} of {len(ci)} Campanian Ignimbrite findspots lie within 100 km of a SISAL cave'], stroke=HL, sw=8)
     f.done()
 
 if __name__ == '__main__':
