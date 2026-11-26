@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="520.0" y="340.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">stone</text>
+<text x="1880.0" y="340.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">place</text>
+<rect x="100.0" y="390.0" width="440" height="110" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="320.0" y="458.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">name</text>
+<rect x="540.0" y="390.0" width="440" height="110" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="760.0" y="458.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">place_id</text>
+<rect x="100.0" y="500.0" width="440" height="110" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="320.0" y="568.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIIC 81</text>
+<rect x="540.0" y="500.0" width="440" height="110" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="760.0" y="568.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q69385525</text>
+<rect x="1440.0" y="390.0" width="440" height="110" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1660.0" y="458.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">place_id</text>
+<rect x="1880.0" y="390.0" width="440" height="110" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="458.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">name</text>
+<rect x="1440.0" y="500.0" width="440" height="110" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1660.0" y="568.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q69385525</text>
+<rect x="1880.0" y="500.0" width="440" height="110" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2100.0" y="568.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Garranes</text>
+<line x1="980.0" y1="555.0" x2="1440.0" y2="555.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1089.5" y="526.0" width="241.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1210.0" y="568.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">foreign key</text></svg>

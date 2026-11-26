@@ -456,5 +456,63 @@ def g21():
         f.box(*l, TERM, [a], tc='#fff'); f.box(*r, TERM, [b], tc='#fff'); f.edge(l, r, 'maps to')
     f.done()
 
+
+def g23():
+    """G23: a relational database (Part I, step 3): two tables joined by a foreign key. Values are read from the Wikidata copy of CIIC 81."""
+    it = wd_item(STONE); pid = claim_ids(it, 'P189')[0]; place = LAB[pid].replace(' (Ogham Site)', '')
+    f = Fig('g23_relational_keys')
+    f.text(520, 340, 'stone', MIN_TYPE, 500); f.text(1880, 340, 'place', MIN_TYPE, 500)
+    t1 = f.table(100, 390, [440, 440], [['name', 'place_id'], ['CIIC 81', pid]], rowh=110)
+    t2 = f.table(1440, 390, [440, 440], [['place_id', 'name'], [pid, place]], rowh=110)
+    a = (100 + 440 + 220, 390 + 165, 440, 110); b = (1440 + 220, 390 + 165, 440, 110)
+    f.edge(a, b, 'foreign key')
+    f.done()
+
+def g24():
+    """G24: how an Ogham stone is read (Part I, step 2). The strokes are drawn from the transcription of CIIC 81 in Wikidata; restored letters are grey."""
+    t = wd_item(STONE)['claims']['P1684'][0]['mainsnak']['datavalue']['value']['text']
+    # aicme: (kind, count). B: right of the stem, H: left, M: across, A: notches
+    code = {}
+    for k, (kind, letters) in enumerate([('B', 'BLFSN'), ('H', 'HDTCQ'), ('M', 'MGZR'), ('A', 'AOUEI')]):
+        for n, ch in enumerate(letters, 1): code[ch] = (kind, n)
+    code['Z'] = ('M', 4)
+    f = Fig('g24_ogham_reading')
+    sy = 440; x = 90; sp = 18; gap = 26; wordgap = 60
+    f.o.append(f'<line x1="40" y1="{sy}" x2="2360" y2="{sy}" stroke="#000" stroke-width="6"/>')
+    restored = False
+    for ch in t:
+        if ch == '[': restored = True; continue
+        if ch == ']': restored = False; continue
+        if ch == ' ': x += wordgap; continue
+        kind, n = code[ch]; col = '#a8a69c' if restored else '#000'
+        for j in range(n):
+            xs = x + j * sp
+            if kind == 'B': f.o.append(f'<line x1="{xs}" y1="{sy}" x2="{xs}" y2="{sy + 85}" stroke="{col}" stroke-width="8" stroke-linecap="round"/>')
+            elif kind == 'H': f.o.append(f'<line x1="{xs}" y1="{sy}" x2="{xs}" y2="{sy - 85}" stroke="{col}" stroke-width="8" stroke-linecap="round"/>')
+            elif kind == 'M': f.o.append(f'<line x1="{xs - 18}" y1="{sy + 85}" x2="{xs + 18}" y2="{sy - 85}" stroke="{col}" stroke-width="8" stroke-linecap="round"/>')
+            else: f.o.append(f'<line x1="{xs}" y1="{sy - 18}" x2="{xs}" y2="{sy + 18}" stroke="{col}" stroke-width="10" stroke-linecap="round"/>')
+        w = (n - 1) * sp
+        f.text(x + w / 2, sy + 190, ch, MIN_TYPE, 500, '#a8a69c' if restored else INK)
+        x += w + gap + sp
+    assert x < 2400, x
+    f.text(40, 130, 'Strokes above the stem: H, D, T, C, Q', MIN_TYPE, 400, '#55544f', 'start'); f.text(40, 800, 'Strokes below the stem: B, L, F, S, N', MIN_TYPE, 400, '#55544f', 'start')
+    f.text(2360, 800, 'Slanted: M, G, Z, R · Notches: A, O, U, E, I', MIN_TYPE, 400, '#55544f', 'end')
+    f.text(2360, 130, 'grey: restored letters', MIN_TYPE, 400, '#55544f', 'end')
+    f.done()
+
+def g25():
+    """G25: FAIR in four columns (Part I, step 10), each with an example from the stone."""
+    cols = [('F', 'Findable', [['URI per thing', STONE], ['lod.ogham.link', claim_str(wd_item(STONE), 'P2888')[0].rsplit('/', 1)[-1]]]),
+            ('A', 'Accessible', [['SPARQL', 'open protocol'], ['Wikidata', 'N4O KG']]),
+            ('I', 'Interoperable', [['CIDOC CRM', 'shared model'], ['SKOS', 'GeoSPARQL']]),
+            ('R', 'Reusable', [['Licence', 'CC0 in Wikidata'], ['Provenance', 'who said what']])]
+    f = Fig('g25_fair_examples')
+    for i, (l, name, items) in enumerate(cols):
+        cx = 330 + i * 580
+        f.o.append(f'<circle cx="{cx}" cy="130" r="80" fill="{INST}" stroke="{HL}" stroke-width="8"/>'); f.text(cx, 158, l, 80, 700)
+        f.text(cx, 290, name, MIN_TYPE, 500)
+        for j, lines in enumerate(items): f.box(cx, 450 + j * 200, 500, 140, '#fff', lines)
+    f.done()
+
 if __name__ == '__main__':
     for n in (sys.argv[1:] or ['g06']): globals()[n]()

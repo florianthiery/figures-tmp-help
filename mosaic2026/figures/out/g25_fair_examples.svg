@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><circle cx="330" cy="130" r="80" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="330.0" y="158.0" font-family="Fira Sans" font-size="80" font-weight="700" fill="#1f1f1d" text-anchor="middle">F</text>
+<text x="330.0" y="290.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Findable</text>
+<rect x="80.0" y="380.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">URI per thing</text>
+<text x="330.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Q130529871</text>
+<rect x="80.0" y="580.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="330.0" y="638.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">lod.ogham.link</text>
+<text x="330.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Y50000081</text>
+<circle cx="910" cy="130" r="80" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="910.0" y="158.0" font-family="Fira Sans" font-size="80" font-weight="700" fill="#1f1f1d" text-anchor="middle">A</text>
+<text x="910.0" y="290.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Accessible</text>
+<rect x="660.0" y="380.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="910.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">SPARQL</text>
+<text x="910.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">open protocol</text>
+<rect x="660.0" y="580.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="910.0" y="638.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Wikidata</text>
+<text x="910.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">N4O KG</text>
+<circle cx="1490" cy="130" r="80" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1490.0" y="158.0" font-family="Fira Sans" font-size="80" font-weight="700" fill="#1f1f1d" text-anchor="middle">I</text>
+<text x="1490.0" y="290.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Interoperable</text>
+<rect x="1240.0" y="380.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1490.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CIDOC CRM</text>
+<text x="1490.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">shared model</text>
+<rect x="1240.0" y="580.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="1490.0" y="638.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">SKOS</text>
+<text x="1490.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">GeoSPARQL</text>
+<circle cx="2070" cy="130" r="80" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="2070.0" y="158.0" font-family="Fira Sans" font-size="80" font-weight="700" fill="#1f1f1d" text-anchor="middle">R</text>
+<text x="2070.0" y="290.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Reusable</text>
+<rect x="1820.0" y="380.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Licence</text>
+<text x="2070.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CC0 in Wikidata</text>
+<rect x="1820.0" y="580.0" width="500.0" height="140.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="2070.0" y="638.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Provenance</text>
+<text x="2070.0" y="688.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">who said what</text></svg>
