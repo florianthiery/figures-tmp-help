@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="190.0" y="65.0" width="520.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="133.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Roman Open Data</text>
+<line x1="575.0" y1="175.0" x2="1052.3" y2="385.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="760.6" y="251.0" width="106.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="813.6" y="293.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">RDF</text>
+<rect x="940.0" y="65.0" width="520.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="133.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Ogham</text>
+<line x1="1200.0" y1="175.0" x2="1200.0" y2="385.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1147.0" y="251.0" width="106.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="293.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">RDF</text>
+<rect x="1690.0" y="65.0" width="520.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="133.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">fuzzy-sl</text>
+<line x1="1825.0" y1="175.0" x2="1347.7" y2="385.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1533.4" y="251.0" width="106.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1586.4" y="293.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">RDF</text>
+<rect x="190.0" y="725.0" width="520.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="450.0" y="793.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Poseidon</text>
+<line x1="575.0" y1="725.0" x2="1052.3" y2="515.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="760.6" y="591.0" width="106.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="813.6" y="633.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">RDF</text>
+<rect x="940.0" y="725.0" width="520.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="793.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">BB-5KBC</text>
+<line x1="1200.0" y1="725.0" x2="1200.0" y2="515.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1147.0" y="591.0" width="106.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1200.0" y="633.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">RDF</text>
+<rect x="1690.0" y="725.0" width="520.0" height="110.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1950.0" y="793.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Wikidata</text>
+<line x1="1825.0" y1="725.0" x2="1347.7" y2="515.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1457.4" y="591.0" width="258.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1586.4" y="633.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">exact match</text>
+<rect x="970.0" y="385.0" width="460.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">N4O KG</text></svg>

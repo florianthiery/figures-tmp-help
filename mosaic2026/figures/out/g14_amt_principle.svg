@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="50.0" y="395.0" width="380.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="240.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Auel Maar AU3</text>
+<rect x="790.0" y="395.0" width="520.0" height="110.0" rx="18" fill="#1f1f1d" stroke="#9454AC" stroke-width="8"/>
+<text x="1050.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">50.282°N 6.595°E</text>
+<line x1="430.0" y1="450.0" x2="790.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="492.5" y="421.0" width="235.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="610.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">coordinate</text>
+<rect x="1680.0" y="80.0" width="600.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1980.0" y="143.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">High</text>
+<line x1="1209.8" y1="395.0" x2="1834.7" y2="180.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1372.8" y="258.5" width="299.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1522.3" y="301.1" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
+<rect x="1680.0" y="293.0" width="600.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1980.0" y="356.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">Georeferencing</text>
+<line x1="1310.0" y1="420.1" x2="1680.0" y2="377.5" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1356.5" y="369.8" width="277.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1495.0" y="412.4" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">method used</text>
+<rect x="1680.0" y="506.0" width="600.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1980.0" y="569.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">Textual Description</text>
+<line x1="1310.0" y1="479.6" x2="1680.0" y2="521.8" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1370.0" y="471.7" width="250.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1495.0" y="514.3" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">source type</text>
+<rect x="1680.0" y="719.0" width="600.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1980.0" y="782.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Fiona Schenk</text>
+<line x1="1210.3" y1="505.0" x2="1834.2" y2="719.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1379.3" y="583.0" width="286.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1522.3" y="625.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">acting person</text></svg>

@@ -30,7 +30,7 @@ c = g_('CI/rdf/ci_findspots.ttl')
 ca = set(c.subjects(RDF.type, GL.CIArchaeologicalSite))
 ci = []
 for x in c.subjects(RDF.type, GL.CIFindspot):
-    lon, lat = wkt(c, c.value(x, GEO.hasGeometry)); ci.append([round(lon, 4), round(lat, 4), str(c.value(x, RDFS.label)), x in ca])
+    lon, lat = wkt(c, c.value(x, GEO.hasGeometry)); ci.append([round(lon, 4), round(lat, 4), str(c.value(x, RDFS.label)), x in ca, str(c.value(x, GL.hasCertaintyLevel)).rsplit('/', 1)[-1]])
 dump('ci.json', sorted(ci, key=lambda t: t[2]))
 
 # competing ages of the CI eruption

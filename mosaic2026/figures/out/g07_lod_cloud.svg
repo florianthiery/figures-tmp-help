@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><line x1="1086.8" y1="395.0" x2="602.9" y2="160.0" stroke="#000" stroke-width="3"/>
+<line x1="1200.0" y1="395.0" x2="1200.0" y2="160.0" stroke="#000" stroke-width="3"/>
+<line x1="1313.2" y1="395.0" x2="1797.1" y2="160.0" stroke="#000" stroke-width="3"/>
+<line x1="1020.0" y1="450.0" x2="430.0" y2="450.0" stroke="#000" stroke-width="3"/>
+<line x1="1380.0" y1="450.0" x2="1970.0" y2="450.0" stroke="#000" stroke-width="3"/>
+<line x1="1086.8" y1="505.0" x2="602.9" y2="740.0" stroke="#000" stroke-width="3"/>
+<line x1="1313.2" y1="505.0" x2="1797.1" y2="740.0" stroke="#000" stroke-width="3"/>
+<line x1="1200.0" y1="505.0" x2="1200.0" y2="740.0" stroke="#000" stroke-width="3"/>
+<rect x="320.0" y="60.0" width="360.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="500.0" y="123.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">DBpedia</text>
+<rect x="1020.0" y="60.0" width="360.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1200.0" y="123.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">GeoNames</text>
+<rect x="1720.0" y="60.0" width="360.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1900.0" y="123.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">VIAF</text>
+<rect x="70.0" y="400.0" width="360.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="250.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Getty AAT</text>
+<rect x="1970.0" y="400.0" width="360.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="2150.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Pleiades</text>
+<rect x="320.0" y="740.0" width="360.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="500.0" y="803.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">FactGrid</text>
+<rect x="1720.0" y="740.0" width="360.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1900.0" y="803.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Europeana</text>
+<rect x="1020.0" y="740.0" width="360.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="803.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">N4O KG</text>
+<rect x="1020.0" y="395.0" width="360.0" height="110.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Wikidata</text></svg>

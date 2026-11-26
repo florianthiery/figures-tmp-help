@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="1670.0" y="50.0" width="560.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="113.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">High (14)</text>
+<line x1="550.0" y1="402.5" x2="1718.6" y2="150.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="984.8" y="247.2" width="299.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1134.3" y="289.8" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
+<rect x="1670.0" y="225.0" width="560.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="288.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">Medium (47)</text>
+<line x1="550.0" y1="426.2" x2="1670.0" y2="305.2" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="960.5" y="336.7" width="299.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1110.0" y="379.3" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
+<rect x="1670.0" y="400.0" width="560.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">Low (6)</text>
+<line x1="550.0" y1="450.0" x2="1670.0" y2="450.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="960.5" y="421.0" width="299.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1110.0" y="463.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
+<rect x="1670.0" y="575.0" width="560.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="638.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">Dubious (5)</text>
+<line x1="550.0" y1="473.8" x2="1670.0" y2="594.8" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="960.5" y="505.3" width="299.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1110.0" y="547.9" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
+<rect x="1670.0" y="750.0" width="560.0" height="100.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="1950.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">Representative (2)</text>
+<line x1="550.0" y1="497.5" x2="1718.6" y2="750.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="984.8" y="594.8" width="299.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1134.3" y="637.4" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">certainty level</text>
+<rect x="110.0" y="385.0" width="440.0" height="130.0" rx="18" fill="#e2e8f0" stroke="#9454AC" stroke-width="8"/>
+<text x="330.0" y="438.6" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">CI findspot</text>
+<text x="330.0" y="488.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">74 in the graph</text></svg>

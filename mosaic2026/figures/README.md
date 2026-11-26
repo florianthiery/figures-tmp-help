@@ -7,13 +7,19 @@ Differences for slides: canvas 2400 x 900 px, type 40 px and more, transparent b
 ## Run (Windows cmd, one line)
 
 ```
-cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow && python figs.py g05 g04 g02 g06 g09 g08 g12 g15 g17 g18 g20 g19 g22
+cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow && python figs.py g05 g04 g02 g06 g09 g08 g12 g03 g07 g10 g11 g13 g14 g15 g17 g18 g20 g19 g22
 ```
 
 ## Figures (numbers as in the plan, tab "Grafikplan")
 
 | Name | Content | Used in |
 |---|---|---|
+| `g03_five_stars` | the five stars of open data | Part I, step 5 |
+| `g07_lod_cloud` | schematic LOD cloud around Wikidata | Part I, step 5 |
+| `g10_fkge_simplified` | Federated Knowledge Graph Ecosystem, simplified from fig1_fkge | Part I, step 7 |
+| `g11_n4o_kg_hubs` | N4O KG and its community hubs | Part I, step 7 |
+| `g13_findspot_certainty` | certainty levels of the 74 CI findspots | Part I, step 9 |
+| `g14_amt_principle` | a coordinate statement with certainty, method, source type, person (fuzzy-sl Q70) | Part I, step 9 |
 | `g05_triple` | subject, predicate, object; class, plain value, value with language tag | Part I, step 4 |
 | `g04_row_to_graph` | one table row becomes a graph | Part I, steps 3 to 4 |
 | `g02_three_tables` | one stone, three identifiers, three column layouts | Part I, step 3 |

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="270.0" y="235.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">FDO-driven</text>
+<text x="2130.0" y="235.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">LOD-driven</text>
+<rect x="10.0" y="280.0" width="520.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="343.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Measurement</text>
+<rect x="10.0" y="480.0" width="520.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="543.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Analysis &amp; Visualisation</text>
+<rect x="10.0" y="680.0" width="520.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="270.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Conclusion</text>
+<rect x="1870.0" y="280.0" width="520.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="343.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Capture &amp; Documentation</text>
+<rect x="1870.0" y="480.0" width="520.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="543.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Analysis &amp; Enrichment</text>
+<rect x="1870.0" y="680.0" width="520.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="2130.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Conclusion</text>
+<line x1="270.0" y1="380.0" x2="270.0" y2="480.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="2130.0" y1="380.0" x2="2130.0" y2="480.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="270.0" y1="580.0" x2="270.0" y2="680.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="2130.0" y1="580.0" x2="2130.0" y2="680.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="760.0" y="220.0" width="880" height="640" rx="30" fill="#fff" stroke="#9454AC" stroke-width="8"/>
+<text x="1200.0" y="270.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="middle">Federated Knowledge Graph</text>
+<rect x="797.5" y="355.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="892.5" y="413.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">LOD</text>
+<rect x="1002.5" y="355.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1097.5" y="413.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Wikibase</text>
+<rect x="1207.5" y="355.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1302.5" y="413.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">FDO</text>
+<rect x="1412.5" y="355.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1507.5" y="413.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">GIS</text>
+<rect x="797.5" y="485.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="892.5" y="543.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">OSM</text>
+<rect x="1002.5" y="485.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1097.5" y="543.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">LPG</text>
+<rect x="1207.5" y="485.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1302.5" y="543.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">HIN</text>
+<rect x="1412.5" y="485.0" width="190.0" height="90.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1507.5" y="543.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">EpiDoc</text>
+<rect x="810.0" y="650.0" width="780.0" height="100.0" rx="18" fill="#fff" stroke="#000" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="1200.0" y="713.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">CIDOC CRM, ontologies, terminologies</text>
+<rect x="970.0" y="40.0" width="460.0" height="100.0" rx="18" fill="#e2e8f0" stroke="#000" stroke-width="2.5"/>
+<text x="1200.0" y="103.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">Physical object</text>
+<line x1="1006.2" y1="140.0" x2="463.8" y2="280.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="1393.8" y1="140.0" x2="1936.2" y2="280.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<line x1="530.0" y1="532.8" x2="760.0" y2="535.3" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="581.5" y="505.0" width="127.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="645.0" y="547.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">FDOs</text>
+<line x1="1870.0" y1="532.8" x2="1640.0" y2="535.3" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1700.5" y="505.0" width="109.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1755.0" y="547.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">LOD</text></svg>

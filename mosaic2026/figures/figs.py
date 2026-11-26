@@ -209,6 +209,12 @@ def g12():
 
 
 # ---------------------------------------------------------------- Part II
+def wb_entity(i):
+    d = json.load(open(os.path.join(HERE, f'data/wb/{i}.json'), encoding='utf8')); return list(d['entities'].values())[0] if 'entities' in d else d
+def snak_text(sn):
+    v = sn['datavalue']['value']
+    return wb_entity(v['id'])['labels']['en']['value'] if isinstance(v, dict) and 'id' in v else str(v)
+
 def geo(n): return json.load(open(os.path.join(HERE, f'data/geo/{n}.json'), encoding='utf8'))
 def plain(s): return s.replace('₄', '4')            # Fira Sans subset has no subscript four
 
@@ -325,6 +331,96 @@ def g22():
     f.box(*a[0], '#fff', ['Wikidata', 'N4O KG'], dash=True); f.box(*a[1], INST, ['SPARQLing Unicorn', 'QGIS plugin'], stroke=HL, sw=8); f.box(*a[2], '#fff', ['Map in QGIS'])
     f.box(*b[0], INST, ['OER notebook', 'Quarto-live']); f.box(*b[1], '#fff', ['Python in the browser', 'Pyodide']); f.box(*b[2], '#fff', ['Table and map'])
     f.edge(a[0], a[1], 'SPARQL'); f.edge(a[1], a[2], 'layer'); f.edge(b[0], b[1], 'runs in'); f.edge(b[1], b[2], 'result')
+    f.done()
+
+
+# ---------------------------------------------------------------- Part I, rest
+def star(f, cx, cy, r=24):
+    pts = []
+    for i in range(10):
+        a = -math.pi / 2 + i * math.pi / 5; rr = r if i % 2 == 0 else r * 0.45
+        pts.append(f'{cx + rr * math.cos(a):.1f},{cy + rr * math.sin(a):.1f}')
+    f.o.append(f'<polygon points="{" ".join(pts)}" fill="{AMB}" stroke="#000" stroke-width="2" stroke-linejoin="round"/>')
+
+def g03():
+    """G03: the five stars of open data (Part I, step 5)."""
+    f = Fig('g03_five_stars')
+    spec = [('On the web', 'open licence'), ('Structured', 'Excel, not a scan'), ('Open format', 'CSV, not Excel'), ('URIs', 'RDF and SPARQL'), ('Linked', 'to other data')]
+    for i, (a, b) in enumerate(spec):
+        cx = 260 + i * 470; h = 240 + i * 120; top = 860 - h
+        f.o.append(f'<rect x="{cx - 225}" y="{top}" width="450" height="{h}" rx="18" fill="{INST}" stroke="{HL if i >= 3 else "#000"}" stroke-width="{8 if i >= 3 else 2.5}"/>')
+        for j in range(i + 1): star(f, cx + (j - i / 2) * 56, top + 55)
+        f.text(cx, top + 135, a, MIN_TYPE, 500, maxw=420); f.text(cx, top + 185, b, MIN_TYPE, 400, maxw=420)
+    f.done()
+
+def g07():
+    """G07: the Linked Open Data cloud (Part I, step 5), schematic: datasets as nodes, links to Wikidata as lines. Datasets of the project are solid, others dashed."""
+    f = Fig('g07_lod_cloud')
+    hub = (1200, 450, 360, 110)
+    ext = [((500, 110), 'DBpedia'), ((1200, 110), 'GeoNames'), ((1900, 110), 'VIAF'), ((250, 450), 'Getty AAT'), ((2150, 450), 'Pleiades'), ((500, 790), 'FactGrid'), ((1900, 790), 'Europeana')]
+    own = [((1200, 790), 'N4O KG')]
+    for (x, y), t in ext + own:
+        n = (x, y, 360, 100); a, b = border(hub, n), border(n, hub); f.line(a[0], a[1], b[0], b[1], dash=False)
+    for (x, y), t in ext: f.box(x, y, 360, 100, '#fff', [t], dash=True)
+    f.box(1200, 790, 360, 100, INST, ['N4O KG'], stroke=HL, sw=8)
+    f.box(*hub, INST, ['Wikidata'])
+    f.done()
+
+def g10():
+    """G10: the Federated Knowledge Graph Ecosystem, simplified from fig1_fkge (Part I, step 7): two workflows around one graph."""
+    f = Fig('g10_fkge_simplified')
+    po = (1200, 90, 460, 100)
+    L = [(270, 330), (270, 530), (270, 730)]; R = [(2130, 330), (2130, 530), (2130, 730)]
+    ln = ['Measurement', 'Analysis & Visualisation', 'Conclusion']; rn = ['Capture & Documentation', 'Analysis & Enrichment', 'Conclusion']
+    f.text(270, 235, 'FDO-driven', MIN_TYPE, 500, fill='#55544f'); f.text(2130, 235, 'LOD-driven', MIN_TYPE, 500, fill='#55544f')
+    Ln = [(x, y, 520, 100) for x, y in L]; Rn = [(x, y, 520, 100) for x, y in R]
+    for n, t in zip(Ln, ln): f.box(*n, INST, [t])
+    for n, t in zip(Rn, rn): f.box(*n, INST, [t])
+    for i in (0, 1): f.edge(Ln[i], Ln[i + 1], None); f.edge(Rn[i], Rn[i + 1], None)
+    fk = (1200, 540, 880, 640)
+    f.o.append(f'<rect x="{fk[0] - fk[2] / 2}" y="{fk[1] - fk[3] / 2}" width="{fk[2]}" height="{fk[3]}" rx="30" fill="#fff" stroke="{HL}" stroke-width="8"/>')
+    f.text(1200, 270, 'Federated Knowledge Graph', MIN_TYPE, 500)
+    for i, t in enumerate(['LOD', 'Wikibase', 'FDO', 'GIS', 'OSM', 'LPG', 'HIN', 'EpiDoc']):
+        f.box(1200 + (i % 4 - 1.5) * 205, 400 + (i // 4) * 130, 190, 90, INST, [t])
+    f.box(1200, 700, 780, 100, '#fff', ['CIDOC CRM, ontologies, terminologies'], dash=True)
+    f.box(*po, INST, ['Physical object'])
+    f.edge(po, Ln[0], None); f.edge(po, Rn[0], None)
+    f.edge(Ln[1], fk, 'FDOs'); f.edge(Rn[1], fk, 'LOD')
+    f.done()
+
+def g11():
+    """G11: the N4O Knowledge Graph and its community hubs (Part I, step 7)."""
+    f = Fig('g11_n4o_kg_hubs')
+    kg = (1200, 450, 460, 130)
+    hubs = [((450, 120), 'Roman Open Data', False), ((1200, 120), 'Ogham', False), ((1950, 120), 'fuzzy-sl', False),
+            ((450, 780), 'Poseidon', False), ((1200, 780), 'BB-5KBC', False), ((1950, 780), 'Wikidata', True)]
+    for (x, y), t, ext_ in hubs:
+        n = (x, y, 520, 110); f.box(*n, '#fff' if ext_ else INST, [t], dash=ext_); f.edge(n, kg, 'exact match' if ext_ else 'RDF')
+    f.box(*kg, INST, ['N4O KG'], stroke=HL, sw=8)
+    f.done()
+
+def g13():
+    """G13: how sure is a place? Certainty levels of the 74 CI findspots in the geo-lod graph (Part I, step 9)."""
+    from collections import Counter
+    cnt = Counter(p[4] for p in geo('ci')); order = ['high', 'medium', 'low', 'dubious', 'representative']
+    f = Fig('g13_findspot_certainty')
+    s_ = (330, 450, 440, 130)
+    for i, k in enumerate(order):
+        n = (1950, 100 + i * 175, 560, 100); f.box(*n, TERM, [f'{k.capitalize()} ({cnt[k]})'], tc='#fff'); f.edge(s_, n, 'certainty level')
+    f.box(*s_, INST, ['CI findspot', f'{sum(cnt.values())} in the graph'], stroke=HL, sw=8)
+    f.done()
+
+def g14():
+    """G14: the Academic Meta Tool principle (Part I, step 9). A coordinate statement carries who said it, how, and how sure (fuzzy-sl Wikibase item Q70)."""
+    e = wb_entity('Q70'); c = e['claims']['P4'][0]; v = c['mainsnak']['datavalue']['value']
+    q = {p: snak_text(s[0]) for p, s in c['qualifiers'].items()}
+    f = Fig('g14_amt_principle')
+    s_ = (240, 450, 380, 110); xy = (1050, 450, 520, 110)
+    f.box(*s_, INST, [e['labels']['en']['value']])
+    f.box(*xy, '#1f1f1d', [dms(v['latitude'], 'N', 'S') + ' ' + dms(v['longitude'], 'E', 'W')], tc='#fff', stroke=HL, sw=8)
+    f.edge(s_, xy, 'coordinate')
+    for i, (p, fill) in enumerate([('P5', TERM), ('P7', TERM), ('P6', TERM), ('P14', INST)]):
+        n = (1980, 130 + i * 213, 600, 100); f.box(*n, fill, [q[p]], tc='#fff' if fill == TERM else INK); f.edge(xy, n, {'P5': 'certainty level', 'P7': 'method used', 'P6': 'source type', 'P14': 'acting person'}[p])
     f.done()
 
 if __name__ == '__main__':
