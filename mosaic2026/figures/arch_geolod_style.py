@@ -81,23 +81,33 @@ def a2():
     f.save()
 
 def a3():
-    f = Fig('a3-harris-matrix', 'The contexts of the section as a Harris matrix and as a graph: AP11 physical relations, AP12 confines')
-    top = [('101', 'topsoil'), ('102', 'plough soil'), ('103', 'wall collapse'), ('104', 'floor layer'), ('107', 'natural')]
-    pos = {}
-    for i, (n, nm) in enumerate(top):
-        x = 60 + i * 335; pos[n] = x
-        f.box(x, 150, 270, 110, f'[{n}] {nm}', 'A2 Stratigraphic Volume Unit', INST, 23, 16)
-    for a, b in zip(top, top[1:]):
-        xa, xb = pos[a[0]] + 270, pos[b[0]]
-        f.line(xa, 205, xb - 2, 205); chip(f, (xa + xb) / 2, 178, 'above', 17)
-    f.box(795, 700, 270, 110, '[105] pit fill', 'A2 Stratigraphic Volume Unit', INST, 23, 16)
-    f.box(1350, 700, 270, 110, '[106] pit cut', 'A3 Stratigraphic Interface', CLS, 23, 16)
-    f.line(1350, 755, 1067, 755); chip(f, 1208, 728, 'AP12 confines', 17)
-    f.line(1420, 700, 1240, 262, 'a'); chip(f, 1330, 480, 'AP11 cuts', 17)
-    f.line(865, 262, 930, 698); chip(f, 898, 480, 'AP11 above', 17)
-    f.text(60, 60, 'Harris matrix: later at the top, earlier below', 24, True, anchor='start')
-    f.text(60, 92, 'fictional example; the cut [106] confines the fill [105] and cuts the floor [104]', 19, color=MUTED, anchor='start')
-    f.legend(960, [(INST, 'Stratigraphic Volume Unit (A2)'), (CLS, 'Stratigraphic Interface (A3)')], x=60)
+    f = Fig('a3-harris-matrix', 'The trench section on the left, the same contexts as a Harris matrix on the right')
+    # left: what you see in the trench
+    x, y, w, h = 60, 110, 700, 760
+    f.text(x + w / 2, 55, 'Trench section', 28, True); f.text(x + w / 2, 85, 'fictional example', 19, color=MUTED)
+    bh = section(f, x, y, w, h)
+    px, py = x + w * 0.52, y + 3 * bh
+    f.text(px + w * .27, py + bh * .55, '[106] cut', 21, True, '#9454AC', anchor='start')
+    # right: the same contexts as a graph, later at the top
+    mx, mw, bhh, gap, y0 = 1010, 320, 62, 64, 110
+    f.text(mx + mw / 2, 55, 'Harris matrix', 28, True); f.text(mx + mw / 2, 85, 'later at the top, earlier below', 19, color=MUTED)
+    seq = [('101', 'topsoil', '#d9d2c3'), ('102', 'plough soil', '#cdbfa6'), ('103', 'wall collapse', '#e6c9a8'),
+           ('105', 'pit fill', '#8f7f66'), ('106', 'pit cut', '#ffffff'), ('104', 'floor layer', '#f0e0b8'), ('107', 'natural', '#b9b4aa')]
+    rel = ['above', 'above', 'above', 'fills', 'cuts', 'above']
+    for k, (n, nm, col) in enumerate(seq):
+        yy = y0 + k * (bhh + gap)
+        if n == '106': f.rect(mx, yy, mw, bhh, col, '#9454AC', 6, 3.2, dash=True)
+        else: f.rect(mx, yy, mw, bhh, col, '#000000', 6, 1.2)
+        f.text(mx + mw / 2, yy + bhh / 2, f'[{n}] {nm}', 24, True, '#ffffff' if n == '105' else '#1f1f1d', maxw=mw - 16)
+        if k < len(rel):
+            ya, yb = yy + bhh, yy + bhh + gap
+            f.line(mx + mw / 2, ya, mx + mw / 2, yb - 2); chip(f, mx + mw / 2, (ya + yb) / 2, rel[k], 18)
+    # right: how to read it
+    cx, cw = 1380, 340
+    f.rect(cx, 290, cw, 400, '#f6f6f3', 'none', 10)
+    for t, yy, med in (('How to read it', 332, True), ('Box = one context', 392, False), ('Arrow = one relation', 436, False), ('Later above, earlier below', 480, False),
+                       ('In CRMarchaeo', 556, True), ('Context = A2 Volume Unit', 604, False), ('Cut = A3 Interface', 648, False)):
+        f.text(cx + 24, yy, t, 24 if med else 22, med, '#1f1f1d' if med else MUTED, anchor='start', maxw=cw - 40)
     f.save()
 
 if __name__ == '__main__':
