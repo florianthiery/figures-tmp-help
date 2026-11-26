@@ -126,13 +126,13 @@ def a2():
     f.save()
 
 def a3():
-    f = Fig('a3-harris-matrix', 'The trench section on the left, the same contexts as a Harris matrix on the right')
-    x, y, w, h = 60, 110, 620, 800
-    f.text(x + w / 2, 55, 'Trench section', 28, True); f.text(x + w / 2, 85, 'fictional example', 19, color=MUTED)
+    f = Fig('a3-harris-matrix', 'The trench section on the left, the same contexts as a Harris matrix on the right', h=900)
+    x, y, w, h = 60, 118, 580, 748
+    f.text(x + w / 2, 42, 'Trench section', 30, True); f.text(x + w / 2, 78, 'fictional example', 21, color=MUTED)
     section(f, x, y, w, h)
-    bw, bhh, gap, y0 = 200, 50, 50, 110
-    L, C, R = 805, 1020, 1235
-    f.text(C, 55, 'Harris matrix', 28, True); f.text(C, 85, 'later at the top, earlier below', 19, color=MUTED)
+    bw, bhh, gap, y0 = 230, 44, 44, 118
+    L, C, R = 775, 1020, 1265
+    f.text(C, 42, 'Harris matrix', 30, True); f.text(C, 78, 'later at the top, earlier below', 21, color=MUTED)
     nodes = {'101': (C, 0, 'topsoil', '#d9d2c3'), '102': (C, 1, 'plough soil', '#cdbfa6'), '116': (C, 2, 'levelling', '#d8c7ad'), '103': (C, 3, 'collapse', '#e6c9a8'),
              '105': (L, 4, 'upper fill', '#a89677'), '108': (C, 4, 'wall', '#8a8a84'), '110': (R, 4, 'ash lens', '#a9a39b'),
              '115': (L, 5, 'lower fill', '#6f6455'), '106': (L, 6, 'pit cut', '#ffffff'), '104': (C, 7, 'floor', '#f0e0b8'), '107': (C, 8, 'natural', '#b9b4aa')}
@@ -141,38 +141,37 @@ def a3():
         yy = y0 + r * (bhh + gap)
         if n == '106': f.rect(cx - bw / 2, yy, bw, bhh, col, '#9454AC', 6, 3.2, dash=True)
         else: f.rect(cx - bw / 2, yy, bw, bhh, col, '#000000', 6, 1.2)
-        f.text(cx, yy + bhh / 2, f'[{n}] {nm}', 20, True, '#ffffff' if n in ('115',) else '#1f1f1d', maxw=bw - 14)
+        f.text(cx, yy + bhh / 2, f'[{n}] {nm}', 21, True, '#ffffff' if n in ('115',) else '#1f1f1d', maxw=bw - 14)
     for a, b, t in (('101', '102', 'above'), ('102', '116', 'above'), ('116', '103', 'above'), ('103', '105', 'above'), ('103', '108', 'above'), ('103', '110', 'above'),
                     ('105', '115', 'above'), ('115', '106', 'fills'), ('106', '104', 'cuts'), ('108', '104', 'above'), ('110', '104', 'above'), ('104', '107', 'above')):
         (xa, ya), (xb, yb) = bot(a), top(b)
-        f.line(xa, ya, xb, yb - 2); chip(f, (xa + xb) / 2, (ya + yb) / 2, t, 17)
-    cx, cw = 1400, 320
-    f.rect(cx, 300, cw, 400, '#f6f6f3', 'none', 10)
-    for t, yy, med in (('How to read it', 342, True), ('Box = one context', 402, False), ('Arrow = one relation', 446, False), ('Later above, earlier below', 490, False),
-                       ('In CRMarchaeo', 566, True), ('Context = A2 Volume Unit', 614, False), ('Cut = A3 Interface', 658, False)):
-        f.text(cx + 22, yy, t, 24 if med else 21, med, '#1f1f1d' if med else MUTED, anchor='start', maxw=cw - 36)
+        f.line(xa, ya, xb, yb - 2); chip(f, (xa + xb) / 2, (ya + yb) / 2, t, 18)
+    cx, cw = 1415, 310
+    f.rect(cx, 300, cw, 390, '#f6f6f3', 'none', 10)
+    for t, yy, med in (('How to read it', 342, True), ('Box = one context', 398, False), ('Arrow = one relation', 440, False), ('Later above, earlier below', 482, False),
+                       ('In CRMarchaeo', 552, True), ('Context = A2 Volume Unit', 604, False), ('Cut = A3 Interface', 646, False)):
+        f.text(cx + 20, yy, t, 25 if med else 21, med, '#1f1f1d' if med else MUTED, anchor='start', maxw=cw - 30)
     f.save()
 
 def a4():
-    f = Fig('a4-same-pattern', 'Core, cave and trench: the same CIDOC CRM pattern, once through the geo-lod extension and once through CRMarchaeo')
-    f.text(400, 52, 'geo-lod extension', 28, True); f.text(400, 84, 'drill core, cave, ice core', 19, color=MUTED)
-    f.text(1150, 52, 'CIDOC CRM family', 28, True); f.text(1150, 84, 'the shared pattern', 19, color=MUTED)
-    f.text(1585, 52, 'Excavation', 28, True); f.text(1585, 84, 'CRMarchaeo directly, fictional', 19, color=MUTED)
+    f = Fig('a4-same-pattern', 'Core, cave and trench: the same CIDOC CRM pattern, once through the geo-lod extension and once through CRMarchaeo', h=810)
+    for cx, hd, sub in ((190, 'geo-lod extension', 'drill core, cave, ice core'), (650, 'geo-lod classes', 'subclasses of the CRM'), (1175, 'CIDOC CRM family', 'the shared pattern'), (1585, 'Excavation', 'CRMarchaeo, fictional')):
+        f.text(cx, 40, hd, 30, True, maxw=420); f.text(cx, 76, sub, 21, color=MUTED, maxw=420)
     rows = [('wd1:unit_HBT', '86.13–86.43 m, tephra layer', 'strat:StratigraphicUnit', 'subclass of A2', 'A2', 'Stratigraphic Volume Unit', 'CRMarchaeo', 'ctx:context_104', 'floor layer'),
             ('sisal:hiatus_0420893', 'at 19.325 mm', 'geolod:GrowthHiatus', 'geo-lod class', 'A3', 'Stratigraphic Interface', 'CRMarchaeo', 'ctx:context_106', 'pit cut'),
             ('sisal:datingpoint_012773', 'U/Th at 21.05 mm', 'strat:AgeControlPoint', 'geo-lod class', 'E13', 'Attribute Assignment', 'CIDOC CRM', 'ctx:date_104', 'floor layer, 14C'),
             ('sisal:obs_d18o_0420984', '−4.78 ‰ at 97.95 mm', 'SpeleothemObservation', 'geo-lod class', 'S4', 'Observation', 'CRMsci', 'ctx:c14_CH17', 'charcoal CH-17')]
     for k, (li, ls, gc, gs, code, nm, fam, ri, rs) in enumerate(rows):
-        cy = 220 + k * 205; y = cy - 58
-        f.box(20, y, 340, 120, li, ls, INST, 20, 19)
-        f.box(490, y, 300, 120, gc, gs, CLS, 20, 18)
-        f.box(1000, y, 300, 120, code, nm, CLS, 28, 19)
-        f.box(1450, y, 270, 120, ri, rs, INST, 21, 19)
-        f.text(1150, y + 134, fam, 18, color=MUTED)
-        f.line(360, cy, 488, cy); chip(f, 424, cy - 26, 'a', 16)
-        f.line(790, cy, 998, cy); chip(f, 894, cy - 26, 'rdfs:subClassOf', 17)
-        f.line(1450, cy, 1302, cy); chip(f, 1376, cy - 26, 'a', 16)
-    f.legend(975, [(INST, 'Instance'), (CLS, 'Class')], x=20)
+        cy = 200 + k * 160; y = cy - 54
+        f.box(20, y, 340, 108, li, ls, INST, 22, 20)
+        f.box(480, y, 340, 108, gc, gs, CLS, 22, 20)
+        f.box(1030, y, 290, 108, code, nm, CLS, 30, 20)
+        f.box(1440, y, 290, 108, ri, rs, INST, 22, 20)
+        f.text(1175, y + 108 + 18, fam, 20, color=MUTED)
+        f.line(360, cy, 478, cy); chip(f, 419, cy, 'a', 18)
+        f.line(820, cy, 1028, cy); chip(f, 924, cy, 'rdfs:subClassOf', 19)
+        f.line(1440, cy, 1322, cy); chip(f, 1381, cy, 'a', 18)
+    f.legend(785, [(INST, 'Instance'), (CLS, 'Class')], x=20)
     f.save()
 
 if __name__ == '__main__':

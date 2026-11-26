@@ -28,8 +28,8 @@ def tw(s, size, w=400):
 def esc(s): return s.replace('&', '&amp;').replace('<', '&lt;')
 
 class Fig:
-    def __init__(s, name, h=H):
-        s.name, s.h, s.o = name, h, []
+    def __init__(s, name, h=H, w=W):
+        s.name, s.h, s.w, s.o = name, h, w, []
     def text(s, x, y, t, size=MIN_TYPE, w=400, fill=INK, anchor='middle', maxw=None):
         if size < MIN_TYPE: raise ValueError(f'{s.name}: type {size} px < {MIN_TYPE}: {t}')
         if maxw and tw(t, size, w) > maxw: raise ValueError(f'{s.name}: overflow {tw(t, size, w):.0f}>{maxw}: {t}')
@@ -61,13 +61,13 @@ class Fig:
                 cx += w
         return (x + sum(colw) / 2, y + len(rows) * rowh / 2, sum(colw), len(rows) * rowh)
     def done(s):
-        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{s.h}" viewBox="0 0 {W} {s.h}">'
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{s.w}" height="{s.h}" viewBox="0 0 {s.w} {s.h}">'
                '<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto">'
                '<path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs>' + '\n'.join(s.o) + '</svg>')
         os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
         open(os.path.join(HERE, f'out/{s.name}.svg'), 'w', encoding='utf8').write(svg)
         open(os.path.join(HERE, f'out/{s.name}.png'), 'wb').write(bytes(resvg_py.svg_to_bytes(svg_string=svg, font_files=[F4, F5, F7], skip_system_fonts=True, zoom=1.0)))
-        print('wrote', s.name, f'{W}x{s.h}')
+        print('wrote', s.name, f'{s.w}x{s.h}')
 
 def border(a, b):
     """Point where the line from the centre of a to the centre of b leaves the rectangle of a."""
@@ -873,8 +873,8 @@ def g54():
 def g55():
     """G55: GeoSPARQL feature and geometry (Part II, step 4). A feature has a geometry, the geometry has a WKT literal."""
     c = wd_item(STONE)['claims']['P625'][0]['mainsnak']['datavalue']['value']
-    f = Fig('g55_geosparql_feature')
-    a, g, w = (300, 450, 440, 150), (1200, 450, 440, 150), (2120, 450, 500, 150)
+    f = Fig('g55_geosparql_feature', h=590, w=1450)   # narrow canvas: the slide shows it larger, type stays at 40 px
+    a, g, w = (250, 150, 360, 150), (1150, 150, 360, 150), (1150, 440, 500, 150)
     f.box(*a, INST, ['CIIC 81', 'geo:Feature'], stroke=HL, sw=8); f.box(*g, CLS, ['geo:Geometry'], tc='#fff')
     f.box(*w, '#fff', [f"POINT({c['longitude']:.2f} {c['latitude']:.2f})", 'geo:wktLiteral'])
     f.edge(a, g, 'geo:hasGeometry'); f.edge(g, w, 'geo:asWKT')
