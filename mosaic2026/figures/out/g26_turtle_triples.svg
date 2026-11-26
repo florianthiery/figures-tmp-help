@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="60" y="60" width="2280" height="780" rx="18" fill="#f6f3ec" stroke="#000" stroke-width="2.5"/>
+<text x="110.0" y="150.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="start">@prefix wd: &lt;http://www.wikidata.org/entity/> .</text>
+<text x="110.0" y="212.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="start">@prefix wdt: &lt;http://www.wikidata.org/prop/direct/> .</text>
+<text x="110.0" y="274.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="start">@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .</text>
+<rect x="100" y="374" width="298" height="68" rx="12" fill="#e2e8f0" stroke="#000" stroke-width="2"/>
+<text x="115.0" y="420.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">wd:Q130529871</text>
+<rect x="700" y="374" width="168" height="68" rx="12" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="715.0" y="420.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">wdt:P31</text>
+<text x="1050.0" y="420.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">wd:Q2016147 ;</text>
+<rect x="700" y="484" width="186" height="68" rx="12" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="715.0" y="530.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">wdt:P217</text>
+<text x="1050.0" y="530.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">"4" ;</text>
+<rect x="700" y="594" width="204" height="68" rx="12" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="715.0" y="640.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">rdfs:label</text>
+<text x="1050.0" y="640.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">"Ogham Stone UCC Stone Corridor IV"@en .</text>
+<text x="110.0" y="780.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#55544f" text-anchor="start">A semicolon repeats the subject, a full stop ends the sentence.</text></svg>

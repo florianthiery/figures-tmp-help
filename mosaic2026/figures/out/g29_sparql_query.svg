@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><rect x="60" y="100" width="2280" height="700" rx="18" fill="#f6f3ec" stroke="#000" stroke-width="2.5"/>
+<text x="130.0" y="230.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">SELECT ?stone ?coord</text>
+<text x="130.0" y="330.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">WHERE {</text>
+<text x="180.0" y="430.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">?stone wdt:P31 wd:Q2016147 ;</text>
+<text x="280.0" y="530.0" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="start">wdt:P625 ?coord .</text>
+<text x="130.0" y="630.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">}</text>
+<text x="130.0" y="730.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#1f1f1d" text-anchor="start">LIMIT 2</text></svg>

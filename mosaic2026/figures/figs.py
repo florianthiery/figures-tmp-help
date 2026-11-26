@@ -514,5 +514,54 @@ def g25():
         for j, lines in enumerate(items): f.box(cx, 450 + j * 200, 500, 140, '#fff', lines)
     f.done()
 
+
+def panel(f, x, y, w, h):
+    f.o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="18" fill="#f6f3ec" stroke="#000" stroke-width="2.5"/>')
+
+def g26():
+    """G26: the triple in Turtle (Part I, step 4). The same three statements as in G05, written as Turtle; the semicolon repeats the subject."""
+    it = wd_item(STONE); lab = it['labels']['en']['value']; inv = claim_str(it, 'P217')[0]
+    f = Fig('g26_turtle_triples')
+    panel(f, 60, 60, 2280, 780)
+    for i, t in enumerate(['@prefix wd: <http://www.wikidata.org/entity/> .', '@prefix wdt: <http://www.wikidata.org/prop/direct/> .', '@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .']):
+        f.text(110, 150 + i * 62, t, MIN_TYPE, 400, '#55544f', 'start', maxw=2150)
+    rows = [('wd:' + STONE, 'wdt:P31', 'wd:Q2016147 ;'), ('', 'wdt:P217', f'"{inv}" ;'), ('', 'rdfs:label', f'"{lab}"@en .')]
+    for i, (s_, p_, o_) in enumerate(rows):
+        y = 420 + i * 110
+        if s_: f.o.append(f'<rect x="100" y="{y - 46}" width="{tw(s_, MIN_TYPE) + 30:.0f}" height="68" rx="12" fill="{INST}" stroke="#000" stroke-width="2"/>'); f.text(115, y, s_, MIN_TYPE, 500, anchor='start')
+        f.o.append(f'<rect x="700" y="{y - 46}" width="{tw(p_, MIN_TYPE) + 30:.0f}" height="68" rx="12" fill="{AMB}" stroke="#000" stroke-width="2"/>'); f.text(715, y, p_, MIN_TYPE, 400, anchor='start')
+        f.text(1050, y, o_, MIN_TYPE, 400, anchor='start', maxw=1250)
+    f.text(110, 780, 'A semicolon repeats the subject, a full stop ends the sentence.', MIN_TYPE, 400, '#55544f', 'start')
+    f.done()
+
+def g29():
+    """G29: the SPARQL query behind G12 (Part I, step 8)."""
+    f = Fig('g29_sparql_query')
+    panel(f, 60, 100, 2280, 700)
+    lines = [(0, 'SELECT ?stone ?coord'), (0, 'WHERE {'), (1, '?stone wdt:P31 wd:Q2016147 ;'), (3, 'wdt:P625 ?coord .'), (0, '}'), (0, 'LIMIT 2')]
+    for i, (ind, t) in enumerate(lines):
+        x = 130 + ind * 50
+        f.text(x, 230 + i * 100, t, MIN_TYPE, 500 if i in (0, 1, 4, 5) else 400, anchor='start')
+    f.done()
+
+def agenda(name, rows, cols_n):
+    f = Fig(name)
+    per = math.ceil(len(rows) / cols_n); step = 165 if per == 5 else 220
+    y0 = 110 if per == 5 else 230
+    for i, (t, m) in enumerate(rows):
+        c, r = divmod(i, per); cx = 620 + c * 1160; cy = y0 + r * step
+        f.box(cx, cy, 1120, 120, INST, [''], r=18)
+        f.text(cx - 530, cy + 14, f'{i + 1}  {t}', MIN_TYPE, 500, anchor='start', maxw=870); f.text(cx + 530, cy + 14, f'{m} min', MIN_TYPE, 400, '#55544f', 'end')
+    f.done()
+
+def g27():
+    """G27: agenda of Part I (60 minutes)."""
+    agenda('g27_agenda_part1', [('Introduction', 4), ('Ogham in three minutes', 3), ('Tables and databases', 7), ('From graph to RDF', 10), ('Linked Data and the LOD cloud', 4),
+        ('Vocabularies and CIDOC CRM', 7), ('N4O KG and community hubs', 7), ('SPARQL', 8), ('Vagueness and AMT', 5), ('FAIR and take-home', 5)], 2)
+
+def g28():
+    """G28: agenda of Part II (60 minutes)."""
+    agenda('g28_agenda_part2', [('The bridge question', 4), ('Ogham and Linked Data', 13), ('geo-lod: ice, caves, tephra', 13), ('Building the bridge', 10), ('Live: Unicorn and OER', 15), ('Take-home', 5)], 2)
+
 if __name__ == '__main__':
     for n in (sys.argv[1:] or ['g06']): globals()[n]()
