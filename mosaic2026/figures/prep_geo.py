@@ -60,7 +60,7 @@ dump('epica_obs.json', dict(obs=str(o).rsplit('/', 1)[-1], obs_label=str(e.value
 # ontology facts the figures rely on (asserted here, so a change in geo-lod stops the build)
 on = g_('EPICA/rdf/epica_ontology.ttl', 'SISAL/rdf/sisal_ontology.ttl', 'ontology/crm_bridging.ttl', 'ontology/geo_lod_core.ttl')
 SC = RDFS.subClassOf
-facts = [(GL.IceCore, CRM['E22_Human-Made_Object']), (SOSA.Observation, CRMSCI.S4_Observation), (SOSA.Sample, CRM.E18_Physical_Thing), (GL.Cave, GL.SamplingLocation), (GL.Borehole, GL.SamplingLocation)]
+facts = [(GL.IceCore, CRM['E22_Human-Made_Object']), (SOSA.Observation, CRMSCI.S4_Observation), (SOSA.Sample, CRM.E18_Physical_Thing), (SOSA.ObservableProperty, CRMSCI.S9_Property_Type), (GL.Cave, GL.SamplingLocation), (GL.Borehole, GL.SamplingLocation)]
 for a, b in facts: assert (a, SC, b) in on, (a, b)
 dump('facts.json', [[str(a), str(b)] for a, b in facts])
 

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="520.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Measurement vocabularies</text>
+<text x="1900.0" y="70.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">CIDOC CRM and CRMsci</text>
+<rect x="170.0" y="145.0" width="700.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">sosa:Observation</text>
+<rect x="1520.0" y="145.0" width="760.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1900.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">crmsci:S4_Observation</text>
+<line x1="870.0" y1="200.0" x2="1520.0" y2="200.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1077.5" y="171.0" width="235.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1195.0" y="213.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<rect x="170.0" y="345.0" width="700.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="413.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">sosa:Sample</text>
+<rect x="1520.0" y="345.0" width="760.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1900.0" y="413.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">crm:E18_Physical_Thing</text>
+<line x1="870.0" y1="400.0" x2="1520.0" y2="400.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1077.5" y="371.0" width="235.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1195.0" y="413.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<rect x="170.0" y="545.0" width="700.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="613.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">sosa:ObservableProperty</text>
+<rect x="1520.0" y="545.0" width="760.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1900.0" y="613.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">crmsci:S9_Property_Type</text>
+<line x1="870.0" y1="600.0" x2="1520.0" y2="600.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1077.5" y="571.0" width="235.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1195.0" y="613.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text>
+<rect x="170.0" y="745.0" width="700.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="520.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">geolod:IceCore</text>
+<rect x="1520.0" y="745.0" width="760.0" height="110.0" rx="18" fill="#9a3412" stroke="#000" stroke-width="2.5"/>
+<text x="1900.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">crm:E22_Human-Made_Object</text>
+<line x1="870.0" y1="800.0" x2="1520.0" y2="800.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1077.5" y="771.0" width="235.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1195.0" y="813.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">subClassOf</text></svg>

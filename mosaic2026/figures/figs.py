@@ -423,5 +423,38 @@ def g14():
         n = (1980, 130 + i * 213, 600, 100); f.box(*n, fill, [q[p]], tc='#fff' if fill == TERM else INK); f.edge(xy, n, {'P5': 'certainty level', 'P7': 'method used', 'P6': 'source type', 'P14': 'acting person'}[p])
     f.done()
 
+
+def g16():
+    """G16: measurement to CIDOC CRM (Part II, step 3 and 4): the crosswalk of the geo-lod measurement classes, asserted in the ontology files."""
+    facts = geo('facts'); S = lambda a: [x[0] for x in facts if x[0].endswith(a)]
+    rows = [('sosa:Observation', 'http://www.w3.org/ns/sosa/Observation', 'crmsci:S4_Observation'), ('sosa:Sample', 'http://www.w3.org/ns/sosa/Sample', 'crm:E18_Physical_Thing'),
+            ('sosa:ObservableProperty', 'http://www.w3.org/ns/sosa/ObservableProperty', 'crmsci:S9_Property_Type'), ('geolod:IceCore', 'http://w3id.org/geo-lod/IceCore', 'crm:E22_Human-Made_Object')]
+    for _, iri, _ in rows: assert any(x[0] == iri for x in facts), iri
+    f = Fig('g16_measurement_to_crm')
+    f.text(520, 70, 'Measurement vocabularies', MIN_TYPE, 500, fill='#55544f'); f.text(1900, 70, 'CIDOC CRM and CRMsci', MIN_TYPE, 500, fill='#55544f')
+    for i, (a, _, b) in enumerate(rows):
+        y = 200 + i * 200; l = (520, y, 700, 110); r = (1900, y, 760, 110)
+        f.box(*l, CLS, [a], tc='#fff'); f.box(*r, CLS, [b], tc='#fff'); f.edge(l, r, 'subClassOf')
+    f.done()
+
+def g01():
+    """G01: data islands (Part I, step 3, only on demand): the same stone sits in three sources that know nothing of each other."""
+    it = wd_item(STONE)
+    find = LAB[claim_ids(it, 'P189')[0]].replace(' (Ogham Site)', '')
+    f = Fig('g01_data_islands')
+    for cx, cy, name, key in [(420, 450, 'CIIC', 'No. 81'), (1200, 450, 'CISP', 'GARES/1'), (1980, 450, 'SMR', claim_str(it, 'P4057')[0])]:
+        f.o.append(f'<ellipse cx="{cx}" cy="{cy}" rx="330" ry="260" fill="{INST}" stroke="#000" stroke-width="2.5"/>')
+        f.text(cx, cy - 60, name, MIN_TYPE, 500); f.text(cx, cy + 10, key, MIN_TYPE, 400, maxw=560); f.text(cx, cy + 80, find, MIN_TYPE, 400, maxw=560)
+    f.done()
+
+def g21():
+    """G21: a crosswalk (Part II, step 4, only on demand): Wikidata properties mapped to CIDOC CRM properties, the same pairs as in G09."""
+    f = Fig('g21_crosswalk')
+    f.text(400, 90, 'Wikidata', MIN_TYPE, 500, fill='#55544f'); f.text(2000, 90, 'CIDOC CRM', MIN_TYPE, 500, fill='#55544f')
+    for i, (a, b) in enumerate([('P31 instance of', 'P2 has type'), ('P276 location', 'P53 has former or current location'), ('P217 inventory number', 'P48 has preferred identifier')]):
+        y = 250 + i * 240; l = (400, y, 620, 110); r = (2000, y, 760, 110)
+        f.box(*l, TERM, [a], tc='#fff'); f.box(*r, TERM, [b], tc='#fff'); f.edge(l, r, 'maps to')
+    f.done()
+
 if __name__ == '__main__':
     for n in (sys.argv[1:] or ['g06']): globals()[n]()

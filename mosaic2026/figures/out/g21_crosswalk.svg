@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="900" viewBox="0 0 2400 900"><defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="22" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#000"/></marker></defs><text x="400.0" y="90.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">Wikidata</text>
+<text x="2000.0" y="90.0" font-family="Fira Sans" font-size="40" font-weight="500" fill="#55544f" text-anchor="middle">CIDOC CRM</text>
+<rect x="90.0" y="195.0" width="620.0" height="110.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="400.0" y="263.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">P31 instance of</text>
+<rect x="1620.0" y="195.0" width="760.0" height="110.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="2000.0" y="263.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">P2 has type</text>
+<line x1="710.0" y1="250.0" x2="1620.0" y2="250.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1073.5" y="221.0" width="183.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1165.0" y="263.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">maps to</text>
+<rect x="90.0" y="435.0" width="620.0" height="110.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="400.0" y="503.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">P276 location</text>
+<rect x="1620.0" y="435.0" width="760.0" height="110.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="2000.0" y="503.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">P53 has former or current location</text>
+<line x1="710.0" y1="490.0" x2="1620.0" y2="490.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1073.5" y="461.0" width="183.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1165.0" y="503.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">maps to</text>
+<rect x="90.0" y="675.0" width="620.0" height="110.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="400.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">P217 inventory number</text>
+<rect x="1620.0" y="675.0" width="760.0" height="110.0" rx="18" fill="#4c1d95" stroke="#000" stroke-width="2.5"/>
+<text x="2000.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#fff" text-anchor="middle">P48 has preferred identifier</text>
+<line x1="710.0" y1="730.0" x2="1620.0" y2="730.0" stroke="#000" stroke-width="3" marker-end="url(#a)"/>
+<rect x="1073.5" y="701.0" width="183.0" height="58" rx="29" fill="#fbbf24" stroke="#000" stroke-width="2"/>
+<text x="1165.0" y="743.6" font-family="Fira Sans" font-size="40" font-weight="400" fill="#1f1f1d" text-anchor="middle">maps to</text></svg>

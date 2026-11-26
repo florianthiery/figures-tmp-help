@@ -7,7 +7,7 @@ Differences for slides: canvas 2400 x 900 px, type 40 px and more, transparent b
 ## Run (Windows cmd, one line)
 
 ```
-cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow && python figs.py g05 g04 g02 g06 g09 g08 g12 g03 g07 g10 g11 g13 g14 g15 g17 g18 g20 g19 g22
+cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow && python figs.py g05 g04 g02 g06 g09 g08 g12 g03 g07 g10 g11 g13 g14 g15 g16 g17 g18 g20 g19 g22 g01 g21
 ```
 
 ## Figures (numbers as in the plan, tab "Grafikplan")
@@ -28,6 +28,9 @@ cd /d C:\git\figures-tmp-help\mosaic2026\figures && pip install resvg_py pillow 
 | `g08_vocabulary_stack` | languages, vocabularies, domain model | Part I, step 6 |
 | `g12_sparql_pattern` | graph pattern and result table | Part I, step 8 |
 
+| `g01_data_islands` | the same stone in three unconnected sources (on demand) | Part I, step 3 |
+| `g16_measurement_to_crm` | SOSA and geo-lod classes as subclasses of CIDOC CRM and CRMsci | Part II, steps 3 and 4 |
+| `g21_crosswalk` | Wikidata properties mapped to CIDOC CRM properties (on demand) | Part II, step 4 |
 | `g15_one_stone_six_ids` | the stone and the six repositories that hold it | Part II, step 2 |
 | `g17_sample_measurement_model` | one EPICA Dome C methane observation: sample, measurement, chronology | Part II, step 3 |
 | `g18_ci_competing_ages` | three competing ages of the Campanian Ignimbrite eruption, each with its time reference system | Part II, steps 3 and 4 |
