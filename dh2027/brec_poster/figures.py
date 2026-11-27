@@ -207,8 +207,8 @@ def fig2():
             image(svg, p, *fit(p, xb + 8, PY0 + 8, BW - 16, PH - 44))
         elif c == 2:
             svg.rect(xb + 30, PY0 + 22, BW - 60, 100, PURPLE, name="hypo")
-            for j, (t, sz, md) in enumerate([("Mesoamerican (Maya) step pyramid", 16, True), ("confidence 0.70 (AI estimate)", 14, False),
-                                               ("confirmed by the builder, 17 Nov 2026", 13, False)]):
+            for j, (t, sz, md) in enumerate([("Mesoamerican (Maya) step pyramid", 16, True), ("belief value 0.70 (I6), AI estimate", 14, False),
+                                               ("adopted by the builder (I7), 17 Nov 2026", 13, False)]):
                 svg.text(x0 + SW / 2, PY0 + 22 + 25 + j * 25, t, sz, md, "#fff", "middle", maxw=BW - 80)
         else:
             icon(svg, 3, x0 + SW / 2 - 55, PY0 + 12, 110)
